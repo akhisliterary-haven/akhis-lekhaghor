@@ -1,197 +1,1189 @@
 <!DOCTYPE html>
-
 <html lang="bn">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>নীল খামের চিঠি | নুরজাহান আঁখি</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>নীল খামের চিঠি — নুরজাহান আঁখি</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+Da+2:wght@500;700&family=Tiro+Bangla:ital@0;1&display=swap" rel="stylesheet">
 <style>
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
+:root{
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+  --bg:#fbf7f0;
+  --surface:#ffffff;
+  --text:#262019;
+  --muted:#6f6459;
+  --line:#e8ded0;
+  --shadow:0 1px 3px rgba(60,40,20,.08), 0 8px 24px rgba(60,40,20,.06);
+  color-scheme:light;
+}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 56px);scroll-behavior:smooth;}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#131019;--surface:#1c1823;--text:#efe9f2;--muted:#a79eb3;--line:#2e2838;
+    --shadow:0 1px 3px rgba(0,0,0,.5), 0 8px 28px rgba(0,0,0,.35);
+    color-scheme:dark;
+  }
+  :root:not([data-theme="light"]) .poem{--ink:color-mix(in srgb, var(--accent), white 45%);}
+  :root:not([data-theme="light"]) .toc a{--ink:color-mix(in srgb, var(--accent), white 45%);}
+}
+:root[data-theme="dark"]{
+  --bg:#131019;--surface:#1c1823;--text:#efe9f2;--muted:#a79eb3;--line:#2e2838;
+  color-scheme:dark;
+}
+:root[data-theme="dark"] .poem{--ink:color-mix(in srgb, var(--accent), white 45%);}
+:root[data-theme="dark"] .toc a{--ink:color-mix(in srgb, var(--accent), white 45%);}
+*, *::before, *::after { box-sizing: inherit; }
 body{
   margin:0;
-  background:#f3f5fa;
-  color:#252b3b;
-  font-family:"Noto Serif Bengali","Nirmala UI",serif;
-  line-height:1.95;
+  background:var(--bg);
+  color:var(--text);
+  font-family:"Tiro Bangla","Noto Serif Bengali",Georgia,serif;
+  font-size:18px;
+  line-height:1.9;
+  -webkit-text-size-adjust:100%;
 }
-header{
-  background:linear-gradient(135deg,#101d3a,#253f70);
-  color:white;
+.wrap{max-width:720px;margin:0 auto;padding:0 20px 80px;}
+
+/* ---------- cover ---------- */
+.cover{
+  position:relative;
+  margin:0 -20px 48px;
+  padding:72px 28px 64px;
   text-align:center;
-  padding:65px 20px;
+  color:#fff;
+  background:
+    radial-gradient(120% 90% at 10% 0%, #2563eb 0%, rgba(37,99,235,0) 60%),
+    radial-gradient(110% 100% at 90% 15%, #be123c 0%, rgba(190,18,60,0) 55%),
+    radial-gradient(130% 110% at 50% 100%, #0e7490 0%, rgba(14,116,144,0) 60%),
+    linear-gradient(160deg,#0b1b3f,#11295e 55%,#060d1c);
+  overflow:hidden;
 }
-header .symbol{color:#a9c9ff;font-size:25px;letter-spacing:8px}
-header h1{font-size:clamp(32px,7vw,56px);margin:15px 0}
-header p{margin:8px auto;color:#d9e4fb}
-.author{font-size:19px;color:#fff;font-weight:bold}
-main{max-width:850px;margin:30px auto;padding:0 16px}
-section,.poem{
-  background:white;
-  border:1px solid #e0e6f1;
-  border-radius:15px;
-  padding:25px;
-  margin-bottom:22px;
-  box-shadow:0 6px 24px #1a2d5010;
+.cover::after{
+  content:"";position:absolute;inset:0;
+  background:radial-gradient(60% 40% at 50% 38%, rgba(255,255,255,.14), transparent 70%);
+  pointer-events:none;
 }
-h2{color:#243e70;line-height:1.5}
-h3{color:#36578e}
-.subtitle{color:#65718b;font-style:italic}
+.cover .orn{font-size:26px;letter-spacing:.5em;opacity:.65;margin-bottom:18px;}
+.cover h1{
+  font-family:"Baloo Da 2","Tiro Bangla",serif;
+  font-weight:700;
+  font-size:clamp(30px,8vw,46px);
+  line-height:1.35;
+  margin:0 0 10px;
+  text-shadow:0 2px 20px rgba(0,0,0,.35);
+}
+.cover .sub{font-style:italic;opacity:.8;letter-spacing:.08em;margin:0 0 28px;font-size:15px;}
+.cover .rule{width:70px;height:2px;margin:0 auto 24px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.8),transparent);}
+.cover .kind{font-size:14px;letter-spacing:.3em;opacity:.7;margin:0 0 6px;}
+.cover .author{font-family:"Baloo Da 2",serif;font-weight:500;font-size:21px;margin:0;}
+
+/* ---------- front matter ---------- */
+.card{
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-radius:18px;
+  padding:26px 22px;
+  margin:0 0 26px;
+  box-shadow:var(--shadow);
+}
+.card h2{
+  font-family:"Baloo Da 2",serif;font-weight:700;font-size:20px;margin:0 0 14px;
+  color:var(--ink,#2563eb);letter-spacing:.02em;
+}
+.card.dedic{--ink:#be123c;}
+.card.note{--ink:#0e7490;}
+.card p{margin:0 0 14px;}
+.card p:last-child{margin-bottom:0;}
+.verse{white-space:pre-line;margin:0 0 18px;}
+.sign{text-align:right;font-style:italic;color:var(--muted);}
+
+/* ---------- contents ---------- */
+.toc{margin:0 0 44px;}
+.toc h2{
+  font-family:"Baloo Da 2",serif;font-size:20px;margin:0 0 16px;text-align:center;
+  color:var(--muted);letter-spacing:.2em;
+}
+.toc ol{list-style:none;margin:0;padding:0;display:grid;gap:9px;}
 .toc a{
-  display:block;
-  color:#284879;
-  text-decoration:none;
-  padding:9px 4px;
-  border-bottom:1px solid #edf0f6;
+  --ink:var(--accent);
+  display:flex;align-items:center;gap:12px;
+  text-decoration:none;color:var(--text);
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-left:4px solid var(--ink);
+  border-radius:12px;
+  padding:11px 14px;
+  font-size:16.5px;line-height:1.5;
+  transition:transform .15s ease, box-shadow .15s ease;
 }
-.toc a:hover{color:#648ed1}
-.poem{text-align:center;scroll-margin-top:20px}
-.poem p{white-space:normal}
-.star{color:#7899cc;letter-spacing:7px;margin:20px 0}
-.back{display:inline-block;color:#36578e;text-decoration:none;margin-top:15px}
-footer{text-align:center;padding:30px 18px;color:#66718a}
-@media(max-width:550px){
-  header{padding:45px 16px}
-  section,.poem{padding:19px}
-  body{font-size:16px}
+.toc a:hover{transform:translateX(3px);box-shadow:var(--shadow);}
+.toc .n{
+  font-family:"Baloo Da 2",serif;font-weight:700;font-size:14px;
+  color:var(--ink);min-width:26px;
 }
+
+/* ---------- poems ---------- */
+.poem{
+  --ink:var(--accent);
+  margin:0 0 54px;
+  padding-top:14px;
+}
+.poem .num{
+  font-family:"Baloo Da 2",serif;font-weight:700;font-size:13px;
+  letter-spacing:.3em;color:var(--ink);margin:0 0 4px;opacity:.85;
+}
+.poem h2{
+  font-family:"Baloo Da 2",serif;font-weight:700;
+  font-size:clamp(23px,5.5vw,30px);line-height:1.4;
+  margin:0 0 6px;color:var(--ink);
+}
+.poem .bar{height:4px;width:64px;border-radius:4px;margin:0 0 26px;
+  background:linear-gradient(90deg,var(--ink),transparent);}
+.poem .mark{
+  font-family:"Baloo Da 2",serif;font-weight:700;font-size:13px;
+  letter-spacing:.26em;color:var(--ink);
+  margin:30px 0 12px;display:flex;align-items:center;gap:10px;
+}
+.poem .mark::after{content:"";flex:1;height:1px;background:var(--line);}
+.poem .verse{font-size:18px;}
+.poem .verse:first-of-type{margin-top:0;}
+.back{
+  display:inline-block;margin-top:10px;font-size:13.5px;text-decoration:none;
+  color:var(--muted);border-bottom:1px dashed var(--line);
+}
+.end{
+  text-align:center;color:var(--muted);font-size:14px;
+  letter-spacing:.25em;margin:60px 0 10px;
+}
+.end .orn{font-size:20px;letter-spacing:.4em;display:block;margin-bottom:12px;opacity:.6;}
+hr.sep{border:0;height:1px;background:var(--line);margin:0 0 40px;}
+
+/* ---------- copy button ---------- */
+.poem .tools{display:flex;align-items:center;gap:10px;margin:0 0 26px;flex-wrap:wrap;}
+.poem .bar{margin:0;}
+.copybtn{
+  font-family:"Baloo Da 2",serif;font-weight:500;font-size:13.5px;
+  display:inline-flex;align-items:center;gap:7px;
+  padding:6px 14px;border-radius:999px;cursor:pointer;
+  color:var(--ink);background:transparent;
+  border:1.5px solid var(--ink);
+  opacity:.85;transition:background .15s ease, color .15s ease, opacity .15s ease;
+  -webkit-tap-highlight-color:transparent;
+}
+.copybtn:hover,.copybtn:focus-visible{opacity:1;background:var(--ink);color:#fff;}
+.copybtn.done{background:var(--ink);color:#fff;opacity:1;}
+.copybtn svg{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:2;
+  stroke-linecap:round;stroke-linejoin:round;}
 </style>
 </head>
-<body id="top">
+<body>
 
-<header>
-  <div class="symbol">★ ★ ★</div>
+<header class="cover" id="top">
+  <div class="orn">★ ★ ★</div>
   <h1>নীল খামের চিঠি</h1>
-  <p>ইতি— সেই মানুষটি, যে নীল খাম ছাড়া আর কিছুতে ভরসা করতে শেখেনি।</p>
-  <p>একটি চিঠি-আঙ্গিকে লেখা কবিতাগ্রন্থ</p>
+  <p class="sub">ইতি—
+সেই মানুষটি,
+যে নীল খাম ছাড়া
+আর কিছুতে ভরসা করতে শেখেনি।</p>
+  <div class="rule"></div>
+  <p class="kind">কবিতাগ্রন্থ</p>
   <p class="author">নুরজাহান আঁখি</p>
 </header>
 
-<main>
-<section>
-  <h2>উৎসর্গ</h2>
-  <p>যারা চিঠি লিখেছিল,<br>কিন্তু পাঠাতে পারেনি —<br>এই কুড়িটি খাম তাদের নামে।</p>
-</section>
+<main class="wrap">
 
-<section>
-  <h2>কবির কথা</h2>
-  <p>চিঠি জিনিসটা আজকাল আর কেউ লেখে না। মুঠোফোনে এক লাইন লিখলেই কথা পৌঁছে যায়, আর পৌঁছে যাওয়া মানেই তো যোগাযোগ। তবু আমার মনে হয়, চিঠির একটা জিনিস আমরা হারিয়ে ফেলেছি — অপেক্ষা। যে সময়টুকু চিঠি পথে থাকত, সেই সময়ে মানুষ একটু বড় হয়ে উঠত, একটু নরম হয়ে যেত।</p>
-  <p>এই বইয়ের কবিতাগুলো আসলে কুড়িটি চিঠি। কেউ ডাকবাক্স অবধি গিয়েছে, কেউ ড্রয়ারেই থেকে গেছে, কেউ জলে ভেসে গেছে। প্রাপক একজনই, কিন্তু তার ঠিকানা আমি কোথাও লিখিনি — কারণ এই চিঠিগুলো যাকে লেখা, তার ঠিকানা কোনো মানচিত্রে নেই।</p>
-  <p>খামের রং নীল কেন, অনেকে জিজ্ঞেস করতে পারেন। আমার কাছে নীল মানে দূরত্বের রং। আকাশ নীল, কারণ সে ছোঁয়া যায় না; কালি নীল, কারণ সে না-বলা কথাকে ধরে রাখে। এই দুইয়ের মাঝখানে যে কয়েকটা কাগজ পড়ে থাকে, তাই নিয়ে এই বই।</p>
-  <p>পড়ার সময় তাড়াহুড়ো কোরো না। চিঠি পড়তে হয় ধীরে, যেভাবে কেউ পুরোনো খাম খোলে — কোণটা না ছিঁড়ে।</p>
-  <p><em>— নুরজাহান আঁখি</em></p>
-</section>
+  <section class="card dedic">
+    <h2>উৎসর্গ</h2>
+    <p class="verse">যারা চিঠি লিখেছিল,
+কিন্তু পাঠাতে পারেনি —
+এই কুড়িটি খাম তাদের নামে।</p>
+  </section>
 
-<section class="toc">
-  <h2>সূচিপত্র</h2>
-  <div id="contents"></div>
-</section>
+  <section class="card note">
+    <h2>কবির কথা</h2>
+    <p>চিঠি জিনিসটা আজকাল আর কেউ লেখে না। মুঠোফোনে এক লাইন লিখলেই কথা পৌঁছে যায়, আর পৌঁছে যাওয়া মানেই তো যোগাযোগ। তবু আমার মনে হয়, চিঠির একটা জিনিস আমরা হারিয়ে ফেলেছি — অপেক্ষা। যে সময়টুকু চিঠি পথে থাকত, সেই সময়ে মানুষ একটু বড় হয়ে উঠত, একটু নরম হয়ে যেত।</p>
+    <p>এই বইয়ের কবিতাগুলো আসলে কুড়িটি চিঠি। কেউ ডাকবাক্স অবধি গিয়েছে, কেউ ড্রয়ারেই থেকে গেছে, কেউ জলে ভেসে গেছে। প্রাপক একজনই, কিন্তু তার ঠিকানা আমি কোথাও লিখিনি — কারণ এই চিঠিগুলো যাকে লেখা, তার ঠিকানা কোনো মানচিত্রে নেই।</p>
+    <p>খামের রং নীল কেন, অনেকে জিজ্ঞেস করতে পারেন। আমার কাছে নীল মানে দূরত্বের রং। আকাশ নীল, কারণ সে ছোঁয়া যায় না; কালি নীল, কারণ সে না-বলা কথাকে ধরে রাখে। এই দুইয়ের মাঝখানে যে কয়েকটা কাগজ পড়ে থাকে, তাই নিয়ে এই বই।</p>
+    <p>পড়ার সময় তাড়াহুড়ো কোরো না। চিঠি পড়তে হয় ধীরে, যেভাবে কেউ পুরোনো খাম খোলে — কোণটা না ছিঁড়ে।</p>
+    <p class="sign">— নুরজাহান আঁখি</p>
+  </section>
 
-<article class="poem" id="p1">
-  <p class="subtitle">কবিতা ০১</p>
-  <h2>নীল খামের প্রথম চিঠি</h2>
-  <p>আজ রাতে আমি একটা নীল খাম কিনেছি।<br>
-  দোকানদার জানতে চায়নি কাকে লিখব,<br>
-  সে শুধু দামটুকু নিয়েছে—<br>
-  যেন সে জানে, নীল রঙের খামে<br>
-  মানুষ কেবল তাকেই লেখে<br>
-  যার ঠিকানা তার জানা নেই।</p>
+  <nav class="toc">
+    <h2>সূচিপত্র</h2>
+    <ol>
+      <li><a href="#p1" style="--accent:#1d4ed8"><span class="n">০১</span> নীল খামের প্রথম চিঠি</a></li>
+      <li><a href="#p2" style="--accent:#0f766e"><span class="n">০২</span> ডাকবাক্সের নিঃশব্দ অপেক্ষা</a></li>
+      <li><a href="#p3" style="--accent:#9333ea"><span class="n">০৩</span> ঠিকানাবিহীন</a></li>
+      <li><a href="#p4" style="--accent:#0369a1"><span class="n">০৪</span> বর্ষার কালি</a></li>
+      <li><a href="#p5" style="--accent:#b45309"><span class="n">০৫</span> যে চিঠি পোস্ট করা হয়নি</a></li>
+      <li><a href="#p6" style="--accent:#5b21b6"><span class="n">০৬</span> অর্ধেক লেখা পাতা</a></li>
+      <li><a href="#p7" style="--accent:#0e7490"><span class="n">০৭</span> ফিরতি ডাক</a></li>
+      <li><a href="#p8" style="--accent:#9f1239"><span class="n">০৮</span> পুরোনো সিলমোহর</a></li>
+      <li><a href="#p9" style="--accent:#1e40af"><span class="n">০৯</span> শীতের চিঠি</a></li>
+      <li><a href="#p10" style="--accent:#15803d"><span class="n">১০</span> কাগজের নৌকা</a></li>
+      <li><a href="#p11" style="--accent:#7c2d12"><span class="n">১১</span> মধ্যরাতের খাম</a></li>
+      <li><a href="#p12" style="--accent:#a16207"><span class="n">১২</span> শুকনো ফুলের ভাঁজে</a></li>
+      <li><a href="#p13" style="--accent:#047857"><span class="n">১৩</span> হারিয়ে যাওয়া ঠিকানা</a></li>
+      <li><a href="#p14" style="--accent:#be123c"><span class="n">১৪</span> জানালার কাছে রাখা খাম</a></li>
+      <li><a href="#p15" style="--accent:#4338ca"><span class="n">১৫</span> নীল কালির দাগ</a></li>
+      <li><a href="#p16" style="--accent:#65a30d"><span class="n">১৬</span> বিদায়ের ডাকটিকিট</a></li>
+      <li><a href="#p17" style="--accent:#0284c7"><span class="n">১৭</span> তোমার নামে লেখা শব্দগুলো</a></li>
+      <li><a href="#p18" style="--accent:#86198f"><span class="n">১৮</span> চিঠির শেষ লাইন</a></li>
+      <li><a href="#p19" style="--accent:#475569"><span class="n">১৯</span> খালি খাম</a></li>
+      <li><a href="#p20" style="--accent:#1d4ed8"><span class="n">২০</span> শেষ চিঠি, নীল খামে</a></li>
+    </ol>
+  </nav>
 
-  <div class="star">★</div>
+  <hr class="sep">
 
-  <p>কলম ধরতেই দেখি,<br>
-  তোমার নাম লিখতে আমার হাত কাঁপে না,<br>
-  কাঁপে তার পরের শব্দটিতে—<br>
-  কেমন আছো, এই তিনটি অক্ষরে<br>
-  এত বছরের ধুলো জমে আছে<br>
-  যে উচ্চারণ করলেই কাশি পায়।</p>
+  <article class="poem" id="p1" style="--accent:#1d4ed8">
+    <p class="num">কবিতা ০১</p>
+    <h2>নীল খামের প্রথম চিঠি</h2>
+    <div class="bar"></div>
 
-  <p>তাই প্রথম লাইনটা মুছে ফেলি।<br>
-  দ্বিতীয় লাইনে লিখি আবহাওয়ার কথা,<br>
-  শহরে আজ বৃষ্টি, রাস্তা ভেজা,<br>
-  আর আমি—<br>
-  আমি তো সেই কবে থেকেই ভিজছি।</p>
+    <p class="verse">আজ রাতে আমি একটা নীল খাম কিনেছি।
+দোকানদার জানতে চায়নি কাকে লিখব,
+সে শুধু দামটুকু নিয়েছে—
+যেন সে জানে, নীল রঙের খামে
+মানুষ কেবল তাকেই লেখে
+যার ঠিকানা তার জানা নেই।</p>
+    <p class="mark">★</p>
+    <p class="verse">কলম ধরতেই দেখি,
+তোমার নাম লিখতে আমার হাত কাঁপে না,
+কাঁপে তার পরের শব্দটিতে—
+কেমন আছো, এই তিনটি অক্ষরে
+এত বছরের ধুলো জমে আছে
+যে উচ্চারণ করলেই কাশি পায়।</p>
+    <p class="verse">তাই প্রথম লাইনটা মুছে ফেলি।
+দ্বিতীয় লাইনে লিখি আবহাওয়ার কথা,
+শহরে আজ বৃষ্টি, রাস্তা ভেজা,
+আর আমি—
+আমি তো সেই কবে থেকেই ভিজছি।</p>
+    <p class="mark">★</p>
+    <p class="verse">চিঠিতে মিথ্যে লেখা যায় না, জানো?
+কাগজ সব ধরে ফেলে।
+যেখানে আমি লিখেছি ভালো আছি,
+সেখানে কালি একটু বেশি গাঢ়,
+যেন শব্দটাকে জোর করে বসাতে হয়েছে,
+যেন সে নিজেই বসতে চায়নি।</p>
+    <p class="mark">★</p>
+    <p class="verse">খামের মুখ বন্ধ করার আগে
+একবার ভেতরে তাকাই—
+সাদা কাগজে নীল অক্ষর,
+ঠিক তোমার জানালার গ্রিলের মতো,
+যার ফাঁক দিয়ে আকাশ দেখা যায়
+কিন্তু হাত গলে না।</p>
+    <p class="verse">আমি জানি এই চিঠি তুমি পাবে না।
+তবু ডাকবাক্স অবধি হেঁটে যাব,
+কারণ কিছু দূরত্ব হাঁটতে ভালো লাগে
+শুধু এই ভেবে
+যে পথটা তোমার দিকেই যাচ্ছে।</p>
+    <a class="back" href="#top">↑ সূচিপত্র</a>
+  </article>
+  <article class="poem" id="p2" style="--accent:#0f766e">
+    <p class="num">কবিতা ০২</p>
+    <h2>ডাকবাক্সের নিঃশব্দ অপেক্ষা</h2>
+    <div class="bar"></div>
 
-  <div class="star">★</div>
+    <p class="verse">মোড়ের ডাকবাক্সটা আমার চেয়ে ভালো অপেক্ষা করতে জানে।
+সে রোদে পোড়ে, বৃষ্টিতে ভেজে,
+তার গায়ের রং খসে পড়ে,
+তবু মুখটা হাঁ করে রাখে—
+যদি কেউ আসে,
+যদি কারও কিছু বলার থাকে।</p>
+    <p class="mark">★</p>
+    <p class="verse">আমি তার পাশে দাঁড়িয়ে থাকি।
+লোকে ভাবে আমি বাসের অপেক্ষায়।
+আসলে আমি দেখি
+কে কে চিঠি ফেলে যায়,
+তাদের হাতের কাঁপুনি মাপি—
+যার হাত বেশি কাঁপে,
+তার চিঠিতে নিশ্চয়ই ভালোবাসা আছে।</p>
+    <p class="mark">★</p>
+    <p class="verse">একদিন দুপুরে এক বৃদ্ধ এলেন,
+খামে ঠিকানা নেই, শুধু একটা নাম।
+পিয়ন হেসে বলল, এভাবে যাবে না।
+বৃদ্ধ বললেন, জানি।
+তবু ফেলে গেলেন।</p>
+    <p class="verse">সেদিন বুঝলাম,
+কিছু চিঠি পৌঁছনোর জন্য লেখা হয় না,
+লেখা হয় হাত খালি করার জন্য।</p>
+    <p class="mark">★</p>
+    <p class="verse">আমার চিঠিগুলোও তেমন।
+তোমার কোনো ঠিকানা আমি লিখিনি,
+শুধু লিখেছি—তুমি,
+আর নিচে একটা শহরের নাম,
+যে শহরে তুমি হয়তো আর থাকো না।</p>
+    <p class="verse">ডাকবাক্স কিছু বলে না।
+সে শুধু নেয়।
+পৃথিবীতে এত ভালো শ্রোতা
+আর ক'টা আছে বলো?</p>
+    <a class="back" href="#top">↑ সূচিপত্র</a>
+  </article>
+  <article class="poem" id="p3" style="--accent:#9333ea">
+    <p class="num">কবিতা ০৩</p>
+    <h2>ঠিকানাবিহীন</h2>
+    <div class="bar"></div>
 
-  <p>চিঠিতে মিথ্যে লেখা যায় না, জানো?<br>
-  কাগজ সব ধরে ফেলে।<br>
-  যেখানে আমি লিখেছি ভালো আছি,<br>
-  সেখানে কালি একটু বেশি গাঢ়,<br>
-  যেন শব্দটাকে জোর করে বসাতে হয়েছে,<br>
-  যেন সে নিজেই বসতে চায়নি।</p>
+    <p class="verse">তোমার ঠিকানাটা আমি হারাইনি,
+ঠিকানাটাই আমাকে হারিয়েছে।</p>
+    <p class="verse">সেই গলি, সেই দোতলা,
+সিঁড়ির তৃতীয় ধাপে ফাটল—
+সব মনে আছে,
+শুধু জানি না সেখানে এখন কে থাকে,
+আর তারা আমার চিঠি পেলে
+কী ভাববে।</p>
+    <p class="mark">★</p>
+    <p class="verse">আমি খামের উপর লিখি:
+যে মেয়েটি সন্ধেবেলা ছাদে উঠত,
+যার চুলে বকুল গন্ধ,
+যে কথা বলার আগে একটু থামত—
+তাকে দিয়ো।</p>
+    <p class="verse">পিয়নের চোখে তাকাই।
+সে বলে, এটা ঠিকানা নয়।
+আমি বলি, জানি।
+কিন্তু আপনি যদি তাকে চেনেন?</p>
+    <p class="mark">★</p>
+    <p class="verse">পৃথিবীতে ঠিকানা মানে একটা জায়গা,
+আমার কাছে ঠিকানা মানে একটা সময়—
+বিকেল পাঁচটা, ছাদ, শীতের শুরু,
+তুমি রেলিঙে হেলান দিয়ে দাঁড়ানো।</p>
+    <p class="verse">সেই ঠিকানায় চিঠি যায় না।
+সেখানে যেতে হলে
+চোখ বন্ধ করতে হয়।</p>
+    <p class="mark">★</p>
+    <p class="verse">তাই আমার সব চিঠি
+ফিরে আসে না, হারায়ও না—
+তারা কোথাও একটা থেকে যায়,
+ডাকঘরের পেছনের ঘরে,
+বেওয়ারিশ চিঠিদের ভিড়ে।</p>
+    <p class="verse">আমি ভাবি, রাত হলে
+ওরা নিশ্চয়ই নিজেদের মধ্যে কথা বলে।
+একটা খাম আরেকটাকে জিজ্ঞেস করে,
+তোমার মানুষটা কেমন ছিল?
+আমারটা? আমারটা নীল রঙের খাম ভালোবাসত।</p>
+    <a class="back" href="#top">↑ সূচিপত্র</a>
+  </article>
+  <article class="poem" id="p4" style="--accent:#0369a1">
+    <p class="num">কবিতা ০৪</p>
+    <h2>বর্ষার কালি</h2>
+    <div class="bar"></div>
 
-  <div class="star">★</div>
+    <p class="verse">বর্ষায় চিঠি লিখতে নেই—
+কালি ছড়িয়ে যায়,
+আর মানুষ বুঝে ফেলে
+কোথায় তুমি কেঁদেছিলে।</p>
+    <p class="mark">★</p>
+    <p class="verse">তবু আজ লিখছি।
+জানালার কাচে জল,
+ঘরের ভেতর একটা হলুদ আলো,
+আর কাগজের উপর আমার হাত—
+দুটোই ভিজে।</p>
+    <p class="verse">প্রথম অনুচ্ছেদে তোমার নাম লিখি,
+দ্বিতীয়তে মুছে ফেলি,
+তৃতীয়তে আবার লিখি অন্যভাবে,
+যেন কেউ পড়লে বোঝে
+আমি কারও কথা বলছি,
+কিন্তু না বোঝে কার।</p>
+    <p class="mark">★</p>
+    <p class="verse">বৃষ্টি জিনিসটা ডাকপিয়নের মতো—
+সে সবার বাড়িতে যায়,
+কারও ছাদে গান হয়ে নামে,
+কারও ঘরে ভাঙা টিনের শব্দ।</p>
+    <p class="verse">আমার ঘরে সে এসে
+পুরোনো তারিখগুলো পড়ে শোনায়:
+সেই যে এক শ্রাবণে
+তুমি ছাতা ভাগ করেছিলে,
+আর আমি ইচ্ছে করে
+কাঁধ ভিজিয়েছিলাম।</p>
+    <p class="mark">★</p>
+    <p class="verse">চিঠির শেষে লিখলাম—
+এখানে খুব বৃষ্টি, ছাতা নিয়ে বেরিয়ো।
+লিখেই হাসলাম।
+তোমাকে ছাতার কথা মনে করিয়ে দেওয়ার
+অধিকার তো আমি নিজেই ফিরিয়ে দিয়েছি।</p>
+    <p class="verse">তবু লাইনটা কাটলাম না।
+থাক।
+ভিজে কালিতে লেখা কথাগুলোই
+সবচেয়ে সত্যি হয়।</p>
+    <a class="back" href="#top">↑ সূচিপত্র</a>
+  </article>
+  <article class="poem" id="p5" style="--accent:#b45309">
+    <p class="num">কবিতা ০৫</p>
+    <h2>যে চিঠি পোস্ট করা হয়নি</h2>
+    <div class="bar"></div>
 
-  <p>খামের মুখ বন্ধ করার আগে<br>
-  একবার ভেতরে তাকাই—<br>
-  সাদা কাগজে নীল অক্ষর,<br>
-  ঠিক তোমার জানালার গ্রিলের মতো,<br>
-  যার ফাঁক দিয়ে আকাশ দেখা যায়<br>
-  কিন্তু হাত গলে না।</p>
+    <p class="verse">আমার বইয়ের তাকে একটা খাম আছে,
+সিল করা, ডাকটিকিট লাগানো,
+শুধু পোস্ট করা হয়নি।</p>
+    <p class="verse">বারো বছর ধরে সে সেখানে আছে।
+বইগুলো বদলেছে, ঘর বদলেছে, শহর বদলেছে—
+সে বদলায়নি।</p>
+    <p class="mark">★</p>
+    <p class="verse">মাঝে মাঝে বের করি।
+হাতে নিয়ে ওজন করি,
+যেন ওজন দেখে বোঝা যাবে
+ভেতরে কতটা অভিমান আছে।</p>
+    <p class="verse">খুলি না।
+খুললেই পড়তে হবে,
+পড়লেই মনে পড়বে
+তখন আমি কতটা সহজে
+সব কথা বলে ফেলতে পারতাম।</p>
+    <p class="mark">★</p>
+    <p class="verse">না পাঠানো চিঠির একটা সুবিধে আছে—
+তাতে তুমি কখনও উত্তর দাও না,
+তাই আমি যেমন খুশি উত্তর কল্পনা করতে পারি।</p>
+    <p class="verse">আজ ভাবি তুমি লিখেছ, আসছি।
+কাল ভাবি তুমি লিখেছ, পারছি না।
+দুটোই আমার হাতে,
+দুটোই আমার তৈরি—
+এভাবেই তো আমি তোমাকে
+আমার কাছে রেখে দিয়েছি।</p>
+    <p class="mark">★</p>
+    <p class="verse">একদিন হয়তো পোস্ট করব।
+সেদিন নিশ্চয়ই রোদ থাকবে,
+ডাকবাক্সটা গরম হয়ে থাকবে,
+আর আমার হাত ঠান্ডা।</p>
+    <p class="verse">অথবা করব না।
+তোমার নামে লেখা এই নীল খামটাই
+আমার সবচেয়ে নিরাপদ জায়গা—
+যেখানে তুমি এখনও
+আমার চিঠি পড়ার অপেক্ষায় আছ।</p>
+    <a class="back" href="#top">↑ সূচিপত্র</a>
+  </article>
+  <article class="poem" id="p6" style="--accent:#5b21b6">
+    <p class="num">কবিতা ০৬</p>
+    <h2>অর্ধেক লেখা পাতা</h2>
+    <div class="bar"></div>
 
-  <p>আমি জানি এই চিঠি তুমি পাবে না।<br>
-  তবু ডাকবাক্স অবধি হেঁটে যাব,<br>
-  কারণ কিছু দূরত্ব হাঁটতে ভালো লাগে<br>
-  শুধু এই ভেবে<br>
-  যে পথটা তোমার দিকেই যাচ্ছে।</p>
+    <p class="verse">পৃথিবীতে সবচেয়ে সৎ লেখা হলো
+সেই পাতাটা, যেটা শেষ করা হয়নি।</p>
+    <p class="verse">সেখানে সাজানো কথা নেই,
+শেষ লাইনে কোনো সান্ত্বনা নেই,
+শুধু একটা বাক্য মাঝপথে থেমে আছে—
+যেমন গলার কাছে কান্না থামে।</p>
+    <p class="mark">★</p>
+    <p class="verse">আমার ড্রয়ারে এরকম অনেক পাতা।
+একটায় লেখা: তুমি যেদিন চলে গেলে, সেদিন আমি
+—তারপর কিছু নেই।</p>
+    <p class="verse">সেই "আমি"-র পরে কী ছিল,
+আজও আমি জানি না।
+হয়তো কেঁদেছিলাম,
+হয়তো ভাত খেয়েছিলাম—
+দুটোর মধ্যে তখন তফাত ছিল না।</p>
+    <p class="mark">★</p>
+    <p class="verse">আরেকটা পাতায় লেখা আছে তিনটে শব্দ,
+তিনবার কাটা।
+কাগজটা ওখানে ছিঁড়ে গেছে কলমের চাপে।
+সেই ছেঁড়া জায়গাটাই
+আমার সবচেয়ে স্পষ্ট স্বীকারোক্তি।</p>
+    <p class="mark">★</p>
+    <p class="verse">লোকে বলে, অসম্পূর্ণ জিনিস ফেলে দিতে হয়।
+আমি পারি না।
+যদি একদিন তুমি এসে জিজ্ঞেস করো,
+তুমি তখন ঠিক কী ভাবছিলে—
+আমি এই পাতাগুলো এগিয়ে দেব।</p>
+    <p class="verse">বলব, পড়ো।
+যেখানে লাইন থেমে গেছে,
+সেখানে একটু বেশি সময় থেকো।
+কারণ আমার সব কথা
+ঠিক ওইখানেই রাখা আছে।</p>
+    <a class="back" href="#top">↑ সূচিপত্র</a>
+  </article>
+  <article class="poem" id="p7" style="--accent:#0e7490">
+    <p class="num">কবিতা ০৭</p>
+    <h2>ফিরতি ডাক</h2>
+    <div class="bar"></div>
 
-<a class="back" href="#top">↑ বইয়ের শুরুতে ফিরে যাও</a>
+    <p class="verse">চিঠির সঙ্গে আমি একটা খালি খামও পাঠিয়েছিলাম,
+নিজের ঠিকানা লেখা, টিকিট লাগানো—
+যাতে উত্তর দেওয়া সহজ হয়,
+যাতে তুমি বলতে না পারো
+খাম ছিল না বলে লিখিনি।</p>
+    <p class="mark">★</p>
+    <p class="verse">কী বোকা ছিলাম।
+মানুষ উত্তর দেয় না খামের অভাবে নয়,
+উত্তর দেয় না
+কারণ উত্তরটা সে নিজেই জানে না।</p>
+    <p class="mark">★</p>
+    <p class="verse">এরপর তিনটে শীত গেছে।
+প্রতিদিন দুপুরে পিয়নের সাইকেলের ঘণ্টা শুনি,
+আর বুকের ভেতর
+একটা দরজা খুলে যায়, বন্ধ হয়।</p>
+    <p class="verse">সে পাশের বাড়ির গেটে দাঁড়ায়।
+ওখানে ব্যাঙ্কের কাগজ আসে, বিদ্যুতের বিল আসে—
+পৃথিবী কত নিয়ম করে চিঠি পাঠায়,
+শুধু যাকে দরকার, সে পাঠায় না।</p>
+    <p class="mark">★</p>
+    <p class="verse">একদিন ভাবলাম, নিজেই নিজেকে লিখি।
+লিখলাম—ভালো আছি, চিন্তা কোরো না,
+তুমি নিজের খেয়াল রেখো।
+পোস্ট করে দিলাম।</p>
+    <p class="verse">সাত দিন পর নিজের চিঠি নিজে পেলাম।
+খুলে পড়লাম, যেন তোমার লেখা।
+সেদিন বুঝলাম,
+অপেক্ষা এতটাই পুরোনো হয়ে গেছে
+যে এখন সে নিজের হাতেই
+নিজের উত্তর লিখে নেয়।</p>
+    <a class="back" href="#top">↑ সূচিপত্র</a>
+  </article>
+  <article class="poem" id="p8" style="--accent:#9f1239">
+    <p class="num">কবিতা ০৮</p>
+    <h2>পুরোনো সিলমোহর</h2>
+    <div class="bar"></div>
 
-</article>
+    <p class="verse">খামের গায়ে গোল একটা ছাপ—
+শহরের নাম, আর একটা তারিখ।
+ডাকঘর জানে না,
+সে আসলে একটা গোটা জীবন
+কালি দিয়ে চিহ্নিত করে দিয়েছে।</p>
+    <p class="mark">★</p>
+    <p class="verse">আমি চশমা নামিয়ে তারিখটা পড়ি।
+সেদিন বৃহস্পতিবার ছিল।
+সেদিন তোমার পরীক্ষা ছিল,
+আমি গেটের বাইরে দাঁড়িয়ে ছিলাম,
+আর তুমি বেরিয়ে এসে বলেছিলে—
+এত রোদে দাঁড়িয়ে আছ কেন।</p>
+    <p class="mark">★</p>
+    <p class="verse">সিলমোহরের কালি হালকা হয়ে এসেছে।
+অক্ষরগুলো আধখানা।
+তবু ওই গোল দাগটা
+খামের গায়ে এমনভাবে বসে আছে
+যেন কেউ আঙুল রেখে বলছে—
+এইখানে, ঠিক এইখানে সময়টা থেমেছিল।</p>
+    <p class="mark">★</p>
+    <p class="verse">পুরোনো চিঠি রাখার দোষ এটাই:
+তুমি কাগজটা রাখো ভালোবাসার জন্য,
+আর সে তোমাকে তারিখ মনে করিয়ে দেয়।</p>
+    <p class="verse">ভালোবাসা তারিখ মানে না,
+কিন্তু ডাকঘর মানে।
+তাই আমাদের গল্পের শেষটা
+আজ একটা সরকারি ছাপের ভেতর বন্দী—
+গোল, নীল, আর একটুও আবেগহীন।</p>
+    <a class="back" href="#top">↑ সূচিপত্র</a>
+  </article>
+  <article class="poem" id="p9" style="--accent:#1e40af">
+    <p class="num">কবিতা ০৯</p>
+    <h2>শীতের চিঠি</h2>
+    <div class="bar"></div>
 
-<section>
-  <h2>কবি পরিচিতি</h2>
-  <p>নুরজাহান আঁখি লেখেন নিঃশব্দ মুহূর্ত নিয়ে — বন্ধ জানালা, পুরোনো কাগজ, না-বলা কথা আর অপেক্ষার ভেতরকার সময়টুকু নিয়ে। তাঁর কবিতায় বড় ঘটনার চেয়ে ছোট বিবরণের জায়গা বেশি: একটা ভাঁজ, একটা ছাপ, থেমে যাওয়া একটা বাক্য।</p>
-  <p>তিনি মনে করেন কবিতা সান্ত্বনা দেওয়ার জিনিস নয়, সঙ্গ দেওয়ার জিনিস — পাঠককে বদলে দেওয়ার চেয়ে তার পাশে চুপ করে বসে থাকাই কবিতার কাজ।</p>
-  <p><em>নীল খামের চিঠি</em> তাঁর চিঠি-আঙ্গিকে লেখা কবিতাগ্রন্থ, যেখানে কুড়িটি কবিতা কুড়িটি খামের মতো সাজানো।</p>
-</section>
+    <p class="verse">শীতকালে চিঠি দেরিতে পৌঁছায়।
+কুয়াশা পথ ঢেকে দেয়,
+ট্রেন দেরি করে,
+আর মানুষ লেপের ভেতর থেকে
+কথা বলতে ভুলে যায়।</p>
+    <p class="mark">★</p>
+    <p class="verse">আমি তবু লিখি।
+ভোরবেলা হাত জমে যায়,
+অক্ষরগুলো কেঁপে কেঁপে ওঠে—
+তুমি যদি কোনোদিন পড়ো,
+বুঝবে এই লেখায় ঠান্ডা লেগে আছে।</p>
+    <p class="mark">★</p>
+    <p class="verse">এই শহরে শীত এলে
+সব কিছু একটু কাছাকাছি সরে আসে।
+মানুষ রোদে বসে কাঁধ ঘেঁষে,
+কুকুর গুটিয়ে শোয় দোকানের নিচে,
+শুধু আমি আরও একটু দূরে সরে যাই—
+কারণ তুমি নেই,
+আর শীত সেটা রোজ মনে করিয়ে দেয়।</p>
+    <p class="mark">★</p>
+    <p class="verse">তোমার একটা সোয়েটার ছিল, ধূসর,
+হাতাটা একটু লম্বা।
+সেটা পরলে তোমার আঙুল দেখা যেত না।
+আমি বলতাম, হাত বের করো।
+তুমি বলতে, ঠান্ডা লাগে।</p>
+    <p class="verse">আজ আমার আঙুল বেরিয়েই আছে,
+সারাক্ষণ, সব আবহাওয়ায়—
+কেউ বলে না ঢাকো।</p>
+    <p class="mark">★</p>
+    <p class="verse">চিঠির শেষে লিখছি:
+ওখানে শীত পড়েছে?
+মোজা পরে ঘুমিয়ো।
+আর জানালার পাশে বসে থেকো না বেশিক্ষণ।</p>
+    <p class="verse">জানি তুমি শুনবে না।
+তবু কাউকে না কাউকে তো
+এসব কথা বলে যেতে হয়,
+নইলে ভালোবাসা জমে বরফ হয়ে যায়।</p>
+    <a class="back" href="#top">↑ সূচিপত্র</a>
+  </article>
+  <article class="poem" id="p10" style="--accent:#15803d">
+    <p class="num">কবিতা ১০</p>
+    <h2>কাগজের নৌকা</h2>
+    <div class="bar"></div>
 
-<section>
-  <h2>প্রকাশনা তথ্য</h2>
-  <p>বইয়ের নাম: নীল খামের চিঠি<br>
-  ধরন: কবিতা<br>
-  কবি: নুরজাহান আঁখি<br>
-  কবিতা সংখ্যা: ২০<br>
-  প্রথম প্রকাশ: ২০২৬<br>
-  প্রচ্ছদ ও বিন্যাস: কবি স্বয়ং</p>
-  <p>এই বইয়ের সমস্ত কবিতার স্বত্ব কবির নিজস্ব। অনুমতি ছাড়া কোনো অংশ পুনঃপ্রকাশ বা বাণিজ্যিক ব্যবহার করা যাবে না।</p>
-</section>
+    <p class="verse">যে চিঠিটা পাঠাতে পারিনি,
+সেটা দিয়ে একটা নৌকা বানালাম।</p>
+    <p class="verse">ভাঁজে ভাঁজে তোমার নাম ঢুকে গেল ভেতরে,
+বাইরে রইল শুধু সাদা দিকটা—
+যেন কিছুই লেখা ছিল না কোনোদিন।</p>
+    <p class="mark">★</p>
+    <p class="verse">বর্ষার জল জমেছে গলিতে।
+আমি উবু হয়ে বসে
+নৌকাটা ছেড়ে দিলাম।</p>
+    <p class="verse">সে টলমল করল,
+একটা ইটের কোণে আটকে গেল,
+তারপর ঘুরে গিয়ে
+ঠিক স্রোতের মুখ ধরল।</p>
+    <p class="mark">★</p>
+    <p class="verse">ছোটবেলায় ভাবতাম
+কাগজের নৌকা সমুদ্র অবধি যায়।
+এখন জানি, সে বড়জোর
+নর্দমার মুখ অবধি যায়,
+তারপর ভিজে, নরম হয়, মিশে যায়।</p>
+    <p class="verse">তবু আমি তাকিয়ে থাকি যতক্ষণ দেখা যায়।
+কারণ যাত্রাটা তো সত্যি—
+পৌঁছনোটাই শুধু মিথ্যে।</p>
+    <p class="mark">★</p>
+    <p class="verse">ভালোবাসার চিঠি জলে ভেসে গেলে
+অক্ষর গলে যায়,
+কালি ছড়িয়ে নীল হয়ে যায় জল।</p>
+    <p class="verse">সেদিন গলিটা নীল হয়ে ছিল।
+পাড়ার লোক বলল, কারখানার রং।
+আমি কিছু বললাম না।</p>
+    <p class="verse">কিছু কথা জানাতে নেই।
+কিছু কথা শুধু
+জল জানলেই যথেষ্ট।</p>
+    <a class="back" href="#top">↑ সূচিপত্র</a>
+  </article>
+  <article class="poem" id="p11" style="--accent:#7c2d12">
+    <p class="num">কবিতা ১১</p>
+    <h2>মধ্যরাতের খাম</h2>
+    <div class="bar"></div>
+
+    <p class="verse">রাত দুটোয় যে চিঠি লেখা হয়,
+সকালে সেটা পড়তে নেই।</p>
+    <p class="verse">রাতের কলম সাহসী,
+সে সব বলে দেয়—
+কাকে কতটা দরকার,
+কোন অভিমান কত পুরোনো,
+কোন ক্ষমা এখনও চাওয়া হয়নি।</p>
+    <p class="mark">★</p>
+    <p class="verse">আমি লিখলাম: তুমি ছাড়া আমার ঘুম আসে না।
+লিখে তাকিয়ে রইলাম।
+লাইনটা এতটাই সত্যি যে
+কাগজটা ভারী হয়ে গেল।</p>
+    <p class="mark">★</p>
+    <p class="verse">তারপর ভোর হলো।
+পাখি ডাকল, দুধওয়ালার সাইকেল গেল,
+রান্নাঘরে কেউ জল ঢালল—
+পৃথিবী আবার ভদ্র হয়ে উঠল।</p>
+    <p class="verse">আর আমি সেই ভদ্র আলোয়
+রাতের চিঠিটা পড়লাম,
+আর লজ্জা পেলাম নিজের কাছেই।</p>
+    <p class="mark">★</p>
+    <p class="verse">মধ্যরাত আমাদের আসল মুখটা দেখিয়ে দেয়,
+আর সকাল সেটা ঢেকে দেয় কাজের ছুতোয়।</p>
+    <p class="verse">তাই আমি রাতের খামগুলো
+পোস্ট করি না, ফেলিও না—
+আলমারির নিচের তাকে রেখে দিই।</p>
+    <p class="verse">ওখানে এখন একটা স্তূপ জমেছে।
+কেউ যদি কোনোদিন খোলে,
+জানবে—
+আমি দিনে যা বলিনি,
+তার সবটুকু রাতে লিখে রেখেছিলাম।</p>
+    <a class="back" href="#top">↑ সূচিপত্র</a>
+  </article>
+  <article class="poem" id="p12" style="--accent:#a16207">
+    <p class="num">কবিতা ১২</p>
+    <h2>শুকনো ফুলের ভাঁজে</h2>
+    <div class="bar"></div>
+
+    <p class="verse">বইয়ের দুশো বারো নম্বর পাতায়
+একটা শুকনো ফুল রাখা।</p>
+    <p class="verse">রং নেই, গন্ধ নেই,
+পাপড়ি ছুঁলে গুঁড়ো হয়ে যায়—
+তবু আমি পাতাটা ওল্টাই খুব সাবধানে,
+যেন এখনও ভাঙার মতো কিছু বাকি আছে।</p>
+    <p class="mark">★</p>
+    <p class="verse">তুমি দিয়েছিলে হাঁটতে হাঁটতে,
+পথের ধারের ঝোপ থেকে ছিঁড়ে।
+বলেছিলে, রেখে দিয়ো।
+আমি বলেছিলাম, শুকিয়ে যাবে তো।
+তুমি হেসেছিলে—
+শুকিয়ে গেলেই বরং থেকে যাবে।</p>
+    <p class="mark">★</p>
+    <p class="verse">তখন বুঝিনি।
+এখন দেখি, তুমি ঠিক বলেছিলে।
+তাজা জিনিস থাকে না,
+শুকনো জিনিস থেকে যায়।</p>
+    <p class="verse">ভালোবাসাও তাই—
+যতদিন সে তাজা ছিল, ঝরে যাওয়ার ভয় ছিল;
+শুকিয়ে যাওয়ার পর
+সে আর কোথাও যায় না।</p>
+    <p class="mark">★</p>
+    <p class="verse">আজ চিঠির ভাঁজে ফুলটা রাখব ভেবেছিলাম।
+তারপর থামলাম।
+ডাকঘরের হাত অনেক—
+ছুঁড়ে ফেলে, চেপে রাখে, বস্তায় ভরে।</p>
+    <p class="verse">এই ফুল সেই যাত্রা সইবে না।</p>
+    <p class="verse">তাই চিঠিতে শুধু লিখলাম—
+তোমার দেওয়া ফুলটা এখনও আছে।
+বাকিটা তুমি কল্পনা করে নিয়ো,
+আমি জানি তুমি পারবে।</p>
+    <a class="back" href="#top">↑ সূচিপত্র</a>
+  </article>
+  <article class="poem" id="p13" style="--accent:#047857">
+    <p class="num">কবিতা ১৩</p>
+    <h2>হারিয়ে যাওয়া ঠিকানা</h2>
+    <div class="bar"></div>
+
+    <p class="verse">গত সপ্তাহে তোমার পাড়ায় গিয়েছিলাম।</p>
+    <p class="verse">গলিটা আছে, নামটাও আছে,
+শুধু বাড়িটা নেই।
+সেখানে এখন ছ'তলা একটা দালান,
+নিচে ওষুধের দোকান,
+আর কাচের দরজায় নিজের মুখ দেখা যায়।</p>
+    <p class="mark">★</p>
+    <p class="verse">আমি সেই কাচের সামনে দাঁড়িয়ে রইলাম।
+দোকানদার জিজ্ঞেস করল, কী লাগবে।
+বলতে ইচ্ছে করল—
+এখানে একটা দোতলা বাড়ি ছিল,
+তার ছাদে সন্ধেবেলা একজন উঠত,
+তাকে পাওয়া যাবে?</p>
+    <p class="verse">বললাম না।
+ওষুধের দোকানে এসব চাওয়া যায় না।</p>
+    <p class="mark">★</p>
+    <p class="verse">শহর খুব নিষ্ঠুরভাবে ভুলে যায়।
+সে রাস্তা চওড়া করে,
+গাছ কেটে ফেলে,
+বাড়ির নম্বর বদলে দেয়—
+আর তারপর বলে,
+তোমার স্মৃতি ভুল।</p>
+    <p class="mark">★</p>
+    <p class="verse">কিন্তু আমি জানি কোথায় কী ছিল।
+জানি, গেটের ডানদিকে একটা জবা গাছ ছিল,
+সিঁড়ির আলোটা জ্বলত না,
+আর দোতলার জানালায়
+একটা পর্দা সবসময় একটু সরানো থাকত।</p>
+    <p class="verse">এই জ্ঞান এখন সম্পূর্ণ অকেজো।
+পৃথিবীর কোনো মানচিত্রে
+এর জায়গা নেই।</p>
+    <p class="mark">★</p>
+    <p class="verse">ফেরার পথে চিঠিটা ছিঁড়িনি।
+খামের ঠিকানার নিচে শুধু লিখে দিলাম—
+এই ঠিকানা আর নেই,
+তবু এটাই আমি জানি।</p>
+    <p class="verse">ডাকঘর ফেরত পাঠাবে।
+পাঠাক।
+অন্তত একজন তো থাকল,
+যে এই ঠিকানাটা এখনও মনে রাখে।</p>
+    <a class="back" href="#top">↑ সূচিপত্র</a>
+  </article>
+  <article class="poem" id="p14" style="--accent:#be123c">
+    <p class="num">কবিতা ১৪</p>
+    <h2>জানালার কাছে রাখা খাম</h2>
+    <div class="bar"></div>
+
+    <p class="verse">খামটা জানালার কাছে রেখেছি—
+যদি হাওয়া নিয়ে যায়।</p>
+    <p class="verse">ডাকঘরের উপর আর ভরসা নেই।
+তারা তারিখ দেখে, ঠিকানা দেখে,
+হাওয়া কিছু দেখে না—
+সে শুধু হালকা জিনিস ভালোবাসে,
+আর আমার চিঠি তো
+শব্দ ছাড়া কিছুই নয়।</p>
+    <p class="mark">★</p>
+    <p class="verse">সারাদিন রোদ পড়ল তার গায়ে।
+কাগজটা একটু হলুদ হলো,
+কোণটা মুড়ে গেল,
+তোমার নামের উপর
+একটা মাছির ছায়া পড়ল আর সরে গেল।</p>
+    <p class="mark">★</p>
+    <p class="verse">সন্ধেবেলা ঝড় উঠল।
+আমি দরজা ধরে দাঁড়িয়ে দেখলাম—
+পর্দা উড়ছে, গাছ নুয়ে পড়ছে,
+আর খামটা
+ঠিক সেই জায়গাতেই পড়ে আছে।</p>
+    <p class="verse">এত হাওয়া, তবু তাকে কেউ নিল না।
+যেন সেও জানে
+তার যাওয়ার কোনো জায়গা নেই।</p>
+    <p class="mark">★</p>
+    <p class="verse">রাতে জানালা বন্ধ করতে গিয়ে
+খামটা হাতে নিলাম।
+ভিজে গেছে এক কোণ,
+কালি একটু ছড়িয়েছে—
+তোমার নামের শেষ অক্ষরটা
+এখন অন্য কারও নাম বলে মনে হয়।</p>
+    <p class="verse">ভালোই হলো।
+এবার যদি কেউ পড়ে,
+ভাববে আমি অন্য কাউকে লিখেছিলাম।</p>
+    <p class="verse">আর আমি?
+আমি তো জানিই
+চিঠিটা কার জন্য জানালার কাছে বসে ছিল।</p>
+    <a class="back" href="#top">↑ সূচিপত্র</a>
+  </article>
+  <article class="poem" id="p15" style="--accent:#4338ca">
+    <p class="num">কবিতা ১৫</p>
+    <h2>নীল কালির দাগ</h2>
+    <div class="bar"></div>
+
+    <p class="verse">আমার ডান হাতের মাঝের আঙুলে
+একটা নীল দাগ থেকে যায়।</p>
+    <p class="verse">কলম ধরার জায়গাটায়,
+চামড়ার নিচে ঢুকে গেছে—
+সাবান দিয়ে ঘষলেও ওঠে না।
+ডাক্তার বলবেন, কিছু না।
+আমি বলি, এটাই প্রমাণ।</p>
+    <p class="mark">★</p>
+    <p class="verse">প্রমাণ যে আমি লিখেছিলাম।
+প্রমাণ যে কেউ একজন ছিল,
+যার জন্য রাত জেগে
+পাতার পর পাতা নষ্ট করা যেত।</p>
+    <p class="mark">★</p>
+    <p class="verse">লোকে ভালোবাসার চিহ্ন খোঁজে
+ছবিতে, আংটিতে, নামের আদ্যক্ষরে।
+আমার চিহ্ন কালির দাগ—
+সবচেয়ে সাধারণ, সবচেয়ে একগুঁয়ে।</p>
+    <p class="verse">সে হাত ধোয়ায় যায় না,
+সময়েও যায় না,
+শুধু একটু ফিকে হয়
+আর আমি আবার লিখতে বসি,
+আবার গাঢ় হয়।</p>
+    <p class="mark">★</p>
+    <p class="verse">তুমি একদিন আমার আঙুল ধরে বলেছিলে,
+এত লেখো কেন।
+আমি বলেছিলাম, ভুলে যাওয়ার ভয়ে।
+তুমি বলেছিলে, আমি তো আছি।</p>
+    <p class="verse">এখন তুমি নেই,
+আর দাগটা আছে।
+দুটোর মধ্যে কোনটা সত্যি—
+এই প্রশ্নের উত্তর আমি
+আর খুঁজি না।</p>
+    <p class="mark">★</p>
+    <p class="verse">আজ চিঠিটা লিখে
+আঙুলটা কাগজের উপর রাখলাম।
+একটা নীল ছাপ পড়ল,
+ঠিক ডাকঘরের সিলমোহরের মতো—
+কিন্তু এটা সরকারি নয়,
+এটা আমার নিজের।</p>
+    <p class="verse">এই ছাপ দিয়েই আমি আমার সব চিঠি পাঠাই।
+তুমি যদি কখনও নীল খাম পাও,
+আঙুলের দাগটা দেখে নিয়ো।
+নাম না থাকলেও চিনবে।</p>
+    <a class="back" href="#top">↑ সূচিপত্র</a>
+  </article>
+  <article class="poem" id="p16" style="--accent:#65a30d">
+    <p class="num">কবিতা ১৬</p>
+    <h2>বিদায়ের ডাকটিকিট</h2>
+    <div class="bar"></div>
+
+    <p class="verse">ডাকটিকিট জিনিসটা অদ্ভুত—
+এত ছোট, অথচ ছাড়া চলে না।
+তাকে জিভে ছুঁয়ে ভেজাতে হয়,
+তারপর চেপে বসাতে হয় কোণে,
+যেন বিদায় বলার আগে
+একবার ঠোঁট ভিজিয়ে নিতে হয়।</p>
+    <p class="mark">★</p>
+    <p class="verse">সেদিন স্টেশনে তোমার হাতে
+একটা ছেঁড়া টিকিট ছিল।
+ট্রেন আসতে তখনও সাত মিনিট।</p>
+    <p class="verse">সাত মিনিটে কত কথা বলা যায়—
+আমরা বলেছিলাম আবহাওয়ার কথা,
+ব্যাগের ওজনের কথা,
+আর কে কাকে পৌঁছে খবর দেবে, সেই কথা।</p>
+    <p class="mark">★</p>
+    <p class="verse">আসল কথাটা আমরা দু'জনেই
+পকেটে নিয়ে দাঁড়িয়ে ছিলাম—
+ডাকটিকিটের মতো,
+ভেজানো হয়নি বলে
+কোথাও সাঁটা যায়নি।</p>
+    <p class="mark">★</p>
+    <p class="verse">ট্রেন ছাড়ার পর প্ল্যাটফর্ম খালি হলো।
+চায়ের দোকানে কেটলি বসল,
+কুলি ঘুমিয়ে পড়ল বেঞ্চে,
+আর আমি দাঁড়িয়ে রইলাম—
+যেন আরও একটা ট্রেন আসবে,
+যেন বিদায়ের একটা ফিরতি পথ আছে।</p>
+    <p class="mark">★</p>
+    <p class="verse">এখন চিঠিতে টিকিট লাগাতে গেলেই
+সেই সাত মিনিট ফিরে আসে।</p>
+    <p class="verse">তাই আমি টিকিটটা একটু বাঁকা করে লাগাই।
+ডাকঘর বিরক্ত হয়।
+আমি জানি, সোজা করে লাগালে
+মনে হবে আমি অভ্যস্ত হয়ে গেছি।</p>
+    <a class="back" href="#top">↑ সূচিপত্র</a>
+  </article>
+  <article class="poem" id="p17" style="--accent:#0284c7">
+    <p class="num">কবিতা ১৭</p>
+    <h2>তোমার নামে লেখা শব্দগুলো</h2>
+    <div class="bar"></div>
+
+    <p class="verse">কিছু শব্দ আছে, যেগুলো আমি আর কাউকে দিতে পারি না।</p>
+    <p class="verse">সকাল—সেটা তোমার।
+জানালা—তোমার।
+বৃষ্টি তো অনেক আগেই তোমার নামে লিখে দিয়েছি।</p>
+    <p class="mark">★</p>
+    <p class="verse">এখন কেউ যদি বলে,
+আজ সকালে বৃষ্টি হয়েছিল,
+আমি চমকে উঠি।
+মনে হয় সে তোমার নাম নিয়েছে
+আর জানেও না।</p>
+    <p class="mark">★</p>
+    <p class="verse">ভাষা খুব অসতর্ক জিনিস।
+সে একই শব্দ সবাইকে বিলি করে দেয়,
+কাউকে বলে না
+এই শব্দটা ইতিমধ্যে কারও হয়ে গেছে।</p>
+    <p class="verse">তাই অভিধানে তোমার নাম নেই,
+অথচ অর্ধেক পাতা জুড়ে তুমি আছ।</p>
+    <p class="mark">★</p>
+    <p class="verse">কবিতা লিখতে বসলে এটাই সমস্যা।
+যে শব্দই তুলি, সে তোমার দিকে ঘুরে তাকায়।
+আমি গাছের কথা লিখতে চাই,
+লেখা হয় তোমার ছায়ার কথা।
+আমি নদীর কথা লিখতে চাই,
+লেখা হয় চলে যাওয়ার কথা।</p>
+    <p class="mark">★</p>
+    <p class="verse">একদিন ভেবেছিলাম,
+তোমার নামে লেখা শব্দগুলো ফেরত দিয়ে দেব।
+একটা তালিকা করেছিলাম—
+সকাল, জানালা, বৃষ্টি, ছাদ, দেরি, চুপ।</p>
+    <p class="verse">তারপর দেখলাম,
+এগুলো ফিরিয়ে দিলে
+আমার আর বলার কিছু থাকে না।</p>
+    <p class="verse">তাই রেখে দিলাম।
+ভাড়াটের মতো থাকি তোমার শব্দে—
+মাস শেষে কেউ ভাড়া চায় না,
+তবু আমি রোজ একটু করে শোধ দিই,
+এক-একটা চিঠি লিখে।</p>
+    <a class="back" href="#top">↑ সূচিপত্র</a>
+  </article>
+  <article class="poem" id="p18" style="--accent:#86198f">
+    <p class="num">কবিতা ১৮</p>
+    <h2>চিঠির শেষ লাইন</h2>
+    <div class="bar"></div>
+
+    <p class="verse">চিঠি শুরু করা সহজ।
+প্রিয়—লিখে দিলেই হয়ে যায়।</p>
+    <p class="verse">কঠিন হলো শেষ করা।
+কারণ শেষ লাইনটাই ঠিক করে দেয়
+তুমি কতটা হারলে।</p>
+    <p class="mark">★</p>
+    <p class="verse">ইতি লিখব?
+খুব শক্ত শোনায়, যেন দরজা বন্ধ।</p>
+    <p class="verse">ভালো থেকো?
+খুব সহজ, যেন কিছুই হয়নি।</p>
+    <p class="verse">অপেক্ষায় রইলাম?
+মিথ্যে নয়, কিন্তু বড্ড স্পষ্ট—
+এক লাইনে পুরো জীবনটা ধরা পড়ে যায়।</p>
+    <p class="mark">★</p>
+    <p class="verse">আমি তাই বহু চিঠির শেষে
+শুধু একটা দাঁড়ি দিয়ে রেখেছি।
+কিছু লিখিনি।</p>
+    <p class="verse">পিয়ন ভেবেছে কলমের কালি ফুরিয়েছে।
+আসলে ফুরিয়েছিল সাহস।</p>
+    <p class="mark">★</p>
+    <p class="verse">আজ একটা শেষ লাইন লিখব ঠিক করেছি,
+সত্যি কথাটাই লিখব।</p>
+    <p class="verse">লিখছি—
+এই চিঠির কোনো উত্তর আমি চাই না।
+শুধু চাই, পড়ার সময়
+তুমি একবার যেন থামো,
+আর আমার নামটা
+মনে মনে উচ্চারণ করো।</p>
+    <p class="verse">ব্যস, ওইটুকুই।
+ওইটুকুর জন্যই
+বিশ বছর ধরে আমি চিঠি লিখছি।</p>
+    <a class="back" href="#top">↑ সূচিপত্র</a>
+  </article>
+  <article class="poem" id="p19" style="--accent:#475569">
+    <p class="num">কবিতা ১৯</p>
+    <h2>খালি খাম</h2>
+    <div class="bar"></div>
+
+    <p class="verse">আজ একটা খালি খাম পাঠালাম।</p>
+    <p class="verse">ভেতরে কিছু নেই।
+কাগজ নেই, শব্দ নেই,
+এমনকি একটা তারিখও নেই।</p>
+    <p class="mark">★</p>
+    <p class="verse">অনেক ভেবে করেছি।
+কারণ যা বলার, তা এতবার লিখেছি
+যে শব্দগুলো ক্লান্ত হয়ে গেছে।
+তারা এখন আর কিছু বোঝায় না,
+শুধু পুনরাবৃত্তি করে।</p>
+    <p class="verse">তাই এবার কিছু লিখলাম না।
+তুমি খাম খুলে
+নিজের মতো করে পড়ে নিয়ো।</p>
+    <p class="mark">★</p>
+    <p class="verse">খালি খামের একটা মহৎ গুণ আছে—
+সে কাউকে দোষ দেয় না।
+সে অভিযোগ করে না,
+কৈফিয়ত চায় না,
+পুরোনো কথা তোলে না।</p>
+    <p class="verse">সে শুধু বলে, আমি ছিলাম।
+আর আমি তোমাকে মনে করে
+এতটা পথ পাড়ি দিয়েছি।</p>
+    <p class="mark">★</p>
+    <p class="verse">যদি তুমি খুলে দেখে হাসো,
+ভালো।
+যদি ভাবো আমি ভুল করে পাঠিয়েছি,
+তাতেও ক্ষতি নেই।</p>
+    <p class="verse">আর যদি—
+যদি খামটা আলোর দিকে তুলে ধরো,
+আর ভেতরে কিছু একটা খোঁজো,
+তাহলে বুঝব
+তুমিও এতদিন
+আমার মতো করেই খুঁজছিলে।</p>
+    <a class="back" href="#top">↑ সূচিপত্র</a>
+  </article>
+  <article class="poem" id="p20" style="--accent:#1d4ed8">
+    <p class="num">কবিতা ২০</p>
+    <h2>শেষ চিঠি, নীল খামে</h2>
+    <div class="bar"></div>
+
+    <p class="verse">এটাই শেষ।
+আর লিখব না—
+এ কথা আগেও উনিশবার বলেছি, জানি।
+তবু আজ সত্যি বলছি।</p>
+    <p class="mark">★</p>
+    <p class="verse">সব চিঠি একজায়গায় করেছি।
+গুনে দেখি কুড়িটা।
+কুড়িটা নীল খাম,
+কুড়িটা না-পাঠানো সকাল,
+কুড়িবার তোমার নাম লিখে
+কুড়িবার থেমে যাওয়া।</p>
+    <p class="mark">★</p>
+    <p class="verse">এতদিনে বুঝেছি,
+আমি আসলে তোমাকে লিখিনি।
+আমি নিজেকে লিখেছি—
+তোমার নাম ব্যবহার করে
+নিজের ভেতরটা সাজিয়েছি,
+যেমন খালি ঘরে কেউ আসবে বলে
+মানুষ বিছানার চাদর বদলায়।</p>
+    <p class="mark">★</p>
+    <p class="verse">তুমি কোথায় আছ আমি জানি না।
+আশা করি ভালো আছ।
+আশা করি কেউ তোমাকে
+শীতের রাতে মোজা পরতে বলে,
+বৃষ্টির দিনে ছাতা ধরিয়ে দেয়,
+আর তোমার থেমে যাওয়ার অভ্যেসটা
+ধৈর্য ধরে শোনে।</p>
+    <p class="mark">★</p>
+    <p class="verse">এই খামটা আমি পোস্ট করব না।
+বইয়ের ভেতর রেখে দেব—
+এই যে, তুমি যেটা এখন হাতে ধরে আছ।</p>
+    <p class="verse">তাহলে চিঠিটা পৌঁছল তো?
+একজন না একজন তো পড়ল।</p>
+    <p class="verse">হয়তো সে-ই আসল প্রাপক ছিল।
+হয়তো সব না-পাঠানো চিঠি
+একদিন কোনো অচেনা পাঠকের কাছে পৌঁছয়,
+আর সেখানেই
+তাদের ঠিকানা খুঁজে পায়।</p>
+    <p class="mark">★</p>
+    <p class="verse">ইতি—
+সেই মানুষটি,
+যে নীল খাম ছাড়া
+আর কিছুতে ভরসা করতে শেখেনি।</p>
+    <a class="back" href="#top">↑ সূচিপত্র</a>
+  </article>
+
+  <hr class="sep">
+
+  <section class="card note" id="shesh-kotha" style="--ink:#1d4ed8">
+    <h2>শেষ কথা</h2>
+    <p>কুড়িটা চিঠি লিখে শেষে এসে একটা কথা বুঝলাম — এই চিঠিগুলোর আসল প্রাপক কোনোদিনই একজন মানুষ ছিল না।</p>
+    <p>প্রথম দিকের চিঠিগুলোয় আমি কাউকে ফেরানোর চেষ্টা করছিলাম। মাঝামাঝি এসে শুধু খবর দিচ্ছিলাম — শীত পড়েছে, বৃষ্টি হচ্ছে, ভালো আছি। আর শেষের দিকে দেখি, আমি নিজের সঙ্গেই কথা বলছি, শুধু সম্বোধনটা ধার করা।</p>
+    <p>না-পাঠানো চিঠির একটা দাম আছে। সে পৌঁছয় না বলেই তাতে মিথ্যে লিখতে হয় না। যাকে লিখছি সে পড়বে না জেনেও যদি কেউ সত্যি কথাটা লিখে ফেলে, তবে সেই লেখাটুকুই তার সবচেয়ে নিজের জিনিস।</p>
+    <p>আপনি যদি এতদূর পড়ে থাকেন, তবে চিঠিগুলো পৌঁছে গেছে। হয়তো এভাবেই পৌঁছনোর কথা ছিল — ঠিকানা নয়, একজন পাঠকের হাতে।</p>
+    <p class="sign">— নুরজাহান আঁখি</p>
+  </section>
+
+  <section class="card note" id="kobi-porichiti" style="--ink:#15803d">
+    <h2>কবি পরিচিতি</h2>
+    <p>নুরজাহান আঁখি লেখেন নিঃশব্দ মুহূর্ত নিয়ে — বন্ধ জানালা, পুরোনো কাগজ, না-বলা কথা আর অপেক্ষার ভেতরকার সময়টুকু নিয়ে। তাঁর কবিতায় বড় ঘটনার চেয়ে ছোট বিবরণের জায়গা বেশি: একটা ভাঁজ, একটা ছাপ, থেমে যাওয়া একটা বাক্য।</p>
+    <p>তিনি মনে করেন কবিতা সান্ত্বনা দেওয়ার জিনিস নয়, সঙ্গ দেওয়ার জিনিস — পাঠককে বদলে দেওয়ার চেয়ে তার পাশে চুপ করে বসে থাকাই কবিতার কাজ।</p>
+    <p><em>নীল খামের চিঠি</em> তাঁর চিঠি-আঙ্গিকে লেখা কবিতাগ্রন্থ, যেখানে কুড়িটি কবিতা কুড়িটি খামের মতো সাজানো।</p>
+  </section>
+
+  <section class="card note" id="prokashona" style="--ink:#b45309">
+    <h2>প্রকাশনা তথ্য</h2>
+    <p>বইয়ের নাম: নীল খামের চিঠি<br>
+    ধরন: কবিতা<br>
+    কবি: নুরজাহান আঁখি<br>
+    কবিতা সংখ্যা: ২০<br>
+    প্রথম প্রকাশ: ২০২৬<br>
+    প্রচ্ছদ ও বিন্যাস: কবি স্বয়ং</p>
+    <p>এই বইয়ের সমস্ত কবিতার স্বত্ব কবির নিজস্ব। অনুমতি ছাড়া কোনো অংশ পুনঃপ্রকাশ বা বাণিজ্যিক ব্যবহার করা যাবে না।</p>
+  </section>
+
+  <p class="end"><span class="orn">★ ★ ★</span>সমাপ্ত</p>
 
 </main>
 
-<footer>
-  <p>© ২০২৬ নুরজাহান আঁখি · আঁখির লেখালয়</p>
-  <a class="back" href="index.html">← আঁখির লেখালয়ে ফিরে যাও</a>
-</footer>
-
 <script>
-const titles = [
-"নীল খামের প্রথম চিঠি",
-"ডাকবাক্সের নিঃশব্দ অপেক্ষা",
-"ঠিকানাবিহীন",
-"বর্ষার কালি",
-"যে চিঠি পোস্ট করা হয়নি",
-"অর্ধেক লেখা পাতা",
-"ফিরতি ডাক",
-"পুরোনো সিলমোহর",
-"শীতের চিঠি",
-"কাগজের নৌকা",
-"মধ্যরাতের খাম",
-"শুকনো ফুলের ভাঁজে",
-"হারিয়ে যাওয়া ঠিকানা",
-"জানালার কাছে রাখা খাম",
-"নীল কালির দাগ",
-"বিদায়ের ডাকটিকিট",
-"তোমার নামে লেখা শব্দগুলো",
-"চিঠির শেষ লাইন",
-"খালি খাম",
-"শেষ চিঠি, নীল খামে"
-];
-document.getElementById("contents").innerHTML = titles.map((title,i)=>
-  `<a href="#p${i+1}">${String(i+1).padStart(2,"0")} — ${title}</a>`
-).join("");
-</script>
+(function () {
+  var ICON = '<svg viewBox="0 0 24 24"><rect x="9" y="9" width="11" height="11" rx="2"/>' +
+             '<path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>';
+  var TICK = '<svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg>';
 
+  function poemText(poem) {
+    var out = [];
+    var h = poem.querySelector('h2');
+    if (h) out.push(h.textContent.trim());
+    poem.querySelectorAll('.mark, .verse').forEach(function (el) {
+      out.push(el.textContent.replace(/[ \t]+\n/g, '\n').trim());
+    });
+    out.push('— নুরজাহান আঁখি');
+    return out.join('\n\n');
+  }
+
+  function fallbackCopy(text) {
+    var ta = document.createElement('textarea');
+    ta.value = text;
+    ta.setAttribute('readonly', '');
+    ta.style.position = 'fixed';
+    ta.style.top = '-1000px';
+    ta.style.opacity = '0';
+    document.body.appendChild(ta);
+    ta.select();
+    ta.setSelectionRange(0, ta.value.length);
+    var ok = false;
+    try { ok = document.execCommand('copy'); } catch (e) { ok = false; }
+    document.body.removeChild(ta);
+    return ok;
+  }
+
+  function flash(btn, ok) {
+    btn.innerHTML = ok ? TICK + '<span>কপি হয়েছে</span>' : '<span>কপি করা গেল না</span>';
+    btn.classList.toggle('done', !!ok);
+    clearTimeout(btn._t);
+    btn._t = setTimeout(function () {
+      btn.innerHTML = ICON + '<span>কবিতাটি কপি করুন</span>';
+      btn.classList.remove('done');
+    }, 2000);
+  }
+
+  document.querySelectorAll('.poem').forEach(function (poem) {
+    var bar = poem.querySelector('.bar');
+    if (!bar) return;
+    var tools = document.createElement('div');
+    tools.className = 'tools';
+    bar.parentNode.insertBefore(tools, bar);
+    tools.appendChild(bar);
+
+    var btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'copybtn';
+    btn.innerHTML = ICON + '<span>কবিতাটি কপি করুন</span>';
+    tools.appendChild(btn);
+
+    btn.addEventListener('click', function () {
+      var text = poemText(poem);
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(function () {
+          flash(btn, true);
+        }, function () {
+          flash(btn, fallbackCopy(text));
+        });
+      } else {
+        flash(btn, fallbackCopy(text));
+      }
+    });
+  });
+})();
+</script>
 </body>
 </html>
