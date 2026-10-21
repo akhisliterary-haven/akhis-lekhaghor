@@ -1,229 +1,588 @@
-
 <!DOCTYPE html>
 <html lang="bn">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#17151d">
-<meta name="description" content="আঁখির লেখালয় — নুরজাহান আঁখির নিজস্ব সাহিত্যভুবন।">
+<meta name="description" content="নুরজাহান আঁখির নিজস্ব সাহিত্যভুবন। কবিতা, ছোটগল্প, উপন্যাস, ফ্যানফিকশন, ভূতের গল্প ও অন্যান্য সাহিত্যকর্ম।">
 <title>আঁখির লেখালয় | Akhi's Literary Haven</title>
+
 <style>
 :root {
-  --bg:#17151d; --panel:#211e29; --text:#f7f0e8;
-  --muted:#b8aebc; --gold:#d8b77b; --line:#39323f;
+  --bg: #17151d;
+  --panel: #211e29;
+  --text: #f7f0e8;
+  --muted: #b8aebc;
+  --gold: #d8b77b;
+  --line: #39323f;
 }
-*{box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:90px}
-body{margin:0;background:var(--bg);color:var(--text);
-  font-family:Georgia,"Noto Serif Bengali",serif;line-height:1.8}
-a{color:inherit;text-decoration:none}
-button,input{font:inherit}
-.wrap{width:min(1120px,90%);margin:auto}
-header{position:sticky;top:0;z-index:10;background:#17151df2;
-  border-bottom:1px solid var(--line);backdrop-filter:blur(12px)}
-.nav{display:flex;justify-content:space-between;align-items:center;
-  gap:20px;flex-wrap:wrap;padding:15px 0}
-.brand{font-size:23px;color:var(--gold);font-weight:bold;line-height:1.5}
-.brand small{display:block;font-size:10px;letter-spacing:2px;color:var(--muted)}
-.links{display:flex;gap:19px;flex-wrap:wrap;font-size:14px}
-.links a:hover{color:var(--gold)}
-.hero{padding:95px 0 85px;text-align:center;position:relative;
-  overflow:hidden;background:radial-gradient(ellipse at 50% 20%,#493345 0%,#27212e 40%,#17151d 76%)}
-.eyebrow{font-size:11px;letter-spacing:4px;color:var(--gold);text-transform:uppercase}
-h1{font-size:clamp(43px,8vw,82px);line-height:1.3;font-weight:normal;margin:18px 0}
-.hero .intro{max-width:620px;margin:16px auto;color:var(--muted)}
-.tagline{font-size:19px;color:var(--gold)}
-.btn{display:inline-block;border:1px solid var(--gold);padding:10px 23px;
-  margin:15px 6px 0;border-radius:3px;transition:.25s}
-.btn.primary{background:var(--gold);color:#201923}
-.btn:hover{transform:translateY(-2px);box-shadow:0 6px 22px #0004}
-section{padding:65px 0}
-.section-head{display:flex;align-items:end;justify-content:space-between;
-  gap:15px;flex-wrap:wrap;margin-bottom:25px}
-h2{font-size:clamp(27px,4vw,36px);font-weight:normal;margin:0}
-.muted{color:var(--muted);font-size:14px}
-.gold{color:var(--gold)}
-.searchbar{display:flex;gap:10px;max-width:550px;margin:0 0 28px}
-.searchbar input{min-width:0;flex:1;background:var(--panel);border:1px solid var(--line);
-  color:var(--text);padding:12px 15px;border-radius:4px;outline:none}
-.searchbar input:focus{border-color:var(--gold)}
-.searchbar button{background:var(--gold);border:0;padding:10px 16px;
-  border-radius:4px;cursor:pointer;color:#211923}
-.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
-.card{border:1px solid var(--line);background:var(--panel);padding:23px;
-  border-radius:5px;transition:transform .25s,border-color .25s}
-.card:hover{transform:translateY(-5px);border-color:#a88b68}
-.card h3{margin:12px 0 3px;font-size:22px;font-weight:normal}
-.card p{color:var(--muted);font-size:14px;margin:7px 0}
-.symbol{font-size:27px;color:var(--gold)}
-.cover{height:155px;display:flex;align-items:center;justify-content:center;
-  font-size:48px;margin:-23px -23px 17px;border-bottom:1px solid var(--line)}
-.cover.poetry{background:linear-gradient(135deg,#51445f,#282433)}
-.cover.stories{background:linear-gradient(135deg,#6a453d,#29212c)}
-.cover.novels{background:linear-gradient(135deg,#354c50,#252632)}
-.cover.fan{background:linear-gradient(135deg,#65425c,#30283f)}
-.cover.other{background:linear-gradient(135deg,#66543a,#292633)}
-.pill{font-size:11px;color:var(--gold);border:1px solid #746044;
-  border-radius:20px;padding:3px 10px;display:inline-block}
-.about{background:#211e29;text-align:center}
-.about p{max-width:660px;margin:15px auto;color:var(--muted)}
-.empty{padding:22px;border:1px dashed #514657;text-align:center;
-  color:var(--muted);margin-top:22px;border-radius:4px}
-footer{border-top:1px solid var(--line);padding:27px 0;text-align:center;
-  color:var(--muted);font-size:13px}
-[hidden]{display:none!important}
-@media(max-width:720px){
-  .nav{justify-content:center;text-align:center}
-  .links{justify-content:center;gap:8px 15px}
-  .hero{padding:65px 0}
-  section{padding:45px 0}
-  .grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
-  .card{padding:16px}
-  .cover{margin:-16px -16px 13px;height:125px}
+
+* {
+  box-sizing: border-box;
 }
-@media(max-width:460px){
-  .grid{grid-template-columns:1fr}
-  .card{padding:20px}
-  .cover{margin:-20px -20px 15px;height:140px}
-  .searchbar button{padding:9px}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 100px;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: Georgia, "Noto Serif Bengali", serif;
+  line-height: 1.8;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.wrap {
+  width: min(1100px, 90%);
+  margin: auto;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: #17151df5;
+  border-bottom: 1px solid var(--line);
+}
+
+.nav {
+  min-height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+  padding: 12px 0;
+}
+
+.brand {
+  color: var(--gold);
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 1.5;
+}
+
+.brand small {
+  display: block;
+  color: var(--muted);
+  font-size: 10px;
+  letter-spacing: 2px;
+  font-weight: normal;
+}
+
+.links {
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+  font-size: 14px;
+}
+
+.links a:hover {
+  color: var(--gold);
+}
+
+.hero {
+  padding: 95px 0 85px;
+  text-align: center;
+  background:
+    radial-gradient(ellipse at top, #493345, #27212e 48%, #17151d 85%);
+}
+
+.eyebrow {
+  color: var(--gold);
+  font-size: 11px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+}
+
+h1 {
+  font-size: clamp(42px, 8vw, 78px);
+  line-height: 1.4;
+  font-weight: normal;
+  margin: 18px 0;
+}
+
+.hero p {
+  max-width: 650px;
+  margin: 14px auto;
+  color: var(--muted);
+}
+
+.tagline {
+  color: var(--gold) !important;
+  font-size: 19px;
+}
+
+.button {
+  display: inline-block;
+  margin-top: 22px;
+  padding: 11px 25px;
+  background: var(--gold);
+  color: #211923;
+  border-radius: 4px;
+  transition: 0.25s;
+}
+
+.button:hover {
+  transform: translateY(-3px);
+}
+
+section {
+  padding: 65px 0;
+}
+
+.section-head {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin-bottom: 28px;
+}
+
+h2 {
+  font-size: clamp(27px, 4vw, 36px);
+  font-weight: normal;
+  margin: 0;
+}
+
+.muted {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.searchbar {
+  display: flex;
+  gap: 10px;
+  max-width: 600px;
+  margin-bottom: 28px;
+}
+
+.searchbar input {
+  flex: 1;
+  min-width: 0;
+  padding: 12px 15px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  color: var(--text);
+  font: inherit;
+}
+
+.searchbar input:focus {
+  outline: 1px solid var(--gold);
+}
+
+.searchbar button {
+  padding: 10px 17px;
+  background: var(--gold);
+  color: #211923;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.card {
+  overflow: hidden;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  transition: transform 0.25s, border-color 0.25s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  border-color: var(--gold);
+}
+
+.cover {
+  height: 165px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 48px;
+  border-bottom: 1px solid var(--line);
+}
+
+.cover.poetry {
+  background: linear-gradient(135deg, #51445f, #282433);
+}
+
+.cover.stories {
+  background: linear-gradient(135deg, #6a453d, #29212c);
+}
+
+.cover.novels {
+  background: linear-gradient(135deg, #354c50, #252632);
+}
+
+.cover.fanfiction {
+  background: linear-gradient(135deg, #65425c, #30283f);
+}
+
+.cover.other {
+  background: linear-gradient(135deg, #66543a, #292633);
+}
+
+.cover.horror {
+  background: linear-gradient(135deg, #672b35, #17151d);
+}
+
+.card-content {
+  padding: 20px;
+}
+
+.pill {
+  display: inline-block;
+  padding: 3px 10px;
+  border: 1px solid #746044;
+  border-radius: 20px;
+  color: var(--gold);
+  font-size: 10px;
+  letter-spacing: 1px;
+}
+
+.card h3 {
+  font-size: 22px;
+  font-weight: normal;
+  margin: 10px 0 3px;
+}
+
+.card p {
+  color: var(--muted);
+  font-size: 14px;
+  margin: 7px 0;
+}
+
+.gold {
+  color: var(--gold) !important;
+}
+
+.notice {
+  margin-top: 25px;
+  padding: 20px;
+  border: 1px dashed #665344;
+  border-radius: 4px;
+  text-align: center;
+  color: var(--muted);
+}
+
+.about {
+  background: #211e29;
+  text-align: center;
+}
+
+.about p {
+  max-width: 650px;
+  margin: 15px auto;
+  color: var(--muted);
+}
+
+.contact {
+  text-align: center;
+}
+
+footer {
+  border-top: 1px solid var(--line);
+  padding: 28px 0;
+  text-align: center;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+@media (max-width: 750px) {
+  .nav {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .links {
+    justify-content: center;
+    gap: 10px 15px;
+  }
+
+  .hero {
+    padding: 65px 0;
+  }
+
+  section {
+    padding: 45px 0;
+  }
+
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 13px;
+  }
+
+  .cover {
+    height: 135px;
+  }
+}
+
+@media (max-width: 480px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .searchbar button {
+    padding: 9px 12px;
+  }
+
+  .card-content {
+    padding: 18px;
+  }
 }
 </style>
 </head>
+
 <body>
+
 <header>
   <div class="wrap nav">
-    <a class="brand" href="#home">আঁখির লেখালয়
+
+    <a class="brand" href="#home">
+      আঁখির লেখালয়
       <small>AKHI'S LITERARY HAVEN</small>
     </a>
+
     <nav class="links" aria-label="প্রধান মেনু">
       <a href="#home">হোম</a>
       <a href="#library">সাহিত্য সংগ্রহ</a>
       <a href="#about">লেখক</a>
       <a href="#contact">যোগাযোগ</a>
     </nav>
+
   </div>
 </header>
 
 <main>
-  <section class="hero" id="home">
-    <div class="wrap">
-      <div class="eyebrow">A WORLD MADE OF WORDS</div>
-      <h1>আঁখির লেখালয়</h1>
-      <p class="intro">নুরজাহান আঁখির নিজস্ব সাহিত্যভুবন</p>
-      <p class="tagline">আমার শব্দ, আমার গল্প, আমার পৃথিবী।</p>
-      <p class="intro">কবিতার নীরবতা, গল্পের অনুভব আর উপন্যাসের দীর্ঘ যাত্রা—আমার শব্দেরা এখানে খুঁজে পায় নিজেদের ঠিকানা।</p>
-      <a class="btn primary" href="#library">সাহিত্য সংগ্রহ দেখুন ↘</a>
-      <a class="btn" href="#about">লেখক পরিচিতি</a>
+
+<section class="hero" id="home">
+  <div class="wrap">
+
+    <div class="eyebrow">A WORLD MADE OF WORDS</div>
+
+    <h1>আঁখির লেখালয়</h1>
+
+    <p>নুরজাহান আঁখির নিজস্ব সাহিত্যভুবন</p>
+
+    <p class="tagline">
+      আমার শব্দ, আমার গল্প, আমার পৃথিবী।
+    </p>
+
+    <p>
+      কবিতার নীরবতা, গল্পের অনুভব, উপন্যাসের দীর্ঘ যাত্রা
+      আর রহস্যময় কল্পনার জন্য একটি নিজস্ব ঠিকানা।
+    </p>
+
+    <a class="button" href="#library">
+      আমার সাহিত্যভুবনে প্রবেশ করুন ↓
+    </a>
+
+  </div>
+</section>
+
+<section id="library">
+  <div class="wrap">
+
+    <div class="section-head">
+      <div>
+        <div class="eyebrow">THE LITERARY COLLECTION</div>
+        <h2>সাহিত্য সংগ্রহ</h2>
+        <p class="muted">
+          প্রতিটি লেখার পেছনে রয়েছে একটি আলাদা পৃথিবী।
+        </p>
+      </div>
     </div>
-  </section>
 
-  <section id="library">
-    <div class="wrap">
-      <div class="section-head">
-        <div>
-          <div class="eyebrow">THE COLLECTION</div>
-          <h2>সাহিত্য সংগ্রহ</h2>
-          <div class="muted">শব্দের ভেতর দিয়ে আমার পৃথিবীকে আবিষ্কার করুন।</div>
-        </div>
-        <span class="muted">০৫টি বিভাগ</span>
-      </div>
+    <div class="searchbar">
+      <input
+        id="search"
+        type="search"
+        placeholder="কবিতা, গল্প বা উপন্যাস খুঁজুন..."
+        aria-label="সাহিত্য বিভাগ খুঁজুন"
+      >
+      <button id="clear" type="button">মুছুন</button>
+    </div>
 
-      <div class="searchbar">
-        <input id="search" type="search" placeholder="কবিতা, গল্প বা উপন্যাস খুঁজুন..." aria-label="সাহিত্য বিভাগ খুঁজুন">
-        <button id="clear" type="button">মুছুন</button>
-      </div>
+    <div class="grid" id="categories">
 
-      <div class="grid" id="categories">
-        <article class="card" data-search="কবিতা poetry">
-          <div class="cover poetry" aria-hidden="true">❧</div>
+      <article class="card"
+        data-search="কবিতা poetry poems">
+        <div class="cover poetry" aria-hidden="true">❧</div>
+        <div class="card-content">
           <span class="pill">POETRY</span>
           <h3>কবিতা</h3>
           <p>অনুভূতি, স্মৃতি, নিঃসঙ্গতা ও জীবনের শব্দেরা।</p>
           <p class="gold">লেখা পরে যোগ হবে</p>
-        </article>
-        <article class="card" data-search="ছোটগল্প গল্প short stories">
-          <div class="cover stories" aria-hidden="true">✧</div>
+        </div>
+      </article>
+
+      <article class="card"
+        data-search="ছোটগল্প গল্প short stories">
+        <div class="cover stories" aria-hidden="true">✧</div>
+        <div class="card-content">
           <span class="pill">SHORT STORIES</span>
           <h3>ছোটগল্প</h3>
           <p>ছোট পরিসরে মানুষের বড় বড় গল্প।</p>
           <p class="gold">লেখা পরে যোগ হবে</p>
-        </article>
-        <article class="card" data-search="উপন্যাস novels">
-          <div class="cover novels" aria-hidden="true">▤</div>
+        </div>
+      </article>
+
+      <article class="card"
+        data-search="উপন্যাস novels novel">
+        <div class="cover novels" aria-hidden="true">▤</div>
+        <div class="card-content">
           <span class="pill">NOVELS</span>
           <h3>উপন্যাস</h3>
           <p>চরিত্র, সম্পর্ক ও কল্পনার দীর্ঘ যাত্রা।</p>
           <p class="gold">অধ্যায় পরে যোগ হবে</p>
-        </article>
-        <article class="card" data-search="ফ্যানফিকশন ফ্যান ফিকশন fanfiction">
-          <div class="cover fan" aria-hidden="true">✿</div>
+        </div>
+      </article>
+
+      <article class="card"
+        data-search="ফ্যানফিকশন ফ্যান ফিকশন fanfiction fan fiction">
+        <div class="cover fanfiction" aria-hidden="true">✿</div>
+        <div class="card-content">
           <span class="pill">FANFICTION</span>
           <h3>ফ্যানফিকশন</h3>
           <p>পরিচিত চরিত্র ও জগৎকে ঘিরে নতুন কল্পনা।</p>
           <p class="gold">লেখা পরে যোগ হবে</p>
-        </article>
-        <article class="card" data-search="অন্যান্য লেখা গদ্য ভাবনা other writings">
-          <div class="cover other" aria-hidden="true">✒</div>
+        </div>
+      </article>
+
+      <article class="card"
+        data-search="অন্যান্য লেখা গদ্য ভাবনা other writings prose">
+        <div class="cover other" aria-hidden="true">✒</div>
+        <div class="card-content">
           <span class="pill">OTHER WRITINGS</span>
           <h3>অন্যান্য লেখা</h3>
           <p>গদ্য, ভাবনা, অনুগল্প ও অন্যান্য সাহিত্যকর্ম।</p>
           <p class="gold">লেখা পরে যোগ হবে</p>
-        </article>
-      </div>
-      <p id="noResults" class="empty" hidden>কোনো বিভাগ পাওয়া যায়নি। অন্য শব্দ দিয়ে খুঁজুন।</p>
-      <div class="empty">এই সাহিত্যভুবন ধীরে ধীরে তোমার নিজের লেখা দিয়ে পূর্ণ হবে।</div>
-    </div>
-  </section>
+        </div>
+      </article>
 
-  <section class="about" id="about">
-    <div class="wrap">
-      <div class="eyebrow">ABOUT THE AUTHOR</div>
-      <h2>লেখক পরিচিতি</h2>
-      <p>আমি নুরজাহান আঁখি। শব্দের ভেতর অনুভূতি, স্মৃতি ও কল্পনার যে পৃথিবী তৈরি হয়, এই লেখালয় সেই পৃথিবীরই একটি নিজস্ব ঠিকানা।</p>
-      <p>আমার শব্দ, আমার গল্প, আমার পৃথিবী।</p>
-    </div>
-  </section>
+      <article class="card"
+        data-search="ভূতের গল্প ভৌতিক গল্প horror ghost stories supernatural">
+        <div class="cover horror" aria-hidden="true">☾</div>
+        <div class="card-content">
+          <span class="pill">HORROR STORIES</span>
+          <h3>ভূতের গল্প</h3>
+          <p>অতিপ্রাকৃত রহস্য, অন্ধকার রাত আর গা ছমছমে কাহিনি।</p>
+          <p class="gold">গল্প পরে যোগ হবে</p>
+        </div>
+      </article>
 
-  <section id="contact">
-    <div class="wrap" style="text-align:center">
-      <div class="eyebrow">SAY HELLO</div>
-      <h2>যোগাযোগ</h2>
-      <p class="muted">যোগাযোগের তথ্য পরে এখানে যুক্ত হবে।</p>
     </div>
-  </section>
+
+    <p id="noResults" class="notice" hidden>
+      কোনো বিভাগ পাওয়া যায়নি। অন্য শব্দ দিয়ে খুঁজুন।
+    </p>
+
+    <div class="notice">
+      এই সাহিত্যভুবন ধীরে ধীরে তোমার নিজের লেখা দিয়ে পূর্ণ হবে।
+      <br>
+      Your words, your stories, your world.
+    </div>
+
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="wrap">
+
+    <div class="eyebrow">ABOUT THE AUTHOR</div>
+
+    <h2>লেখক পরিচিতি</h2>
+
+    <p>
+      আমি নুরজাহান আঁখি। শব্দের ভেতর অনুভূতি, স্মৃতি ও
+      কল্পনার যে পৃথিবী তৈরি হয়, এই লেখালয় সেই পৃথিবীরই
+      একটি নিজস্ব ঠিকানা।
+    </p>
+
+    <p>আমার শব্দ, আমার গল্প, আমার পৃথিবী।</p>
+
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+
+    <div class="eyebrow">GET IN TOUCH</div>
+
+    <h2>যোগাযোগ</h2>
+
+    <p class="muted">
+      যোগাযোগের তথ্য পরে এখানে যুক্ত হবে।
+    </p>
+
+  </div>
+</section>
+
 </main>
 
 <footer>
   <div class="wrap">
     © <span id="year"></span> নুরজাহান আঁখি · আঁখির লেখালয়
-    <br>আমার শব্দ, আমার গল্প, আমার পৃথিবী।
+    <br>
+    আমার শব্দ, আমার গল্প, আমার পৃথিবী।
   </div>
 </footer>
 
 <script>
-document.getElementById("year").textContent = new Date().getFullYear();
+document.getElementById("year").textContent =
+  new Date().getFullYear();
 
 const search = document.getElementById("search");
-const cards = [...document.querySelectorAll("#categories .card")];
+const cards = Array.from(
+  document.querySelectorAll("#categories .card")
+);
 const noResults = document.getElementById("noResults");
 
 function filterCards() {
-  const query = search.value.trim().toLocaleLowerCase();
+  const query = search.value.trim().toLowerCase();
   let visible = 0;
-  cards.forEach(card => {
-    const match = card.dataset.search.toLocaleLowerCase().includes(query);
-    card.hidden = !match;
-    if (match) visible++;
+
+  cards.forEach(function(card) {
+    const keywords = card.dataset.search.toLowerCase();
+    const matches = keywords.includes(query);
+
+    card.hidden = !matches;
+
+    if (matches) {
+      visible++;
+    }
   });
-  noResults.hidden = visible !== 0;
+
+  noResults.hidden = visible > 0;
 }
 
 search.addEventListener("input", filterCards);
-document.getElementById("clear").addEventListener("click", () => {
+
+document.getElementById("clear").addEventListener("click", function() {
   search.value = "";
   filterCards();
   search.focus();
 });
 </script>
+
 </body>
 </html>
