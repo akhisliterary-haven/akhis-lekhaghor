@@ -7,7 +7,6 @@
 <meta name="theme-color" content="#100914">
 <meta name="description" content="নুরজাহান আঁখির নিজস্ব সাহিত্যভুবন—কবিতা, ছোটগল্প, উপন্যাস ও অন্যান্য সাহিত্যকর্ম।">
 <title>আঁখির লেখালয় | Akhi's Literary Haven</title>
-
 <style>
 :root{--bg:#100914;--panel:#17111f;--text:#fff5eb;--muted:#c5b7c7;--gold:#e8b85d;--gold2:#ffda8a;--line:rgba(232,184,93,.55)}
 *{box-sizing:border-box}
@@ -91,7 +90,6 @@ footer{text-align:center;padding:24px;color:#b9a8bc;font-size:12px;border-top:1p
 }
 </style>
 </head>
-
 <body>
 <header class="topbar">
 <div class="wrap nav">
@@ -132,7 +130,6 @@ footer{text-align:center;padding:24px;color:#b9a8bc;font-size:12px;border-top:1p
 </div>
 
 <div class="grid" id="categories">
-
 <article class="card" data-search="কবিতা poetry poems নীল খামের চিঠি অনুপস্থিতির রঙ">
 <img class="card-img" src="assets/poetry.jpg" alt="খোলা ডায়েরি ও ফুলের পাশে কবিতার পরিবেশ">
 <div class="card-body">
@@ -183,19 +180,17 @@ footer{text-align:center;padding:24px;color:#b9a8bc;font-size:12px;border-top:1p
 </div>
 </article>
 
-<!-- নিশুতিপুর উপন্যাসের নতুন কার্ড -->
 <article class="card" data-search="ভূতের গল্প ভৌতিক গল্প horror ghost stories supernatural নিশুতিপুর নুরজাহান আঁখি">
-<a href="nishutipur.html" aria-label="নিশুতিপুর উপন্যাস পড়ুন">
-<img class="card-img" src="assets/nishutipur-cover.png" alt="নিশুতিপুর উপন্যাসের প্রচ্ছদ">
+<a href="nishutipur.html" aria-label="ভূতের গল্প পড়ুন">
+<img class="card-img" src="assets/horror.jpg" alt="চাঁদের আলোয় রহস্যময় বাড়ি">
 </a>
 <div class="card-body">
 <span class="pill">HORROR STORIES</span>
-<h3><a href="nishutipur.html">নিশুতিপুর</a></h3>
-<p>নুরজাহান আঁখির রহস্যময় ভৌতিক উপন্যাস।</p>
-<a class="card-link" href="nishutipur.html">নিশুতিপুর পড়ুন →</a>
+<h3><a href="nishutipur.html">ভূতের গল্প</a></h3>
+<p>অতিলৌকিক রহস্য, অন্ধকার রাত আর গা ছমছমে কাহিনি।</p>
+<a class="card-link" href="nishutipur.html">ভূতের গল্প পড়ুন →</a>
 </div>
 </article>
-
 </div>
 
 <p id="noResults" class="muted" hidden>কোনো বিভাগ পাওয়া যায়নি। অন্য শব্দ দিয়ে খুঁজুন।</p>
@@ -221,7 +216,6 @@ footer{text-align:center;padding:24px;color:#b9a8bc;font-size:12px;border-top:1p
 const input=document.getElementById('search'),
 cards=[...document.querySelectorAll('.card')],
 empty=document.getElementById('noResults');
-
 function filter(){
 const q=input.value.trim().toLowerCase();
 let n=0;
@@ -232,7 +226,6 @@ if(show)n++;
 });
 empty.hidden=n>0;
 }
-
 input.addEventListener('input',filter);
 document.getElementById('searchForm').addEventListener('submit',e=>{
 e.preventDefault();
