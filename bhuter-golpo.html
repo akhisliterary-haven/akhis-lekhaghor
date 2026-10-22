@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#100914">
+  <meta name="description" content="আঁখির লেখালয়ের ভূতের গল্প বিভাগ। পড়ুন নুরজাহান আঁখির ভৌতিক উপন্যাস নিশুতিপুর।">
+
+  <title>ভূতের গল্প | আঁখির লেখালয়</title>
+
+  <style>
+    :root {
+      --bg: #100914;
+      --panel: #1b1220;
+      --text: #fff5eb;
+      --muted: #c5b7c7;
+      --gold: #e8b85d;
+      --gold2: #ffda8a;
+      --line: rgba(232,184,93,.45);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background:
+        radial-gradient(ellipse at top, #25132c 0, transparent 55%),
+        var(--bg);
+      color: var(--text);
+      font-family: Georgia, 'Noto Serif Bengali', serif;
+      line-height: 1.8;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .wrap {
+      width: min(1000px, 92%);
+      margin: auto;
+    }
+
+    .topbar {
+      background: rgba(15,9,20,.94);
+      border-bottom: 1px solid rgba(232,184,93,.2);
+    }
+
+    .nav {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+      padding: 12px 0;
+    }
+
+    .brand {
+      color: var(--gold2);
+      font-size: 23px;
+      line-height: 1.3;
+    }
+
+    .brand small {
+      display: block;
+      color: #d9c9b7;
+      font-size: 9px;
+      letter-spacing: 3px;
+    }
+
+    .home-link {
+      color: var(--gold2);
+      border: 1px solid var(--line);
+      border-radius: 7px;
+      padding: 7px 13px;
+      font-size: 13px;
+    }
+
+    .home-link:hover {
+      background: #382019;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 55px 0 35px;
+    }
+
+    .eyebrow {
+      color: var(--gold);
+      font-size: 11px;
+      letter-spacing: 4px;
+    }
+
+    h1 {
+      color: var(--gold2);
+      font-size: clamp(34px, 7vw, 52px);
+      font-weight: normal;
+      line-height: 1.3;
+      margin: 12px 0;
+    }
+
+    .intro {
+      max-width: 600px;
+      margin: 0 auto;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .section-title {
+      margin: 18px 0 22px;
+      font-size: 25px;
+      font-weight: normal;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 12px;
+    }
+
+    .book-card {
+      display: grid;
+      grid-template-columns: minmax(0, 300px) minmax(0, 1fr);
+      gap: 26px;
+      align-items: center;
+      padding: 20px;
+      margin-bottom: 55px;
+      background: linear-gradient(145deg, #24172b, #130e19);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      box-shadow: 0 12px 34px #0005;
+    }
+
+    .cover-link {
+      display: block;
+      overflow: hidden;
+      border-radius: 8px;
+      border: 1px solid var(--line);
+      line-height: 0;
+    }
+
+    .cover {
+      display: block;
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      transition: transform .4s;
+    }
+
+    .cover-link:hover .cover {
+      transform: scale(1.025);
+    }
+
+    .pill {
+      display: inline-block;
+      color: var(--gold2);
+      border: 1px solid #b88448;
+      border-radius: 99px;
+      padding: 3px 11px;
+      font-size: 10px;
+      letter-spacing: 1.5px;
+    }
+
+    h2 {
+      font-size: clamp(27px, 5vw, 36px);
+      font-weight: normal;
+      color: var(--gold2);
+      margin: 12px 0 4px;
+    }
+
+    .author {
+      color: var(--muted);
+      margin: 0 0 15px;
+      font-size: 14px;
+    }
+
+    .description {
+      color: #e0d3df;
+      font-size: 15px;
+      margin-bottom: 22px;
+    }
+
+    .read-button {
+      display: inline-block;
+      padding: 10px 20px;
+      color: #251526;
+      background: linear-gradient(135deg, #ffdc8d, #d89d49);
+      border-radius: 7px;
+      font-size: 14px;
+      transition: transform .2s;
+    }
+
+    .read-button:hover {
+      transform: translateY(-2px);
+    }
+
+    .note {
+      color: var(--muted);
+      font-size: 13px;
+      margin-top: 15px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px 12px;
+      color: var(--muted);
+      font-size: 12px;
+      border-top: 1px solid rgba(232,184,93,.2);
+    }
+
+    footer span {
+      color: var(--gold2);
+    }
+
+    @media(max-width:600px) {
+      .nav {
+        align-items: flex-start;
+      }
+
+      .book-card {
+        grid-template-columns: 1fr;
+        gap: 18px;
+        padding: 14px;
+      }
+
+      .cover-link {
+        width: min(100%, 360px);
+        margin: auto;
+      }
+
+      .hero {
+        padding-top: 38px;
+      }
+    }
+
+    @media(prefers-reduced-motion:reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        transition: none !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header class="topbar">
+  <div class="wrap nav">
+
+    <a class="brand" href="index.html">
+      আঁখির লেখালয়
+      <small>AKHI'S LITERARY HAVEN</small>
+    </a>
+
+    <a class="home-link" href="index.html">
+      ← হোমপেজে ফিরে যান
+    </a>
+
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="hero">
+    <div class="eyebrow">THE WORLD OF HORROR</div>
+
+    <h1>ভূতের গল্প</h1>
+
+    <p class="intro">
+      অন্ধকারের আড়ালে লুকিয়ে থাকা রহস্য, নির্জন রাতের অজানা আতঙ্ক
+      আর এমন কিছু গল্প—যা পড়া শেষ হলেও মনে থেকে যায়।
+      স্বাগতম আঁখির লেখালয়ের ভৌতিক গল্পের জগতে।
+    </p>
+  </section>
+
+  <section aria-labelledby="collection-title">
+
+    <h2 class="section-title" id="collection-title">
+      ভৌতিক গল্পের সংগ্রহ
+    </h2>
+
+    <article class="book-card">
+
+      <a class="cover-link"
+         href="nishutipur.html"
+         aria-label="নিশুতিপুর উপন্যাস খুলুন">
+
+        <img
+          class="cover"
+          src="assets/nishutipur-cover.png"
+          alt="নিশুতিপুর ভৌতিক উপন্যাসের প্রচ্ছদ">
+
+      </a>
+
+      <div class="book-info">
+
+        <span class="pill">BENGALI HORROR NOVEL</span>
+
+        <h2>
+          <a href="nishutipur.html">নিশুতিপুর</a>
+        </h2>
+
+        <p class="author">
+          লেখক: নুরজাহান আঁখি
+        </p>
+
+        <p class="description">
+          শেষ ট্রেনের যাত্রী, কালিদহ স্টেশনের নিস্তব্ধতা,
+          এক রহস্যময় জনপদ আর অন্ধকারে লুকিয়ে থাকা অজানা সত্য—
+          নিশুতিপুরের পথে শুরু হোক এক শিহরণজাগানো যাত্রা।
+        </p>
+
+        <a class="read-button" href="nishutipur.html">
+          নিশুতিপুর পড়ুন →
+        </a>
+
+        <p class="note">
+          প্রচ্ছদে চাপ দিলেও উপন্যাসের পেজ খুলবে।
+        </p>
+
+      </div>
+
+    </article>
+
+  </section>
+
+</main>
+
+<footer>
+  © 2026 নুরজাহান আঁখি · আঁখির লেখালয়
+  <br>
+  <span>আমার শব্দ, আমার গল্প, আমার পৃথিবী।</span>
+</footer>
+
+</body>
+</html>
