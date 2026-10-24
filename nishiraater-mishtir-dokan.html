@@ -1,0 +1,2625 @@
+<!DOCTYPE html>
+<html lang="bn" data-theme="night">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>নিশিরাতের মিষ্টির দোকান | নুরজাহান আঁখি</title>
+<meta name="description" content="নুরজাহান আঁখির ভৌতিক উপন্যাসিকা — নিশিরাতের মিষ্টির দোকান। রাত দুইটার পর যে দোকান খোলে, তার খদ্দেররা সবাই জীবিত নয়।">
+<meta name="theme-color" content="#07080b">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600&family=Noto+Serif+Bengali:wght@400;500;600;700&family=Tiro+Bangla:ital@0;1&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#07080b; --bg-deep:#040507; --page:#0f1218; --page-edge:#151a22;
+  --ink:#e6e8ec; --ink-soft:#c0c5cd; --muted:#8b939e;
+  --gold:#c0922f; --gold-bright:#e3bd6a; --blood:#8e2b22;
+  --line:rgba(192,146,47,.26); --hair:rgba(255,255,255,.07);
+  --shadow:0 26px 64px -26px rgba(0,0,0,.9);
+  --measure:35rem; --fs:1.07rem; --lh:2.1; --grain:.045;
+  --bodyfont:'Tiro Bangla',serif;
+  color-scheme:dark;
+}
+:root[data-theme="paper"]{
+  --bg:#d9d2c4; --bg-deep:#c9c0ae; --page:#f5f1e6; --page-edge:#ece6d8;
+  --ink:#1e1c18; --ink-soft:#413c33; --muted:#6f685a;
+  --gold:#7d5c15; --gold-bright:#60460f; --blood:#7a2018;
+  --line:rgba(125,92,21,.3); --hair:rgba(0,0,0,.08);
+  --shadow:0 20px 50px -26px rgba(50,42,24,.5); --grain:.07;
+  color-scheme:light;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:calc(env(safe-area-inset-top,0px) + 4.4rem);-webkit-text-size-adjust:100%}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{
+  margin:0;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+  background:var(--bg);color:var(--ink);
+  font-family:var(--bodyfont);font-size:var(--fs);line-height:var(--lh);
+  -webkit-font-smoothing:antialiased;transition:background .35s ease,color .35s ease;
+}
+/* paper grain */
+body::after{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:40;opacity:var(--grain);
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/></filter><rect width='160' height='160' filter='url(%23n)'/></svg>");
+}
+::selection{background:var(--gold);color:#0b0c10}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:2px}
+
+#progress{position:fixed;left:0;top:env(safe-area-inset-top,0px);height:2px;width:0;
+  background:linear-gradient(90deg,var(--blood),var(--gold));z-index:34;transition:width .1s linear}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg-deep);z-index:33}
+
+/* ---------- top bar ---------- */
+.topbar{
+  position:sticky;top:env(safe-area-inset-top,0px);z-index:32;
+  display:flex;align-items:center;gap:.6rem;padding:.6rem clamp(.9rem,4vw,2rem);
+  background:color-mix(in srgb,var(--bg-deep) 86%,transparent);
+  backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--hair);
+}
+.ring{width:1.9rem;height:1.9rem;flex:none;display:grid;place-items:center;position:relative}
+.ring svg{position:absolute;inset:0;transform:rotate(-90deg)}
+.ring .bgc{stroke:var(--hair)}
+.ring .fgc{stroke:var(--gold);stroke-dasharray:88;stroke-dashoffset:88;transition:stroke-dashoffset .15s linear}
+.ring b{font-family:'Noto Serif Bengali',serif;font-size:.6rem;color:var(--gold);font-weight:500}
+.crumb{min-width:0;display:flex;flex-direction:column;line-height:1.25}
+.crumb .bk{font-family:'Noto Serif Bengali',serif;font-size:.78rem;color:var(--muted);
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.crumb .ch{font-family:'Noto Serif Bengali',serif;font-size:.86rem;font-weight:600;color:var(--ink-soft);
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.topbar .spacer{flex:1}
+.iconbtn{
+  font-family:'Noto Serif Bengali',serif;font-size:.76rem;background:transparent;color:var(--muted);
+  border:1px solid var(--hair);border-radius:999px;padding:.36rem .72rem;cursor:pointer;white-space:nowrap;
+  text-decoration:none;transition:color .2s,border-color .2s;flex:none;
+}
+.iconbtn:hover{color:var(--gold);border-color:var(--line)}
+
+/* ---------- drawer + panel ---------- */
+.scrim{position:fixed;inset:0;background:rgba(0,0,0,.6);backdrop-filter:blur(2px);z-index:35;
+  opacity:0;pointer-events:none;transition:opacity .3s}
+.scrim.on{opacity:1;pointer-events:auto}
+.drawer{
+  position:fixed;top:0;right:0;height:100%;width:min(88vw,22rem);z-index:36;
+  background:var(--page);border-left:1px solid var(--line);box-shadow:-20px 0 50px -20px rgba(0,0,0,.8);
+  transform:translateX(102%);transition:transform .32s cubic-bezier(.4,0,.2,1);
+  display:flex;flex-direction:column;
+  padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+}
+.drawer.on{transform:none}
+.drawer-head{display:flex;align-items:center;gap:.6rem;padding:1.1rem 1.2rem;border-bottom:1px solid var(--hair)}
+.drawer-head h3{margin:0;font-family:'Noto Serif Bengali',serif;font-size:1rem;font-weight:600;flex:1}
+.xbtn{background:transparent;border:0;color:var(--muted);font-size:1rem;cursor:pointer;padding:.3rem}
+.xbtn:hover{color:var(--gold)}
+.drawer ol{list-style:none;margin:0;padding:.4rem 1.2rem 2rem;overflow-y:auto;flex:1}
+.panel{
+  position:fixed;z-index:36;right:clamp(.9rem,4vw,2rem);top:calc(env(safe-area-inset-top,0px) + 3.4rem);
+  width:min(90vw,17rem);background:var(--page);border:1px solid var(--line);box-shadow:var(--shadow);
+  padding:1.1rem 1.2rem;opacity:0;transform:translateY(-6px);pointer-events:none;transition:opacity .22s,transform .22s;
+}
+.panel.on{opacity:1;transform:none;pointer-events:auto}
+.panel h4{margin:0 0 .7rem;font-family:'Noto Serif Bengali',serif;font-size:.78rem;letter-spacing:.14em;
+  color:var(--muted);font-weight:500}
+.panel .row{display:flex;gap:.45rem;margin-bottom:1.1rem}
+.panel .row:last-child{margin-bottom:0}
+.chip{
+  flex:1;font-family:'Noto Serif Bengali',serif;font-size:.8rem;background:transparent;color:var(--ink-soft);
+  border:1px solid var(--hair);border-radius:2px;padding:.5rem .3rem;cursor:pointer;transition:all .2s;
+}
+.chip:hover{border-color:var(--line);color:var(--gold)}
+.chip[aria-pressed="true"]{border-color:var(--gold);color:var(--gold);background:color-mix(in srgb,var(--gold) 10%,transparent)}
+
+/* resume bar */
+.resume{
+  position:fixed;left:50%;transform:translateX(-50%) translateY(1.5rem);
+  bottom:calc(1.1rem + env(safe-area-inset-bottom,0px));z-index:31;
+  display:flex;align-items:center;gap:.7rem;padding:.55rem .6rem .55rem 1.1rem;
+  background:var(--page);border:1px solid var(--line);box-shadow:var(--shadow);
+  font-size:.82rem;color:var(--ink-soft);font-family:'Noto Serif Bengali',serif;
+  opacity:0;pointer-events:none;transition:opacity .3s,transform .3s;max-width:calc(100vw - 2rem);
+}
+.resume.on{opacity:1;pointer-events:auto;transform:translateX(-50%)}
+.resume button{font-family:inherit;font-size:.78rem;border:1px solid var(--gold);background:transparent;
+  color:var(--gold);padding:.35rem .8rem;cursor:pointer}
+.resume .no{border-color:var(--hair);color:var(--muted)}
+
+/* ---------- cover ---------- */
+.cover{min-height:calc(100svh - 3.4rem);display:flex;align-items:center;justify-content:center;text-align:center;
+  position:relative;overflow:hidden;padding:3rem 1.4rem 4.5rem;background:var(--bg-deep)}
+.lamp{position:absolute;inset:0;pointer-events:none;
+  background:
+    radial-gradient(60% 40% at 50% 8%,color-mix(in srgb,var(--gold) 22%,transparent) 0%,transparent 65%),
+    radial-gradient(80% 55% at 50% 108%,color-mix(in srgb,var(--blood) 24%,transparent) 0%,transparent 72%);
+  animation:flicker 7s ease-in-out infinite}
+@keyframes flicker{0%,100%{opacity:1}42%{opacity:.82}46%{opacity:1}72%{opacity:.88}}
+@media (prefers-reduced-motion:reduce){.lamp{animation:none}}
+.cover-frame{width:min(100%,32rem);border:1px solid var(--line);position:relative;
+  padding:clamp(2.2rem,8vw,3.4rem) clamp(1.2rem,6vw,2.4rem);
+  background:color-mix(in srgb,var(--bg-deep) 55%,transparent)}
+.cover-frame::before{content:"";position:absolute;inset:7px;border:1px solid var(--hair);pointer-events:none}
+.corner{position:absolute;width:14px;height:14px;border:1px solid var(--gold);opacity:.8}
+.corner.tl{top:-1px;left:-1px;border-right:0;border-bottom:0}
+.corner.tr{top:-1px;right:-1px;border-left:0;border-bottom:0}
+.corner.bl{bottom:-1px;left:-1px;border-right:0;border-top:0}
+.corner.br{bottom:-1px;right:-1px;border-left:0;border-top:0}
+.imprint{font-family:'Noto Serif Bengali',serif;font-size:.72rem;letter-spacing:.34em;color:var(--gold);margin:0 0 2.2rem}
+.cover h1{font-family:'Noto Serif Bengali',serif;font-weight:700;font-size:clamp(2rem,9.5vw,3.1rem);
+  line-height:1.35;margin:0;color:var(--ink)}
+.cover .kind{margin:1.5rem 0 0;color:var(--muted);font-size:.93rem;letter-spacing:.06em}
+.flourish{display:flex;align-items:center;gap:.8rem;margin:1.9rem auto;width:76%}
+.flourish::before,.flourish::after{content:"";flex:1;height:1px;background:var(--line)}
+.flourish span{color:var(--gold);font-size:.85rem;letter-spacing:.2em}
+.cover .by{margin:0;font-size:1.2rem;font-family:'Noto Serif Bengali',serif;font-weight:500}
+.cover .by small{display:block;font-family:'Cormorant Garamond',serif;font-size:.78rem;letter-spacing:.26em;
+  color:var(--muted);margin-top:.55rem}
+.cover .site{margin:2.4rem 0 0;font-size:.76rem;color:var(--muted);font-family:'Cormorant Garamond',serif}
+.cover .site a{color:var(--gold);text-decoration:none;border-bottom:1px solid var(--line)}
+.scrollcue{position:absolute;left:50%;bottom:1.6rem;transform:translateX(-50%);font-size:.68rem;letter-spacing:.3em;
+  color:var(--muted);font-family:'Noto Serif Bengali',serif}
+.scrollcue::after{content:"";display:block;width:1px;height:2rem;margin:.6rem auto 0;background:linear-gradient(var(--line),transparent)}
+
+/* ---------- sheets & chapters ---------- */
+.sheet,.chapter{
+  width:min(100% - 1.6rem,calc(var(--measure) + 5rem));margin:clamp(2rem,7vw,3.6rem) auto;
+  background:linear-gradient(170deg,var(--page) 0%,var(--page-edge) 100%);
+  border:1px solid var(--hair);box-shadow:var(--shadow);position:relative;
+  padding:clamp(2.1rem,7vw,3.6rem) clamp(1.3rem,6vw,3.2rem) clamp(2rem,6vw,2.8rem);
+}
+.sheet{border-top:2px solid var(--gold)}
+.chapter{margin:clamp(2.4rem,9vw,5rem) auto;padding-top:clamp(2.4rem,8vw,4rem);scroll-margin-top:5rem}
+.chapter::before{content:"";position:absolute;left:0;right:0;top:0;height:2px;
+  background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+h2.section{font-family:'Noto Serif Bengali',serif;font-weight:600;font-size:clamp(1.35rem,6vw,1.7rem);
+  color:var(--ink);margin:0;text-align:center}
+.section-note{color:var(--muted);font-size:.86rem;margin:.6rem 0 0;text-align:center}
+
+.preface p{margin:0 0 1.4rem;color:var(--ink-soft);font-style:italic}
+.preface p.openq::before{content:"❞";display:block;font-family:'Cormorant Garamond',serif;font-size:3.2rem;
+  line-height:.6;color:var(--gold);opacity:.5;margin-bottom:1rem}
+.preface .sign{color:var(--ink);font-style:normal;text-align:right;font-family:'Noto Serif Bengali',serif;font-size:.94rem}
+
+ol.toc{list-style:none;margin:2rem 0 0;padding:0}
+ol.toc li+li,.drawer ol li+li{border-top:1px dotted var(--hair)}
+ol.toc a,ol.toc span.soon,.drawer ol a,.drawer ol span.soon{
+  display:flex;align-items:baseline;gap:.65rem;padding:.78rem .1rem;text-decoration:none;color:var(--ink);line-height:1.7}
+ol.toc span.soon,.drawer ol span.soon{color:#5d636d}
+ol.toc a:hover .t-name,.drawer ol a:hover .t-name{color:var(--gold)}
+.t-no{font-family:'Noto Serif Bengali',serif;font-size:.78rem;color:var(--gold);min-width:1.45rem;flex:none}
+span.soon .t-no{color:#4b515a}
+.t-name{flex:0 1 auto;transition:color .2s;font-size:.98rem}
+.t-dots{flex:1 1 1.5rem;border-bottom:1px dotted var(--line);transform:translateY(-.25rem);min-width:.8rem}
+.t-min{flex:none;font-family:'Cormorant Garamond',serif;font-size:.76rem;color:var(--muted)}
+.tick{flex:none;color:var(--gold);font-size:.7rem;opacity:0;margin-left:.35rem;transition:opacity .25s}
+li.read .tick{opacity:.85}
+li.current .t-name{color:var(--gold)}
+li.current .t-no{color:var(--gold-bright)}
+.toc-total{margin:1.8rem 0 0;text-align:center;font-size:.78rem;color:var(--muted);font-family:'Noto Serif Bengali',serif}
+
+.chap-head{text-align:center;margin:0 0 2.4rem}
+.folio{font-family:'Noto Serif Bengali',serif;font-size:1.02rem;color:var(--gold);width:2.7rem;height:2.7rem;
+  line-height:2.55rem;margin:0 auto 1.1rem;border:1px solid var(--line);border-radius:50%;position:relative}
+.folio::after{content:"";position:absolute;inset:3px;border:1px solid var(--hair);border-radius:50%}
+.chapter .num{font-family:'Noto Serif Bengali',serif;font-size:.7rem;letter-spacing:.3em;color:var(--muted);margin:0 0 .7rem}
+.chap-title{font-family:'Noto Serif Bengali',serif;font-weight:600;font-size:clamp(1.5rem,7vw,2.1rem);
+  line-height:1.35;margin:0;color:var(--ink)}
+.chap-meta{margin:.9rem 0 0;font-size:.74rem;color:var(--muted);font-family:'Cormorant Garamond',serif;letter-spacing:.14em}
+.rule-orn{display:flex;align-items:center;justify-content:center;gap:.9rem;color:var(--gold);
+  font-size:.95rem;margin:1.4rem 0 0;opacity:.8}
+.rule-orn span{width:2.6rem;height:1px;background:var(--line)}
+
+.chapter p{margin:0 0 1.4rem;text-align:justify;hyphens:none}
+.chapter p.lead{font-size:1.07em;color:var(--ink);border-left:2px solid var(--line);padding-left:1.1rem;margin-bottom:1.9rem}
+.whisper{color:var(--ink-soft);font-style:italic;border-left:2px solid var(--blood);
+  padding:.2rem 0 .2rem 1.1rem;margin:0 0 1.5rem;text-align:left!important}
+.screen{font-family:'Cormorant Garamond',serif;font-size:.95em;color:var(--ink-soft);
+  background:color-mix(in srgb,var(--bg-deep) 55%,transparent);border:1px solid var(--hair);
+  border-left:2px solid var(--gold);padding:.9rem 1.1rem;margin:0 0 1.5rem;line-height:1.75;text-align:left!important}
+.chapter strong{font-family:'Noto Serif Bengali',serif;font-weight:600;color:var(--ink)}
+.break{display:flex;align-items:center;gap:1rem;margin:2.4rem 0 2.1rem;color:var(--gold);font-size:.78rem;
+  letter-spacing:.3em;justify-content:center}
+.break::before,.break::after{content:"";width:3.2rem;height:1px;background:var(--line)}
+.end{text-align:center;color:var(--muted);font-size:.7rem;letter-spacing:.34em;margin:2.6rem 0 0;
+  font-family:'Noto Serif Bengali',serif}
+.end::before{content:"❧";display:block;color:var(--gold);font-size:1rem;letter-spacing:0;margin:0 auto 1rem;opacity:.8}
+
+/* reveal */
+.chapter .story-body > *{opacity:1}
+html.anim .chapter .story-body > *{opacity:0;transform:translateY(10px);
+  transition:opacity .6s ease,transform .6s ease}
+html.anim .chapter .story-body > *.seen{opacity:1;transform:none}
+
+.tools{display:flex;gap:.5rem;flex-wrap:wrap;justify-content:center;margin:2.2rem 0 0}
+button.tool,a.tool{font-family:'Noto Serif Bengali',serif;font-size:.76rem;background:transparent;color:var(--muted);
+  border:1px solid var(--hair);border-radius:999px;padding:.5rem 1rem;cursor:pointer;text-decoration:none;
+  transition:color .18s,border-color .18s}
+button.tool:hover,a.tool:hover{color:var(--gold);border-color:var(--line)}
+.chap-nav{display:flex;gap:1rem;margin:2.4rem 0 0;padding-top:1.5rem;border-top:1px solid var(--hair)}
+.nav-link{flex:1;text-decoration:none;color:var(--ink-soft);font-size:.88rem;line-height:1.5;
+  font-family:'Noto Serif Bengali',serif;transition:color .2s}
+.nav-link:hover{color:var(--gold)}
+.nav-link span{display:block;font-size:.64rem;letter-spacing:.22em;color:var(--muted);margin-bottom:.35rem}
+.nav-link.next{text-align:right}
+.nav-link.muted{color:var(--muted);pointer-events:none}
+
+footer{padding:2.6rem 1.4rem calc(3.4rem + env(safe-area-inset-bottom,0px));text-align:center;color:var(--muted);
+  font-size:.78rem;border-top:1px solid var(--hair);background:var(--bg-deep)}
+footer p{margin:.35rem 0}
+footer .motto{font-family:'Noto Serif Bengali',serif;color:var(--gold);margin-top:1rem}
+footer a{color:var(--gold);text-decoration:none}
+.totop{position:fixed;right:1rem;bottom:calc(1.1rem + env(safe-area-inset-bottom,0px));width:2.7rem;height:2.7rem;
+  border-radius:50%;background:color-mix(in srgb,var(--page) 90%,transparent);border:1px solid var(--line);
+  color:var(--gold);display:grid;place-items:center;text-decoration:none;font-size:.95rem;
+  backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);opacity:0;pointer-events:none;
+  transition:opacity .25s;z-index:30}
+.totop.show{opacity:1;pointer-events:auto}
+@media (max-width:420px){
+  .chapter p{text-align:left}
+  .chap-nav{flex-direction:column;gap:1.3rem}
+  .nav-link.next{text-align:left}
+  .crumb .bk{display:none}
+}
+@media print{
+  .topbar,.totop,.tools,.chap-nav,#progress,.scrollcue,.drawer,.scrim,.panel,.resume,.lamp{display:none!important}
+  body{background:#fff;color:#111}
+  body::after{display:none}
+  .chapter,.sheet{box-shadow:none;border:none;background:#fff;page-break-after:always}
+}
+/* ---------- cover art ---------- */
+.coverart{display:block;width:min(72%,15rem);height:auto;aspect-ratio:2/3;object-fit:cover;margin:0 auto 1.8rem;border:1px solid var(--line);box-shadow:0 12px 34px rgba(0,0,0,.45)}
+.coverart .ln{stroke:var(--gold);fill:none;stroke-width:1.1;stroke-linecap:round;stroke-linejoin:round}
+.coverart .fade{stroke:var(--gold);opacity:.4;fill:none;stroke-width:.8}
+.coverart .glowdot{fill:var(--gold-bright);opacity:.9}
+.coverart .halo{fill:url(#lampglow)}
+.coverart .sweet{fill:var(--gold);opacity:.55}
+@media (prefers-reduced-motion:no-preference){
+  .coverart .halo{animation:haloflick 7s ease-in-out infinite}
+  @keyframes haloflick{0%,100%{opacity:1}44%{opacity:.6}48%{opacity:.95}76%{opacity:.72}}
+}
+
+/* ---------- drawer tabs / search / bookmarks ---------- */
+.dtabs{display:flex;gap:.4rem;padding:.8rem 1.2rem 0}
+.dtab{flex:1;font-family:'Noto Serif Bengali',serif;font-size:.78rem;background:transparent;color:var(--muted);
+  border:1px solid var(--hair);border-radius:2px;padding:.45rem .3rem;cursor:pointer;transition:all .2s}
+.dtab[aria-selected="true"]{border-color:var(--gold);color:var(--gold);
+  background:color-mix(in srgb,var(--gold) 10%,transparent)}
+.dpane{display:none;flex:1;overflow-y:auto}
+.dpane.on{display:block}
+.searchbox{padding:1rem 1.2rem .4rem}
+.searchbox input{width:100%;font-family:var(--bodyfont);font-size:.92rem;color:var(--ink);
+  background:color-mix(in srgb,var(--bg-deep) 45%,transparent);border:1px solid var(--hair);
+  border-bottom:1px solid var(--line);padding:.6rem .7rem;outline:none}
+.searchbox input::placeholder{color:var(--muted)}
+.shint{padding:.3rem 1.2rem 0;font-size:.74rem;color:var(--muted);font-family:'Noto Serif Bengali',serif}
+.sresults{list-style:none;margin:0;padding:.6rem 1.2rem 2rem}
+.sresults li{border-top:1px dotted var(--hair)}
+.sresults button{display:block;width:100%;text-align:right;background:transparent;border:0;cursor:pointer;
+  padding:.7rem 0;color:var(--ink-soft);font-family:var(--bodyfont);font-size:.88rem;line-height:1.7}
+.sresults .where{display:block;font-family:'Noto Serif Bengali',serif;font-size:.68rem;letter-spacing:.14em;
+  color:var(--gold);margin-bottom:.3rem}
+.sresults mark{background:transparent;color:var(--gold-bright);font-weight:600}
+.bmlist{list-style:none;margin:0;padding:.6rem 1.2rem 2rem}
+.bmlist li{border-top:1px dotted var(--hair);display:flex;align-items:flex-start;gap:.5rem}
+.bmlist button.go{flex:1;text-align:right;background:transparent;border:0;cursor:pointer;padding:.7rem 0;
+  color:var(--ink-soft);font-family:var(--bodyfont);font-size:.86rem;line-height:1.7}
+.bmlist .where{display:block;font-family:'Noto Serif Bengali',serif;font-size:.68rem;letter-spacing:.14em;
+  color:var(--gold);margin-bottom:.3rem}
+.bmlist button.del{background:transparent;border:0;color:var(--muted);cursor:pointer;font-size:.8rem;padding:.7rem .2rem}
+.bmlist button.del:hover{color:var(--blood)}
+.emptynote{padding:1.4rem 1.2rem;color:var(--muted);font-size:.84rem;font-family:'Noto Serif Bengali',serif;text-align:center}
+
+/* flash target */
+@keyframes flashfind{0%,100%{background:transparent}25%,70%{background:color-mix(in srgb,var(--gold) 18%,transparent)}}
+.flashfind{animation:flashfind 2.2s ease}
+
+/* bookmark button state */
+.iconbtn.marked{color:var(--gold);border-color:var(--line)}
+
+/* quote copy bubble */
+.qbubble{position:fixed;z-index:37;transform:translate(-50%,-115%);opacity:0;pointer-events:none;
+  transition:opacity .18s;background:var(--page);border:1px solid var(--gold);box-shadow:var(--shadow);
+  color:var(--gold);font-family:'Noto Serif Bengali',serif;font-size:.76rem;padding:.42rem .8rem;cursor:pointer}
+.qbubble.on{opacity:1;pointer-events:auto}
+</style>
+</head>
+<body>
+<div id="progress"></div>
+
+<div class="topbar">
+  <div class="ring" aria-hidden="true">
+    <svg viewBox="0 0 32 32"><circle class="bgc" cx="16" cy="16" r="14" fill="none" stroke-width="2"/>
+    <circle class="fgc" id="ringfg" cx="16" cy="16" r="14" fill="none" stroke-width="2"/></svg>
+    <b id="ringpct">০</b>
+  </div>
+  <div class="crumb">
+    <span class="bk">নিশিরাতের মিষ্টির দোকান</span>
+    <span class="ch" id="crumb">নুরজাহান আঁখি</span>
+  </div>
+  <span class="spacer"></span>
+  <button class="iconbtn" id="tocbtn" type="button">সূচি</button>
+  <button class="iconbtn" id="bmbtn" type="button" title="এই জায়গা চিহ্নিত করুন">🔖</button>
+  <button class="iconbtn" id="setbtn" type="button">পাঠরুচি</button>
+</div>
+
+<div class="scrim" id="scrim"></div>
+
+<aside class="drawer" id="drawer" aria-hidden="true">
+  <div class="drawer-head">
+    <h3 id="drawertitle">সূচিপত্র</h3>
+    <button class="xbtn" id="drawerclose" type="button" aria-label="বন্ধ করুন">✕</button>
+  </div>
+  <div class="dtabs" role="tablist">
+    <button class="dtab" data-pane="pane-toc" aria-selected="true">অধ্যায়</button>
+    <button class="dtab" data-pane="pane-search" aria-selected="false">খুঁজুন</button>
+    <button class="dtab" data-pane="pane-bm" aria-selected="false">চিহ্ন</button>
+  </div>
+  <div class="dpane on" id="pane-toc">
+  <ol>
+    <li data-ch="chap-1"><a href="#chap-1"><span class="t-no">০১</span><span class="t-name">রাত দুইটা চল্লিশের অর্ডার</span><span class="t-dots"></span><span class="t-min">১৩ মি.</span><span class="tick" aria-hidden="true">✓</span></a></li>
+    <li data-ch="chap-2"><a href="#chap-2"><span class="t-no">০২</span><span class="t-name">সদরঘাট রোডের শেষ গলি</span><span class="t-dots"></span><span class="t-min">১৪ মি.</span><span class="tick" aria-hidden="true">✓</span></a></li>
+    <li data-ch="chap-3"><a href="#chap-3"><span class="t-no">০৩</span><span class="t-name">যে ঠিকানা আর নেই</span><span class="t-dots"></span><span class="t-min">১৫ মি.</span><span class="tick" aria-hidden="true">✓</span></a></li>
+    <li data-ch="chap-4"><a href="#chap-4"><span class="t-no">০৪</span><span class="t-name">নিতাই ময়রার সন্দেশ</span><span class="t-dots"></span><span class="t-min">১৬ মি.</span><span class="tick" aria-hidden="true">✓</span></a></li>
+    <li data-ch="chap-5"><a href="#chap-5"><span class="t-no">০৫</span><span class="t-name">বাবার হাতের স্বাদ</span><span class="t-dots"></span><span class="t-min">১৬ মি.</span><span class="tick" aria-hidden="true">✓</span></a></li>
+    <li data-ch="chap-6"><a href="#chap-6"><span class="t-no">০৬</span><span class="t-name">যা আমি ভুলে যাচ্ছি</span><span class="t-dots"></span><span class="t-min">১৬ মি.</span><span class="tick" aria-hidden="true">✓</span></a></li>
+    <li data-ch="chap-7"><a href="#chap-7"><span class="t-no">০৭</span><span class="t-name">খাতার নামগুলো</span><span class="t-dots"></span><span class="t-min">১৭ মি.</span><span class="tick" aria-hidden="true">✓</span></a></li>
+    <li data-ch="chap-8"><a href="#chap-8"><span class="t-no">০৮</span><span class="t-name">আটচল্লিশ সালের সেই রাত</span><span class="t-dots"></span><span class="t-min">১৮ মি.</span><span class="tick" aria-hidden="true">✓</span></a></li>
+    <li data-ch="chap-9"><a href="#chap-9"><span class="t-no">০৯</span><span class="t-name">আমার বাড়ির অর্ডার</span><span class="t-dots"></span><span class="t-min">১৮ মি.</span><span class="tick" aria-hidden="true">✓</span></a></li>
+    <li data-ch="chap-10"><a href="#chap-10"><span class="t-no">১০</span><span class="t-name">শেষ খদ্দের</span><span class="t-dots"></span><span class="t-min">২০ মি.</span><span class="tick" aria-hidden="true">✓</span></a></li>
+  </ol>
+  </div>
+  <div class="dpane" id="pane-search">
+    <div class="searchbox">
+      <input type="search" id="searchinput" placeholder="বইয়ের ভেতর খুঁজুন…" autocomplete="off">
+    </div>
+    <p class="shint" id="shint">অন্তত দুই অক্ষর লিখুন</p>
+    <ul class="sresults" id="sresults"></ul>
+  </div>
+  <div class="dpane" id="pane-bm">
+    <ul class="bmlist" id="bmlist"></ul>
+    <p class="emptynote" id="bmempty">উপরের 🔖 চাপলে পড়ার জায়গাটা এখানে জমা থাকবে</p>
+  </div>
+</aside>
+
+<div class="qbubble" id="qbubble">উক্তি কপি করুন</div>
+
+<div class="panel" id="panel">
+  <h4>পাঠের রং</h4>
+  <div class="row">
+    <button class="chip" data-theme-set="night">রাত</button>
+    <button class="chip" data-theme-set="paper">কাগজ</button>
+  </div>
+  <h4>অক্ষরের আকার</h4>
+  <div class="row">
+    <button class="chip" data-fs="-">ক−</button>
+    <button class="chip" data-fs="0">আদি</button>
+    <button class="chip" data-fs="+">ক+</button>
+  </div>
+  <h4>অক্ষরের ধরন</h4>
+  <div class="row">
+    <button class="chip" data-font="tiro">প্রাচীন</button>
+    <button class="chip" data-font="noto">আধুনিক</button>
+    <button class="chip" data-font="hind">সরল</button>
+  </div>
+  <h4>পঙ্‌ক্তির ফাঁক</h4>
+  <div class="row">
+    <button class="chip" data-lh="1.85">ঘন</button>
+    <button class="chip" data-lh="2.1">মাঝারি</button>
+    <button class="chip" data-lh="2.4">খোলা</button>
+  </div>
+</div>
+
+<div class="resume" id="resume">
+  <span id="resumetxt">আগের জায়গা থেকে পড়বেন?</span>
+  <button id="resumego" type="button">হ্যাঁ</button>
+  <button class="no" id="resumeno" type="button">না</button>
+</div>
+
+<header class="cover">
+  <div class="lamp" aria-hidden="true"></div>
+  <div class="cover-frame">
+    <span class="corner tl"></span><span class="corner tr"></span>
+    <span class="corner bl"></span><span class="corner br"></span>
+    <p class="imprint">আঁখির লেখালয়</p>
+    <img class="coverart" src="assets/nishiraater-mishtir-dokan-cover.png" alt="নিশিরাতের মিষ্টির দোকান — নুরজাহান আঁখির ভৌতিক উপন্যাসিকার প্রচ্ছদ" width="1024" height="1536">
+    <h1>নিশিরাতের<br>মিষ্টির দোকান</h1>
+    <p class="kind">ভৌতিক উপন্যাসিকা · দশ অধ্যায়</p>
+    <div class="flourish"><span>✦</span></div>
+    <p class="by">নুরজাহান আঁখি<small>NURJAHAN AKHI</small></p>
+    <p class="site">akhisliterary-haven.github.io/<a href="https://akhisliterary-haven.github.io/akhis-lekhaghor/">akhis-lekhaghor</a></p>
+  </div>
+  <div class="scrollcue">পড়তে নামুন</div>
+</header>
+
+<main>
+
+<section class="sheet preface">
+  <p class="openq">শহরের কিছু দোকান দিনে থাকে না। রাত দুইটার পর, যখন রাস্তা খালি হয়ে যায় আর কুকুরগুলো পর্যন্ত চুপ করে যায়, তখন কোনো একটা গলির মাথায় একটা হলুদ বাতি জ্বলে ওঠে।</p>
+  <p>ওই বাতির নিচে কাচের শোকেস থাকে, শোকেসের ভেতরে থরে থরে মিষ্টি থাকে, আর কাউন্টারের পেছনে একজন মানুষ বসে থাকে—যে আপনার নাম জানে।</p>
+  <p>দোকানটা টাকা নেয় না। অন্য কিছু নেয়।</p>
+  <p class="sign">— নুরজাহান আঁখি</p>
+</section>
+
+<section class="sheet" id="suchipotro">
+  <h2 class="section">সূচিপত্র</h2>
+  <p class="section-note">যে অধ্যায়টা পড়তে চান, নামের ওপর চাপ দিন</p>
+  <ol class="toc">
+    <li data-ch="chap-1"><a href="#chap-1"><span class="t-no">০১</span><span class="t-name">রাত দুইটা চল্লিশের অর্ডার</span><span class="t-dots"></span><span class="t-min">১৩ মি.</span><span class="tick" aria-hidden="true">✓</span></a></li>
+    <li data-ch="chap-2"><a href="#chap-2"><span class="t-no">০২</span><span class="t-name">সদরঘাট রোডের শেষ গলি</span><span class="t-dots"></span><span class="t-min">১৪ মি.</span><span class="tick" aria-hidden="true">✓</span></a></li>
+    <li data-ch="chap-3"><a href="#chap-3"><span class="t-no">০৩</span><span class="t-name">যে ঠিকানা আর নেই</span><span class="t-dots"></span><span class="t-min">১৫ মি.</span><span class="tick" aria-hidden="true">✓</span></a></li>
+    <li data-ch="chap-4"><a href="#chap-4"><span class="t-no">০৪</span><span class="t-name">নিতাই ময়রার সন্দেশ</span><span class="t-dots"></span><span class="t-min">১৬ মি.</span><span class="tick" aria-hidden="true">✓</span></a></li>
+    <li data-ch="chap-5"><a href="#chap-5"><span class="t-no">০৫</span><span class="t-name">বাবার হাতের স্বাদ</span><span class="t-dots"></span><span class="t-min">১৬ মি.</span><span class="tick" aria-hidden="true">✓</span></a></li>
+    <li data-ch="chap-6"><a href="#chap-6"><span class="t-no">০৬</span><span class="t-name">যা আমি ভুলে যাচ্ছি</span><span class="t-dots"></span><span class="t-min">১৬ মি.</span><span class="tick" aria-hidden="true">✓</span></a></li>
+    <li data-ch="chap-7"><a href="#chap-7"><span class="t-no">০৭</span><span class="t-name">খাতার নামগুলো</span><span class="t-dots"></span><span class="t-min">১৭ মি.</span><span class="tick" aria-hidden="true">✓</span></a></li>
+    <li data-ch="chap-8"><a href="#chap-8"><span class="t-no">০৮</span><span class="t-name">আটচল্লিশ সালের সেই রাত</span><span class="t-dots"></span><span class="t-min">১৮ মি.</span><span class="tick" aria-hidden="true">✓</span></a></li>
+    <li data-ch="chap-9"><a href="#chap-9"><span class="t-no">০৯</span><span class="t-name">আমার বাড়ির অর্ডার</span><span class="t-dots"></span><span class="t-min">১৮ মি.</span><span class="tick" aria-hidden="true">✓</span></a></li>
+    <li data-ch="chap-10"><a href="#chap-10"><span class="t-no">১০</span><span class="t-name">শেষ খদ্দের</span><span class="t-dots"></span><span class="t-min">২০ মি.</span><span class="tick" aria-hidden="true">✓</span></a></li>
+  </ol>
+  <p class="toc-total">সম্পূর্ণ বই · দশ অধ্যায় · আনুমানিক ১৬৩ মিনিটের পাঠ</p>
+</section>
+
+<article class="chapter" id="chap-1" data-title="রাত দুইটা চল্লিশের অর্ডার" data-folio="০১">
+  <header class="chap-head">
+    <div class="folio">০১</div>
+    <p class="num">অধ্যায় এক</p>
+    <h2 class="chap-title">রাত দুইটা চল্লিশের অর্ডার</h2>
+    <p class="chap-meta">আনুমানিক পাঠকাল ১৩ মিনিট</p>
+    <div class="rule-orn" aria-hidden="true"><span></span>❧<span></span></div>
+  </header>
+
+  <div class="story-body">
+    <p class="lead">রাত দুইটা চল্লিশে অর্ডার আসে না। এইটা আমি তিন বছরের অভিজ্ঞতা থেকে বলতে পারি।</p>
+    <p>রাত বারোটা পর্যন্ত বিরিয়ানি, বারোটা থেকে একটা পর্যন্ত কফি আর ফ্রেঞ্চ ফ্রাই, দেড়টার দিকে কিছু ওষুধ—জ্বরের ট্যাবলেট, বাচ্চার স্যালাইন, কখনো ইনহেলার। দুইটার পর অ্যাপে আর কিছু থাকে না। রেস্টুরেন্টগুলো শাটার নামিয়ে দেয়, রাইডাররা বাইক থামিয়ে ফুটপাতে বসে, আর আমরা অপেক্ষা করি ভোর পাঁচটার, যখন রুটি-পরোটার অর্ডার শুরু হবে।</p>
+    <p>ওই ফাঁকের সময়টুকুতে আমি সাধারণত জুবিলী রোডের মোড়ে দাঁড়াই। হেলমেট খুলে, ব্যাগটা পিছনে রেখে, ফোনের চার্জ দেখি। সাতাশ পার্সেন্ট। পাওয়ার ব্যাংকটা গত সপ্তাহে নষ্ট হয়েছে, ঠিক করাইনি।</p>
+    <p>তিন বছরে আমি এই শহরের রাতটা মুখস্থ করে ফেলেছি। কোন গলিতে কুকুর আছে, কোন মোড়ে পুলিশ দাঁড়ায়, কোন রাস্তার কোন জায়গাটা বৃষ্টির পর ডুবে যায়, কোন বিল্ডিংয়ের দারোয়ান লিফট ছাড়া ওপরে উঠতে দেয় না।</p>
+    <p>কিন্তু সেই রাতে ফোনটা যখন কাঁপল, আর আমি স্ক্রিনে তাকালাম, আমি একটা নাম দেখলাম যেটা আমি কোনোদিন শুনিনি।</p>
+
+    <p class="screen">নতুন অর্ডার · #৪৪১৭<br>
+    পিকআপ: নিশিরাত মিষ্টান্ন ভাণ্ডার<br>
+    ঠিকানা: ১৩ নং, পুরান গলি, চকবাজার<br>
+    পণ্য: ১ কেজি সন্দেশ (বিশেষ)<br>
+    ডেলিভারি: ৭/বি, হাসিনা মঞ্জিল, আসকার দিঘীর পাড়<br>
+    গ্রাহক: রওশন আরা<br>
+    মূল্য: পরিশোধিত<br>
+    ডেলিভারি চার্জ: ৳ ৮০০</p>
+
+    <p>আটশো টাকা।</p>
+    <p>স্বাভাবিক ডেলিভারি চার্জ পঁয়তাল্লিশ টাকা। দূরের হলে সত্তর। বৃষ্টির রাতে সার্জ লাগলে নব্বই।</p>
+    <p>আটশো টাকায় আমি তিন দিনের বাজার করতে পারি।</p>
+    <p>আমি ‘গ্রহণ করুন’ বোতামটায় চাপ দিলাম।</p>
+    <p>এখন এত বছর পর আমি জানি, ওইটাই ছিল আমার সবচেয়ে বড় ভুল। কিন্তু সত্যি কথা বলতে, আবার যদি ওই মোড়ে ওই রাতে ফিরে যেতে পারতাম, আমি আবারও চাপ দিতাম। আটশো টাকা। মায়ের ওষুধের দাম ছয়শো আশি।</p>
+
+    <div class="break">✦</div>
+
+    <p>অ্যাপের ম্যাপ খুলে আমি প্রথম সমস্যাটা পেলাম।</p>
+    <p>পিনটা চকবাজারের ভেতরের দিকে, কিন্তু ঠিক যেখানে পিনটা বসানো সেখানে ম্যাপে কিছু নেই। রাস্তার লাইনগুলো ওখানে এসে শেষ হয়ে গেছে। কোনো দোকানের নাম নেই, কোনো বিল্ডিং নেই—শুধু একটা ধূসর খালি জায়গা, যেন ওখানটা কেউ এখনো আঁকেনি।</p>
+    <p>আমি সাপোর্টে কল দিলাম। রিং হলো এগারোবার, কেউ ধরল না।</p>
+    <p>রাইডারদের গ্রুপে লিখলাম—<em>ভাই, নিশিরাত মিষ্টান্ন ভাণ্ডার, চকবাজার, কেউ চেনেন?</em></p>
+    <p>গ্রুপে তখন দুইশো ছিয়াশি জন অনলাইন। কেউ উত্তর দিল না। মেসেজটায় দুইটা টিক পড়ল, নীল হলো, তারপর কিছুই না।</p>
+    <p>আমি বাইক স্টার্ট দিলাম।</p>
+
+    <div class="break">✦</div>
+
+    <p>চকবাজারে ঢুকতে ঢুকতে তিনটা বাজার দশ মিনিট আগে।</p>
+    <p>দিনের বেলা এই জায়গাটা পৃথিবীর সবচেয়ে ভিড়ের জায়গাগুলোর একটা—মানুষ, রিকশা, কাঁচাবাজার, কাপড়ের দোকান, হাঁকডাক। রাতে এইটা অন্য একটা শহর হয়ে যায়। শাটার নামানো দোকানগুলো দেখতে লাগে সারি সারি বন্ধ চোখের মতো। রাস্তায় তরকারির খোসা, ভাঙা কাঠের বাক্স, আর কোথাও কোথাও পানি জমে থাকে যেটার গন্ধ আপনি হেলমেটের ভেতর থেকেও পাবেন।</p>
+    <p>আমি পিনের কাছাকাছি গিয়ে বাইক থামালাম।</p>
+    <p>বাঁ দিকে একটা ওষুধের দোকান, বন্ধ। ডান দিকে একটা মোবাইলের দোকান, বন্ধ। মাঝখানে—</p>
+    <p>মাঝখানে কোনো গলি ছিল না।</p>
+    <p>দুইটা দোকানের দেয়াল একটা আরেকটার সঙ্গে লাগানো। মাঝখানে এক ইঞ্চি ফাঁকও নেই।</p>
+    <p>আমি ফোনের দিকে তাকালাম। পিনটা দেখাচ্ছে আমি জায়গামতোই আছি। আমি সামনে এগোলাম, পেছনে এলাম, গলির মুখগুলোতে উঁকি দিলাম। কিছু নেই। পাঁচ মিনিট পর ঘড়ি দেখলাম—তিনটা বেজে এক।</p>
+    <p>অর্ডার বাতিল করতে গেলে রেটিং কমে। আমার রেটিং ৪.৮৭, এই তিন বছরে আমি এইটার জন্য অনেক কিছু সহ্য করেছি—চারতলায় লিফট ছাড়া ওঠা, গালি খাওয়া, বৃষ্টিতে ভেজা।</p>
+    <p>আমি বাতিলের বোতামে আঙুল রাখলাম।</p>
+    <p>আর তখনই গন্ধটা পেলাম।</p>
+
+    <div class="break">✦</div>
+
+    <p>ছানা জ্বাল দেওয়ার গন্ধ।</p>
+    <p>যে গন্ধটা মিষ্টির দোকানের পেছনের ঘর থেকে আসে, ভোরবেলা, যখন কড়াইয়ে দুধ ঘন হয়ে আসছে আর তার সঙ্গে এলাচ পড়েছে। গন্ধটা মিষ্টি, কিন্তু কাঁচা—চিনির গন্ধ না, দুধ পোড়ার গন্ধ।</p>
+    <p>রাত তিনটা এক মিনিটে, বন্ধ চকবাজারে, সেই গন্ধ আমার হেলমেটের ভেতর পর্যন্ত চলে এল।</p>
+    <p>আমি ঘাড় ঘোরালাম।</p>
+    <p>দুইটা দেয়ালের মাঝখানে একটা গলি।</p>
+    <p>আমি শপথ করে বলতে পারি, ত্রিশ সেকেন্ড আগেও ওখানে কিছু ছিল না। কিন্তু এখন ওখানে একটা গলি—সরু, দুইজন পাশাপাশি হাঁটতে পারবে না এমন—আর গলির ভেতর থেকে হলুদ আলো আসছে।</p>
+    <p>বৈদ্যুতিক বাতির আলো না। হলুদ, কাঁপা কাঁপা, হারিকেনের মতো।</p>
+    <p>যুক্তি দিয়ে তখন কী ভেবেছিলাম, এখন মনে করতে পারি না। সম্ভবত ভেবেছিলাম আগে খেয়াল করিনি, অন্ধকারে চোখে পড়েনি। মানুষের মাথা অদ্ভুত জিনিস—যা মানতে চায় না, তার জন্য সঙ্গে সঙ্গে একটা ব্যাখ্যা বানিয়ে ফেলে।</p>
+    <p>আমি বাইকটা দেয়ালের গায়ে ঠেকিয়ে রাখলাম, ডেলিভারি ব্যাগটা পিঠে নিলাম, আর গলিতে ঢুকলাম।</p>
+
+    <div class="break">✦</div>
+
+    <p>গলিটা লম্বা ছিল। অনেক লম্বা।</p>
+    <p>সেইটাই প্রথম জিনিস যেটা আমার শরীর বুঝেছিল, মাথা বোঝার আগে। বাইরে থেকে দেখে মনে হয়েছিল দশ-পনেরো হাত। আমি হাঁটতে থাকলাম, আর হাঁটতেই থাকলাম। দুই পাশে দেয়াল, ভেজা, হাত দিলে শ্যাওলা। মাথার ওপর আকাশ দেখা যায় না—দুই দেয়াল ওপরের দিকে ঝুঁকে এসেছে, যেন পরস্পরকে কিছু বলছে।</p>
+    <p>পেছনে তাকালাম একবার। রাস্তার আলোটা ছোট হয়ে এসেছে, একটা সরষের দানার মতো।</p>
+    <p>আর সামনে, গলির শেষ মাথায়, দোকানটা।</p>
+    <p>কাঠের কাঠামো, সামনে কাচের শোকেস, শোকেসের ওপর পিতলের একটা দাঁড়িপাল্লা। শোকেসের ভেতরে থরে থরে সাজানো মিষ্টি—সাদা সন্দেশ, বাদামি পান্তোয়া, কালো কালোজাম, আর এমন কিছু আমি চিনতে পারলাম না।</p>
+    <p>মাথার ওপর সাইনবোর্ড, কালো তক্তায় সোনালি অক্ষরে লেখা—</p>
+    <p class="whisper">নিশিরাত মিষ্টান্ন ভাণ্ডার<br>স্থাপিত ১৩৫৫ বঙ্গাব্দ<br>“রাত্রিকালে খোলা”</p>
+    <p>আর কাউন্টারের পেছনে, একটা কাঠের টুলে বসে, একজন বৃদ্ধ।</p>
+
+    <div class="break">✦</div>
+
+    <p>তাঁর গায়ে সাদা ফতুয়া, কাঁধে গামছা, মাথার চুল সাদা এবং খুব পরিপাটি করে আঁচড়ানো। ভ্রু দুটো ঝোপের মতো, আর ভ্রুর নিচের চোখ দুটো—</p>
+    <p>চোখ দুটোর কথা আমি পরে বলব। এখন বললে আপনি বিশ্বাস করবেন না।</p>
+    <p>তিনি মাথা তুললেন না। হাতে একটা মাটির সরা, তাতে ছানা মাখছেন। আঙুল চলছে ধীরে, নিয়ম মেনে।</p>
+    <p>“দেরি করলা, রাফি।”</p>
+    <p>আমার নাম।</p>
+    <p>অ্যাপে রাইডারের নাম দোকানকে দেখানো হয়—এইটা আমি জানি। তাই প্রথমে আমি অবাক হইনি। আমি বলেছিলাম, “জ্যাম ছিল না, চাচা, গলিটাই খুঁজে পাইতেছিলাম না।”</p>
+    <p>“গলি খুঁজলে পাওয়া যায় না।” তিনি ছানার মণ্ডটা উল্টালেন। “যার দরকার, তার সামনে গলি নিজেই আইসা দাঁড়ায়।”</p>
+    <p>আমি হেসেছিলাম। ভদ্রতার হাসি, যেটা আমরা বুড়ো মানুষের কথা না বুঝলে হাসি।</p>
+    <p>“অর্ডারটা দেন, চাচা। আসকার দিঘীর পাড় তো কাছেই।”</p>
+    <p>এইবার তিনি মাথা তুললেন।</p>
+
+    <div class="break">✦</div>
+
+    <p>আমি তিন বছর ধরে রাতে বাইক চালাই। আমি দুর্ঘটনা দেখেছি, মারামারি দেখেছি, একবার এক লোককে রাস্তার মাঝখানে পড়ে থাকতে দেখেছি যার আর কিছু করার ছিল না।</p>
+    <p>কিন্তু ভয় জিনিসটা আমি ওই রাতে প্রথম চিনলাম। আর ভয় জিনিসটা চিৎকার না—ভয় হলো, হঠাৎ করে আপনার শরীরটা আপনার কথা শোনা বন্ধ করে দেয়।</p>
+    <p>বৃদ্ধের চোখে মণি ছিল না।</p>
+    <p>অন্ধ মানুষের চোখ ঘোলাটে হয়, সাদাটে হয়—সেটা আমি দেখেছি। এইটা সেরকম না। তাঁর চোখের ভেতরটা ছিল পরিষ্কার, এবং খালি। যেন কেউ দুইটা গর্ত করে রেখেছে, আর গর্তের ওপাশে কিছু নেই।</p>
+    <p>অথচ তিনি আমার দিকে তাকিয়ে ছিলেন। এবং—এইটা আমি কসম কেটে বলতে পারি—আমাকে দেখছিলেন।</p>
+    <p>“মায়ের ওষুধের দাম ছয়শো আশি,” তিনি বললেন। “বাকি একশো বিশ দিয়া কী করবা?”</p>
+    <p>আমার মুখ শুকিয়ে গেল।</p>
+    <p>“চাচা—”</p>
+    <p>“ভয় পাইও না।” তিনি সরাটা নামিয়ে রাখলেন, গামছায় হাত মুছলেন। “আমি তোমার ক্ষতি করুম না। এই দোকান কারো ক্ষতি করে না। এইটা মিষ্টির দোকান, বাপ। মানুষ যা চায়, আমি তা-ই বানাই।”</p>
+    <p>তিনি নিচু হয়ে শোকেসের পেছন থেকে একটা বাক্স তুললেন।</p>
+    <p>সাদা কাগজের বাক্স। কোনো ছাপা নেই, কোনো নাম নেই। লাল সুতা দিয়ে বাঁধা, আর গিঁটটা অদ্ভুত—এমন প্যাঁচানো যা আমি আগে দেখিনি।</p>
+    <p>বাক্সটা হাতে নিয়ে আমি টের পেলাম ওটা গরম। সদ্য বানানো মিষ্টি যেমন গরম থাকে, তেমন না। এইটা অন্যরকম—শরীরের মতো গরম।</p>
+
+    <div class="break">✦</div>
+
+    <p>“তিনটা নিয়ম,” বৃদ্ধ বললেন।</p>
+    <p>আমি হেলমেটের স্ট্র্যাপ ধরে দাঁড়িয়ে রইলাম।</p>
+    <p>“এক। বাক্স খুইলো না। খুললে মাল নষ্ট হইব, আর নষ্ট মাল আমি ফেরত নেই না।</p>
+    <p>“দুই। পথে কেউ ডাকলে—যেই ডাকুক, যতই চিনা গলা হোক—পিছে তাকাইয়ো না। রাইতের ডাক মানুষের গলায় আসে না, মানুষের গলা নকল কইরা আসে।</p>
+    <p>“তিন।” তিনি একটু থামলেন। “মাল বুঝাইয়া দেওয়ার পর খদ্দের যদি তোমারে কিছু খাইতে দেয়—নিবা না। এক কামড়ও না।”</p>
+    <p>“আর যদি নেই?”</p>
+    <p>তিনি হাসলেন। তাঁর দাঁতগুলো ছিল সুন্দর, সাদা, একটাও নষ্ট না—আর ওই বয়সের একজন মানুষের অমন দাঁত দেখে আমার গায়ে কাঁটা দিল।</p>
+    <p>“তাইলে পরের বার তুমি খদ্দের হইবা, বাপ। আর রাইডার হইব অন্য কেউ।”</p>
+
+    <div class="break">✦</div>
+
+    <p>গলি দিয়ে ফেরার সময় আমি একবারও পেছনে তাকাইনি, আর গলিটা এইবার লম্বা লাগল না। বিশ পা, বড়জোর পঁচিশ, তারপরই চকবাজারের সেই চেনা রাস্তা, আমার বাইক, আর অ্যাপে জ্বলজ্বল করতে থাকা স্ক্রিন।</p>
+    <p>আমি ঘুরে তাকালাম দেয়াল দুইটার দিকে।</p>
+    <p>কোনো গলি নেই।</p>
+    <p>ইটের গায়ে ইট, এক ইঞ্চি ফাঁক নেই, আর ওষুধের দোকানের সাইনবোর্ডটা মোবাইলের দোকানের সাইনবোর্ডের গায়ে লেগে আছে।</p>
+    <p>আমার পিঠের ব্যাগে একটা গরম বাক্স, লাল সুতায় বাঁধা।</p>
+    <p>আমি অনেকক্ষণ দাঁড়িয়ে রইলাম। তারপর যেটা করলাম, সেটা আমার নিজের কাছেই অদ্ভুত লেগেছিল—আমি হেলমেটটা পরলাম, বাইক স্টার্ট দিলাম, আর ডেলিভারি দিতে রওনা হলাম।</p>
+    <p>কারণ তিন বছরের অভ্যাস মানুষকে এমন জায়গায় নিয়ে যায়, যেখানে সে ভয় পাওয়ার চেয়ে কাজ শেষ করাটাকে বেশি জরুরি মনে করে।</p>
+
+    <div class="break">✦</div>
+
+    <p>আসকার দিঘীর পাড় চকবাজার থেকে বেশি দূর না। রাত তিনটায় রাস্তা ফাঁকা, আমি সাত মিনিটে পৌঁছে যাওয়ার কথা।</p>
+    <p>প্রথম তিন মিনিট কিছু হয়নি।</p>
+    <p>চতুর্থ মিনিটে, সিরাজউদ্দৌলা রোডের ওপর, যেখানে দুই পাশে সারি সারি পুরোনো বিল্ডিং আর মাঝখানের রাস্তাটা একটা সুড়ঙ্গের মতো দেখায়—সেখানে কেউ আমার নাম ধরে ডাকল।</p>
+    <p>“রাফি!”</p>
+    <p>আমি ব্রেক চাপিনি। শুধু হাতটা কেঁপে গিয়েছিল।</p>
+    <p>গলাটা পরিষ্কার ছিল, কাছেই, যেন কেউ আমার পাশ দিয়ে দৌড়াচ্ছে। আর গলাটা আমার চেনা।</p>
+    <p>“রাফি, দাঁড়া! আমি!”</p>
+    <p>এইবার আমার হাত-পা ঠান্ডা হয়ে গেল, কারণ আমি চিনে ফেলেছিলাম।</p>
+    <p>ওইটা আমার বাবার গলা।</p>
+    <p>যিনি মারা গেছেন চার বছর আগে।</p>
+    <p class="end">প্রথম অধ্যায় সমাপ্ত</p>
+  </div>
+
+  <div class="tools">
+    <button class="tool" data-copy="chap-1">অধ্যায়টি কপি করুন</button>
+    <button class="tool" data-link="chap-1">লিংক কপি করুন</button>
+    <button class="tool" data-toc>সূচিপত্র</button>
+  </div>
+
+  <nav class="chap-nav"><span class="nav-link muted"><span>পূর্ববর্তী</span>—</span><a class="nav-link next" href="#chap-2"><span>পরবর্তী</span>সদরঘাট রোডের শেষ গলি</a></nav>
+</article>
+
+
+<article class="chapter" id="chap-2" data-title="সদরঘাট রোডের শেষ গলি" data-folio="০২">
+  <header class="chap-head">
+    <div class="folio">০২</div>
+    <p class="num">অধ্যায় দুই</p>
+    <h2 class="chap-title">সদরঘাট রোডের শেষ গলি</h2>
+    <p class="chap-meta">আনুমানিক পাঠকাল ১৪ মিনিট</p>
+    <div class="rule-orn" aria-hidden="true"><span></span>❧<span></span></div>
+  </header>
+
+  <div class="story-body">
+    <p class="lead">আমার বাবা মারা গেছেন চার বছর আগে, শীতকালে, হাসপাতালের করিডোরে স্ট্রেচারের ওপর শুয়ে, বেড পাওয়ার অপেক্ষায়।</p>
+    <p>তিনি কথা বলতে পারছিলেন না শেষ দুইদিন। তাই তাঁর গলার শেষ যে স্মৃতিটা আমার আছে, সেটা তারও আগের—হাসপাতালে নেওয়ার আগের রাতের, যখন তিনি বিছানা থেকে আমাকে ডেকেছিলেন। “রাফি!” শুধু নামটা। তারপর বলেছিলেন পানি দিতে।</p>
+    <p>সিরাজউদ্দৌলা রোডের ওপর যে গলাটা আমাকে ডাকল, সেইটা ঠিক ওই গলা। একই টান, একই ভাঙা জায়গা, এমনকি নামের শেষে সেই অদ্ভুত টেনে বলাটা—রাফি না, <em>রাফ্-ই</em>।</p>
+    <p>আমি তাকাইনি।</p>
+    <p>আমি জানি না কীভাবে পারলাম। আমার ঘাড়ের পেশিগুলো ঘোরার জন্য তৈরি হয়ে গিয়েছিল—মানুষের শরীর নিজের কথা শোনে, নিজের নাম শুনলে ঘুরে তাকায়, এইটা শেখানো লাগে না। আমি দাঁতে দাঁত চেপে সামনের রাস্তাটার দিকে তাকিয়ে রইলাম, আর বাইকের গতি বাড়ালাম।</p>
+    <p>গলাটা আবার এল। এইবার আরো কাছে।</p>
+    <p class="whisper">“দাঁড়া বাপ। একবার দেখব খালি।”</p>
+    <p>আমার চোখ ভরে উঠল। ওইটা সবচেয়ে খারাপ অংশ—ভয়টা না, ভয়ের সঙ্গে মেশানো ইচ্ছেটা। চার বছর ধরে আমি এই গলাটা শোনার জন্য অপেক্ষা করেছি। স্বপ্নে শুনেছি, ঘুম ভেঙে কেঁদেছি। আর আজ রাতে, খোলা রাস্তায়, গলাটা আমাকে ডাকছে, আর আমাকে তাকাতে মানা করা হয়েছে।</p>
+    <p>“রাফি, আমার শইলটা ভালো না।”</p>
+    <p>আমি আরো জোরে চালালাম।</p>
+    <p>আর তখন গলাটা বদলাল।</p>
+
+    <div class="break">✦</div>
+
+    <p>এইটা আমি কীভাবে বোঝাব জানি না।</p>
+    <p>গলাটা একই রইল, কিন্তু ভেতরের মানুষটা বদলে গেল। যেন কেউ আমার বাবার গলাটা একটা পোশাকের মতো পরে ছিল, আর এখন পোশাকটা গায়ে ঠিকমতো বসছে না।</p>
+    <p>“তাকা।”</p>
+    <p>শব্দটা আর অনুরোধ না। আদেশ।</p>
+    <p>“তাকা। তাকা। তাকা।”</p>
+    <p>এতবার, এত দ্রুত, যে শেষে শব্দটা অর্থ হারিয়ে একটা ঘষার আওয়াজ হয়ে গেল—যেন কেউ ইটের ওপর ভেজা কাপড় ঘষছে।</p>
+    <p>তারপর গলাটা আমার মায়ের হয়ে গেল।</p>
+    <p>“বাজান, আমার বুকে ব্যথা করতাছে, একটু আয় না।”</p>
+    <p>তারপর আমার ছোট বোনের।</p>
+    <p>“ভাইয়া, দরজা খোলা রাইখা গেছস কেন?”</p>
+    <p>তারপর এমন একজনের, যে এখনো বেঁচে আছে—আমার পাশের রুমের ভাড়াটে, যার সঙ্গে আমার দিনে দুইটার বেশি কথা হয় না।</p>
+    <p>আর তখন আমি বুঝলাম ময়রার কথাটার মানে কী। <em>রাইতের ডাক মানুষের গলায় আসে না, মানুষের গলা নকল কইরা আসে।</em> যেটা আমার পেছনে ছিল, সেটার নিজের কোনো গলা নেই। সে শুধু কুড়িয়ে নেয়—কোথা থেকে, কে জানে।</p>
+    <p>সদরঘাট রোডের মোড়ে এসে গলাটা একবারে থেমে গেল। মাঝপথে, একটা শব্দের মাঝখানে, যেন কেউ সুইচ বন্ধ করে দিল।</p>
+    <p>আর তখনই ফোনটা কাঁপল।</p>
+
+    <div class="break">✦</div>
+
+    <p>আমি বাইক থামিয়ে হ্যান্ডেলের হোল্ডার থেকে ফোনটা নিলাম। হাত তখনো কাঁপছে।</p>
+
+    <p class="screen">অর্ডার #৪৪১৭ · ঠিকানা হালনাগাদ<br>
+    পূর্বের ঠিকানা: ৭/বি, হাসিনা মঞ্জিল, আসকার দিঘীর পাড়<br>
+    নতুন ঠিকানা: হাসিনা মঞ্জিল, সদরঘাট রোডের শেষ গলি<br>
+    গ্রাহকের নোট: “গলির মুখে বাতি নাই। সোজা আইসো, বাঁ দিকে তাকাইয়ো না।”</p>
+
+    <p>আমি স্ক্রিনটার দিকে তাকিয়ে রইলাম অনেকক্ষণ।</p>
+    <p>আসকার দিঘীর পাড় আর সদরঘাট রোড—এই দুইটা জায়গার মধ্যে দূরত্ব তিন কিলোমিটারের বেশি। অ্যাপে ঠিকানা বদলায়, এটা হয়; গ্রাহক ভুল করে, তারপর ফোন দিয়ে ঠিক করে নেয়।</p>
+    <p>গ্রাহকের নোট অ্যাপে লেখা যায়। ওখানে লেখা থাকে ‘দারোয়ানকে বলবেন তিনতলা’, ‘কলিংবেল নষ্ট, নক করবেন’।</p>
+    <p>ওখানে লেখা থাকে না ‘বাঁ দিকে তাকাইয়ো না’।</p>
+    <p>আমি ব্যাগটা একবার হাতড়ে দেখলাম। বাক্সটা এখনো গরম। এতক্ষণে ঠান্ডা হয়ে যাওয়ার কথা—শীতকাল না হলেও রাত তিনটার বাতাস ঠান্ডা, আর আমি চল্লিশ মিনিট ধরে খোলা রাস্তায়।</p>
+    <p>বাক্সটা গরম ছিল। আর—আমি প্রায় নিশ্চিত—আগের চেয়ে একটু বেশি গরম।</p>
+
+    <div class="break">✦</div>
+
+    <p>সদরঘাট রোড আমি চিনি। দিনে এই রাস্তায় লরি চলে, কুলি হাঁটে, বন্দরের গন্ধ আসে—লবণ, ডিজেল, পচা দড়ি।</p>
+    <p>রাস্তার একদম শেষ মাথায়, যেখানে রাস্তাটা বাঁক নিয়ে নদীর দিকে নেমে গেছে, সেখানে তিনটা গলি আছে। প্রথম দুইটায় গুদাম, তৃতীয়টা আমি কোনোদিন খেয়াল করিনি।</p>
+    <p>আজ তৃতীয় গলিটার মুখে একটা মরা ল্যাম্পপোস্ট, আর ল্যাম্পপোস্টের গায়ে কাত হয়ে লেগে থাকা একটা টিনের সাইনবোর্ড, যার লেখা মুছে গেছে—শুধু ‘মঞ্জিল’ শব্দটা পড়া যায়।</p>
+    <p>আমি গলিতে ঢুকলাম। আর তখনই মনে পড়ল নোটের কথা।</p>
+    <p><em>বাঁ দিকে তাকাইয়ো না।</em></p>
+    <p>বাঁ দিকটায় একটা দেয়াল ছিল, আর দেয়ালের ওপাশে—শব্দ। অনেক মানুষের শব্দ। গুঞ্জন, থালা-বাসনের টুংটাং, কারো হাসি, কেউ একজন জোরে কিছু বলছে আর বাকিরা হো-হো করে হেসে উঠছে।</p>
+    <p>রাত তিনটা বিশ মিনিটে।</p>
+    <p>আমি তাকাইনি। কিন্তু দেয়ালের ওপাশের শব্দটা আমার সঙ্গে সঙ্গে হাঁটল, পুরো গলিটা জুড়ে—এবং গলিটা শেষ হওয়ার ঠিক আগে, একটা বাচ্চার গলা দেয়ালের একদম ওপাশ থেকে বলল, “আইসা পড়ছে! মিষ্টি আইসা পড়ছে!”</p>
+    <p>আর তারপর হাততালি।</p>
+    <p>অনেকগুলো হাত। অন্তত পঞ্চাশ জোড়া।</p>
+
+    <div class="break">✦</div>
+
+    <p>হাসিনা মঞ্জিল ছিল একটা তিনতলা বাড়ি।</p>
+    <p>পুরোনো ধরনের—চওড়া বারান্দা, লোহার রেলিং, সামনে একটা ছোট বাগান যার গাছগুলো সব মরে কাঠ হয়ে আছে। দেয়ালের পলেস্তারা খসে ইট বেরিয়ে পড়েছে, জানালার কাচগুলোর বেশিরভাগ নেই।</p>
+    <p>আর বাড়িটার ভেতর কোনো আলো ছিল না। একটাও না।</p>
+    <p>শুধু দোতলার একটা জানালায় একটা হারিকেন—সেই একই হলুদ, কাঁপা কাঁপা আলো, যেটা আমি ঘণ্টাখানেক আগে চকবাজারের গলিতে দেখেছিলাম।</p>
+    <p>গেট খোলা ছিল। আমি ভেতরে ঢুকলাম, আর বারান্দার সিঁড়িতে পা রাখার আগেই দরজাটা খুলে গেল।</p>
+    <p>একজন মহিলা দাঁড়িয়ে।</p>
+
+    <div class="break">✦</div>
+
+    <p>বয়স ষাটের কাছাকাছি। পরনে জরিপাড় শাড়ি—ভালো শাড়ি, অনুষ্ঠানের শাড়ি। কানে দুল, হাতে চুড়ি, খোঁপায় কাঁটা। চুল পরিপাটি, যেন এইমাত্র সাজা শেষ হয়েছে।</p>
+    <p>তাঁর পেছনে ঘরটা অন্ধকার। কিন্তু সেই অন্ধকারের ভেতর থেকে—আমি কসম কেটে বলতে পারি—মানুষের শব্দ আসছিল। সেই গুঞ্জন, সেই থালাবাসন, সেই হাসি। যেন ঘরভর্তি অতিথি।</p>
+    <p>“আসো, বাবা। সবাই অপেক্ষা করতাছে।”</p>
+    <p>“জি, আমি রাইডার। অর্ডারটা দিয়াই চইলা যাব।”</p>
+    <p>“জানি তো।” তিনি হাসলেন। “তুমি তো রাফি।”</p>
+    <p>দ্বিতীয়বার। এক রাতে দ্বিতীয়বার একজন অচেনা মানুষ আমার নাম বলল, আর এইবার অ্যাপের অজুহাতটা আমার কাছে আর খাটল না—কারণ গ্রাহককে রাইডারের নাম দেখানো হয়, কিন্তু অ্যাপ মানুষের গলার টান শেখায় না, আর তিনি আমার নামটা এমনভাবে বললেন যেভাবে পরিচিত মানুষ বলে।</p>
+    <p>আমি ব্যাগ থেকে বাক্সটা বের করলাম।</p>
+    <p>তিনি দুই হাত বাড়িয়ে নিলেন—খুব সাবধানে, যেভাবে মানুষ ঘুমন্ত বাচ্চা কোলে নেয়। লাল সুতার গিঁটটা তিনি ছুঁলেনও না।</p>
+    <p>“খুলবেন না?” জিজ্ঞেস করে ফেললাম। কেন জিজ্ঞেস করলাম, জানি না।</p>
+    <p>“খুলব। সবাই আসলে একসাথে খুলব।” তিনি বাক্সটা বুকের কাছে ধরলেন। “আজ তো ওর জন্মদিন।”</p>
+    <p>“কার?”</p>
+    <p>তিনি উত্তর দিলেন না। ঘুরে ভেতরের দিকে তাকালেন, যেন কেউ তাঁকে ডাকল, তারপর আবার আমার দিকে ফিরলেন।</p>
+    <p>আর তখন আমি দরজার পাশের দেয়ালে ছবিটা দেখলাম।</p>
+
+    <div class="break">✦</div>
+
+    <p>হারিকেনের আলো দরজা দিয়ে অল্প একটু ভেতরে পড়ছিল, আর সেই আলোয় দেয়ালের বাঁধানো ছবিটার ওপরের দিকটা দেখা যাচ্ছিল।</p>
+    <p>পরিবারের ছবি। সাদাকালো। সামনের সারিতে বসা দুইজন বয়স্ক, পেছনে দাঁড়ানো সাত-আটজন, কোলে বাচ্চা।</p>
+    <p>ছবিটার কোনায় একটা কালো ফিতা বাঁধা।</p>
+    <p>আমাদের দেশে একটা ছবিতে কালো ফিতা বাঁধা হয় একজনের জন্য।</p>
+    <p>ওই ছবিতে ফিতাটা পুরো ছবিটার চারপাশে বাঁধা ছিল।</p>
+
+    <div class="break">✦</div>
+
+    <p>“একটা মিষ্টি খাইয়া যাও, বাবা।”</p>
+    <p>আমি চমকে তাকালাম। তিনি বাক্সটা বাঁ হাতে নিয়ে ডান হাতটা বাড়িয়ে দিয়েছেন—আর হাতের তালুতে একটা সন্দেশ।</p>
+    <p>বাক্স খোলা হয়নি। গিঁট যেমন ছিল তেমনই আছে। আমি দেখেছি, আমি দুই হাত দূরে দাঁড়িয়ে ছিলাম।</p>
+    <p>তবু তাঁর হাতে একটা সন্দেশ।</p>
+    <p>সাদা, নরম, ওপরে একটা পেস্তার কুচি। আর গন্ধটা—</p>
+    <p>গন্ধটা আমাকে প্রায় হাঁটু গেড়ে বসিয়ে দিয়েছিল। ছানা, এলাচ, আর তার নিচে আরো একটা কিছু, যেটা আমি চিনি কিন্তু নাম দিতে পারি না। ঈদের সকালের গন্ধ। পুরোনো বাড়ির গন্ধ। যে ঘরে একসময় অনেক মানুষ থাকত, সেই ঘরের গন্ধ।</p>
+    <p>আমার হাতটা উঠে গিয়েছিল। আমি টের পাইনি।</p>
+    <p>“না।” গলা দিয়ে শব্দটা বের হতে আমার সবটুকু লাগল। “মাফ করবেন, খালা। ডিউটিতে খাই না।”</p>
+    <p>হাসিটা তাঁর মুখে রইল।</p>
+    <p>কিন্তু চোখ থেকে চলে গেল।</p>
+    <p>“একটা মাত্র সন্দেশ, বাবা। আমার হাতের।”</p>
+    <p>“জি না।”</p>
+    <p>“সারা রাইত খাটো। মুখটা শুকনা।”</p>
+    <p>“জি না, খালা।”</p>
+    <p>তৃতীয়বার বলার পর বাতাসটা বদলে গেল।</p>
+    <p>আমি জানি কথাটা শুনতে নাটকীয় লাগে। কিন্তু অন্য কোনোভাবে বলতে পারব না—বারান্দার বাতাসটা হঠাৎ ভারী হয়ে গেল, গন্ধটা পাল্টে গেল, মিষ্টি থেকে টক, আর তারপর এমন একটা গন্ধ এল যেটা আমি একবারই পেয়েছিলাম জীবনে, হাসপাতালের সেই করিডোরে, একটা চাদর ঢাকা স্ট্রেচারের পাশ দিয়ে হেঁটে যাওয়ার সময়।</p>
+    <p>আর তখন আমি নিচের দিকে তাকালাম।</p>
+    <p>হারিকেনের আলো তাঁর পেছন থেকে আসছিল। আলোটা তাঁর শরীরে বাধা পেয়ে বারান্দার মেঝেতে ছায়া ফেলার কথা।</p>
+    <p>ছায়া ছিল। কিন্তু ছায়াটা দাঁড়িয়ে ছিল না।</p>
+    <p>ছায়াটা মেঝেতে বসা ছিল—গুটিয়ে, হাঁটু মুড়ে, মাথা নিচু করে। যেভাবে মানুষ কবরের পাশে বসে।</p>
+
+    <div class="break">✦</div>
+
+    <p>আমি পিছিয়ে এসেছিলাম। সিঁড়ির শেষ ধাপে পা হড়কে প্রায় পড়েই যাচ্ছিলাম।</p>
+    <p>তিনি এগিয়ে এলেন না। দরজার চৌকাঠের ভেতরেই দাঁড়িয়ে রইলেন—এবং পরে, অনেক পরে, আমি বুঝেছি যে উনি <em>পারতেন না</em>। চৌকাঠটা একটা সীমানা।</p>
+    <p>“ভয় পাইলা?” তিনি জিজ্ঞেস করলেন। গলাটা এখন আর মিষ্টি না, ক্লান্ত। “ভয়ের কিছু নাই, বাবা। তুমি নিয়ম মানছ। ভালো করছ।”</p>
+    <p>তিনি আঁচলের গিঁট খুলে কিছু একটা বের করলেন, আর সিঁড়ির ওপর রাখলেন।</p>
+    <p>“তোমার বখশিশ।”</p>
+    <p>আমি তুললাম। একটা মুদ্রা—ছোট, ভারী, কালচে, মাঝখানে একটা ফুটো। এমন পয়সা আমি জাদুঘরে দেখেছি।</p>
+    <p>“খালা, এইটা তো চলে না।”</p>
+    <p>“আমার কাছে যা চলে তা-ই দিলাম।” তিনি বাক্সটা বুকে চেপে ধরলেন। “আর একটা কথা শোনো, যাওয়ার আগে। ময়রা তোমারে তিনটা নিয়ম কইছে, না?”</p>
+    <p>আমার বুকের ভেতরটা শক্ত হয়ে গেল।</p>
+    <p>“জি।”</p>
+    <p>“তিনটা না, বাবা। চাইরটা।” তিনি দরজাটা টানতে শুরু করলেন। “চাইর নম্বর নিয়মটা সে কাউরে কয় না। কইলে কেউ দ্বিতীয়বার মাল নিত না।”</p>
+    <p>“চার নম্বরটা কী?”</p>
+    <p>দরজা বন্ধ হওয়ার ফাঁক দিয়ে শেষ যে কথাটা এল, সেইটা এত আস্তে ছিল যে আমি নিশ্চিত না আমি শুনেছি, নাকি মাথার ভেতর শুনেছি।</p>
+    <p class="whisper">“যে একবার মাল পৌঁছায়া দেয়, তার ঠিকানা দোকানের খাতায় উঠে।”</p>
+    <p>দরজা বন্ধ হয়ে গেল। ভেতরের গুঞ্জনটা একসঙ্গে থেমে গেল, যেন কেউ কান চেপে ধরল।</p>
+    <p>আর দোতলার জানালার হারিকেনটা নিভে গেল।</p>
+
+    <div class="break">✦</div>
+
+    <p>গলি দিয়ে ফেরার সময় বাঁ দিকের দেয়ালের ওপাশটা একদম চুপ ছিল।</p>
+    <p>আমি বাইকে উঠলাম, স্টার্ট দিলাম, আর বড় রাস্তায় উঠে এসে একবার পেছনে তাকালাম—এইবার তাকালাম, কারণ ময়রা বলেছিল পথে কেউ ডাকলে তাকাতে মানা, আর আমাকে কেউ ডাকছিল না।</p>
+    <p>গলিটা ছিল। ল্যাম্পপোস্টটা ছিল। সাইনবোর্ডটা ছিল।</p>
+    <p>কিন্তু গলির শেষ মাথায় কোনো বাড়ি ছিল না। শুধু একটা ফাঁকা জায়গা, ইটের স্তূপ, আর তার ওপর গজিয়ে ওঠা আগাছা—এমন আগাছা যেটা একদিনে, এক বছরে হয় না।</p>
+    <p>আমি ফোন বের করে অ্যাপটা খুললাম। হাত কাঁপছিল, তাই দুইবার লাগল।</p>
+
+    <p class="screen">অর্ডার #৪৪১৭ · সম্পন্ন ✓<br>
+    সময়: ০৩:৩৮<br>
+    আয়: ৳ ৮০০ (ওয়ালেটে যুক্ত হয়েছে)<br>
+    গ্রাহকের রেটিং: ★★★★★<br>
+    গ্রাহকের মন্তব্য: “ছেলেটা ভদ্র। কিছু খায় নাই। আবার পাঠাইয়েন।”</p>
+
+    <p>আমি স্ক্রল করে নিচে নামলাম, অ্যাপ বন্ধ করব বলে।</p>
+    <p>আর তখন নিচের দিকে, যেখানে সাধারণত ‘আপনি এখন অফলাইন’ লেখা থাকে, সেখানে একটা নতুন লাইন জ্বলজ্বল করছিল—এমন একটা লাইন যেটা আমি তিন বছরে একবারও দেখিনি, কারণ এই অ্যাপে রাইডারকে আগে থেকে অর্ডার দেওয়া হয় না।</p>
+
+    <p class="screen">আপনার পরবর্তী অর্ডার নির্ধারিত হয়েছে।<br>
+    পিকআপ: নিশিরাত মিষ্টান্ন ভাণ্ডার<br>
+    সময়: আগামীকাল রাত ০২:৪০<br>
+    <strong>এই অর্ডারটি বাতিল করা যাবে না।</strong></p>
+
+    <p class="end">দ্বিতীয় অধ্যায় সমাপ্ত</p>
+  </div>
+
+  <div class="tools">
+    <button class="tool" data-copy="chap-2">অধ্যায়টি কপি করুন</button>
+    <button class="tool" data-link="chap-2">লিংক কপি করুন</button>
+    <button class="tool" data-toc>সূচিপত্র</button>
+  </div>
+
+  <nav class="chap-nav"><a class="nav-link" href="#chap-1"><span>পূর্ববর্তী</span>রাত দুইটা চল্লিশের অর্ডার</a><a class="nav-link next" href="#chap-3"><span>পরবর্তী</span>যে ঠিকানা আর নেই</a></nav>
+</article>
+
+
+<article class="chapter" id="chap-3" data-title="যে ঠিকানা আর নেই" data-folio="০৩">
+  <header class="chap-head">
+    <div class="folio">০৩</div>
+    <p class="num">অধ্যায় তিন</p>
+    <h2 class="chap-title">যে ঠিকানা আর নেই</h2>
+    <p class="chap-meta">আনুমানিক পাঠকাল ১৫ মিনিট</p>
+    <div class="rule-orn" aria-hidden="true"><span></span>❧<span></span></div>
+  </header>
+
+  <div class="story-body">
+    <p class="lead">সকাল আটটায় আমি ঘরে ফিরলাম, আর যেটা আমাকে সবচেয়ে বেশি ভয় পাইয়ে দিল, সেটা হলো—সব কিছু স্বাভাবিক ছিল।</p>
+    <p>মা রান্নাঘরে। মিম ইউনিফর্ম পরে চুল বাঁধছে, স্কুলে যাবে। পাশের ঘর থেকে কারো রেডিওতে খবর পড়ছে। নিচে ভ্যানঅলা হাঁকছে।</p>
+    <p>আমি ভেবেছিলাম রাতের পর সকালটা অন্যরকম হবে। হয় না। পৃথিবী আপনার রাতের কথা জানে না, আর জানতে চায়ও না।</p>
+    <p>মা জিজ্ঞেস করলেন, “রাতে ভাত খাইছিলি?”</p>
+    <p>“খাইছি।”</p>
+    <p>“চোখ এমন লাল কেন?”</p>
+    <p>“ঘুম হয় নাই।”</p>
+    <p>আমি ফোন বের করে অ্যাপটা খুললাম, কারণ আমার শরীরের একটা অংশ তখনো বিশ্বাস করতে চাইছিল যে রাতেরটা ছিল ক্লান্তির ঘোর, না-খাওয়ার দুর্বলতা, কিংবা ফোনে কোনো একটা সফটওয়্যারের গোলমাল।</p>
+    <p>ওয়ালেটে আটশো টাকা।</p>
+    <p>আমি ‘উত্তোলন’ চাপলাম। তিন মিনিট পর বিকাশে টাকাটা ঢুকল—আটশো টাকা, ঠিক আটশো, কোনো কাটা নেই।</p>
+    <p>দুপুরে আমি সেই টাকা দিয়ে মায়ের ওষুধ কিনেছিলাম। ছয়শো আশি টাকার ওষুধ। ফার্মেসির ছেলেটা রসিদ দিল, আমি ব্যাগে ভরলাম, আর সারা রাস্তা ভাবতে ভাবতে এলাম—</p>
+    <p>ভূত টাকা দেয় না। ভূতের টাকা বালি হয়ে যায়, কয়লা হয়ে যায়, ভোরবেলা মিলিয়ে যায়। গল্পে তো তা-ই হয়।</p>
+    <p>এই টাকাটা মিলিয়ে যায়নি। এই টাকাটা দিয়ে আমার মায়ের ওষুধ কেনা হয়েছে, আর সেই ওষুধ মা রাতে খেয়েছেন, আর খেয়ে ঘুমিয়েছেন।</p>
+    <p>এইটাই সবচেয়ে বিপজ্জনক অংশ, বুঝলেন? যেটা আপনাকে টাকা দেয়, সেটাকে আপনি অবিশ্বাস করতে পারেন না বেশিদিন।</p>
+
+    <div class="break">✦</div>
+
+    <p>কয়েনটা আমি জানালার তাকে রেখেছিলাম।</p>
+    <p>দিনের আলোয় দেখলাম জিনিসটা তামার, কালচে সবুজ ছোপ ধরা, মাঝখানে ফুটো। একপাশে ইংরেজি লেখা, আরেকপাশে কিছু একটা নকশা আর সন—পড়া যাচ্ছিল না।</p>
+    <p>আমি মোবাইলে ছবি তুলে খুঁজলাম। এক আনা। ব্রিটিশ ভারতের আমলের। সম্ভবত উনিশশো চল্লিশের দশকের, নয়তো তারও আগের।</p>
+    <p>সাইনবোর্ডে লেখা ছিল—<em>স্থাপিত ১৩৫৫ বঙ্গাব্দ</em>। আমি হিসাব করলাম। ১৩৫৫ বঙ্গাব্দ মানে ইংরেজি ১৯৪৮-৪৯।</p>
+    <p>দোকানটা তাহলে পঁচাত্তর বছরের পুরোনো। আর বখশিশটা দোকানের বয়সী।</p>
+    <p>মা দুপুরে ঘর ঝাড়ু দিতে গিয়ে কয়েনটা দেখলেন। হাতে নিয়ে উল্টেপাল্টে দেখে বললেন, “এইটা কই পাইলি?”</p>
+    <p>“এক কাস্টমার দিছে।”</p>
+    <p>তিনি কয়েনটা তাকের ওপর রেখে দিলেন, একটু জোরেই, তারপর আঁচলে হাত মুছলেন—যদিও হাত ভেজা ছিল না।</p>
+    <p>“এইসব জিনিস ঘরে রাখিস না, বাপ।”</p>
+    <p>“কেন?”</p>
+    <p>“পুরান পয়সা মানুষ কবরে দেয়।” তিনি রান্নাঘরে চলে গেলেন। “আর কিছু জিগাইস না।”</p>
+
+    <div class="break">✦</div>
+
+    <p>বিকেল চারটায় আমি আসকার দিঘীর পাড়ে গেলাম।</p>
+    <p>দিনের আলোয় জায়গাটা একদম সাধারণ। দিঘির চারপাশে রেলিং, বসার জায়গা, ফুচকার গাড়ি, স্কুল ছুটির পর বাচ্চাদের ভিড়।</p>
+    <p>৭/বি নম্বরটা খুঁজে পেতে আমার দশ মিনিট লাগল।</p>
+    <p>ওখানে একটা দশতলা অ্যাপার্টমেন্ট বিল্ডিং। নতুন, কাচের দরজা, নিচে একটা ফার্মেসি আর একটা কুরিয়ার সার্ভিসের অফিস। দারোয়ানের ইউনিফর্ম পরা একজন লোক গেটের সামনে টুলে বসা।</p>
+    <p>বিল্ডিংয়ের নাম মার্বেলের ফলকে লেখা—<strong>হাসিনা টাওয়ার</strong>।</p>
+    <p>আমার হাত-পা ঠান্ডা হয়ে গেল।</p>
+    <p>“ভাই,” আমি দারোয়ানকে জিজ্ঞেস করলাম, “এইখানে আগে কি হাসিনা মঞ্জিল নামে একটা বাড়ি আছিল?”</p>
+    <p>“আছিল।” সে পান চিবোতে চিবোতে বলল। “পুরান বিল্ডিং, ভাইঙ্গা এইটা উঠাইছে। আমি তো আইছি পাঁচ বছর, শুনছি।”</p>
+    <p>“কবে ভাঙছে জানেন?”</p>
+    <p>“হেইডা তো জানি না। ওই যে কোনার দোকানটা দেখেন—মজিদ চাচা। উনি চল্লিশ বছর ধইরা ওইখানে। উনি জানব।”</p>
+
+    <div class="break">✦</div>
+
+    <p>মজিদ চাচার দোকান বলতে একটা চৌকি, তার ওপর পান-সিগারেট-বিস্কুটের বয়াম, আর মাথার ওপর একটা ছেঁড়া ছাতা।</p>
+    <p>আমি সিগারেট কিনলাম, যদিও আমি খাই না। তারপর জিজ্ঞেস করলাম।</p>
+    <p>নামটা শুনে বৃদ্ধের হাত থেমে গেল।</p>
+    <p>“হাসিনা মঞ্জিল?” তিনি আমার দিকে তাকালেন, আর তাঁর চোখে এমন একটা জিনিস দেখলাম যেটা আমি সারাদিন ধরে খুঁজছিলাম—ভয় না, কিন্তু সতর্কতা। “তুমি ওই বাড়ির কথা জানলা কেমনে?”</p>
+    <p>“আমি ডেলিভারি দেই। একটা পুরান অ্যাড্রেস পাইছি।”</p>
+    <p>“ডেলিভারি।” তিনি শব্দটা চিবিয়ে উচ্চারণ করলেন। তারপর চৌকির ওপর থুতু ফেলার মতো করে বললেন, “বাড়িটা ভাইঙ্গা ফেলছে উনিশ-বিশ বছর আগে। তার আগে দশ বছর খালি পইড়া আছিল। ভাড়াটে থাকত না।”</p>
+    <p>“কেন থাকত না?”</p>
+    <p>বৃদ্ধ অনেকক্ষণ চুপ করে রইলেন। রাস্তার ওপাশে বাচ্চারা চেঁচাচ্ছিল, ফুচকাঅলা ঘণ্টা বাজাচ্ছিল, একটা বাস হর্ন দিয়ে গেল।</p>
+    <p>“তুমি ওইখানে গেছ?” তিনি জিজ্ঞেস করলেন।</p>
+    <p>আমি মিথ্যা বলতে পারলাম না।</p>
+    <p>“কাইল রাইতে।”</p>
+    <p>মজিদ চাচা পানের বাটা বন্ধ করলেন। তারপর বললেন, “বাপধন, তুমি অন্য কোনো কাম কর। ডেলিভারি ছাইড়া দাও।”</p>
+
+    <div class="break">✦</div>
+
+    <p>যে গল্পটা তিনি বললেন, সেটা আমি এখানে তাঁর ভাষাতেই রাখছি, কারণ গুছিয়ে লিখলে জিনিসটা ছোট হয়ে যায়।</p>
+    <p>“ওই বাড়িতে এক পরিবার থাকত। বড় পরিবার—দুই ভাই, তাগো বউ-বাচ্চা, মা, আর বিধবা এক বোন। সব মিলায়া এগারো জন। ভদ্রলোকেরা, কারো সাথে ঝগড়া-বিবাদ নাই।</p>
+    <p>“আটানব্বই সালের ফাল্গুন মাসে—তারিখটা আমার মনে আছে, ছাব্বিশে ফাল্গুন—ছোট নাতনিটার জন্মদিন আছিল। সাত না আট বছর হইব। ঘরে অনুষ্ঠান, আত্মীয়স্বজন আইছে, বাত্তি জ্বলতাছে।</p>
+    <p>“রাইত এগারোটার দিকে মিষ্টি আইল। কেউ অর্ডার দিছিল কি না, কেউ কইতে পারে নাই।</p>
+    <p>“পরদিন দুপুর পর্যন্ত বাড়ির দরজা খোলে নাই। প্রতিবেশীরা ডাকাডাকি করছে, তারপর দরজা ভাঙছে।”</p>
+    <p>তিনি থামলেন।</p>
+    <p>“এগারো জনের একজনও বাঁচে নাই, বাপ। সবাই যার যার জায়গায়—কেউ চেয়ারে, কেউ মেঝেতে, বাচ্চাটা মায়ের কোলে। কারো শরীরে একটা আঁচড়ও নাই।</p>
+    <p>“আর মাঝখানের টেবিলে মিষ্টির বাক্সটা। খোলা। ভিতরে একটাও মিষ্টি নাই।”</p>
+    <p>আমার হাতের সিগারেটের প্যাকেটটা পড়ে গেল। আমি তুললামও না।</p>
+    <p>“পুলিশ কী কইছে?”</p>
+    <p>“বিষ। খাওনে বিষ। পেপারেও তা-ই ছাপাইছে।” মজিদ চাচা মাথা নাড়লেন। “কিন্তু ভাইগনা, লাশ কাটাঘরে পরীক্ষা হইছিল। আমি যতটুক জানি—কোনো বিষ পায় নাই। একটা জিনিসও না। শেষে লেইখা দিছে ‘অজ্ঞাত কারণে মৃত্যু’, আর ফাইল বন্ধ।”</p>
+    <p>“আর মিষ্টির দোকান?”</p>
+    <p>“কোনো দোকান পাওয়া যায় নাই। বাক্সে কোনো নাম আছিল না। পুলিশ পুরা চকবাজার-আন্দরকিল্লা চইষা ফালাইছে, কেউ কয় নাই ওই রাইতে তারা মিষ্টি বানাইছে।” তিনি আমার চোখের দিকে তাকালেন। “খালি একটা জিনিস পাইছিল। বাক্সের গায়ে লাল সুতা।”</p>
+
+    <div class="break">✦</div>
+
+    <p>আমি সদরঘাট রোডে গেলাম তখনই, বিকেলের আলো থাকতে থাকতে।</p>
+    <p>গলিটা ছিল—সেই তিন নম্বর গলি, সেই মরা ল্যাম্পপোস্ট, কাত হয়ে থাকা টিনের সাইনবোর্ডে ‘মঞ্জিল’।</p>
+    <p>আর গলির শেষ মাথায় একটা খালি জমি, তারকাঁটার বেড়া দেওয়া, আর ভেতরে ইটের স্তূপ। পুরোনো ইট, লাল, কোনো কোনোটায় পলেস্তারা লেগে আছে।</p>
+    <p>বেড়ার গায়ে একটা সাইনবোর্ড: <em>এই জমির মালিক... মামলা চলমান... প্রবেশ নিষেধ।</em></p>
+    <p>গলির মুখে একজন মাঝবয়সী লোক গুদামের সামনে বসে খাতা লিখছিলেন। আমি জিজ্ঞেস করলাম, এই ইটগুলো কোথাকার।</p>
+    <p>“কোন বিল্ডিং ভাঙছে, হেই ইট।” তিনি মাথা না তুলেই বললেন। “ঠিকাদার সস্তায় কিনা এইখানে ফালায়া রাখছে, বিক্রি করব কইছিল। আইজ পনেরো-ষোল বছর পইড়া আছে। কেউ কিনে না।”</p>
+    <p>“কেন কিনে না?”</p>
+    <p>এইবার তিনি মাথা তুললেন। “রাজমিস্ত্রিরা ধরে না। কয় এই ইট দিয়া দেয়াল তুললে রাইতে শব্দ হয়।”</p>
+    <p>আমি তারকাঁটার বেড়া ধরে দাঁড়িয়ে রইলাম।</p>
+    <p>বাড়িটা ভাঙা হয়েছে আসকার দিঘীর পাড়ে। আর বাড়ির ইটগুলো এখানে।</p>
+    <p>কাল রাতে অ্যাপ ঠিকানা বদলে দিয়েছিল। প্রথমে পাঠিয়েছিল সেখানে, যেখানে বাড়িটা দাঁড়িয়ে ছিল। তারপর পাঠিয়েছে সেখানে, যেখানে বাড়িটা এখন আছে।</p>
+    <p>কারণ বাড়ি মানে জায়গা না। বাড়ি মানে ইট।</p>
+
+    <div class="break">✦</div>
+
+    <p>সন্ধ্যায় আমি শামীম ভাইয়ের সঙ্গে দেখা করলাম।</p>
+    <p>শামীম ভাই আমাদের এলাকার সবচেয়ে পুরোনো রাইডার—সাত বছর, হয়তো আট। গ্রুপের অ্যাডমিন। বিকেলে তিনি নিউমার্কেটের পাশে একটা গ্যারেজে বসে থাকেন।</p>
+    <p>আমি সরাসরি বললাম। পুরোটা।</p>
+    <p>বলতে বলতে আমি খেয়াল করছিলাম তাঁর মুখটা কেমন বদলে যাচ্ছে। প্রথমে কৌতুক, তারপর বিরক্তি, তারপর—মজিদ চাচার মতোই—সতর্কতা।</p>
+    <p>আমি শেষ করার পর তিনি অনেকক্ষণ কিছু বললেন না। তারপর ফোন বের করে গ্রুপটা খুললেন, স্ক্রল করলেন, আর আমার দিকে স্ক্রিনটা ঘুরিয়ে ধরলেন।</p>
+    <p>আমার কাল রাতের মেসেজটা নেই।</p>
+    <p>“আমি মুছছি,” তিনি বললেন। “রাত তিনটা পাঁচ মিনিটে।”</p>
+    <p>“কেন, ভাই?”</p>
+    <p>“কারণ ওই নামটা গ্রুপে থাকলে আরো পোলাপান দেখব, আর দেখলে কেউ না কেউ খুঁজতে যাইব। আটশো টাকা, রাফি। আটশো টাকার জন্য এই পোলাপান যেকোনো জায়গায় যাইব।” তিনি সিগারেট ধরালেন। “তুই প্রথম না।”</p>
+    <p>আমার বুকের ভেতর কিছু একটা নেমে গেল।</p>
+    <p>“আর কে?”</p>
+    <p>“আমার সাত বছরে চাইরজন। মনে আছে এমন চাইরজন।” তিনি আঙুল গুনলেন, কিন্তু নাম বললেন না। “দুইজনরে আর পাওয়া যায় নাই। একজন চাকরি ছাইড়া গ্রামে চইলা গেছে, এখন কথা কয় না কারো সাথে।”</p>
+    <p>“আর চতুর্থজন?”</p>
+    <p>শামীম ভাই ধোঁয়া ছাড়লেন।</p>
+    <p>“তানভীর। হালিশহরে থাকে। মাসখানেক আগেও তারে দেখছি, বাইক চালায় না, মুদি দোকানে বসে।” তিনি আমার চোখের দিকে তাকালেন। “তুই যাইতে চাইলে ঠিকানা দিমু। কিন্তু একটা জিনিস শুইনা রাখ—পোলাটার বয়স চব্বিশ। দেখলে মনে হইব পঞ্চাশ। আর ওর মায়ের নাম জিগাইস না।”</p>
+    <p>“কেন?”</p>
+    <p>“ও জানে না।”</p>
+
+    <div class="break">✦</div>
+
+    <p>রাত নয়টায় আমি চট্টগ্রাম প্রেস ক্লাবের পেছনের গলিতে, এক পুরোনো দৈনিকের অফিসে।</p>
+    <p>আমার এক পরিচিত বড় ভাই ওই অফিসে কম্পোজে কাজ করেন। তাঁকে বলেছিলাম আটানব্বইয়ের ফাল্গুনের কাগজটা দরকার।</p>
+    <p>আর্কাইভ ঘরটা ছিল বেসমেন্টে। স্যাঁতসেঁতে, কাগজের গন্ধ, সিলিংয়ে একটা ফ্যান যেটা ঘোরে না।</p>
+    <p>বাঁধাই করা বিশাল ফাইল টেনে বের করতে আমাদের আধা ঘণ্টা লাগল। তারপর পাতা ওল্টানো—ছাব্বিশে ফাল্গুন, সাতাশে ফাল্গুন।</p>
+    <p>আটাশে ফাল্গুনের কাগজে, তৃতীয় পাতায়, তিন কলামের একটা খবর:</p>
+    <p class="whisper">নগরীর আসকার দিঘীর পাড়ে একই পরিবারের ১১ জনের রহস্যজনক মৃত্যু</p>
+    <p>খবরটা আমি তিনবার পড়লাম। মজিদ চাচার কথার সঙ্গে সব মিলে গেল—জন্মদিনের অনুষ্ঠান, মিষ্টি, খোলা দরজা, ময়নাতদন্তে কিছু না পাওয়া।</p>
+    <p>খবরের সঙ্গে দুইটা ছবি। একটা বাড়ির সামনের গেটের, পুলিশ আর ভিড়।</p>
+    <p>আর আরেকটা—পরিবারের একটা পুরোনো ছবি, যেটা আত্মীয়দের কাছ থেকে নেওয়া।</p>
+    <p>সেই ছবিটা আমি কাল রাতে দেয়ালে দেখেছি।</p>
+    <p>সামনের সারিতে দুইজন বয়স্ক। পেছনে দাঁড়ানো সাতজন। কোলে বাচ্চা।</p>
+    <p>আর ডান দিক থেকে তৃতীয়জন—জরিপাড় শাড়ি, কানে দুল, খোঁপায় কাঁটা—আমাকে গতকাল রাতে সিঁড়ির ওপর একটা তামার পয়সা দিয়েছিলেন।</p>
+    <p>ছবির নিচে ক্যাপশনে নামগুলো লেখা ছিল। আমি গুনে গুনে ডান দিক থেকে তৃতীয় নামটা বের করলাম।</p>
+    <p><strong>রওশন আরা বেগম (৫৯)</strong>।</p>
+
+    <div class="break">✦</div>
+
+    <p>আমি ফাইলটা বন্ধ করতে যাচ্ছিলাম, হাত কাঁপছিল এত বেশি যে পাতা ছিঁড়ে যাওয়ার জোগাড়।</p>
+    <p>তখন চোখ পড়ল প্রথম ছবিটায়—গেটের সামনের ভিড়ের ছবিটায়।</p>
+    <p>ছবিটা ঝাপসা, খবরের কাগজের নিউজপ্রিন্টে ছাপা, বিন্দু বিন্দু। কিন্তু ভিড়ের একদম বাঁ কোনায়, গেটের পিলারের পাশে, একটা সাইকেল হেলান দেওয়া।</p>
+    <p>সাইকেলের পাশে একটা ছেলে দাঁড়িয়ে—আঠারো-উনিশ হবে—তার হাতে একটা সাদা বাক্স।</p>
+    <p>আমি ফোনের টর্চ জ্বালিয়ে ছবিটার ওপর ধরলাম, মুখটা স্ক্রিনের কাছে নিয়ে গেলাম।</p>
+    <p>বাক্সের গায়ে কালো একটা দাগ, আড়াআড়ি। ঝাপসা ছাপায় সেটাকে সুতো বলেও চালানো যায়, ছায়া বলেও।</p>
+    <p>ক্যাপশনে এই ছেলেটার কথা কিছু লেখা ছিল না।</p>
+    <p>কিন্তু খবরের একদম শেষ অনুচ্ছেদে একটা বাক্য ছিল, যেটা আমি প্রথম তিনবার পড়ার সময় খেয়াল করিনি:</p>
+    <p class="whisper">“ঘটনার রাতে মিষ্টি পৌঁছাইয়া দিয়াছিল যে কিশোর, এলাকাবাসীর কেহ কেহ তাহাকে দেখিয়াছেন বলিয়া দাবি করিয়াছেন। পুলিশ তাহার সন্ধান পায় নাই। অদ্যাবধি সে নিখোঁজ।”</p>
+    <p class="end">তৃতীয় অধ্যায় সমাপ্ত</p>
+  </div>
+
+  <div class="tools">
+    <button class="tool" data-copy="chap-3">অধ্যায়টি কপি করুন</button>
+    <button class="tool" data-link="chap-3">লিংক কপি করুন</button>
+    <button class="tool" data-toc>সূচিপত্র</button>
+  </div>
+
+  <nav class="chap-nav"><a class="nav-link" href="#chap-2"><span>পূর্ববর্তী</span>সদরঘাট রোডের শেষ গলি</a><a class="nav-link next" href="#chap-4"><span>পরবর্তী</span>নিতাই ময়রার সন্দেশ</a></nav>
+</article>
+
+<article class="chapter" id="chap-4" data-title="নিতাই ময়রার সন্দেশ" data-folio="০৪">
+  <header class="chap-head">
+    <div class="folio">০৪</div>
+    <p class="num">অধ্যায় চার</p>
+    <h2 class="chap-title">নিতাই ময়রার সন্দেশ</h2>
+    <p class="chap-meta">আনুমানিক পাঠকাল ১৬ মিনিট</p>
+    <div class="rule-orn" aria-hidden="true"><span></span>❧<span></span></div>
+  </header>
+
+  <div class="story-body">
+    <p class="lead">সারাদিন আমি একটা সহজ পরিকল্পনা নিয়ে ছিলাম: আজ রাতে আমি বের হব না।</p>
+    <p>বিকেল পাঁচটায় আমি অ্যাপটা আনইনস্টল করলাম। ছয়টায় ফোনের ডেটা বন্ধ করলাম। সাড়ে আটটায় মিমকে পড়াতে বসলাম, ন-টায় মায়ের সঙ্গে ভাত খেলাম, দশটায় বিছানায় গেলাম—তিন বছরে এই প্রথম রাত দশটায়।</p>
+    <p>আর এগারোটা থেকে আমি ছাদের দিকে তাকিয়ে শুয়ে রইলাম।</p>
+    <p>আপনি যদি কখনো রাতের ডিউটি করে থাকেন, তাহলে জানেন—শরীরের নিজস্ব একটা ঘড়ি তৈরি হয়ে যায়। আমার শরীর জানত রাত দুইটা আসছে। আমার শরীর অপেক্ষা করছিল।</p>
+    <p>রাত দুইটা সাঁইত্রিশে ফোনটা বাজল।</p>
+    <p>ডেটা বন্ধ। অ্যাপ নেই। তবু স্ক্রিনে সেই পরিচিত নীল রঙের নোটিফিকেশন, সেই পরিচিত ঘণ্টার আওয়াজ—যে আওয়াজটা তিন বছর ধরে আমার টাকার আওয়াজ।</p>
+
+    <p class="screen">অর্ডার #৪৪১৮ · প্রস্তুত<br>
+    পিকআপ: নিশিরাত মিষ্টান্ন ভাণ্ডার<br>
+    রাইডার: রাফি (নিযুক্ত)<br>
+    <strong>বাতিলের সুযোগ নেই</strong><br>
+    “তিন মিনিট পর বাইর হইলে ভিজবা না।”</p>
+
+    <p>আমি ফোনটা হাতে নিয়ে বসে রইলাম। জানালার বাইরে তখন আকাশ পরিষ্কার, তারা দেখা যাচ্ছে।</p>
+    <p>তিন মিনিট পর—আমি ঘড়ি ধরে গুনেছি—বৃষ্টি নামল।</p>
+
+    <div class="break">✦</div>
+
+    <p>তাহলে আমি কেন গেলাম?</p>
+    <p>এই প্রশ্নটা আমাকে অনেকে করেছে পরে। আমি অনেক উত্তর দিয়েছি—ভয়, কৌতূহল, টাকা, নিয়তি। সবগুলোই আধা সত্যি।</p>
+    <p>পুরো সত্যিটা হলো: আমি জানতে চেয়েছিলাম কাল রাতের গলাটা সত্যিই আমার বাবার ছিল কি না।</p>
+    <p>মজিদ চাচা, শামীম ভাই, খবরের কাগজ—সবাই আমাকে একটা জিনিস বুঝিয়েছিল, যে জিনিসটা থেকে পালানোর একটা পথই আছে: বিশ্বাস না করা। কিন্তু আমি যখন ওই গলাটা শুনেছিলাম, তখন আমার ভেতরের চার বছরের জমে থাকা জিনিসটা নড়ে উঠেছিল।</p>
+    <p>আমি বৃষ্টির মধ্যে বাইক বের করলাম। মা ঘুমাচ্ছিলেন। দরজাটা আমি খুব সাবধানে ভেজিয়ে গেলাম।</p>
+
+    <div class="break">✦</div>
+
+    <p>এইবার গলিটা খুঁজতে হলো না।</p>
+    <p>চকবাজারের মোড়ে পৌঁছানোর আগেই আমি দেখতে পেলাম—দুইটা বন্ধ দোকানের মাঝখানে একটা ফাঁক, আর সেই ফাঁক দিয়ে বেরিয়ে আসা হলুদ আলো, বৃষ্টির ভেতর দিয়ে যেটা দেখতে লাগছিল একটা ভেজা কুসুমের মতো।</p>
+    <p>গলিতে বৃষ্টি পড়ছিল না। এইটা আমি খেয়াল করেছিলাম দ্বিতীয় পায়ে। বাইরে ঝমঝম, গলির ভেতরে শুকনো—মাথার ওপর কিছু নেই, তবু শুকনো।</p>
+    <p>দোকানে ময়রা একই জায়গায় বসা, একই ভঙ্গিতে, হাতে সেই মাটির সরা।</p>
+    <p>“ভিজলা না তো?”</p>
+    <p>“না।”</p>
+    <p>“তিন মিনিট কইছিলাম।” তিনি সন্তুষ্ট গলায় বললেন। “মানুষ কথা শোনে না। যারা শোনে, তাগো সুবিধা হয়।”</p>
+    <p>আমি কাউন্টারের সামনে দাঁড়িয়ে রইলাম। পকেটের ভেতর আমার হাত মুঠো করা, আর মুঠোর ভেতর কাল রাতের সেই তামার পয়সা। কেন এনেছিলাম জানি না—হয়তো প্রমাণ হিসেবে, হয়তো ঢাল হিসেবে।</p>
+    <p>“চাচা, আপনার নাম কী?”</p>
+    <p>ছানা মাখানো থামল।</p>
+    <p>তিনি মাথা তুললেন, আর সেই খালি চোখ দুইটা আমার দিকে স্থির হলো। অনেকক্ষণ। এতক্ষণ যে আমার মনে হলো প্রশ্নটা করে আমি কোনো অপরাধ করে ফেলেছি।</p>
+    <p>তারপর তিনি হাসলেন।</p>
+    <p>“তেইশ বছর পর কেউ নাম জিগাইল।” তিনি গামছায় হাত মুছলেন। “নিতাই। নিতাই ময়রা। এই দোকান আমার বাপের, বাপের বাপের না—আমার বাপেই খুলছিল, তেরোশো পঞ্চান্ন সনে।”</p>
+    <p>“আর আপনি?”</p>
+    <p>“আমি তখন ছোট। বাপের সাথে কড়াইয়ে নাড়া দিতাম।” তিনি শোকেসের কাচে হাত বোলালেন, যেভাবে মানুষ পুরোনো আসবাবে বোলায়। “তারপর একদিন বাপ গেল, দোকান রইল। আমি রইলাম।”</p>
+
+    <div class="break">✦</div>
+
+    <p>“কাল রাতের খদ্দের একটা কথা কইছে,” আমি বললাম। গলা কাঁপছিল, কিন্তু আমি বলে ফেললাম। “বলছে আপনি তিনটা নিয়ম কন, কিন্তু নিয়ম আছে চাইরটা।”</p>
+    <p>নিতাই ময়রা কিছুই অস্বীকার করলেন না। এইটাই ছিল সবচেয়ে ভয়ংকর।</p>
+    <p>“রওশন বেশি কথা কয়।” তিনি সরাটা নামিয়ে রাখলেন। “ওই পরিবারটার জইন্য আমার মায়া আছে। ওরা তো অর্ডার দেয় নাই, বাপ। ওদের কাছে ভুলে মাল গেছিল।”</p>
+    <p>আমার শরীরের রক্ত ঠান্ডা হয়ে গেল।</p>
+    <p>“ভুলে?”</p>
+    <p>“আটানব্বই সালে এক পোলা মাল নিছিল। নতুন পোলা। হেয় ঠিকানা গুলাইয়া ফালাইছিল।” তিনি কাঁধ ঝাঁকালেন, যেন বৃষ্টিতে ভিজে যাওয়ার মতো সাধারণ একটা দুর্ঘটনার কথা বলছেন। “এগারোজন। আমার দোষ না, আমি ঠিকানা লেইখা দিছিলাম।”</p>
+    <p>“আপনি জানতেন ওরা মইরা যাইব?”</p>
+    <p>“আমার মাল যার জন্য, সে ছাড়া আর কেউ খাইলে—” তিনি থামলেন, শব্দটা খুঁজলেন। “মাল তো আর বুঝে না, বাপ। মাল যা করার তা-ই করে।”</p>
+    <p>“আর চার নম্বর নিয়মটা?”</p>
+    <p>“ওইটা নিয়ম না।” তিনি আমার দিকে তাকালেন। “ওইটা হিসাব। নিয়ম ভাঙা যায়, হিসাব ভাঙা যায় না।”</p>
+
+    <div class="break">✦</div>
+
+    <p>তিনি নিচু হয়ে শোকেসের পেছন থেকে আজকের বাক্সটা তুললেন।</p>
+    <p>সাদা, লাল সুতায় বাঁধা, গরম।</p>
+    <p>আর তারপর—এইটাই সেই মুহূর্ত, যেটার কথা আমি হাজারবার ভেবেছি—তিনি দ্বিতীয় একটা জিনিস বের করলেন।</p>
+    <p>একটা ছোট মাটির ভাঁড়। হাতের তালুর সমান। ওপরে একটা কলাপাতার টুকরো দিয়ে ঢাকা, আর সেই পাতা একটা সুতা দিয়ে বাঁধা।</p>
+    <p>সুতাটা লাল না। সাদা।</p>
+    <p>“এইটা তোমার।”</p>
+    <p>আমি হাত বাড়ালাম না। “আমার না, চাচা। আমি রাইডার।”</p>
+    <p>“রাইডাররে দিতে মানা আছে?” তিনি ভাঁড়টা কাউন্টারের ওপর রাখলেন। “খদ্দেরের মাল খাইতে মানা কইরা দিছি, মনে আছে? ওইটা অন্য কথা। খদ্দেরের মাল খদ্দেরের নামে বানানো। তুমি খাইলে ওইটা তোমার শরীরে অন্য একজনের হিসাব নিয়া ঢুকব।”</p>
+    <p>“আর এইটা?”</p>
+    <p>“এইটা তোমার নামে বানানো।”</p>
+    <p>সাদা সুতার গিঁটটা আমি দেখছিলাম। সেটা লাল সুতার মতো প্যাঁচানো না—সাধারণ গিঁট, যেকোনো দোকানে যেমন হয়।</p>
+    <p>“দাম কত?”</p>
+    <p>নিতাই ময়রা আবার সেই হাসিটা হাসলেন—সুন্দর দাঁত, যে দাঁত আশি বছরের মানুষের থাকার কথা না।</p>
+    <p>“দাম তুমি কাইল রাইতেই দিয়া দিছ, বাপ।”</p>
+
+    <div class="break">✦</div>
+
+    <p>আমি ভাঁড়টা নিলাম না। মাল নিয়ে বেরিয়ে গেলাম।</p>
+    <p>গলির মুখে এসে—আমি কসম কেটে বলতে পারি, আমি একবারও পেছনে তাকাইনি, আমার দুই হাত ব্যাগের স্ট্র্যাপে ছিল—বাইকের সিটে ভাঁড়টা রাখা ছিল।</p>
+    <p>বৃষ্টির মধ্যে। শুকনো।</p>
+    <p>আমি ওটাকে জ্যাকেটের ভেতরের পকেটে ঢোকালাম, কারণ মাটিতে ফেলে দেওয়ার কথা আমার মাথায় এসেছিল, আর আমি সেটা করতে পারিনি।</p>
+    <p>এই জায়গাটায় আপনি আমাকে বিচার করতে পারেন। আমি নিজেও করি।</p>
+
+    <div class="break">✦</div>
+
+    <p>আজকের ঠিকানা ছিল চন্দনপুরা।</p>
+    <p>পুরোনো একটা দোতলা বাড়ি, কিন্তু এইবার বাড়িটা জীবিত ছিল—মানে, ভেতরে আলো জ্বলছিল, বিদ্যুতের আলো, সাদা টিউবলাইট। গেটে কলিংবেল আছে। নিচে স্যান্ডেল সাজানো।</p>
+    <p>আমি বেল বাজালাম, আর একজন মধ্যবয়সী লোক দরজা খুললেন। চোখ ফোলা, মুখে কয়েক দিনের দাড়ি, হাতে একটা তোয়ালে।</p>
+    <p>“কী চান?”</p>
+    <p>“মিষ্টি, স্যার। অর্ডার আছিল। হাবিবুর রহমান সাহেবের নামে।”</p>
+    <p>লোকটা স্থির হয়ে গেলেন।</p>
+    <p>“কে অর্ডার দিছে?”</p>
+    <p>“অ্যাপে তো গ্রাহকের নাম—”</p>
+    <p>“আমি ওই বাড়ির বড় ছেলে। আমরা কেউ অর্ডার দেই নাই।” তিনি গলা নামালেন। “আব্বার অবস্থা ভালো না, ভাই। তিন দিন ধইরা ঘোরের মধ্যে। ডাক্তার কইছে যেকোনো সময়। এই অবস্থায় কে মিষ্টি অর্ডার দিব?”</p>
+    <p>আমরা দুজনেই চুপ করে দাঁড়িয়ে রইলাম—একজন হাতে তোয়ালে নিয়ে, একজন হাতে সাদা বাক্স নিয়ে।</p>
+    <p>আর তখন ভেতর থেকে একটা গলা এল।</p>
+    <p>ভাঙা, শ্বাসকষ্টে ছিন্ন, কিন্তু অদ্ভুত রকম স্পষ্ট।</p>
+    <p class="whisper">“আইছে? মিষ্টি আইছে?”</p>
+    <p>বড় ছেলে ঘুরে তাকালেন। “আব্বা, আপনে—”</p>
+    <p class="whisper">“ভিতরে আনতে ক।”</p>
+
+    <div class="break">✦</div>
+
+    <p>আমাকে ভেতরে ঢোকানো হলো, যদিও নিয়মে নেই, যদিও আমি চাইনি।</p>
+    <p>ঘরটা ওষুধের গন্ধে ভরা। খাটের ওপর শুয়ে থাকা মানুষটার বয়স আশির বেশি, শরীর কাঠ হয়ে গেছে, নাকে নল। পাশে অক্সিজেনের সিলিন্ডার, মেঝেতে একটা বালতি, চেয়ারে একজন মহিলা ঝিমাচ্ছেন।</p>
+    <p>বৃদ্ধ আমাকে দেখলেন না। তিনি বাক্সটা দেখলেন।</p>
+    <p>আর তাঁর মুখটা—আমি এই জিনিসটা ভুলতে পারি না—তাঁর মুখটা এমনভাবে বদলে গেল, যেভাবে শুধু বাচ্চাদের মুখ বদলায়।</p>
+    <p>“আম্মা পাঠাইছে,” তিনি বললেন।</p>
+    <p>বড় ছেলে আমার দিকে তাকালেন, তারপর বাবার দিকে। “আব্বা, দাদি তো...”</p>
+    <p>“আম্মা কইছিল,” বৃদ্ধ ফিসফিস করে বললেন, “আমি যেদিন আসুম, সেদিন আমার জন্য সন্দেশ বানায়া রাখব। ছোটবেলায় কইছিল। আমি ভাবছি ভুইলা গেছে।”</p>
+    <p>তাঁর চোখ দিয়ে পানি গড়িয়ে কানের দিকে চলে গেল।</p>
+    <p>“আমার আম্মা আমারে ভুলে নাই।”</p>
+
+    <div class="break">✦</div>
+
+    <p>আমি বাক্সটা বড় ছেলের হাতে দিলাম। তিনি নিলেন ঠিকই, কিন্তু হাতটা এমনভাবে ধরলেন যেন জিনিসটা তাঁকে পুড়িয়ে দিচ্ছে।</p>
+    <p>বেরিয়ে আসার সময় তিনি আমার পিছু পিছু গেট পর্যন্ত এলেন।</p>
+    <p>“ভাই, সত্যি কইরা কন। কে পাঠাইছে?”</p>
+    <p>আমি কী বলব? অ্যাপের কথা? গলির কথা? নিতাই ময়রার কথা?</p>
+    <p>“আমি খালি পৌঁছাইয়া দেই, স্যার।”</p>
+    <p>“আমার দাদি মারা গেছে একাত্তর সালে।” তাঁর গলা ধরে এল। “আব্বার বয়স তখন ছাব্বিশ। আব্বা এই ঘটনা কোনোদিন কারো কাছে কয় নাই—সন্দেশের কথা, কথা দেওয়ার কথা। আমি এই প্রথম শুনলাম।”</p>
+    <p>আমি বাইকে উঠলাম।</p>
+    <p>“ভাই,” তিনি ডাকলেন, “ওইটা কি খাওয়ানো ঠিক হইব?”</p>
+    <p>আমার মুখ থেকে কথাটা বেরিয়ে গেল, আর বেরোনোর পর আমি নিজেই চমকে গেলাম—কারণ কথাটা আমার না, নিতাই ময়রার।</p>
+    <p>“যার নামে বানানো, সে খাইলে কিছু হয় না।”</p>
+
+    <div class="break">✦</div>
+
+    <p>হাবিবুর রহমান সাহেব মারা যান ওই রাতেই, ভোর চারটার দিকে।</p>
+    <p>খবরটা আমি পেয়েছিলাম তিন দিন পর, একটা ফেসবুক পোস্টে, যেটা তাঁর নাতি দিয়েছিল। পোস্টে লেখা ছিল, দাদা শেষ রাতে অদ্ভুত শান্ত হয়ে গিয়েছিলেন, তিন দিনের ছটফটানি থেমে গিয়েছিল, আর যাওয়ার আগে নাকি তিনি হেসেছিলেন।</p>
+    <p>মন্তব্যের ঘরে সবাই লিখেছিল—আলহামদুলিল্লাহ, কত ভাগ্যবান মানুষ, হাসিমুখে বিদায়।</p>
+    <p>কেউ লেখেনি যে ওই রাতে একজন রাইডার তাঁদের ঘরে একটা সাদা বাক্স পৌঁছে দিয়েছিল।</p>
+
+    <div class="break">✦</div>
+
+    <p>সেই রাতে ঘরে ফিরে আমি জ্যাকেটটা খুলে দেয়ালে ঝোলালাম।</p>
+    <p>ভাঁড়টা ভেতরের পকেটে। আমি সেটা বের করে টেবিলে রাখলাম, আর অনেকক্ষণ তাকিয়ে রইলাম।</p>
+    <p>বাইরে বৃষ্টি থেমে গেছে। ঘড়িতে চারটা পঁয়তাল্লিশ। পাশের ঘরে মায়ের কাশির শব্দ।</p>
+    <p>এতক্ষণে ভাঁড়টার গা থেকে গরম ভাবটা চলে গেছে। স্বাভাবিক, ঠান্ডা মাটির ভাঁড়।</p>
+    <p>আমি নিজেকে যে যুক্তিগুলো দিয়েছিলাম, সেগুলো এখন লিখতে গেলে হাস্যকর শোনায়। এইটা খদ্দেরের মাল না। এইটা আমার নামে বানানো। দাম নাকি আমি দিয়ে ফেলেছি। আর সবচেয়ে বড় যুক্তি, যেটা আমি নিজের কাছেও স্বীকার করিনি: হাবিবুর রহমান সাহেব হাসতে হাসতে মারা গেছেন।</p>
+    <p>আমি সাদা সুতার গিঁটটা খুললাম।</p>
+    <p>কলাপাতা সরালাম।</p>
+    <p>ভেতরে একটাই সন্দেশ। ছোট, সাদা, ওপরে আঙুলের ছাপ বসানো—যেভাবে হাতে গড়লে বসে।</p>
+    <p>আমি এক কামড় দিলাম।</p>
+    <p>আর তারপর আমি কাঁদতে শুরু করলাম—এমন কান্না, যেটা আমি আব্বার জানাজার দিনেও কাঁদিনি।</p>
+    <p>কারণ ওই স্বাদটা আমি চিনি।</p>
+    <p>আমার বাবা জীবনে একবারই মিষ্টি বানিয়েছিলেন। আমার সাত বছর বয়সে, মায়ের জ্বরের সময়, রান্নাঘরে দাঁড়িয়ে, ছানা কেটে, চিনি মিশিয়ে, হাতে গড়ে। জিনিসটা বিশ্রী হয়েছিল—দানা দানা, বেশি মিষ্টি, একপাশে পোড়া।</p>
+    <p>এই সন্দেশটার স্বাদ ঠিক সেইরকম।</p>
+    <p>দানা দানা। বেশি মিষ্টি। একপাশে পোড়া।</p>
+    <p class="end">চতুর্থ অধ্যায় সমাপ্ত</p>
+  </div>
+
+  <div class="tools">
+    <button class="tool" data-copy="chap-4">অধ্যায়টি কপি করুন</button>
+    <button class="tool" data-link="chap-4">লিংক কপি করুন</button>
+    <button class="tool" data-toc>সূচিপত্র</button>
+  </div>
+
+  <nav class="chap-nav">
+    <a class="nav-link" href="#chap-3"><span>পূর্ববর্তী</span>যে ঠিকানা আর নেই</a>
+    <a class="nav-link next" href="#chap-5"><span>পরবর্তী</span>বাবার হাতের স্বাদ</a>
+  </nav>
+</article>
+
+<article class="chapter" id="chap-5" data-title="বাবার হাতের স্বাদ" data-folio="০৫">
+  <header class="chap-head">
+    <div class="folio">০৫</div>
+    <p class="num">অধ্যায় পাঁচ</p>
+    <h2 class="chap-title">বাবার হাতের স্বাদ</h2>
+    <p class="chap-meta">আনুমানিক পাঠকাল ১৬ মিনিট</p>
+    <div class="rule-orn" aria-hidden="true"><span></span>❧<span></span></div>
+  </header>
+
+  <div class="story-body">
+    <p class="lead">এক কামড়ের পর আমি আর টেবিলের সামনে ছিলাম না।</p>
+    <p>আমি ছিলাম ১৪ নম্বর বাসার রান্নাঘরে, যেখানে আমরা থাকতাম আমার সাত বছর বয়সে, যে বাসাটা আঠারো বছর আগে ভেঙে ফেলা হয়েছে।</p>
+    <p>স্মৃতি জিনিসটা সাধারণত ছবির মতো—স্থির, ঝাপসা, কিছু অংশ নেই। এইটা ছবি না। এইটা ফিরে যাওয়া।</p>
+    <p>আমি মেঝের ঠান্ডাটা পায়ের তলায় পেলাম। সিমেন্টের মেঝে, এক কোনায় ফাটল, ফাটলের ভেতর দিয়ে পিঁপড়ার সারি যায়। রান্নাঘরের জানালার শিক তিনটা, একটা বাঁকা। কেরোসিনের চুলার পাশে অ্যালুমিনিয়ামের কড়াই, কড়াইয়ের হাতলে কাপড় জড়ানো, কারণ হাতলটা গরম হয়ে যায়।</p>
+    <p>আর চুলার সামনে আমার বাবা—লুঙ্গি গিঁট দিয়ে পরা, খালি গা, কাঁধে গামছা, পিঠে ঘাম।</p>
+    <p>তাঁর বয়স তখন চৌত্রিশ। আমার এখনকার চেয়ে মাত্র দশ বছর বেশি।</p>
+
+    <div class="break">✦</div>
+
+    <p>মায়ের জ্বর হয়েছিল সেই সপ্তাহে। টাইফয়েড, পরে ধরা পড়েছিল। চারদিন ধরে মা বিছানায়, আর বাবা অফিস থেকে ফিরে রান্না করছিলেন—যে কাজটা তিনি পারতেন না, আর যেটার জন্য প্রতিদিন কিছু না কিছু পুড়ত।</p>
+    <p>চতুর্থ দিন সন্ধ্যায় মা বলেছিলেন, “মিষ্টি খাইতে ইচ্ছা করতাছে।”</p>
+    <p>শুধু এইটুকু। অসুস্থ মানুষের বায়না, যেটা বলার পাঁচ মিনিটের মধ্যে মানুষ নিজেই ভুলে যায়।</p>
+    <p>বাবা দোকানে যাননি। মাসের শেষ ছিল, আর আমি এখন বুঝি, পকেটে টাকা ছিল না। কিন্তু তখন আমি সাত বছরের, আমি শুধু দেখেছিলাম বাবা রান্নাঘরে ঢুকে দরজা ভেজিয়ে দিলেন।</p>
+    <p>আমি ফাঁক দিয়ে উঁকি দিয়েছিলাম। তিনি দেখে ফেলেছিলেন।</p>
+    <p>“আয়। কাউরে কইবি না।”</p>
+    <p>দুধ ছিল আধা সের। তিনি জ্বাল দিলেন, লেবু চিপে ছানা কাটলেন—আমাদের পাশের ফ্ল্যাটের এক খালা জানালা দিয়ে চেঁচিয়ে পদ্ধতিটা বলে দিয়েছিলেন, আর বাবা সেটা গম্ভীর মুখে শুনেছিলেন, যেন অফিসের কোনো নির্দেশনা।</p>
+    <p>ছানা ছেঁকে, কাপড়ে বেঁধে, ঝুলিয়ে পানি ঝরালেন। তারপর ছানা মাখতে বসলেন।</p>
+    <p>“হাত ধুইয়া আয়,” বললেন। “তুইও মাখ।”</p>
+
+    <div class="break">✦</div>
+
+    <p>এরপর যে জিনিসটা আমি চল্লিশ মিনিট ধরে ফিরে পেলাম, সেটা কোনো ঘটনা না। কোনো নাটক নেই, কেউ কিছু গভীর কথা বলেনি।</p>
+    <p>আমরা দুইজন মেঝেতে বসে ছানা মেখেছিলাম।</p>
+    <p>বাবার হাতের তালু খসখসে ছিল। চিনি দিতে গিয়ে বেশি পড়ে গিয়েছিল, আর তিনি বলেছিলেন, “চিনি বেশি হইলে কেউ বুঝব না, কম হইলে ধরা পড়ুম।” আমি হেসেছিলাম। কেরোসিনের চুলার শব্দ—সেই একটানা ফোঁস ফোঁস—আর বাইরে কারো রেডিওতে খবর। দেয়ালে টিকটিকি। হাতের তালুতে ছানার আঠালো ভাব।</p>
+    <p>তিনি হাতে গড়ে গড়ে সাতটা সন্দেশ বানিয়েছিলেন। প্রত্যেকটায় আঙুলের ছাপ বসে গিয়েছিল, আর তিনি সেটা ঠিক করার চেষ্টা করে করে শেষে বলেছিলেন, “থাউক, এইটাই নকশা।”</p>
+    <p>একটা পুড়েছিল, কারণ তিনি নিচে ঘি দিয়ে হালকা সেঁকতে গিয়েছিলেন।</p>
+    <p>“পোড়াটা কে খাইব?” আমি জিজ্ঞেস করেছিলাম।</p>
+    <p>“আমি খামু।” তিনি সেটা তুলে নিয়েছিলেন। “বাপেরা পোড়াটা খায়।”</p>
+    <p>তারপর আমরা প্লেটে সাজিয়ে মায়ের ঘরে নিয়ে গিয়েছিলাম। মা উঠে বসতে পারছিলেন না, তাই বাবা হাতে করে একটা তুলে দিয়েছিলেন, আর মা এক কামড় খেয়ে মুখটা এমন করেছিলেন যে আমরা তিনজনই হেসে ফেলেছিলাম।</p>
+    <p>“এত মিষ্টি কেন?”</p>
+    <p>“কম হইলে ধরা পড়তাম।”</p>
+    <p>এইটুকু। এই পুরো ঘটনাটা।</p>
+    <p>আঠারো বছর ধরে আমার মাথায় এই স্মৃতিটা ছিল একটা ঝাপসা দাগের মতো—জানতাম যে ঘটেছিল, কিন্তু রংগুলো মরে গিয়েছিল।</p>
+    <p>ওই এক কামড়ে আমি পুরোটা ফেরত পেলাম। গন্ধ, শব্দ, আলো, ঘাম, হাসি।</p>
+    <p>সব।</p>
+
+    <div class="break">✦</div>
+
+    <p>আমি জ্ঞান হারাইনি। স্বপ্নও দেখিনি। আমার চেয়ারটা সরে যায়নি, আলো নেভেনি।</p>
+    <p>টেবিলের ঘড়িতে যখন আমি আবার চোখ রাখলাম, তখন চারটা সাতচল্লিশ—মানে দুই মিনিট গেছে। আমার ভেতরে গেছে চল্লিশ মিনিট।</p>
+    <p>আমার হাতে অর্ধেক সন্দেশ। আমি বাকিটা খাইনি। ওইটুকু আমি এখনো রেখে দিয়েছি, শুকিয়ে পাথর হয়ে গেছে, একটা কৌটায় ভরা।</p>
+    <p>আমি সেই রাতে ঘুমিয়েছিলাম—তিন দিনের মধ্যে প্রথম গভীর ঘুম। আর ঘুমানোর আগে, ছাদের দিকে তাকিয়ে, আমার মনে হয়েছিল: এইটা শাস্তি না। এইটা উপহার।</p>
+    <p>দাম যা দেওয়ার, আমি তো আগেই দিয়ে ফেলেছি।</p>
+
+    <div class="break">✦</div>
+
+    <p>পরদিন দুপুরে মা তরকারিতে নুন কম দিয়েছিলেন।</p>
+    <p>আমি বললাম, “আম্মা, নুন নাই।”</p>
+    <p>তিনি চেখে দেখে বললেন, “নুন ঠিকই আছে।”</p>
+    <p>মিম চেখে দেখল। “ঠিকই তো।”</p>
+    <p>আমি আরেক চামচ নিলাম, মুখে দিলাম, আর কিছুই পেলাম না।</p>
+    <p>নুন না। ঝাল না। টক না।</p>
+    <p>ভাত মুখে দিলে আমি বুঝতে পারছিলাম এটা গরম, এটা নরম, এটা ভাত—কিন্তু স্বাদ বলতে যে জিনিসটা, সেটা ছিল না। যেন জিভের ওপর একটা পাতলা কাগজ।</p>
+    <p>আমি রান্নাঘরে গিয়ে লবণের কৌটা থেকে এক চিমটি নিয়ে সরাসরি জিভে রাখলাম।</p>
+    <p>কিছু না।</p>
+    <p>চিনি নিলাম। কিছু না।</p>
+    <p>কাঁচা মরিচে কামড় দিলাম—আধখানা, গোটা। চোখে পানি এল, কারণ ঝাল জিনিসটা শুধু জিভে না, শরীরেও লাগে। কিন্তু স্বাদ?</p>
+    <p>কিছু না।</p>
+    <p>আমি বেসিনে দাঁড়িয়ে আয়নায় নিজের জিভটা দেখলাম। স্বাভাবিক। গোলাপি, পরিষ্কার।</p>
+    <p>আর তখন আমার মনে পড়ল নিতাই ময়রার কথাটা, যেটা আমি শুনেছিলাম কিন্তু শুনিনি—</p>
+    <p class="whisper">“দাম তুমি কাইল রাইতেই দিয়া দিছ, বাপ।”</p>
+    <p>আমি দাম দিইনি। আমি আগাম দিয়েছিলাম কিসের জন্য, জানতাম না।</p>
+    <p>একটা স্বাদ ফিরে পাওয়ার জন্য, বাকি সব স্বাদ।</p>
+
+    <div class="break">✦</div>
+
+    <p>সেইটা হলে আমি হয়তো মেনে নিতাম। সত্যি বলছি। আঠারো বছরের একটা বিকেল ফেরত পাওয়ার বিনিময়ে জিভের স্বাদ—এই দরটা আমার কাছে খারাপ মনে হয়নি।</p>
+    <p>আসল জিনিসটা আমি টের পেলাম তিন দিন পর।</p>
+    <p>রাতে শুয়ে আমি রোজকার মতো একটা কাজ করি—চার বছর ধরে করি। চোখ বন্ধ করে আব্বার গলাটা মনে করার চেষ্টা করি। কোনো একটা বাক্য। “ভাত খাইছস?” কিংবা “বাত্তিটা নিবায়া দে।”</p>
+    <p>সেই রাতে আমি শব্দগুলো মনে করতে পারলাম। কথাগুলো মনে পড়ল। কিন্তু গলাটা এল না।</p>
+    <p>আমি উঠে বসলাম।</p>
+    <p>আমি চেষ্টা করলাম আরো জোরে। হাসপাতালের সেই রাত—“রাফি!”—শব্দটা আমার মাথায় আছে, বানানসহ আছে, কিন্তু আওয়াজ নেই। যেন কেউ লিখে রেখে গেছে, কিন্তু রেকর্ডিংটা মুছে দিয়েছে।</p>
+    <p>আমি ফোন খুললাম।</p>
+    <p>আমার গ্যালারিতে আব্বার দুইটা ভিডিও আছে। একটা মিমের জন্মদিনের, যেখানে তিনি ক্যামেরার পেছনে—শুধু গলা শোনা যায়।</p>
+    <p>আমি হেডফোন কানে দিয়ে চালালাম।</p>
+    <p>ভিডিওটা ঠিক ছিল। আওয়াজ আসছিল। একজন মানুষ বলছিলেন, “মোমবাতি নিবা, মা। জোরে ফুঁ দাও।”</p>
+    <p>আর আমি তাঁকে চিনতে পারলাম না।</p>
+    <p>আমি জানি ওইটা আমার বাবা। যুক্তি দিয়ে জানি। কিন্তু কানে যে গলাটা ঢুকছিল, সেটা একজন অচেনা লোকের গলা—এমন কারো, যাকে রাস্তায় শুনলে আমি ফিরেও তাকাতাম না।</p>
+    <p>আমি ভিডিওটা এগারোবার চালালাম।</p>
+    <p>প্রত্যেকবার একই।</p>
+
+    <div class="break">✦</div>
+
+    <p>পরদিন সকালে মা আমার ঘরে এলেন চা নিয়ে।</p>
+    <p>“তুই কি অসুস্থ? তিন দিন ধইরা খাস না।”</p>
+    <p>“খাই তো।”</p>
+    <p>“প্লেট ভরা থাকে।” তিনি খাটের কিনারে বসলেন। “ডাক্তার দেখাইবি?”</p>
+    <p>আর তারপর, কথা ঘোরাতে গিয়ে, তিনি এমন একটা কথা বললেন যেটা আমাকে প্রায় ভেঙে ফেলল।</p>
+    <p>“জানিস, কাইল রাইতে স্বপ্নে তোর আব্বারে দেখছি। কিছু কয় নাই, খালি হাসতাছিল। ঘুম ভাঙার পরও কানে গলাটা লাইগা আছিল।”</p>
+    <p>“তোমার মনে আছে?” আমি জিজ্ঞেস করে ফেললাম।</p>
+    <p>মা অবাক হয়ে তাকালেন। “কী মনে আছে?”</p>
+    <p>“গলাটা। আব্বার গলাটা।”</p>
+    <p>“সেইটা আবার ভুলে নাকি কেউ?” তিনি হাসলেন, তারপর হাসিটা মিলিয়ে গেল। “তোর কি...”</p>
+    <p>“না। এমনেই জিগাইলাম।”</p>
+    <p>তিনি কিছুক্ষণ আমার মুখের দিকে তাকিয়ে রইলেন। মায়েরা মিথ্যা ধরতে পারেন, কিন্তু কোন মিথ্যাটা ধরলে ছেলে ভেঙে পড়বে, সেটাও তাঁরা জানেন।</p>
+    <p>তিনি কিছু বললেন না। চায়ের কাপটা রেখে উঠে গেলেন।</p>
+
+    <div class="break">✦</div>
+
+    <p>ওই রাতে আমি দুইটার আগেই চকবাজারে পৌঁছে গেলাম।</p>
+    <p>কোনো অর্ডার আসেনি। আমি নিজে গিয়েছিলাম—এইটা গুরুত্বপূর্ণ, কারণ এরপর থেকে হিসাবটা বদলে গেল। যতক্ষণ তারা ডাকে, ততক্ষণ আপনি শিকার। যেদিন আপনি নিজে যান, সেদিন আপনি খদ্দের।</p>
+    <p>গলিটা ছিল।</p>
+    <p>নিতাই ময়রা কড়াইয়ে নাড়ছিলেন। আমাকে দেখে তিনি অবাক হলেন না।</p>
+    <p>“স্বাদ গেছে?”</p>
+    <p>“আপনি জানতেন।”</p>
+    <p>“জানতাম।”</p>
+    <p>“আপনি কইলেন না কেন?”</p>
+    <p>তিনি কড়াই থেকে চামচ তুললেন, নামিয়ে রাখলেন। “কইলে খাইতা?”</p>
+    <p>“না।”</p>
+    <p>“তাইলে কওয়ার দরকার কী আছিল?” কোনো নিষ্ঠুরতা ছিল না গলায়। এইটাই সবচেয়ে খারাপ—তিনি কথাটা এমনভাবে বললেন যেন এইটা দোকানদারির সাধারণ নিয়ম, যেমন পচা জিনিস ফেরত হয় না।</p>
+    <p>আমি কাউন্টারে দুই হাত রাখলাম।</p>
+    <p>“আমার আব্বার গলাটা নাই।”</p>
+    <p>এইবার তিনি মাথা তুললেন। প্রথমবার তাঁর মুখে একটা ভাব এল, যেটাকে কষ্ট বলা যায় না, কিন্তু স্বীকৃতি বলা যায়।</p>
+    <p>“স্বাদ আর শব্দ,” তিনি বললেন। “একই ঘরে থাকে, বাপ। স্মৃতির ঘরে দুইটা জানালা—একটা দিয়া গন্ধ-স্বাদ আসে, আরেকটা দিয়া আওয়াজ। একটা জানালা খুইলা দিলে আরেকটা বন্ধ হয়।”</p>
+    <p>“আমি গলাটা ফেরত চাই।”</p>
+    <p>“দিতে পারি।”</p>
+    <p>আমার বুকের ভেতরটা লাফিয়ে উঠল—এবং সেই লাফটাই ছিল তাঁর ব্যবসা। তিনি এইটার জন্যই অপেক্ষা করছিলেন।</p>
+
+    <div class="break">✦</div>
+
+    <p>“দাম কী?”</p>
+    <p>“একটার বদলে একটা।” তিনি গামছা দিয়ে কাউন্টার মুছলেন, খুব যত্ন করে। “আমি কিছু বানাই না, বাপ। আমি খালি জায়গা বদল করি। যেইটা ফিরা পাইবা, তার জায়গা কইরা দিতে হইব।”</p>
+    <p>“আমি কোনটা দিব সেইটা আমি ঠিক করব?”</p>
+    <p>“না।” তিনি শোকেসের কাচে আঙুল রাখলেন। “যেই জিনিস তুমি নিজে দিতে চাও, ওইটার দাম নাই। মানুষ তো আবর্জনাই দিতে চায়। আমার লাগে ভালো মাল।”</p>
+    <p>“তাইলে কে ঠিক করে?”</p>
+    <p>“খাতা।”</p>
+    <p>শব্দটা শুনে আমার গা শিরশির করে উঠল। কাল রাতে বাক্স তোলার সময় আমি শোকেসের নিচে একটা মোটা খাতার কোনা দেখেছিলাম—বাঁধাই করা, কালচে, কাপড়ে মোড়া।</p>
+    <p>তিনি নিচু হয়ে সেটা বের করলেন, কাউন্টারে রাখলেন, আর খুললেন না।</p>
+    <p>“তোমার নাম এইখানে আছে। নিচে একটা লাইন—যেইটার দাম সবচেয়ে বেশি।” তিনি খাতার ওপর হাত রাখলেন। “আইজ রাইতে গলা ফেরত নিতে চাইলে, এইটা দিতে হইব।”</p>
+    <p>“কোনটা?”</p>
+    <p>তিনি বললেন।</p>
+    <p>আমি এখানে লিখতে পারতাম, কিন্তু লিখব না—কারণ ওই জিনিসটা এখনো আমার আছে, আর যতবার আমি ওটার কথা লিখি, ততবার আমার মনে হয় কেউ একজন খাতায় দাগ দিচ্ছে।</p>
+    <p>শুধু এইটুকু বলি: ওটা মিমকে নিয়ে। আমার বোন। যেদিন সে হয়েছিল, সেদিনের একটা জিনিস।</p>
+    <p>আমি অনেকক্ষণ দাঁড়িয়ে রইলাম।</p>
+    <p>তারপর বললাম, “না।”</p>
+
+    <div class="break">✦</div>
+
+    <p>নিতাই ময়রা রাগ করলেন না।</p>
+    <p>তিনি খাতাটা বন্ধ করে নিচে রেখে দিলেন, আবার কড়াইয়ের দিকে ফিরলেন, আর চামচ নাড়তে নাড়তে বললেন—</p>
+    <p>“ভালো করছ। প্রথম যে না কয়, হেয় একটু বেশি দিন টিকে।”</p>
+    <p>“প্রথম মানে?”</p>
+    <p>“মানুষ দ্বিতীয়বার না কয় না, বাপ।” কড়াইয়ের ভেতর ছানা ফুটছিল, আর বুদবুদের আওয়াজটা হঠাৎ অনেক বড় শোনাল। “আইজ তুমি গেলা। কাইল আবার জিগাইবা। পরশু তুমি নিজে দাম বাড়াইয়া বলবা।”</p>
+    <p>“আমি আর আসব না।”</p>
+    <p>“আইসো না।” তিনি হাসলেন না এইবার। “কিন্তু একটা জিনিস মনে রাইখো—তুমি মাল পৌঁছাইছ। দুইবার। খাতায় তোমার ঠিকানা উঠছে।”</p>
+    <p>“তার মানে কী?”</p>
+    <p>“তার মানে”—তিনি কড়াই থেকে চোখ না সরিয়ে বললেন—“এখন থাইকা এই দোকানে তোমার বাড়ির নামেও অর্ডার আসতে পারে।”</p>
+    <p>আমি গলি দিয়ে বেরিয়ে এলাম প্রায় দৌড়ে।</p>
+    <p>বাইকে উঠে ফোনটা বের করলাম, মাকে ফোন দেব বলে—কেন, জানি না, শুধু গলাটা শুনতে চাইছিলাম।</p>
+    <p>স্ক্রিনে তখন একটা নোটিফিকেশন।</p>
+
+    <p class="screen">অর্ডার #৪৪১৯ · প্রস্তুত হইতেছে<br>
+    পিকআপ: নিশিরাত মিষ্টান্ন ভাণ্ডার<br>
+    ডেলিভারি: আতুরার ডিপো, পাঁচলাইশ<br>
+    গ্রাহক: —<br>
+    <em>গ্রাহকের নাম নির্ধারিত হয় নাই</em></p>
+
+    <p>আতুরার ডিপো।</p>
+    <p>আমার বাড়ি।</p>
+    <p class="end">পঞ্চম অধ্যায় সমাপ্ত</p>
+  </div>
+
+  <div class="tools">
+    <button class="tool" data-copy="chap-5">অধ্যায়টি কপি করুন</button>
+    <button class="tool" data-link="chap-5">লিংক কপি করুন</button>
+    <button class="tool" data-toc>সূচিপত্র</button>
+  </div>
+
+  <nav class="chap-nav">
+    <a class="nav-link" href="#chap-4"><span>পূর্ববর্তী</span>নিতাই ময়রার সন্দেশ</a>
+    <a class="nav-link next" href="#chap-6"><span>পরবর্তী</span>যা আমি ভুলে যাচ্ছি</a>
+  </nav>
+</article>
+
+<article class="chapter" id="chap-6" data-title="যা আমি ভুলে যাচ্ছি" data-folio="০৬">
+  <header class="chap-head">
+    <div class="folio">০৬</div>
+    <p class="num">অধ্যায় ছয়</p>
+    <h2 class="chap-title">যা আমি ভুলে যাচ্ছি</h2>
+    <p class="chap-meta">আনুমানিক পাঠকাল ১৬ মিনিট</p>
+    <div class="rule-orn" aria-hidden="true"><span></span>❧<span></span></div>
+  </header>
+
+  <div class="story-body">
+    <p class="lead">সেই রাতে আমি দরজার সামনে বসে ছিলাম।</p>
+    <p>মেঝেতে, পিঠ দেয়ালে ঠেকিয়ে, হাতে ফোন। ভেতরের ঘরে মা আর মিম ঘুমাচ্ছে। আমি বাইরের দরজায় ছিটকিনি দিয়েছি, তালা দিয়েছি, আর তালার ওপর আরেকটা তার প্যাঁচিয়ে রেখেছি—যেন তালা জিনিসটা কোনো কাজে আসবে।</p>
+    <p>দুইটা চল্লিশ পার হলো। কিছু হলো না।</p>
+    <p>তিনটা বাজল। কিছু হলো না।</p>
+    <p>তিনটা বারোতে সিঁড়িতে পায়ের শব্দ।</p>
+    <p>ধীরে ধীরে উঠছে কেউ—তিনতলা পর্যন্ত, আমাদের দরজা পর্যন্ত। তারপর থামল।</p>
+    <p>আমি শ্বাস বন্ধ করে বসে রইলাম। দরজার নিচের ফাঁক দিয়ে সিঁড়ির বাতির আলো আসছিল, আর সেই আলোয় দুইটা ছায়া—পায়ের।</p>
+    <p>ছায়া দুটো নড়ল না। এক মিনিট। দুই মিনিট।</p>
+    <p>আমি জানি না কোথা থেকে সাহস পেলাম। আমি তার খুললাম, তালা খুললাম, ছিটকিনি সরালাম, আর দরজাটা হাট করে খুলে দিলাম।</p>
+    <p>সিঁড়ি খালি।</p>
+    <p>শুধু আমাদের দরজার সামনে, সিমেন্টের ওপর, একটা ভেজা দাগ—গোল, হাতের তালুর চেয়ে একটু বড়, যেন কেউ কিছু একটা রেখেছিল আর তুলে নিয়েছে।</p>
+    <p>দাগটা শুকাতে সময় লেগেছিল তিন ঘণ্টা। আমি ওটার পাশে বসে ছিলাম, যতক্ষণ না ফজরের আজান দিল।</p>
+
+    <div class="break">✦</div>
+
+    <p>সকালে অ্যাপ খুলে দেখলাম অর্ডারটা এখনো ঝুলে আছে।</p>
+
+    <p class="screen">অর্ডার #৪৪১৯ · স্থগিত<br>
+    ডেলিভারি: আতুরার ডিপো, পাঁচলাইশ<br>
+    গ্রাহক: —<br>
+    <em>গ্রাহকের নাম নির্ধারিত না হওয়া পর্যন্ত মাল হস্তান্তর করা যাইবে না।</em></p>
+
+    <p>আমি লাইনটা দশবার পড়লাম, আর ধীরে ধীরে বুঝতে পারলাম এর ভেতরে একটা সুসংবাদ আছে।</p>
+    <p>নাম লাগে।</p>
+    <p>ঠিকানা উঠে গেছে, কিন্তু নাম এখনো ওঠেনি। যতক্ষণ আমার ঘরের কারো নাম ওই খাতায় না ওঠে, ততক্ষণ বাক্সটা দরজার সামনে এসে ফিরে যাবে।</p>
+    <p>প্রশ্নটা তাহলে একটাই: নাম ওঠে কীভাবে?</p>
+    <p>আর সেই প্রশ্নের উত্তর যার কাছে থাকতে পারে, তার ঠিকানা শামীম ভাই আমাকে তিন দিন আগেই দিয়েছিলেন।</p>
+
+    <div class="break">✦</div>
+
+    <p>হালিশহর ‘কে’ ব্লকের একটা গলির ভেতরে মুদি দোকান। টিনের চাল, সামনে বেঞ্চ, দোকানের গায়ে সাবান-শ্যাম্পুর পোস্টার।</p>
+    <p>আমি দুপুরে গিয়েছিলাম। ভেবেছিলাম চিনতে অসুবিধা হবে।</p>
+    <p>হয়নি।</p>
+    <p>শামীম ভাই বলেছিলেন চব্বিশ বছরের ছেলেকে দেখলে পঞ্চাশ মনে হবে। কথাটা ভুল ছিল। বয়স না—ওই ছেলেটার সমস্যা বয়স না।</p>
+    <p>তানভীর কাউন্টারের পেছনে বসে ছিল, পিঠ কুঁজো, চোখ দুইটা স্থির। চামড়া টানটান, চুল কালো, মুখে বলিরেখা নেই। কিন্তু মানুষটা এমনভাবে বসে ছিল, যেভাবে খুব বুড়োরা বসে—যারা জানে যে উঠতে গেলে কষ্ট হবে, তাই উঠবে না।</p>
+    <p>“তানভীর ভাই?”</p>
+    <p>সে মাথা তুলল। “লাগব কী?”</p>
+    <p>“আমি রাফি। রাইডার। শামীম ভাই পাঠাইছে।”</p>
+    <p>নামটা শুনে সে নড়ল না। কিন্তু তার ডান হাতটা পকেটে চলে গেল, আর একটা ছোট নোটবুক বের করল—স্পাইরাল বাঁধানো, মলাট ছেঁড়া, পাতাগুলো ফুলে গেছে।</p>
+    <p>সে পাতা ওল্টাতে লাগল, খুঁজল, তারপর থামল।</p>
+    <p>“শামীম। রাইডার গ্রুপের অ্যাডমিন। বিশ্বাস করা যায়।” সে পড়ল, তারপর মাথা তুলে প্রথমবার আমার চোখের দিকে তাকাল। “ঠিক আছে। বসেন।”</p>
+
+    <div class="break">✦</div>
+
+    <p>সে দোকান বন্ধ করল না, শুধু একজন বাচ্চা ছেলেকে ডেকে বসিয়ে দিল। আমরা পেছনের ঘরে গেলাম—চালের বস্তা, তেলের ড্রাম, আর একটা চৌকি।</p>
+    <p>“কয়টা খাইছেন?” সে জিজ্ঞেস করল।</p>
+    <p>“একটা।”</p>
+    <p>“পুরাটা?”</p>
+    <p>“আধাটা।”</p>
+    <p>সে মাথা নাড়ল, খুব ধীরে। “আমি খাইছি চাইরটা। পুরাটা।”</p>
+    <p>আমি জানতে চাইলাম কী হারিয়েছে।</p>
+    <p>তানভীর নোটবুকটা খুলে আমার দিকে এগিয়ে দিল।</p>
+    <p>প্রথম পাতায় বড় বড় অক্ষরে লেখা:</p>
+
+    <p class="screen">আমার নাম তানভীর আহমেদ। বয়স ২৪।<br>
+    আমি হালিশহর ‘কে’ ব্লকে থাকি।<br>
+    যে মহিলা আমার সাথে থাকেন, তিনি আমার মা।<br>
+    তাঁর নাম রেহানা বেগম।<br>
+    তিনি আমার শত্রু নন। ভয় পাইবা না।<br>
+    তিনি ভাত দিলে খাইবা।</p>
+
+    <p>আমি কাগজটা ধরে বসে রইলাম।</p>
+    <p>“লেখাটা আছে,” তানভীর বলল। গলায় কোনো আবেগ ছিল না, আর সেইটাই ছিল সবচেয়ে ভয়ংকর। “পড়তে পারি। বিশ্বাসও করি। কিন্তু বুঝেন ভাই—লেখাটা পইড়া আমার ভিতরে কিছু হয় না। ‘মা’ শব্দটা আমার কাছে ‘চেয়ার’ শব্দের মতো।”</p>
+    <p>“আপনার মা বাঁইচা আছেন?”</p>
+    <p>“ওই যে”—সে থুতনি দিয়ে পর্দার দিকে ইশারা করল—“রান্নাঘরে। আমারে রোজ খাওয়ায়, জামা ধুইয়া দেয়, রাইতে মাথায় হাত দিয়া যায়।” সে একটু থামল। “আমি ভদ্রতা করি। আপা কইয়া ডাকি না, খালা কইয়াও ডাকি না, কারণ কাগজে লেখা আছে উনি মা। কিন্তু ভাই, আমার ভিতরে কিছু নাই।”</p>
+    <p>আমি জিজ্ঞেস করলাম, “বিনিময়ে কী পাইছিলেন?”</p>
+    <p>তানভীরের মুখটা তখন প্রথম এবং শেষবারের মতো বদলাল।</p>
+    <p>“আমার বড় ভাই। রাতুল। ট্রাকের নিচে পড়ছিল, আমার বয়স তখন এগারো।” সে চোখ বন্ধ করল। “চাইরটা সন্দেশে আমি ভাইয়ের চাইরটা দিন ফেরত পাইছি। ঈদের দিন, পুকুরে সাঁতার শিখার দিন, মারামারির দিন, আর শেষ দিনটা।”</p>
+    <p>“শেষ দিনটাও?”</p>
+    <p>“ওইটাই সবচেয়ে দামি আছিল।” সে চোখ খুলল। “এখন আমার ভাইয়ের সব আছে। চেহারা, গলা, হাতের দাগ, কোন দাঁতটা ভাঙা আছিল—সব। আমি চোখ বন্ধ করলেই ভাইরে দেখতে পাই।”</p>
+    <p>ঘরটা অনেকক্ষণ চুপ ছিল।</p>
+    <p>“আর মায়ের কিছু নাই।”</p>
+    <p>“একটা জিনিসও না,” তানভীর বলল। “আমি একটা মরা মানুষরে ফেরত আনছি একটা জীবিত মানুষরে দিয়া।”</p>
+
+    <div class="break">✦</div>
+
+    <p>এরপর যা শিখলাম, সেগুলো আমি সেদিনই লিখে রেখেছিলাম—তানভীরের দেখাদেখি, নিজের ফোনের নোটসে। পরে আমি বুঝেছি ওটাই ছিল সবচেয়ে কাজের সিদ্ধান্ত।</p>
+    <p><strong>এক।</strong> দোকান জোর করে কিছু নেয় না। প্রত্যেকবার মানুষ নিজে হ্যাঁ বলে। “জবরদস্তি নাই, ভাই। ওইটাই ফাঁদ। জবরদস্তি থাকলে মানুষ লড়ত।”</p>
+    <p><strong>দুই।</strong> দোকান প্রথমে ছোট দাম নেয়—স্বাদ, ঘ্রাণ, ঘুম। বড় দাম নেয় তিন নম্বরের পর। “প্রথম দুইটা টোপ। তিন নম্বর থাইকা ব্যবসা শুরু।”</p>
+    <p><strong>তিন।</strong> খাতা। খাতায় তিনটা জিনিস ওঠে—নাম, ঠিকানা, আর দাম। নাম উঠলে আপনি খদ্দের। ঠিকানা উঠলে আপনার ঘর খোলা।</p>
+    <p>আমি জিজ্ঞেস করলাম, “নাম ওঠে কেমনে?”</p>
+    <p>তানভীর নোটবুকটা আবার টেনে নিল, অনেকক্ষণ পাতা ওল্টাল। থামল একটা পাতায়, যেখানে কাঁপা হাতে লেখা।</p>
+    <p>“আমি এইটা লিখছিলাম,” সে বলল, “কিন্তু মনে নাই কে কইছিল।”</p>
+    <p>সে পড়ল:</p>
+    <p class="whisper">“নাম ওঠে যখন কেউ একজন কারো জন্য কিছু চায়। ইচ্ছাটাই অর্ডার। মুখে কওয়া লাগে না।”</p>
+    <p>আমার হাত-পা ঠান্ডা হয়ে গেল।</p>
+    <p>আমার মা অসুস্থ। আমার মা প্রতি রাতে ওষুধ খাওয়ার আগে একটা কথা বলেন, আমি তিন বছর ধরে শুনছি—“আল্লাহ, আমার পোলাটার কষ্ট কমাও।”</p>
+    <p>আর আমি? আমি গত সাত দিনে কতবার চেয়েছি যে আব্বার গলাটা ফেরত পাই?</p>
+    <p>ইচ্ছাটাই অর্ডার।</p>
+
+    <div class="break">✦</div>
+
+    <p>“বন্ধ করার কোনো উপায় নাই?” আমি জিজ্ঞেস করলাম।</p>
+    <p>“আগুন দিয়া লাভ নাই।” তানভীর শুকনো গলায় বলল। “একজন দিছিল। দুই হাত পুইড়া গেছে, দোকানের একটা কাঠও পোড়ে নাই।”</p>
+    <p>“আর?”</p>
+    <p>সে অনেকক্ষণ চুপ করে রইল। তারপর নোটবুকের একদম শেষ পাতায় গেল, যেখানে একটা মাত্র লাইন লেখা, আর লেখাটার চারপাশে গোল দাগ দেওয়া:</p>
+    <p class="whisper">মনসুর চাচা। ফিরিঙ্গিবাজার, কাঠের সিঁড়িঅলা বাড়ি। উনি ফেরত আসছিলেন।</p>
+    <p>“কে উনি?”</p>
+    <p>“জানি না।”</p>
+    <p>“জানেন না মানে? আপনি তো লিখছেন।”</p>
+    <p>“লিখছি।” তানভীর পাতাটার দিকে তাকিয়ে রইল। “কিন্তু মানুষটারে আমার মনে নাই। শুধু এইটুকু মনে আছে যে এই লাইনটা লেখার দিন আমি খুব খুশি হইছিলাম।”</p>
+    <p>সে পাতাটা ছিঁড়ে আমার হাতে দিল।</p>
+    <p>“আপনি রাখেন। আমার কাছে থাকলে কোনো কাজে আসব না।”</p>
+    <p>আমি পাতাটা ভাঁজ করে পকেটে রাখলাম। উঠে দাঁড়ালাম।</p>
+    <p>আর তখন পর্দা সরিয়ে একজন মহিলা ঢুকলেন—ষাটের কাছাকাছি, হাতে দুই গ্লাস শরবত।</p>
+    <p>“মেহমানরে কিছু দিলি না?” তিনি তানভীরকে বললেন, তারপর আমার দিকে তাকিয়ে হাসলেন। “বাবা, বসো। ও তো কিছুই খেয়াল করে না।”</p>
+    <p>আমি গ্লাসটা নিলাম।</p>
+    <p>আর আমি দেখলাম—তানভীর গ্লাসটা নিল, ধন্যবাদ বলল, এবং মহিলাটার দিকে এমনভাবে তাকাল যেভাবে আমরা দোকানের কর্মচারীর দিকে তাকাই। ভদ্র। শূন্য।</p>
+    <p>মহিলাটা সেটা দেখলেন। আমি নিশ্চিত তিনি দেখলেন, কারণ তাঁর হাসিটা একটুও কমল না—যে হাসি মানুষ বহু বছর ধরে ধরে রাখার অভ্যাস করে ফেলেছে।</p>
+    <p>“তোমরা কথা কও,” বলে তিনি বেরিয়ে গেলেন।</p>
+    <p>গলির মুখে এসে আমি শরবতের গ্লাসটার কথা ভাবলাম। আমি এক ঢোকও খাইনি। খেতে পারিনি—কোনো কিছুরই তো স্বাদ নেই আমার।</p>
+    <p>কিন্তু আসল কারণ সেটা না। আসল কারণ হলো, ওই মহিলার হাত থেকে কিছু নিতে গিয়ে আমার হাত কেঁপে উঠেছিল। আমি ভয় পাচ্ছিলাম—ভূতের না।</p>
+    <p>আমি ভয় পাচ্ছিলাম যে একদিন আমার মা-ও আমার দিকে ওইভাবে তাকাবেন, আর আমি বুঝব না কেন।</p>
+
+    <div class="break">✦</div>
+
+    <p>সেই রাতে আমি নিয়ম করে সব লিখে রাখা শুরু করলাম।</p>
+    <p>ফোনের নোটসে একটা ফাইল খুললাম, নাম দিলাম ‘যা ভুলব না’। লিখলাম—মায়ের মুখ, মিমের হাসি, আব্বার যে গলা আমি হারিয়েছি, বাবার বানানো সন্দেশের দানা দানা স্বাদ, আমাদের পুরোনো রান্নাঘরের বাঁকা শিক।</p>
+    <p>লিখতে লিখতে আমি স্ক্রল করে উপরে উঠলাম, দেখব কতটা লেখা হলো।</p>
+    <p>আর উপরে, তারিখ অনুযায়ী আমার নিজের লেখা নোটের মধ্যে, একটা এন্ট্রি ছিল—যেটা আমি লিখিনি।</p>
+    <p>মানে, লিখেছি। আমার ফোনে, আমার হাতে। কিন্তু লেখার কথা আমার মনে নেই।</p>
+
+    <p class="screen">১১ আশ্বিন — মিমের জন্মদিন।<br>
+    ওইদিন হাসপাতালে আমি প্রথম ওরে কোলে নিছিলাম। আব্বা কানে আজান দিছিল। আমার বয়স ছিল ৯।<br>
+    <strong>এইটা মনে রাখতে হইব। এইটা মনে নাই।</strong></p>
+
+    <p>আমি পড়লাম। আবার পড়লাম।</p>
+    <p>আমি জানি মিমের জন্মদিন ১১ আশ্বিন। আমি জানি সে হাসপাতালে হয়েছিল। যুক্তি দিয়ে সব জানি।</p>
+    <p>কিন্তু নয় বছরের আমি, কোলে একটা বাচ্চা, পাশে আব্বা—এই দৃশ্যটা আমার ভেতরে কোথাও নেই। একটা ফাঁকা জায়গা, যার চারপাশটা আছে, মাঝখানটা কেটে নেওয়া।</p>
+    <p>নোটটার সময় দেখলাম।</p>
+    <p>গত রাত, তিনটা একচল্লিশ।</p>
+    <p>আর আমার ফোনের গ্যালারিতে, ঠিক ওই সময়ে, একটা ছবি—আমি তুলেছি, নিজের হাতে, ফ্ল্যাশ দিয়ে। কাঠের একটা কাউন্টার, তার ওপর একটা খোলা খাতা, আর খাতার পাতায় আমার নিজের হাতের লেখায় একটা সই।</p>
+    <p>আমি না বলেছিলাম।</p>
+    <p>আমার স্পষ্ট মনে আছে—আমি চকবাজারের গলিতে দাঁড়িয়ে না বলেছিলাম, তারপর দৌড়ে বেরিয়ে এসেছিলাম।</p>
+    <p>কিন্তু সেইটা ছিল রাত দুইটা পঞ্চাশ।</p>
+    <p>আর আমি জানি না রাত তিনটা একচল্লিশে আমি কোথায় ছিলাম।</p>
+    <p class="end">ষষ্ঠ অধ্যায় সমাপ্ত</p>
+  </div>
+
+  <div class="tools">
+    <button class="tool" data-copy="chap-6">অধ্যায়টি কপি করুন</button>
+    <button class="tool" data-link="chap-6">লিংক কপি করুন</button>
+    <button class="tool" data-toc>সূচিপত্র</button>
+  </div>
+
+  <nav class="chap-nav">
+    <a class="nav-link" href="#chap-5"><span>পূর্ববর্তী</span>বাবার হাতের স্বাদ</a>
+    <a class="nav-link next" href="#chap-7"><span>পরবর্তী</span>খাতার নামগুলো</a>
+  </nav>
+</article>
+
+<article class="chapter" id="chap-7" data-title="খাতার নামগুলো" data-folio="০৭">
+  <header class="chap-head">
+    <div class="folio">০৭</div>
+    <p class="num">অধ্যায় সাত</p>
+    <h2 class="chap-title">খাতার নামগুলো</h2>
+    <p class="chap-meta">আনুমানিক পাঠকাল ১৭ মিনিট</p>
+    <div class="rule-orn" aria-hidden="true"><span></span>❧<span></span></div>
+  </header>
+
+  <div class="story-body">
+    <p class="lead">মিমকে আমি সেদিন সকালে একটা অদ্ভুত অনুরোধ করেছিলাম।</p>
+    <p>“তোর ছোটবেলার কথা বল। যা মনে আছে, সব।”</p>
+    <p>“কেন?”</p>
+    <p>“লেখতেছি একটা জিনিস।”</p>
+    <p>সে সন্দেহের চোখে তাকিয়েছিল, কিন্তু বলতে শুরু করেছিল—আর একবার শুরু করার পর থামেনি। ক্লাস টুতে কাঠবিড়ালি ধরতে গিয়ে পড়ে যাওয়া, আমার সাইকেলের পেছনে বসে স্কুলে যাওয়া, আব্বার সঙ্গে প্রথম সমুদ্র দেখা।</p>
+    <p>আমি ফোনে রেকর্ড করছিলাম।</p>
+    <p>সে যখন বলল, “তুমি তো আমার জন্মের দিন হাসপাতালে কোলে নিছিলা, আম্মা কয়”—আমি মাথা নাড়লাম, হাসলাম, আর ভেতরে ভেতরে একটা খালি ঘরে হাত বুলিয়ে কিছু খুঁজতে থাকলাম।</p>
+    <p>কিছু নেই। দেয়াল আছে, মেঝে আছে, মাঝখানে কিছু নেই।</p>
+    <p>রেকর্ডিং বন্ধ করে আমি ফোনটা পকেটে রাখলাম আর ফিরিঙ্গিবাজারের বাসে উঠলাম।</p>
+
+    <div class="break">✦</div>
+
+    <p>কাঠের সিঁড়িঅলা বাড়ি খুঁজে পেতে আমার দুই ঘণ্টা লেগেছিল।</p>
+    <p>ফিরিঙ্গিবাজারে পুরোনো বাড়ি অনেক—আর্মেনীয় আমলের, পর্তুগিজ নামের, খিলানঅলা বারান্দা। কিন্তু কাঠের সিঁড়ি বাইরে থেকে দেখা যায় এমন বাড়ি একটাই। তিনতলা, চুনকাম খসা, আর বাইরের দেয়াল ঘেঁষে ওঠা একটা কাঠের সিঁড়ি যেটার প্রতিটা ধাপে পা দিলে আলাদা আলাদা আওয়াজ হয়।</p>
+    <p>দোতলার দরজায় নামফলক: <strong>মনসুর আলী খান</strong>। নিচে ছোট করে, হাতে লেখা—<em>ফেরিওয়ালা, হকার, সেলসম্যানের প্রবেশ নিষেধ। অপরিচিত কেহ রাত্রে ডাকিবেন না।</em></p>
+    <p>শেষ লাইনটা পড়ে আমি দরজায় কড়া নাড়লাম।</p>
+    <p>ভেতর থেকে একটা গলা: “কে?”</p>
+    <p>“আমার নাম রাফি। তানভীর নামে একজন আপনার ঠিকানা দিছে।”</p>
+    <p>দীর্ঘ নীরবতা। তারপর ছিটকিনির শব্দ—একটা, দুইটা, তিনটা, চারটা।</p>
+
+    <div class="break">✦</div>
+
+    <p>মনসুর আলী খানের বয়স সত্তরের ওপরে। লম্বা, কুঁজো না, মাথায় সাদা চুল পরিপাটি করে আঁচড়ানো। পরনে পাজামা-পাঞ্জাবি, চোখে মোটা ফ্রেমের চশমা।</p>
+    <p>ঘরটা ছিল একটা পাঠাগারের মতো। দেয়ালজুড়ে তাক, তাকভর্তি ফাইল—সবুজ, লাল, হলুদ। টেবিলের ওপর কাঁচি, আঠা, আর কাগজের স্তূপ।</p>
+    <p>“বসো।” তিনি দরজা বন্ধ করে আবার চারটা ছিটকিনি দিলেন। “কয়টা খাইছ?”</p>
+    <p>সবাই একই প্রশ্ন দিয়ে শুরু করে।</p>
+    <p>“আধাটা।”</p>
+    <p>“আধাটা।” তিনি চশমার ফাঁক দিয়ে আমার দিকে তাকালেন। “তাইলে এখনো সময় আছে। বইসা পড়ো, সব কইতে হইব।”</p>
+    <p>আমি সব বললাম। প্রথম অর্ডার, রওশন আরা, মজিদ চাচা, কাগজের ছবি, হাবিবুর রহমান, ভাঁড়, স্বাদ, আব্বার গলা, খাতা, মিমের জন্মদিন, আর সেই তিনটা একচল্লিশ—যে সময়টা আমার জীবন থেকে কাটা।</p>
+    <p>তিনি পুরোটা শুনলেন, একবারও বাধা দিলেন না। শেষে শুধু বললেন, “তোমার সইটা দেখাও।”</p>
+    <p>আমি ফোনে ছবিটা বের করলাম। তিনি চশমা খুলে, খালি চোখে, স্ক্রিনটা মুখের কাছে নিয়ে অনেকক্ষণ দেখলেন।</p>
+    <p>“খাতা,” তিনি বিড়বিড় করলেন। “তেইশ বছর পর আবার দেখলাম।”</p>
+
+    <div class="break">✦</div>
+
+    <p>“আপনি কবে গেছিলেন?”</p>
+    <p>“দুই হাজার তিনে।” তিনি উঠে একটা লাল ফাইল নামালেন। “আমার মেয়ে মারা যায় দুই হাজার দুইয়ের নভেম্বরে। ডেঙ্গু। বয়স আছিল সতেরো।”</p>
+    <p>তিনি ফাইল খুলে একটা ছবি বের করলেন—স্কুলের ইউনিফর্ম পরা একটা মেয়ে, হাসছে।</p>
+    <p>“তিন মাস আমি ঘুমাই নাই। চাকরি ছাইড়া দিছিলাম। স্ত্রী ভাবছিল আমি পাগল হইয়া গেছি।” তিনি ছবিটা টেবিলে রাখলেন, উল্টো করে না—সোজা করেই। “একদিন রাইতে হাঁটতে হাঁটতে চকবাজার গেছি। গলিটা আমারে খুঁইজা নিছে।”</p>
+    <p>“আপনি কয়টা খাইছিলেন?”</p>
+    <p>“চাইরটা।”</p>
+    <p>আমার বুকের ভেতর একটা কাঁপুনি দিল। তানভীরও চারটা।</p>
+    <p>“তাইলে আপনার...”</p>
+    <p>“আমার স্ত্রীর মুখ।” তিনি খুব শান্ত গলায় বললেন। “মেয়ের চারটা দিন ফেরত পাইছিলাম। বিনিময়ে বত্রিশ বছরের সংসারের মুখটা গেছে। রাহেলা আমার সামনে বইসা থাকত, আমি মুখের দিকে তাকাইতাম, আর কিচ্ছু হইত না। একদিন সে কইল, ‘তুমি আমার দিকে এমনে তাকাও কেন?’ আমি কী কইতাম?”</p>
+    <p>“উনি এখন—”</p>
+    <p>“দুই হাজার নয়ে চইলা গেছে। ভাইয়ের বাসায়। আমি আটকাই নাই।” তিনি চশমা পরলেন। “আটকানোর মতো কিছু ভিতরে থাকলে তো আটকাইতাম।”</p>
+
+    <div class="break">✦</div>
+
+    <p>“তাইলে আপনি ফিরলেন কেমনে?”</p>
+    <p>মনসুর চাচা এই প্রশ্নে প্রথমবার হাসলেন—একটা তেতো, বাঁকা হাসি।</p>
+    <p>“ফিরি নাই, বাপ। আমারে ফেরত পাঠাইছে।”</p>
+    <p>“মানে?”</p>
+    <p>“পঞ্চম রাইতে আমি গেছিলাম পুরা শোধ দিতে। যা আছে সব দিয়া মেয়েটারে পুরা ফেরত নিতে।” তিনি টেবিলের কাঠে আঙুল ঠুকলেন। “ওই রাইতে আমি অন্য কিছু করছিলাম। দরদাম করতে গিয়া একটা প্রশ্ন কইরা ফালাইছিলাম।”</p>
+    <p>“কী প্রশ্ন?”</p>
+    <p>“আমি জিগাইছিলাম, ‘নিতাই, তোমার মায়ের নাম কী?’”</p>
+    <p>ঘরটা একদম চুপ হয়ে গেল।</p>
+    <p>“লোকটা হাত থামাইয়া দিল,” মনসুর চাচা বললেন। “কড়াইটা পুইড়া গেল। পঁচাত্তর বছরে ওই কড়াই কোনোদিন পোড়ে নাই, আমি হলফ কইরা কইতে পারি।</p>
+    <p>“তারপর সে কইল—খুব আস্তে—‘আমার মনে নাই।’</p>
+    <p>“আর তারপর আমারে কইল, ‘আইজ যাও। আইজ কিছু নিমু না।’”</p>
+    <p>তিনি আমার দিকে ঝুঁকে এলেন।</p>
+    <p>“শোনো ছেলে। ওই দোকান তেইশ বছর ধইরা আমার নাম ডাকে না। কেন জানো? কারণ ওই রাইতে আমি দাম দেই নাই, আমি দাম নিছি। আমি ওরে এমন একটা জিনিস মনে করাইয়া দিছি যেইটা সে নিজে হারাইছে।”</p>
+    <p>“উনি নিজেও দিছিলেন?”</p>
+    <p>“প্রত্যেক দোকানদার একদিন খদ্দের আছিল, বাপ।”</p>
+
+    <div class="break">✦</div>
+
+    <p>এরপর তিনি আমাকে ফাইলগুলো দেখালেন।</p>
+    <p>তেইশ বছরের কাজ। খবরের কাগজের কাটিং, থানার জিডির ফটোকপি, নিখোঁজ বিজ্ঞপ্তি, মৃত্যুসংবাদ। তিনি সব জোগাড় করেছেন চট্টগ্রামের ছয়টা দৈনিক থেকে, আর কিছু পুরোনো কাগজ থেকে, যেগুলো এখন আর বের হয় না।</p>
+    <p>প্রতিটা ফাইলের মলাটে একটা করে দশক লেখা। ১৯৫০-৬০। ১৯৬০-৭০। এরকম।</p>
+    <p>আর সবচেয়ে ওপরের তাকে একটা খাতা—তাঁর নিজের, সাধারণ রেজিস্টার খাতা, যাতে তিনি নামগুলো তালিকা করে রেখেছেন।</p>
+    <p>তিনটা কলাম: <strong>সন · নাম · কী হইছে</strong>।</p>
+    <p>আমি পাতা ওল্টাতে লাগলাম।</p>
+
+    <p class="screen">১৯৫৬ · আবুল হাশেম, সাইকেল মিস্ত্রি · নিখোঁজ<br>
+    ১৯৬৩ · সুধীর দাস, ফেরিওয়ালা · নিখোঁজ<br>
+    ১৯৭৪ · নূরুল ইসলাম, রিকশাচালক · মানসিক ভারসাম্যহীন, পরে মৃত্যু<br>
+    ১৯৮৫ · বাবুল মিয়া, দোকান কর্মচারী · নিখোঁজ<br>
+    ১৯৯১ · শাহজাহান, হোটেল বয় · নিখোঁজ<br>
+    ১৯৯৮ · (নাম জানা যায় নাই), মিষ্টির বাহক · নিখোঁজ<br>
+    ২০০৬ · জসিম উদ্দিন, কুরিয়ার · নিখোঁজ<br>
+    ২০১৩ · আল-আমিন, ফুড ডেলিভারি · নিখোঁজ</p>
+
+    <p>“পঁচাত্তর বছরে আঠাশটা নাম আমি পাইছি,” মনসুর চাচা বললেন। “আসল সংখ্যা আরো বেশি। যারা বাহক, তাগো বেশিরভাগ গরিব—গরিব মানুষ নিখোঁজ হইলে পেপারে ছাপা হয় না।”</p>
+    <p>“সবাই নিখোঁজ?”</p>
+    <p>“সবাই না।” তিনি পাতা উল্টে দিলেন। “শেষের দিকে দেখো।”</p>
+    <p>শেষ পাতায় চারটা নাম, কালি নতুন।</p>
+
+    <p class="screen">২০১৭ · রুবেল (পদবি অজানা), রাইডার · নিখোঁজ<br>
+    ২০১৯ · <strong>শামীম হোসেন</strong>, রাইডার · জীবিত<br>
+    ২০২২ · তানভীর আহমেদ, রাইডার · জীবিত<br>
+    ২০২৪ · নাম জানা যায় নাই, রাইডার · নিখোঁজ</p>
+
+    <p>আমি নামটার দিকে তাকিয়ে রইলাম অনেকক্ষণ।</p>
+    <p>শামীম হোসেন। আমাদের গ্রুপের অ্যাডমিন। যিনি রাত তিনটা পাঁচ মিনিটে আমার মেসেজ মুছে দিয়েছিলেন। যিনি আমাকে তানভীরের ঠিকানা দিয়েছিলেন।</p>
+    <p>“আপনি নিশ্চিত?”</p>
+    <p>“দুই হাজার উনিশের জুলাই মাসে ওই পোলা আমার কাছে আইছিল। এই ঘরে বইসা কানছিল।” মনসুর চাচা খাতাটা বন্ধ করলেন। “তিনটা খাইছিল। তিন নম্বরের পর থামছে। থামতে পারছে—এইটা সহজ কাজ না, বাপ, আমি পারি নাই।”</p>
+    <p>“তাইলে উনি জানতেন। সব জানতেন। আমারে কয় নাই কেন?”</p>
+    <p>“কইলে তুমি শুনতা?”</p>
+    <p>আমি উত্তর দিলাম না, কারণ উত্তরটা আমরা দুজনেই জানতাম।</p>
+    <p>“আর একটা কথা,” তিনি বললেন। “ওই পোলার দেনা শেষ হয় নাই।”</p>
+    <p>“মানে?”</p>
+    <p>“তিনটা খাইয়া থামলে দোকান তোমারে ছাড়ে না, খালি কিস্তিতে নেয়। সে এখনো দিতাছে।” তিনি জানালার দিকে তাকালেন। “কী দিতাছে, কেমনে দিতাছে—সেইটা তুমি তারে জিগাইও।”</p>
+
+    <div class="break">✦</div>
+
+    <p>বিকেলের আলো পড়ে এসেছিল। মনসুর চাচা উঠে বাতি জ্বালালেন, আর ফিরে এসে আমার সামনে বসলেন।</p>
+    <p>“এখন কাজের কথা। তুমি কী চাও?”</p>
+    <p>“আমি চাই আমার ঘরের নামটা যেন খাতায় না ওঠে।”</p>
+    <p>“তোমার ঠিকানা তো উঠছে।”</p>
+    <p>“আমি জানি।”</p>
+    <p>তিনি মাথা নাড়লেন, যেন পরীক্ষায় ঠিক উত্তরটা পেয়েছেন।</p>
+    <p>“তাইলে শোনো। ওই খাতার পাতা মোছা যায় না, ছিঁড়া যায় না। আমি চেষ্টা করছিলাম—হাত পুড়ছে, পাতা পুড়ে নাই।</p>
+    <p>“কিন্তু খাতার একটা জিনিস আছে, বাপ, যেইটা নিতাই ময়রা তোমারে কোনোদিন কইব না।</p>
+    <p>“ওই খাতার প্রথম পাতায় একটা নাম আছে। সবচেয়ে পুরান হিসাব। তেরোশো পঞ্চান্ন সনের।”</p>
+    <p>“কার নাম?”</p>
+    <p>“আমি দেখি নাই।” তিনি হাতের তালু উল্টালেন। “খাতা সে কাউরে খুলতে দেয় না—শুধু যার হিসাব, তার পাতাটা দেখায়। কিন্তু আমি একটা জিনিস জানি।</p>
+    <p>“পঞ্চম রাইতে, আমি যখন মায়ের নাম জিগাইলাম, তখন তার হাত থাইকা চামচ পইড়া গেছিল। আর সে এক মুহূর্তের জন্য খাতাটার দিকে তাকাইছিল।”</p>
+    <p>বৃদ্ধ ঝুঁকে এলেন, আর তাঁর গলা নেমে গেল এমন নিচে যে আমাকে কান বাড়াতে হলো।</p>
+    <p>“প্রথম পাতার হিসাবটা তার নিজের, রাফি। ওই দোকানের প্রথম খদ্দের নিতাই ময়রা নিজে।”</p>
+
+    <div class="break">✦</div>
+
+    <p>আমি বেরোনোর সময় তিনি দরজা পর্যন্ত এলেন।</p>
+    <p>“আর একটা জিনিস। তোমারে যে নিছে, এইটা কাকতালীয় না। দোকান যারে-তারে ডাকে না।”</p>
+    <p>“তাইলে কারে ডাকে?”</p>
+    <p>“যার ঘরে শোক আছে।” তিনি বললেন। “হাশেমের বউ মরছিল। সুধীরের পোলা। নূরুলের মা। তানভীরের ভাই। আমার মেয়ে।” তিনি থামলেন। “আর তোমার?”</p>
+    <p>“আব্বা।”</p>
+    <p>তিনি চোখ বন্ধ করলেন।</p>
+    <p>“কয় বছর?”</p>
+    <p>“চার।”</p>
+    <p>“শোক পচতে চার বছরই লাগে।” তিনি দরজার ছিটকিনিতে হাত রাখলেন। “মানুষ ভাবে দোকানটা মিষ্টি বেচে। বেচে না। ওইটা শোক কিনে, বাপ। শোক হইল একমাত্র জিনিস যেইটা মানুষ কোনোদিন ফালাইতে পারে না, আবার রাখতেও পারে না—তাই যে কেউ আইসা বলে ‘আমি নিয়া যাই?’, আমরা হাত বাড়াইয়া দেই।”</p>
+    <p>আমি কাঠের সিঁড়ি দিয়ে নামতে শুরু করলাম।</p>
+    <p>তিন ধাপ নামার পর তিনি ডাকলেন।</p>
+    <p>“রাফি।”</p>
+    <p>আমি তাকালাম।</p>
+    <p>“শামীমের কাছে যাওয়ার আগে একটা জিনিস মাথায় রাইখো।” তাঁর মুখটা অন্ধকারে ছিল, শুধু চশমার কাচে বাতির আলো। “যে কিস্তিতে শোধ করে, তার প্রত্যেক মাসে একটা কইরা কিস্তি লাগে। পাঁচ বছর ধইরা।</p>
+    <p>“তুমি কি কোনোদিন ভাবছ, এত বছর ধইরা সে কী দিয়া শোধ করতাছে?”</p>
+    <p>আমি ভাবিনি।</p>
+    <p>আর সিঁড়ির শেষ ধাপে পা রাখতে রাখতে আমার মাথায় একটা জিনিস এল, যেটা এর আগে কোনোদিন আসেনি।</p>
+    <p>শামীম ভাই আমাদের গ্রুপের অ্যাডমিন।</p>
+    <p>কোন অর্ডার কার কাছে যায়, কোন নতুন ছেলে কোন এলাকায় ঢোকে, কার মা অসুস্থ, কার বাবা মারা গেছে, কে রাতে ডিউটি করে—এই শহরের তিনশো রাইডারের সবকিছু একজন মানুষ জানে।</p>
+    <p class="end">সপ্তম অধ্যায় সমাপ্ত</p>
+  </div>
+
+  <div class="tools">
+    <button class="tool" data-copy="chap-7">অধ্যায়টি কপি করুন</button>
+    <button class="tool" data-link="chap-7">লিংক কপি করুন</button>
+    <button class="tool" data-toc>সূচিপত্র</button>
+  </div>
+
+  <nav class="chap-nav">
+    <a class="nav-link" href="#chap-6"><span>পূর্ববর্তী</span>যা আমি ভুলে যাচ্ছি</a>
+    <a class="nav-link next" href="#chap-8"><span>পরবর্তী</span>আটচল্লিশ সালের সেই রাত</a>
+  </nav>
+</article>
+
+<article class="chapter" id="chap-8" data-title="আটচল্লিশ সালের সেই রাত" data-folio="০৮">
+  <header class="chap-head">
+    <div class="folio">০৮</div>
+    <p class="num">অধ্যায় আট</p>
+    <h2 class="chap-title">আটচল্লিশ সালের সেই রাত</h2>
+    <p class="chap-meta">আনুমানিক পাঠকাল ১৮ মিনিট</p>
+    <div class="rule-orn" aria-hidden="true"><span></span>❧<span></span></div>
+  </header>
+
+  <div class="story-body">
+    <p class="lead">শামীম ভাইকে আমি পেলাম গ্যারেজের পেছনে, একা, বাইকের চেইনে তেল দিতে দিতে।</p>
+    <p>আমি কোনো ভূমিকা করিনি।</p>
+    <p>“আপনি প্রত্যেক মাসে কী দেন?”</p>
+    <p>তাঁর হাত থামল। তেলের শিশিটা তিনি খুব সাবধানে নিচে রাখলেন, যেন ওটাই এখন পৃথিবীর সবচেয়ে গুরুত্বপূর্ণ কাজ।</p>
+    <p>“মনসুর চাচার কাছে গেছিলি।”</p>
+    <p>“জি।”</p>
+    <p>তিনি হাতের তেল মুছলেন, উঠে দাঁড়ালেন, আর আমার দিকে না তাকিয়ে গ্যারেজের দেয়ালের দিকে তাকিয়ে রইলেন।</p>
+    <p>“তিনটা খাইয়া আমি থামছিলাম,” তিনি বললেন। “ভাবছিলাম বাঁইচা গেছি। চার নম্বরটা নেই নাই, হাতে নিয়াও নেই নাই—ওইদিন রাইতে আমি গলিতে বমি কইরা ফালাইছিলাম।</p>
+    <p>“তিন মাস পর লোকটা আমারে ডাকল। কইল, ‘তুমি থামছ, ভালো করছ। কিন্তু হিসাব তো শেষ হয় নাই। তিনটার দাম বাকি।’</p>
+    <p>“আমি কইলাম, ‘আমার কাছে তো আর কিছু নাই।’</p>
+    <p>“সে কইল, ‘তোমার কাছে যা আছে, সেইটা তোমার না। তুমি তিনশো পোলার খোঁজ রাখো।’”</p>
+    <p>গ্যারেজের টিনের চালে একটা কাক বসল, আওয়াজ হলো। আমি নড়তে পারছিলাম না।</p>
+    <p>“প্রত্যেক মাসে একটা নাম,” শামীম ভাই বললেন। “শুধু নাম। সে জিগায়, ‘এই মাসে কার ঘরে শোক নতুন?’ আমি কই।”</p>
+    <p>“আর নামটা খাতায় ওঠে।”</p>
+    <p>“আমি তো জানতাম না প্রথমে!” এইবার তিনি ঘুরলেন, আর আমি দেখলাম মানুষটার চোখ লাল। “আমি ভাবছিলাম নাম কইলে কী হইব। একটা নাম তো খালি একটা শব্দ।</p>
+    <p>“তিন নম্বর মাসে রুবেল হারায়া গেল।”</p>
+
+    <div class="break">✦</div>
+
+    <p>“আপনি থামলেন না কেন?”</p>
+    <p>“থামছিলাম।” তাঁর গলা ভেঙে গেল। “চার নম্বর মাসে আমি নাম দেই নাই। মিথ্যা কইছিলাম—কইছিলাম এই মাসে কারো ঘরে কিছু হয় নাই।</p>
+    <p>“ওই সপ্তাহে আমার মাইয়ার জ্বর আসল। তিন দিনে চল্লিশ পার। ডাক্তার কারণ ধরতে পারে না।” তিনি হাতের তালু দিয়ে চোখ চাপলেন। “পঞ্চম রাইতে আমি গলিতে গিয়া দাঁড়াইলাম, একটা নাম কইলাম, আর বাসায় ফিরা দেখি জ্বর নাই।</p>
+    <p>“সকালে মাইয়া আমার কোলে উইঠা কইল, ‘আব্বু, তোমার গায়ে মিষ্টির গন্ধ।’”</p>
+    <p>আমি অনেকক্ষণ কিছু বলতে পারলাম না।</p>
+    <p>শেষে যেটা জিজ্ঞেস করলাম, সেটার উত্তর আমি আগেই জানতাম।</p>
+    <p>“এই মাসে কার নাম দিছিলেন?”</p>
+    <p>তিনি উত্তর দিলেন না।</p>
+    <p>আর সেই না-দেওয়াটাই উত্তর।</p>
+    <p>আমি ঘুষি মারিনি, গালি দেইনি। আমি শুধু দাঁড়িয়ে রইলাম, আর ভাবলাম—চার বছর আগে আমার আব্বা মারা যাওয়ার পর এই লোকটাই আমাকে প্রথম কাজে ফিরিয়ে এনেছিলেন। ডিউটি কমিয়ে দিয়েছিলেন, জোর করে ভাত খাইয়েছিলেন।</p>
+    <p>তিনি আমার শত্রু না। তিনি আমার আগের কিস্তি।</p>
+    <p>“একটা জিনিস কইতে পারি,” তিনি বললেন, যখন আমি চলে যাচ্ছি। “বছরে একটা রাইত ওই দোকান মাল বেচে না।”</p>
+    <p>আমি থামলাম।</p>
+    <p>“কোন রাইত?”</p>
+    <p>“যে রাইতে দোকান খুলছিল। তেরোশো পঞ্চান্ন সনের চৈত্রের শেষ রাইত।” তিনি কাঁধ ঝাঁকালেন। “ওই রাইতে গলি খোলা থাকে, কিন্তু শোকেস খালি। লোকটা খালি বইসা থাকে।</p>
+    <p>“এই বছর ওইটা পরশু।”</p>
+
+    <div class="break">✦</div>
+
+    <p>চৈত্রের শেষ রাত।</p>
+    <p>আমি গিয়েছিলাম রাত একটায়, অর্ডার ছাড়া, ফোন বাসায় রেখে। পকেটে শুধু তামার পয়সাটা আর মনসুর চাচার দেওয়া কাগজ।</p>
+    <p>গলিটা খোলা ছিল। কিন্তু হলুদ আলোটা দুর্বল—যেন তেল ফুরিয়ে আসছে।</p>
+    <p>শোকেসটা খালি।</p>
+    <p>একদম খালি। কাচের তাকগুলোতে কিছু নেই, এমনকি কাগজও না। শুধু ধুলো, আর ধুলোর ওপর থালার গোল দাগ।</p>
+    <p>নিতাই ময়রা কাউন্টারের পেছনে বসা, হাতে কিছু নেই। কড়াই ঠান্ডা, উনুন নেভানো। প্রথমবার আমি তাঁকে দেখলাম কাজ ছাড়া।</p>
+    <p>“আইজ মাল নাই,” তিনি বললেন।</p>
+    <p>“আমি মাল নিতে আসি নাই।”</p>
+    <p>“জানি।” তিনি পাশের টুলটা পা দিয়ে একটু ঠেলে দিলেন। “বসো। আইজকা রাইতে কথা কওয়া যায়।”</p>
+
+    <div class="break">✦</div>
+
+    <p>আমি বসলাম। আর তিনি বলতে শুরু করলেন—এমনভাবে, যেভাবে মানুষ বহুদিনের মুখস্থ জিনিস বলে, থেমে থেমে, কারণ মুখস্থ জিনিসেরও কিছু জায়গায় ব্যথা থাকে।</p>
+    <p>“আমার বাপের দোকান আছিল নোয়াখালীর এক বাজারে। ছোট দোকান—সন্দেশ, রসগোল্লা, দই।</p>
+    <p>“সাতচল্লিশে দেশ ভাগ হইল। আটচল্লিশে আমরা রওনা দিলাম।</p>
+    <p>“কেন রওনা দিছিলাম, সেই কথা আমি কমু না, বাপ। ওইটা অনেক বড় কথা, আর ওই কথা কইলে আমি রাইতে ঘুমাইতে পারি না।” তিনি হাত নাড়লেন, যেন মাছি তাড়াচ্ছেন। “খালি এইটুকু জানো—আমরা তিনজন রওনা দিছিলাম। বাপ, মা, আর আমি। আমার বয়স বারো।</p>
+    <p>“আর বাপের কাঁধে একটা জিনিস আছিল। হাঁড়ি। হাঁড়িভরা সন্দেশ।”</p>
+    <p>“কেন?”</p>
+    <p>“অর্ডার।” নিতাই ময়রার মুখে এমন একটা হাসি এল যেটা হাসি না। “দোকান বন্ধ করার আগের দিন এক ভদ্রলোক অর্ডার দিছিল—চট্টগ্রামে তার মাইয়ার বিয়া, দুই সের সন্দেশ। আগাম টাকা দিয়া গেছিল।</p>
+    <p>“বাপ কইল, ‘টাকা নিছি। মাল দিতে হইব।’</p>
+    <p>“আম্মা কইছিল, ‘এই সময়ে মিষ্টি লইয়া হাঁটবা?’</p>
+    <p>“বাপ কইছিল, ‘মানুষ কথা না রাখলে মানুষ থাকে না।’”</p>
+
+    <div class="break">✦</div>
+
+    <p>“আমরা হাঁটছি এগারো দিন।</p>
+    <p>“শেষ তিন দিন খাওন আছিল না। পথে যা পাইতাম—পানি, আর কোনো বাড়ির উঠান থাইকা কেউ দিলে মুড়ি।</p>
+    <p>“আর আমার কাঁধে তখন হাঁড়িটা, কারণ বাপের শরীর ভাইঙ্গা পড়ছিল।</p>
+    <p>“দশ নম্বর দিনের রাইতে আম্মা আর হাঁটতে পারল না। একটা বটগাছের তলায় শুইয়া পড়ল।</p>
+    <p>“আমি পানি আনতে গেলাম। ফিরা আইসা দেখি সে চোখ মেইলা আমার দিকে তাকাইয়া আছে।</p>
+    <p>“কইল, ‘নিতাই, একটা দে।’”</p>
+    <p>তিনি থামলেন।</p>
+    <p>গলির ভেতরটা এত চুপ ছিল যে আমি নিজের বুকের শব্দ শুনতে পাচ্ছিলাম।</p>
+    <p>“আমি হাঁড়িটা বুকের কাছে ধরলাম,” নিতাই ময়রা বললেন। “আর কইলাম—</p>
+    <p>“‘এইটা খদ্দেরের মাল, মা।’”</p>
+
+    <div class="break">✦</div>
+
+    <p>আমি কিছু বলতে পারলাম না। বলার মতো কিছু ছিল না।</p>
+    <p>“আম্মা রাগ করে নাই,” তিনি বললেন। “এইটাই সবচেয়ে খারাপ। রাগ করলে আমি আইজ রাইতে এইখানে বইসা থাকতাম না। সে খালি মাথা নাড়ল, আর কইল, ‘ঠিক আছে, বাপ। কথা রাখা ভালো।’</p>
+    <p>“তারপর ঘুমাইয়া পড়ল।</p>
+    <p>“ভোরবেলা ওরে আর ডাকা গেল না।”</p>
+    <p>তিনি কাউন্টারের কাঠে হাত বোলালেন।</p>
+    <p>“আমরা ওরে ওই বটগাছের তলায় রাইখা আসছি। মাটি দেওয়ার মতো অবস্থা আছিল না, বাপ—আমার বাপের হাতে কোদাল আছিল না, শরীরে জোর আছিল না।</p>
+    <p>“তার পরের দিন আমরা চট্টগ্রাম পৌঁছাইলাম।</p>
+    <p>“ঠিকানা খুঁইজা বাইর করলাম। আন্দরকিল্লার এক বাড়ি।</p>
+    <p>“দরজায় তালা। বাড়ি খালি। পাড়ার লোক কইল, ওরা চইলা গেছে—কই গেছে, কেউ জানে না।</p>
+    <p>“বিয়াটা হয় নাই।”</p>
+
+    <div class="break">✦</div>
+
+    <p>“এগারো দিনের সন্দেশ তখন শক্ত, কিছুটা নষ্ট।</p>
+    <p>“বাপ হাঁড়িটা রাস্তার পাশে রাইখা বইসা পড়ল। অনেকক্ষণ বইসা রইল। তারপর উঠল, আর কইল, ‘চল, দোকান দিব।’</p>
+    <p>“আমি কইলাম, ‘হাঁড়িটা?’</p>
+    <p>“বাপ কইল, ‘ফালাইয়া দে।’</p>
+    <p>“আমি ফালাই নাই।”</p>
+    <p>নিতাই ময়রা আমার দিকে তাকালেন, আর তাঁর সেই খালি চোখ দুটো প্রথমবার আমার কাছে ভয়ংকর লাগল না। শুধু পুরোনো লাগল।</p>
+    <p>“আমি ওই রাইতে একলা বইসা পুরা হাঁড়ি খাইছি।</p>
+    <p>“দুই সের। এগারো দিনের বাসি মাল। খাইতে খাইতে আমার বমি আসছে, আমি খাইছি। কান্তে কান্তে খাইছি।</p>
+    <p>“আর যেইটা হইল—”</p>
+    <p>তিনি চোখ বন্ধ করলেন।</p>
+    <p>“আমি ওরে ফিরা পাইলাম।</p>
+    <p>“বটগাছের তলার ওই রাইতটা। পুরাটা। গন্ধ, আলো, গলার আওয়াজ, হাতের গরম।</p>
+    <p>“আমি বারবার ফিরা যাইতে পারি। আইজ পঁচাত্তর বছর, আমি চোখ বন্ধ করলেই ওই গাছতলায় চইলা যাই। আমার মা আমার দিকে তাকাইয়া আছে, আর কইতাছে, ‘নিতাই, একটা দে।’”</p>
+    <p>তাঁর গলা কাঁপল না, কিন্তু কাউন্টারে রাখা হাতটা কাঁপল।</p>
+    <p>“আর বিনিময়ে?” আমি ফিসফিস করে জিজ্ঞেস করলাম।</p>
+    <p>“বাকি সব।”</p>
+
+    <div class="break">✦</div>
+
+    <p>“ওর নাম কী আছিল, আমি জানি না।</p>
+    <p>“ওর মুখ কেমন আছিল, জানি না। ওই এক রাইতের মুখটা ছাড়া—আর ওই রাইতে অন্ধকার আছিল, বাপ, আমি ভালো কইরা দেখি নাই।</p>
+    <p>“সে আমারে কী কী রাঁধিয়া খাওয়াইত, কেমনে ডাকত, বকা দিত কি না, কোলে নিয়া ঘুম পাড়াইত কি না—কিচ্ছু না।</p>
+    <p>“বারো বছরের একটা জীবনে মায়ের যা যা থাকে, সব গেছে। রইছে এক রাইত, যেই রাইতে আমি ওরে মিষ্টি দেই নাই।”</p>
+    <p>তিনি আমার দিকে তাকালেন।</p>
+    <p>“এইটাই প্রথম হিসাব, রাফি। খাতার পয়লা পাতা। ওইখানে আমার নাম লেখা, আর নিচে যা দিছি তার তালিকা।</p>
+    <p>“আমি দোকানদার না। আমি পয়লা খদ্দের।”</p>
+
+    <div class="break">✦</div>
+
+    <p>“তাইলে দোকানটা চালান কেন?” আমি জিজ্ঞেস করলাম।</p>
+    <p>“দুইটা কারণে।</p>
+    <p>“এক—বাপের কথা। মানুষ কথা না রাখলে মানুষ থাকে না। ওই অর্ডারটা আইজও ফেরত দেওয়া হয় নাই। যতদিন একটা অর্ডার বাকি, ততদিন দোকান বন্ধ হয় না।”</p>
+    <p>“আর দুই?”</p>
+    <p>নিতাই ময়রা অনেকক্ষণ চুপ করে রইলেন। বাইরে কোথাও একটা কুকুর ডাকল, আর থেমে গেল।</p>
+    <p>“খাতার নিয়ম হইল, যা দিছ তা ফেরত পাইতে পারো—যদি কেউ ওই জিনিসটা দেয়।</p>
+    <p>“আমি দিছি একটা মা।</p>
+    <p>“ফেরত পাইতে হইলে আমার লাগব আরেকটা মা।”</p>
+    <p>ঘরের তাপমাত্রা নেমে গেল। আমি নিশ্চিত না এইটা সত্যি হয়েছিল নাকি আমার শরীর, কিন্তু আমি কেঁপে উঠলাম।</p>
+    <p>“পঁচাত্তর বছরে পাই নাই,” তিনি বললেন, খুব স্বাভাবিক গলায়। “মানুষ বাপ দেয়, ভাই দেয়, বউ দেয়, মাইয়া দেয়। মা দেয় না। মা জিনিসটা মানুষ সবার শেষে ছাড়ে।</p>
+    <p>“তানভীর দিছিল। ওইটা একটা ঘটনা।” তিনি মাথা নাড়লেন। “কিন্তু কাজে লাগে নাই।”</p>
+    <p>“কেন?”</p>
+    <p>“কারণ ওর মা বাঁইচা আছে।” তিনি আমার চোখের দিকে তাকালেন। “বাঁচা মানুষের স্মৃতি দিয়া মরা মানুষ ফেরত আসে না, বাপ। খাতা মাপে দিয়া কাজ করে—মরার বদলে মরা।”</p>
+    <p>আমার মাথার ভেতর ঠান্ডা একটা জিনিস নেমে গেল, আর আমি বুঝে ফেললাম কথাটা কোথায় যাচ্ছে।</p>
+    <p>আমার মা বেঁচে আছেন।</p>
+    <p>তার মানে আমার মায়ের স্মৃতি তাঁর কোনো কাজে আসবে না।</p>
+    <p>যতক্ষণ তিনি বেঁচে আছেন।</p>
+
+    <div class="break">✦</div>
+
+    <p>“আমার বাসায় একটা অর্ডার ঝুইলা আছে,” আমি বললাম। গলা শুকিয়ে কাঠ। “গ্রাহকের নাম নাই।”</p>
+    <p>“আছে।”</p>
+    <p>“মানে?”</p>
+    <p>“নাম উঠছে আইজ সন্ধ্যায়।” তিনি এটা এমনভাবে বললেন যেন আবহাওয়ার খবর দিচ্ছেন। “তোমার মা মাগরিবের পর জায়নামাজে বইসা একটা জিনিস চাইছে। যা চাইছে, সেইটা অর্ডার হইয়া গেছে।”</p>
+    <p>আমি উঠে দাঁড়ালাম এত জোরে যে টুলটা পড়ে গেল।</p>
+    <p>“উনি কী চাইছেন?”</p>
+    <p>“যা সব মা চায়।” নিতাই ময়রা উনুনের দিকে তাকালেন, যেটা নেভা। “চাইছে—আমার পোলার কষ্টটা আমারে দাও।”</p>
+    <p>আমি দরজার দিকে ছুটলাম।</p>
+    <p>“রাফি।”</p>
+    <p>আমি থামলাম। থামা উচিত ছিল না, কিন্তু থামলাম।</p>
+    <p>“আইজ রাইতে মাল বাইর হইব না, আইজ দোকান বন্ধ। তুমি সময় পাইছ এক রাইত।” তিনি কাউন্টারের নিচ থেকে খাতাটা বের করে ওপরে রাখলেন, কিন্তু খুললেন না। “কাইল রাইতে আইসো। তখন হিসাব হইব।”</p>
+    <p>আমি খাতাটার দিকে তাকালাম।</p>
+    <p>আর তখন, কেন জানি না, আমার মুখ দিয়ে মনসুর চাচার প্রশ্নটা বেরিয়ে এল—</p>
+    <p>“পয়লা পাতায় আপনার মায়ের নাম লেখা আছে?”</p>
+    <p>নিতাই ময়রার হাতটা খাতার ওপর থেমে গেল।</p>
+    <p>“আছে,” তিনি বললেন।</p>
+    <p>“তাইলে পইড়া দেখেন।”</p>
+    <p>“পারি না।”</p>
+    <p>তিনি খাতাটা খুললেন—প্রথমবার, আমার সামনে—আর প্রথম পাতাটা আমার দিকে ঘুরিয়ে ধরলেন।</p>
+    <p>আমি ঝুঁকে দেখলাম।</p>
+    <p>হলদে হয়ে যাওয়া কাগজ, পুরোনো বাংলা হাতের লেখা, ১৩৫৫ সন লেখা ওপরে। নিচে একটা নাম—নিতাই চন্দ্র ঘোষ। তার নিচে লম্বা একটা তালিকা, যার প্রথম লাইনটা পড়ে আমার হাত কেঁপে উঠল।</p>
+    <p>আর সবার ওপরে, শিরোনামের জায়গায়, একটা নাম লেখা ছিল। স্পষ্ট। পরিষ্কার। পড়তে এক সেকেন্ডও লাগে না।</p>
+    <p>“কী লেখা?” নিতাই ময়রা জিজ্ঞেস করলেন।</p>
+    <p>আর তাঁর গলায় এমন একটা জিনিস ছিল যেটা আমি পঁচাত্তর বছরে কেউ শোনেনি বলেই মনে হয়—</p>
+    <p>খিদা।</p>
+    <p>আমি মুখ খুললাম।</p>
+    <p>আর তখন আমার মনে পড়ল তিন নম্বর নিয়ম, চার নম্বর হিসাব, রওশন আরার দরজা, তানভীরের নোটবুক, মনসুর চাচার চশমা—আর সবচেয়ে বেশি মনে পড়ল শামীম ভাইয়ের কথা: <em>আমি ভাবছিলাম নাম কইলে কী হইব। একটা নাম তো খালি একটা শব্দ।</em></p>
+    <p>আমি মুখ বন্ধ করলাম।</p>
+    <p>“কাইল রাইতে কমু,” আমি বললাম।</p>
+    <p class="end">অষ্টম অধ্যায় সমাপ্ত</p>
+  </div>
+
+  <div class="tools">
+    <button class="tool" data-copy="chap-8">অধ্যায়টি কপি করুন</button>
+    <button class="tool" data-link="chap-8">লিংক কপি করুন</button>
+    <button class="tool" data-toc>সূচিপত্র</button>
+  </div>
+
+  <nav class="chap-nav">
+    <a class="nav-link" href="#chap-7"><span>পূর্ববর্তী</span>খাতার নামগুলো</a>
+    <a class="nav-link next" href="#chap-9"><span>পরবর্তী</span>আমার বাড়ির অর্ডার</a>
+  </nav>
+</article>
+
+<article class="chapter" id="chap-9" data-title="আমার বাড়ির অর্ডার" data-folio="০৯">
+  <header class="chap-head">
+    <div class="folio">০৯</div>
+    <p class="num">অধ্যায় নয়</p>
+    <h2 class="chap-title">আমার বাড়ির অর্ডার</h2>
+    <p class="chap-meta">আনুমানিক পাঠকাল ১৮ মিনিট</p>
+    <div class="rule-orn" aria-hidden="true"><span></span>❧<span></span></div>
+  </header>
+
+  <div class="story-body">
+    <p class="lead">আমার হাতে ছিল একটা দিন।</p>
+    <p>সকাল সাতটায় আমি মিমকে ঘুম থেকে তুললাম, ব্যাগ গুছাতে বললাম, আর বললাম তিন দিনের জন্য ফুফুর বাসায় যেতে হবে।</p>
+    <p>“কেন?”</p>
+    <p>“রং করাইব ঘরে।”</p>
+    <p>“পরীক্ষা সামনে, ভাইয়া।”</p>
+    <p>“বই নিয়া যা।”</p>
+    <p>সে তর্ক করল পনেরো মিনিট, তারপর আমার মুখের দিকে তাকিয়ে থেমে গেল। ভাইবোনের মধ্যে একটা সুবিধা আছে—তারা অজুহাত ধরে ফেলে, কিন্তু কখন ধরা উচিত না সেটাও বোঝে।</p>
+    <p>নয়টায় আমি তাকে সিএনজিতে তুলে দিলাম।</p>
+    <p>আর তারপর আমি মায়ের সামনে গিয়ে বসলাম, আর যে কাজটা আমি সবচেয়ে ভয় পাচ্ছিলাম সেটা করলাম—সব বললাম।</p>
+
+    <div class="break">✦</div>
+
+    <p>আমি ভেবেছিলাম তিনি হাসবেন। কিংবা রাগ করবেন। কিংবা হুজুরের কাছে নিয়ে যাওয়ার কথা বলবেন, নয়তো ডাক্তারের কাছে।</p>
+    <p>মা কিছুই করলেন না।</p>
+    <p>তিনি চুপ করে শুনলেন—চকবাজারের গলি, রওশন আরা, হাবিবুর রহমান, ভাঁড়ের সন্দেশ, জিভের স্বাদ, আব্বার গলা, তানভীর, মনসুর চাচা, খাতা।</p>
+    <p>বলা শেষ হওয়ার পর তিনি অনেকক্ষণ জানালার দিকে তাকিয়ে রইলেন।</p>
+    <p>তারপর বললেন, “তুই আব্বার গলা ভুইলা গেছস।”</p>
+    <p>“হ্যাঁ।”</p>
+    <p>“কবে থাইকা?”</p>
+    <p>“সাত দিন।”</p>
+    <p>তিনি মাথা নাড়লেন, আর সেই মাথা নাড়ার মধ্যে এমন একটা জিনিস ছিল যেটা আমাকে ভেঙে দিল—বিশ্বাস। তিনি ভূতের গল্প বিশ্বাস করেননি। তিনি আমাকে বিশ্বাস করেছিলেন।</p>
+    <p>“তোর আব্বার জন্য আমি একটা জিনিস করতাম,” তিনি বললেন। “রাইতে ঘুমানোর আগে ওর গলাটা মনে করতাম। চাইর বছর ধইরা রোজ। ভাবতাম, একদিন না করলে পরদিন কম মনে পড়ব।”</p>
+    <p>“আম্মা—”</p>
+    <p>“শোন।” তিনি আমার হাত ধরলেন। “তুই যা কইলি, আমি অর্ধেক বুঝছি। কিন্তু একটা জিনিস বুঝছি পুরাটা। তুই ভয় পাইছস।</p>
+    <p>“আমি তিরিশ বছর তোরে দেখতাছি। তুই আব্বার জানাজার দিনেও কান্দস নাই।”</p>
+
+    <div class="break">✦</div>
+
+    <p>দুপুরে আমরা বাসা ছাড়লাম।</p>
+    <p>পরিকল্পনাটা সহজ ছিল: ঠিকানা খাতায় উঠেছে, তাহলে ঠিকানা বদলে ফেলি। মাকে নিয়ে হালিশহরে খালার বাসায় চলে যাই, তিন দিন থাকি।</p>
+    <p>আমরা পৌঁছালাম বিকেল চারটায়।</p>
+    <p>সাড়ে চারটায় আমার ফোন কাঁপল।</p>
+
+    <p class="screen">অর্ডার #৪৪১৯ · ঠিকানা হালনাগাদ<br>
+    নতুন ঠিকানা: হালিশহর ‘এল’ ব্লক, ৩য় তলা<br>
+    গ্রাহক: <strong>সুফিয়া বেগম</strong><br>
+    সময়: রাত ০২:৪০</p>
+
+    <p>মায়ের নাম।</p>
+    <p>আমি ফোনটা মুঠোয় চেপে ধরে বারান্দায় গিয়ে দাঁড়ালাম। হাত কাঁপছিল, রাগে—ভয়ে না।</p>
+    <p>চকবাজারে আমি বুঝেছিলাম বাড়ি মানে জায়গা না, বাড়ি মানে ইট। ভুল বুঝেছিলাম।</p>
+    <p>বাড়ি মানে ইটও না।</p>
+    <p>বাড়ি মানে মানুষ। যেখানে মানুষটা, সেখানেই ঠিকানা।</p>
+    <p>আমি ভেতরে গিয়ে বললাম, “আম্মা, চলেন বাসায় ফিরি।”</p>
+    <p>তিনি কিছু জিজ্ঞেস করলেন না। শুধু ব্যাগটা তুললেন।</p>
+
+    <div class="break">✦</div>
+
+    <p>রাত দুইটা দশে আমি দরজার সামনে বসলাম, মেঝেতে, পিঠ দেয়ালে।</p>
+    <p>মা ভেতরের ঘরে। আমি তাঁকে বলেছি দরজা খুলবেন না, সাড়া দেবেন না, যে ডাকুক—এমনকি আমার গলা শুনলেও না।</p>
+    <p>তিনি বলেছিলেন, “তোর গলা আমি চিনি।”</p>
+    <p>আমি বলেছিলাম, “ওরা গলা নকল করে।”</p>
+    <p>তিনি তখন এমন একটা কাজ করেছিলেন যেটা আমার মাথায় আসেনি—তিনি আমার হাতের তালুতে আঙুল দিয়ে একটা আঁকিবুঁকি কাটলেন।</p>
+    <p>“এইটা করলে বুঝুম তুই।”</p>
+
+    <div class="break">✦</div>
+
+    <p>দুইটা চল্লিশ।</p>
+    <p>সিঁড়িতে শব্দ।</p>
+    <p>কিন্তু এইবার পায়ের শব্দ না। চাকার শব্দ—সিঁড়ি দিয়ে কেউ একটা সাইকেল টেনে তুলছে, ঠক, ঠক, ঠক, প্রতিটা ধাপে।</p>
+    <p>আমি উঠে দাঁড়ালাম, আর দরজা খোলার আগেই খুলে ফেললাম—যাতে কড়া নাড়ার শব্দ মায়ের কানে না যায়।</p>
+    <p>সিঁড়ির মাথায় একটা ছেলে দাঁড়িয়ে।</p>
+    <p>আঠারো-উনিশ বছর। গায়ে হাফহাতা শার্ট, যেটার কলার অনেক পুরোনো ধাঁচের। পায়ে রাবারের স্যান্ডেল। পাশে একটা সাইকেল—কালো, ভারী, ক্যারিয়ারঅলা, এমন সাইকেল আমি শুধু পুরোনো ছবিতে দেখেছি।</p>
+    <p>আর তার হাতে একটা সাদা বাক্স, লাল সুতায় বাঁধা।</p>
+    <p>আমি তাকে চিনতে পারলাম।</p>
+    <p>ছাব্বিশ বছর আগের খবরের কাগজে, ঝাপসা নিউজপ্রিন্টে, গেটের পিলারের পাশে দাঁড়ানো ছেলেটা।</p>
+
+    <div class="break">✦</div>
+
+    <p>“সুফিয়া বেগম?” সে বলল।</p>
+    <p>তার গলা স্বাভাবিক। ক্লান্ত। একজন ডেলিভারিম্যানের গলা, যে সারা রাত ধরে কাজ করছে—ছাব্বিশ বছর ধরে সারা রাত ধরে কাজ করছে।</p>
+    <p>“আমি ওনার ছেলে। আমার কাছে দেন।”</p>
+    <p>“আপনের কাছে দেওয়া যাইব না।”</p>
+    <p>“আমিও রাইডার,” আমি বললাম, আর নিজের গলায় হতাশাটা শুনে নিজেই অবাক হলাম। “আমি নিয়ম জানি। আমি সই কইরা দিতাছি।”</p>
+    <p>“আপনে নিলে মাল নষ্ট হইব।” সে বাক্সটা বুকের কাছে ধরল। “নষ্ট মাল ফেরত নেয় না। তখন আমার কী হইব, কন তো?”</p>
+    <p>আমি সিঁড়ির বাতির আলোয় তার মুখটা ভালো করে দেখলাম।</p>
+    <p>চামড়া তাজা, গাল ভরা, গোঁফের রেখা সদ্য উঠছে। কিন্তু চোখ দুটো—চোখ দুটো একজন বুড়ো মানুষের।</p>
+    <p>“তোমার নাম কী?” আমি জিজ্ঞেস করলাম।</p>
+    <p>সে চোখ তুলল।</p>
+    <p>“জানি না,” সে বলল। “কাগজে লেখা আছিল, কাগজটা হারাইছে।”</p>
+
+    <div class="break">✦</div>
+
+    <p>“আটানব্বই সালে তুমি ঠিকানা ভুল করছিলা,” আমি বললাম।</p>
+    <p>ছেলেটার হাত কেঁপে উঠল।</p>
+    <p>“আমি করি নাই।” প্রথমবার তার গলায় আবেগ এল। “আমি ঠিকানা ঠিকই পড়ছিলাম। কিন্তু বৃষ্টি আছিল, কাগজটা ভিইজ্যা গেছিল, আর ‘৭/বি’ আর ‘৯/বি’—”</p>
+    <p>সে থেমে গেল। অনেকক্ষণ চুপ করে রইল।</p>
+    <p>“এগারোজন, ভাই,” সে ফিসফিস করে বলল। “একটা বাচ্চা আছিল, সাত বছরের। ওইদিন ওর জন্মদিন আছিল।”</p>
+    <p>“তারপর তুমি দোকানে ফিরা গেছিলা?”</p>
+    <p>“আমি কই যামু আর?” সে হাসল, আর সেই হাসিটা দেখে আমার পেটের ভেতর গুলিয়ে উঠল। “আমি তো খাই নাই, ভাই। একটা সন্দেশও খাই নাই। আমি খালি মাল পৌঁছাইছি। আমার কোনো দেনা আছিল না।</p>
+    <p>“কিন্তু এগারোজন মইরা যাওয়ার পর আমি নিজে গিয়া কইলাম—আমারে দিয়া যা পারো করো, আমি শোধ দিমু।”</p>
+    <p>সে বাক্সটা একটু উঁচু করল।</p>
+    <p>“ছাব্বিশ বছর ধইরা শোধ দিতাছি। রাইতে বাইর হই, মাল পৌঁছাই, ভোরে ফিরা যাই। ঘুম লাগে না, খিদা লাগে না, বয়স বাড়ে না।</p>
+    <p>“আর প্রত্যেক রাইতে আমি ভাবি—আইজ যদি ঠিক ঠিকানায় দেই, তাইলে হয়তো হিসাব মিলব।”</p>
+
+    <div class="break">✦</div>
+
+    <p>ভেতর থেকে দরজায় শব্দ হলো।</p>
+    <p>“রাফি? কে আইছে?”</p>
+    <p>আমার সারা শরীর ঠান্ডা হয়ে গেল।</p>
+    <p>“কেউ না, আম্মা। ঘুমান।”</p>
+    <p>কিন্তু তিনি ততক্ষণে দরজার কাছে চলে এসেছেন। আমি ঘুরে দাঁড়ানোর আগেই দরজাটা আরেকটু খুলে গেল, আর মা সিঁড়ির বাতির আলোয় দাঁড়ালেন—মাথায় কাপড়, হাতে তসবিহ।</p>
+    <p>ছেলেটা সোজা হয়ে দাঁড়াল। পেশাদার ভঙ্গিতে।</p>
+    <p>“খালা, আপনের নামে মাল আইছে।”</p>
+    <p>আর আমার মা—আমার মা, যিনি তিরিশ বছর ধরে অচেনা কারো হাত থেকে কিছু নেন না, যিনি ফেরিওয়ালার কাছ থেকেও দরদাম না করে কিছু নেন না—আমার মা হাত বাড়িয়ে দিলেন।</p>
+    <p>এইটাই সবচেয়ে ভয়ংকর জিনিস যেটা আমি ওই পুরো সময়ে দেখেছি। ভূত না, গলি না, খালি চোখ না।</p>
+    <p>আমার মায়ের হাতটা আপনা-আপনি উঠে গেল, আর তাঁর মুখে কোনো ভাব ছিল না।</p>
+    <p>আমি তাঁর কবজি ধরে ফেললাম।</p>
+    <p>“আম্মা।”</p>
+    <p>তিনি আমার দিকে তাকালেন, আর চোখের পাতা পিটপিট করলেন, যেন ঘুম থেকে উঠলেন।</p>
+    <p>“কী?”</p>
+    <p>আমি তাঁর হাতের তালুতে আঙুল দিয়ে সেই আঁকিবুঁকিটা কাটলাম।</p>
+    <p>তিনি হাত টেনে নিলেন।</p>
+
+    <div class="break">✦</div>
+
+    <p>“ভাই,” ছেলেটা বলল। “দিতে না পারলে আমি যামু না। আমারে দাঁড়ায়া থাকতে হইব।”</p>
+    <p>“সারা রাইত?”</p>
+    <p>“যতদিন লাগে।”</p>
+    <p>আমি মাকে ভেতরে ঠেলে দিলাম, দরজা ভেজিয়ে দিলাম, আর সিঁড়িতে বেরিয়ে এলাম।</p>
+    <p>“একটা কথা কই।” আমি বললাম। “গ্রাহক যদি বদলায়?”</p>
+    <p>“বদলানো যায় না।”</p>
+    <p>“যায়।” আমি পকেট থেকে তামার পয়সাটা বের করলাম। রওশন আরার দেওয়া এক আনা। “আমি দাম দিতাছি। মাল আমার নামে লেখো।”</p>
+    <p>ছেলেটা পয়সাটার দিকে তাকিয়ে রইল।</p>
+    <p>“আপনে বুঝতাছেন না—”</p>
+    <p>“বুঝতাছি।” আমার গলা কাঁপল, কিন্তু আমি থামলাম না। “আমি বুঝতাছি যে আমার নাম খাতায় উঠব, আর যেদিন হিসাব মিলাইতে হইব সেদিন আমি দিমু। আমি রাজি।</p>
+    <p>“তুমি ছাব্বিশ বছর ধইরা ঠিক ঠিকানা খুঁজতাছ। আইজ রাইতে ঠিক ঠিকানাটা আমি।”</p>
+    <p>গলিটা—মানে সিঁড়িঘরটা—অদ্ভুত রকম চুপ হয়ে গেল। সিঁড়ির বাতিটা একবার নিভে আবার জ্বলল।</p>
+    <p>ছেলেটা বাক্সটা আমার হাতে দিল।</p>
+    <p>গরম। শরীরের মতো গরম।</p>
+    <p>আমি পয়সাটা তার হাতে গুঁজে দিলাম।</p>
+    <p>সে সেটা তালুতে নিয়ে অনেকক্ষণ তাকিয়ে রইল, তারপর মুঠো করল। আর তার মুখে এমন একটা জিনিস এল যেটা আমি বর্ণনা করতে পারব না—ছাব্বিশ বছরে প্রথমবার কেউ তাকে কিছু দিল।</p>
+    <p>“ভাই,” সে বলল। “মালটা খুইলেন না।”</p>
+    <p>“জানি।”</p>
+    <p>“আর ওরে কইয়েন—” সে থামল। “কইয়েন, পোলাটা হিসাব মিলাইছে।”</p>
+    <p>সে সাইকেলটা ঘুরিয়ে সিঁড়ি দিয়ে নামতে লাগল। ঠক, ঠক, ঠক।</p>
+    <p>তিন তলা, দুই তলা, এক তলা।</p>
+    <p>তারপর চাকার শব্দ, গলি ধরে দূরে—আর মাঝপথে শব্দটা থেমে গেল। হঠাৎ, একবারে, যেভাবে কেউ রেডিও বন্ধ করে দেয়।</p>
+    <p>আমি রেলিং দিয়ে ঝুঁকে নিচে তাকালাম।</p>
+    <p>গলি খালি। সাইকেল নেই।</p>
+    <p>রাস্তার ওপর শুধু একটা তামার পয়সা পড়ে আছে, বাতির আলোয় চিকচিক করছে।</p>
+
+    <div class="break">✦</div>
+
+    <p>ঘরে ঢুকে আমি বাক্সটা টেবিলে রাখলাম।</p>
+    <p>মা দরজার কাছে দাঁড়িয়ে ছিলেন। তাঁর হাতে তখনো তসবিহ, কিন্তু গোনা বন্ধ।</p>
+    <p>“তুই কী করলি?”</p>
+    <p>“যা করার দরকার আছিল।”</p>
+    <p>তিনি টেবিলের কাছে এসে বাক্সটার দিকে তাকালেন, কিন্তু ছুঁলেন না।</p>
+    <p>“আমি কি দোয়াটা করছিলাম বইলা এইটা আসছে?”</p>
+    <p>আমি উত্তর দিতে পারলাম না।</p>
+    <p>তিনি চেয়ারে বসে পড়লেন।</p>
+    <p>“আল্লাহর কাছে চাইছিলাম তোর কষ্টটা আমারে দিতে। এইটা তো পাপ না, বাপ। এইটা তো সব মা চায়।”</p>
+    <p>“আপনি কিছু ভুল করেন নাই।”</p>
+    <p>“তাইলে ভুলটা কার?”</p>
+    <p>আমি জানালার দিকে তাকালাম। ভোর হতে তখনো দুই ঘণ্টা।</p>
+    <p>“যে লোকটা মায়ের মুখ থাইকা একটা সন্দেশ সরায়া নিছিল,” আমি বললাম। “আর তারপর পঁচাত্তর বছর ধইরা সেইটা ফেরত কিনার চেষ্টা করতাছে।”</p>
+
+    <div class="break">✦</div>
+
+    <p>ভোর চারটায় মা আমার ঘরে এলেন, হাতে একটা পুরোনো শাড়ির ব্যাগ।</p>
+    <p>“তোর আব্বার শেষ কথাটা তোর মনে আছে?”</p>
+    <p>আমার গলা ধরে এল। “না, আম্মা। শব্দগুলা আছে। গলাটা নাই।”</p>
+    <p>তিনি খাটের কিনারে বসলেন।</p>
+    <p>“তাইলে শোন। আমি কমু।”</p>
+    <p>আর তারপর তিনি যেটা করলেন, সেটা আমি আমৃত্যু মনে রাখব।</p>
+    <p>তিনি আমার বাবার গলা নকল করার চেষ্টা করলেন।</p>
+    <p>একজন ষাট বছরের অসুস্থ মহিলা, ভাঙা গলায়, নিজের স্বামীর টান ধরে ধরে—সেই টেনে বলা, সেই শেষে গিয়ে একটু নামিয়ে ফেলা—</p>
+    <p>“‘রাফি। পানি দে।’</p>
+    <p>“তারপর কইছিল, ‘ছেলেটারে ঘুমাইতে ক। সারা রাইত বইসা আছে।’</p>
+    <p>“আমি কইছিলাম, ‘ওই তো তোমার সামনে।’</p>
+    <p>“তোর আব্বা তখন তোর দিকে তাকাইয়া হাসছিল।”</p>
+    <p>আমি মাথা নিচু করে বসে রইলাম।</p>
+    <p>গলাটা ফেরত আসেনি। নকল গলা তো নকলই।</p>
+    <p>কিন্তু ওই মুহূর্তে আমি একটা জিনিস বুঝলাম, যেটা নিতাই ময়রা পঁচাত্তর বছরেও বোঝেনি—</p>
+    <p>যে মানুষটা চলে গেছে, তার স্মৃতি শুধু আমার ভেতরে থাকে না। ওইটা ভাগ করা জিনিস। আমার কাছে যেটুকু নষ্ট হয়, মায়ের কাছে সেইটুকু থেকে যায়। মিমের কাছে থেকে যায়।</p>
+    <p>নিতাই ময়রার দুর্ভাগ্য এইটা না যে সে তার মাকে হারিয়েছে।</p>
+    <p>তার দুর্ভাগ্য এইটা যে ওই বটগাছের তলায় আর কেউ ছিল না।</p>
+
+    <div class="break">✦</div>
+
+    <p>পরদিন রাতে আমি বেরোলাম।</p>
+    <p>পিঠের ব্যাগে একটা সাদা বাক্স, যেটা আমি খুলিনি।</p>
+    <p>বুকপকেটে মনসুর চাচার ছেঁড়া কাগজ, তানভীরের হাতের লেখা।</p>
+    <p>আর মাথার ভেতর একটা নাম—খাতার প্রথম পাতার শিরোনামে লেখা, হলদে কাগজে, পুরোনো বাংলা হরফে।</p>
+    <p>যে নামটা পঁচাত্তর বছর ধরে একটা লোক পড়তে পারে না।</p>
+    <p>বেরোনোর সময় মা দরজা পর্যন্ত এলেন।</p>
+    <p>“কিছু নিবি না? পানি?”</p>
+    <p>“না।”</p>
+    <p>তিনি আমার হাত ধরলেন, আর তালুতে আঙুল দিয়ে সেই আঁকিবুঁকিটা কাটলেন।</p>
+    <p>“ফিরা আসবি তো?”</p>
+    <p>আমি মিথ্যা বললাম।</p>
+    <p class="end">নবম অধ্যায় সমাপ্ত</p>
+  </div>
+
+  <div class="tools">
+    <button class="tool" data-copy="chap-9">অধ্যায়টি কপি করুন</button>
+    <button class="tool" data-link="chap-9">লিংক কপি করুন</button>
+    <button class="tool" data-toc>সূচিপত্র</button>
+  </div>
+
+  <nav class="chap-nav">
+    <a class="nav-link" href="#chap-8"><span>পূর্ববর্তী</span>আটচল্লিশ সালের সেই রাত</a>
+    <a class="nav-link next" href="#chap-10"><span>পরবর্তী</span>শেষ খদ্দের</a>
+  </nav>
+</article>
+
+<article class="chapter" id="chap-10" data-title="শেষ খদ্দের" data-folio="১০">
+  <header class="chap-head">
+    <div class="folio">১০</div>
+    <p class="num">অধ্যায় দশ</p>
+    <h2 class="chap-title">শেষ খদ্দের</h2>
+    <p class="chap-meta">আনুমানিক পাঠকাল ২০ মিনিট</p>
+    <div class="rule-orn" aria-hidden="true"><span></span>❧<span></span></div>
+  </header>
+
+  <div class="story-body">
+    <p class="lead">গলিটা সেই রাতে আমাকে খুঁজে নেয়নি। আমি নিজেই গিয়ে দাঁড়ালাম, আর দেয়াল দুইটা সরে গেল—অনিচ্ছায়, যেভাবে পাহারাদার চেনা লোককে ঢুকতে দেয়।</p>
+    <p>উনুন জ্বলছিল। কড়াইয়ে দুধ। শোকেসে আবার মিষ্টি—সারি সারি, চকচকে।</p>
+    <p>নিতাই ময়রা আমার দিকে তাকালেন না।</p>
+    <p>“আনছ?”</p>
+    <p>আমি ব্যাগ থেকে সাদা বাক্সটা বের করে কাউন্টারে রাখলাম। লাল সুতা অক্ষত।</p>
+    <p>“খুলো নাই।”</p>
+    <p>“না।”</p>
+    <p>“ভালো।” তিনি চামচ নামিয়ে রাখলেন। “এখন হিসাব। তোমার নামে মাল। দাম দিতে হইব।”</p>
+    <p>“দাম কী?”</p>
+    <p>তিনি খাতাটা বের করলেন, খুললেন—আমার পাতায়। আমি উল্টো দিক থেকে দেখলাম আমার নিজের সই, আর তার নিচে দুইটা লাইন কাটা: স্বাদ, আর শব্দ। তিন নম্বর লাইনে মিমের জন্মদিন, কাটা।</p>
+    <p>চার নম্বর লাইনে লেখা একটা শব্দ, যেটা আমি উল্টো থেকে পড়তে পারলাম।</p>
+    <p class="whisper">মা</p>
+    <p>“তোমার মা তো বাঁইচা আছে,” তিনি বললেন, ঠান্ডা গলায়। “বাঁচা মানুষের স্মৃতি দিয়া আমার কাজ হয় না। তাই আইজ রাইতে আমি তোমার কাছ থাইকা কিছু নিমু না।”</p>
+    <p>“তাইলে?”</p>
+    <p>“খাতা অপেক্ষা করব।” তিনি পাতাটায় হাত বোলালেন, প্রায় আদর করে। “তোমার মায়ের বয়স ষাট, শরীর ভালো না। পাঁচ বছর, দশ বছর। আমার তো সময়ের অভাব নাই, বাপ। আমি পঁচাত্তর বছর বইসা আছি।</p>
+    <p>“যেদিন সে যাইব, সেদিনের তিন দিন পর তোমার কাছে একটা অর্ডার আসব।”</p>
+    <p>আমার হাত মুঠো হয়ে গেল।</p>
+    <p>“আর আমি যদি না আসি?”</p>
+    <p>“আইবা।” তিনি প্রথমবার মুখ তুললেন। “কারণ ততদিনে তুমি জানবা যে আমি কী দিতে পারি। আর ওইদিন তোমার মায়ের গলা তোমার কানে বাজব, আর তিন মাস পর বাজা বন্ধ হইব, আর তুমি পাগল হইয়া যাইবা।</p>
+    <p>“সবাই আসে।”</p>
+
+    <div class="break">✦</div>
+
+    <p>আমি অনেকক্ষণ কিছু বললাম না।</p>
+    <p>তারপর বাক্সটা কাউন্টারের ওপর দিয়ে তাঁর দিকে ঠেলে দিলাম।</p>
+    <p>“এইটা আমার মাল। আমার নামে লেখা।”</p>
+    <p>“হ।”</p>
+    <p>“তার মানে আমি যারে খুশি দিতে পারি।”</p>
+    <p>তাঁর ভ্রু কুঁচকে গেল। “পারো।”</p>
+    <p>“আর নাম বদলানোর নিয়ম কী? আপনি কইছিলেন, ইচ্ছাটাই অর্ডার। কেউ কারো জন্য কিছু চাইলে নাম উঠে।”</p>
+    <p>তিনি খুব ধীরে সোজা হয়ে বসলেন।</p>
+    <p>“কী করতে চাও, রাফি?”</p>
+    <p>আমি খাতার দিকে তাকালাম।</p>
+    <p>“আমি একজনের জন্য চাই,” আমি বললাম। “মাল আমার। আমি চাই এইটা তার কাছে যাক।</p>
+    <p>“গ্রাহকের নাম—অন্নপূর্ণা ঘোষ।”</p>
+
+    <div class="break">✦</div>
+
+    <p>উনুনের আগুন নিভে গেল।</p>
+    <p>একবারে, ফুঁ দিয়ে নেভানোর মতো। কড়াইয়ের দুধ ফোটা বন্ধ হলো, শোকেসের ভেতরের হলুদ আলোটা কেঁপে উঠল।</p>
+    <p>নিতাই ময়রা বসে রইলেন। নড়লেন না।</p>
+    <p>তারপর তিনি খুব আস্তে জিজ্ঞেস করলেন, “আবার কও।”</p>
+    <p>“অন্নপূর্ণা ঘোষ।”</p>
+    <p>“আরেকবার।”</p>
+    <p>“অন্নপূর্ণা ঘোষ।”</p>
+    <p>বৃদ্ধের দুই হাত কাউন্টারের ওপর পড়ে গেল, হাতের তালু উপুড়, আঙুলগুলো কাঁপছে।</p>
+    <p>“অন্ন,” তিনি বললেন। শব্দটা তাঁর মুখে এমনভাবে ভাঙল যেন পঁচাত্তর বছরের শুকনো জিনিসে পানি পড়েছে। “পূর্ণা।</p>
+    <p>“বাপ ডাকত ‘পূর্ণা’। পাড়ার লোক ডাকত ‘অন্না-বৌদি’।”</p>
+    <p>তাঁর খালি চোখ দুটো থেকে পানি পড়ছিল। চোখে মণি নেই, কিন্তু পানি আছে—আমি জানি না এটা কীভাবে সম্ভব, আর আমি জানতে চাইও না।</p>
+    <p>“তুমি পড়ছিলা। কাইল রাইতে। পইড়া কও নাই।”</p>
+    <p>“না।”</p>
+    <p>“কেন কও নাই?”</p>
+    <p>“কারণ কাইল রাইতে কইলে ওইটা আপনার দান হইত,” আমি বললাম। “আইজ কইলাম কারণ এইটা আমার দাম।”</p>
+
+    <div class="break">✦</div>
+
+    <p>তিনি খাতাটা নিজের দিকে ঘুরিয়ে নিলেন, আর প্রথম পাতায় গেলেন।</p>
+    <p>আমি দেখলাম তাঁর আঙুল পাতার ওপর দিয়ে যাচ্ছে—যেভাবে অক্ষর না চেনা মানুষ চিঠি ছোঁয়।</p>
+    <p>“এখনো পড়তে পারি না,” তিনি বললেন।</p>
+    <p>“আপনার পড়ার দরকার নাই।” আমি কাউন্টারে ঝুঁকলাম। “আপনার শোনার দরকার আছিল। পড়া আর শোনা এক জিনিস না। আপনি নিজেই তো কইছিলেন—স্মৃতির ঘরে দুইটা জানালা।”</p>
+    <p>বৃদ্ধ হাসলেন। কাঁদতে কাঁদতে।</p>
+    <p>“আমার মায়ের নাম অন্নপূর্ণা,” তিনি বললেন, যেন পরীক্ষা করে দেখছেন কথাটা মুখে ধরে কি না।</p>
+    <p>আর তারপর, হঠাৎ, তাঁর মুখটা শক্ত হয়ে গেল।</p>
+    <p>“কিন্তু এইটা হয় না, রাফি। খাতা মরা মানুষের নামে অর্ডার নেয় না।”</p>
+    <p>“নেয়।” আমি বললাম। “আটানব্বইয়ে নিছিল। হাবিবুর রহমান সাহেবের মা অর্ডার দিছিলেন একাত্তর সালে মরার পর। আপনি নিজে বানাইছিলেন।”</p>
+    <p>“ওইটা মরা মানুষের <em>অর্ডার</em>। তুমি কইতাছ মরা মানুষের <em>নামে ডেলিভারি</em>। ওইটা আলাদা জিনিস।”</p>
+    <p>“কেন আলাদা?”</p>
+    <p>“কারণ মাল পৌঁছাইতে হইব!” তাঁর গলা প্রথমবার চড়ল, আর গলির দেয়ালে সেটা প্রতিধ্বনিত হলো না—শব্দটা মরে গেল, যেন বাতাসটাও ভয় পেয়েছে। “খাতায় লেখা যায়, কিন্তু হিসাব মিলে পৌঁছানোর পর। কে পৌঁছাইব? কোন ঠিকানায়?”</p>
+    <p>আমি তাঁর চোখের দিকে তাকিয়ে রইলাম।</p>
+    <p>“আপনি জানেন ঠিকানাটা।”</p>
+
+    <div class="break">✦</div>
+
+    <p>অনেকক্ষণ কেউ কথা বলল না।</p>
+    <p>বাইরে, গলির মুখের দিক থেকে, একটা বাতাস এল—চকবাজারের রাতের বাতাস না। এই বাতাসে ধুলা ছিল, শুকনো পাতার গন্ধ ছিল, আর অনেক দূরের নদীর গন্ধ।</p>
+    <p>“আমি পঁচাত্তর বছরে এই কাউন্টারের বাইর হই নাই,” নিতাই ময়রা বললেন।</p>
+    <p>“জানি।”</p>
+    <p>“বাইর হইলে আমি আর ফিরতে পারুম না।”</p>
+    <p>“জানি।”</p>
+    <p>“দোকান বন্ধ হইয়া যাইব।” তিনি আমার দিকে তাকালেন, আর সেই খালি চোখে এমন একটা প্রশ্ন ছিল যেটা তিনি মুখে আনতে পারছিলেন না। “তোমার স্বাদ ফিরা আইব না। আব্বার গলা ফিরা আইব না। তোমার বইনের জন্মের দিনটা ফিরা আইব না। যা গেছে, গেছে।”</p>
+    <p>“জানি।”</p>
+    <p>“তানভীর ওর মারে ফিরা পাইব না। মনসুর ওর বউয়ের মুখ পাইব না।”</p>
+    <p>“জানি।” আমার গলা ভেঙে গেল। “কিন্তু আগামী পঁচাত্তর বছরে আর কেউ হারাইব না।”</p>
+    <p>বৃদ্ধ অনেকক্ষণ আমার মুখের দিকে তাকিয়ে রইলেন।</p>
+    <p>“তুমি আমারে শাস্তি দিতাছ না কেন?” তিনি জিজ্ঞেস করলেন। “আমি তোমার জিনিস নিছি। এগারোজন মারছি। আঠাশটা পোলা হারাইছে আমার লাইগা।”</p>
+    <p>“শাস্তি দিলে দোকান বন্ধ হইব না।” আমি বাক্সটার দিকে ইশারা করলাম। “আর আমি আপনেরে শাস্তি দিতে পারতাম—জানেন কেমনে? এই বাক্সটা আপনেরে খাইতে দিয়া। আপনে নিজের দোকানের মাল কোনোদিন খান নাই, না?</p>
+    <p>“যার নামে বানানো না, সে খাইলে কী হয়, সেইটা তো আমরা দুইজনেই জানি।”</p>
+    <p>নিতাই ময়রার মুখ সাদা হয়ে গেল।</p>
+    <p>“কিন্তু তাইলে আপনি মরতেন,” আমি বললাম, “আর ওইটা শোধ হইত না। ওইটা আরেকটা মরা হইত। আপনার হিসাবে আরেকটা লাইন।</p>
+    <p>“আমি চাই আপনি মালটা পৌঁছান।”</p>
+
+    <div class="break">✦</div>
+
+    <p>তিনি উঠে দাঁড়ালেন।</p>
+    <p>আমি পঁচাত্তর বছরের একজন মানুষকে উঠে দাঁড়াতে দেখব ভেবেছিলাম। দাঁড়ালেন একজন বারো বছরের ছেলে—কাঁধ কুঁজো, হাত দুইটা অস্থির, চোখ মেঝের দিকে।</p>
+    <p>তিনি বাক্সটা তুললেন। দুই হাতে, বুকের কাছে।</p>
+    <p>“সুতাটা লাল,” তিনি বললেন।</p>
+    <p>“বদলাইয়া দেন।”</p>
+    <p>তিনি কাউন্টারের নিচ থেকে একটা সাদা সুতার গুটি বের করলেন—সেই সুতা, যেটা দিয়ে আমার ভাঁড়টা বাঁধা ছিল। নিজের নামে বানানো মালের সুতা। আপনজনের সুতা।</p>
+    <p>লাল সুতা খুলে তিনি সাদা সুতা বাঁধলেন। হাত কাঁপছিল, গিঁট তিনবার খুলে গেল।</p>
+    <p>তারপর তিনি কাউন্টারের পাশ দিয়ে বেরিয়ে এলেন।</p>
+    <p>আর গলির মুখটা—যেটা চকবাজারের রাস্তায় গিয়ে শেষ হওয়ার কথা—বদলে গেল।</p>
+
+    <div class="break">✦</div>
+
+    <p>আমি যা দেখেছিলাম, সেটা আমি আজও গুছিয়ে লিখতে পারি না।</p>
+    <p>গলির শেষ মাথায় শহর ছিল না। একটা মাটির রাস্তা ছিল—শুকনো, ফাটা, দুই পাশে ধানক্ষেতের খড়। আকাশে চাঁদ, কিন্তু চাঁদটা ভুল জায়গায়। দূরে কিছু মানুষের ছায়া হেঁটে যাচ্ছে, পোঁটলা মাথায়, সারি বেঁধে—অনেক দূরে, মুখ দেখা যায় না, আর তাদের পায়ের কোনো শব্দ নেই।</p>
+    <p>আর রাস্তার ধারে একটা বটগাছ।</p>
+    <p>নিতাই ময়রা গলির মুখে দাঁড়িয়ে রইলেন।</p>
+    <p>“আমি পারতাছি না,” তিনি বললেন।</p>
+    <p>“কেন?”</p>
+    <p>“সে জিগাইব আমি এতদিন কই আছিলাম।”</p>
+    <p>আমি তাঁর পাশে গিয়ে দাঁড়ালাম।</p>
+    <p>“আমি একটা জিনিস শিখছি এই কয়দিনে,” আমি বললাম। “আপনে যেইটা জানেন না।</p>
+    <p>“আমার আব্বার গলা আমি হারাইছি। কিন্তু আমার মা হারায় নাই। আমার বইন হারায় নাই। আব্বার বন্ধু আছে একজন, রইসউদ্দিন চাচা, হেয় হারায় নাই।</p>
+    <p>“একটা মানুষ একলা কারো স্মৃতি বহন করে না, নিতাই চাচা। ওইটা ভাগ করা জিনিস।</p>
+    <p>“আপনি পঁচাত্তর বছর ধইরা ভাবছেন আপনার মা হারায়া গেছে কারণ আপনি ভুইলা গেছেন।</p>
+    <p>“কিন্তু আপনি তো একলা আছিলেন না ওই রাইতে। আপনার বাপ আছিল।”</p>
+    <p>বৃদ্ধ ঘুরে তাকালেন।</p>
+    <p>“বাপ তো মইরা গেছে। উনষাট সালে।”</p>
+    <p>“আর বাপ কি কোনোদিন আপনেরে ওর কথা কয় নাই?”</p>
+    <p>নিতাই ময়রা স্থির হয়ে গেলেন।</p>
+    <p>আর তারপর—খুব ধীরে, যেন ঘরের কোনো অন্ধকার কোনা থেকে কেউ একটা পুরোনো জিনিস বের করে আনছে—তিনি বললেন:</p>
+    <p>“বাপ কইত... ‘তোর মায়ের হাতের নাড়ু কেউ পারত না।’”</p>
+    <p>তাঁর নিজের গলা শুনে তিনি নিজেই চমকে উঠলেন।</p>
+    <p>“বাপ কইত, ‘পূর্ণা গান গাইতে পারত না, তাও গাইত।’</p>
+    <p>“বাপ কইত, ‘তোর নাকটা তোর মায়ের মতন।’”</p>
+    <p>তিনি হাত দিয়ে নিজের নাক ছুঁলেন।</p>
+    <p>“এইগুলা আমার কাছে আছিল,” তিনি ফিসফিস করে বললেন। “আমার মাথার ভিতরে, এতদিন। আমি খালি খুঁজি নাই, কারণ আমি জানতাম ওরা নাই।”</p>
+
+    <div class="break">✦</div>
+
+    <p>তিনি রাস্তায় পা রাখলেন।</p>
+    <p>প্রথম পায়ের পর তিনি থামলেন, আর ঘুরে আমার দিকে তাকালেন।</p>
+    <p>“তোমার হিসাব,” তিনি বললেন।</p>
+    <p>“কী?”</p>
+    <p>“খাতাটা নিয়া যাও।”</p>
+    <p>“আমি দিয়া কী করুম?”</p>
+    <p>“যা ইচ্ছা। পোড়াও, পানিতে ফালাও, রাইখা দাও।” তিনি বাক্সটা বুকে চেপে ধরলেন। “দোকান বন্ধ হইলে খাতার জোর থাকে না। ওইটা তখন খালি কাগজ।</p>
+    <p>“কিন্তু রাফি—”</p>
+    <p>তিনি একটু থামলেন।</p>
+    <p>“নামগুলা রাইখো। আঠাশটা পোলা। ওদের নাম কোথাও লেখা না থাকলে ওরা দ্বিতীয়বার হারাইব।”</p>
+    <p>আমি মাথা নাড়লাম।</p>
+    <p>“আর একটা কথা।” তাঁর গলা ধরে এল। “তুমি কাইল রাইতে ভাবছিলা আমি তোমার শত্রু। আমি শত্রু না, বাপ। আমি হইলাম তুমি—যদি তুমি ওই বটগাছতলায় একলা থাকতা।”</p>
+    <p>তিনি হাঁটতে শুরু করলেন।</p>
+    <p>আমি গলির মুখে দাঁড়িয়ে দেখলাম—একজন বুড়ো মানুষ, সাদা ফতুয়া, কাঁধে গামছা, বুকে একটা সাদা বাক্স, শুকনো মাটির রাস্তা ধরে বটগাছের দিকে হাঁটছে।</p>
+    <p>গাছের নিচে একটা ছায়া শুয়ে ছিল।</p>
+    <p>তিনি কাছে গিয়ে হাঁটু গেড়ে বসলেন। সুতার গিঁট খুললেন।</p>
+    <p>আমি আর কিছু দেখিনি—কারণ ঠিক তখন গলিটা বন্ধ হয়ে গেল, যেভাবে চোখ বন্ধ হয়।</p>
+
+    <div class="break">✦</div>
+
+    <p>আমি জ্ঞান হারিয়েছিলাম কি না জানি না। যখন উঠলাম, তখন আমি দুইটা বন্ধ দোকানের মাঝখানে, ফুটপাতের ওপর পড়ে আছি। ভোরের আলো ফুটছে। একজন ভ্যানঅলা আমাকে ঠেলা দিচ্ছিল—“ভাই, ভাই, উঠেন, শরীর খারাপ নাকি?”</p>
+    <p>দেয়ালে ইটের গায়ে ইট। কোনো ফাঁক নেই।</p>
+    <p>আমার কোলের ওপর একটা মোটা খাতা, কাপড়ে মোড়া।</p>
+
+    <div class="break">✦</div>
+
+    <p>এরপরের কথা অল্প।</p>
+    <p>খাতাটা আমি পোড়াইনি। মনসুর চাচার বাসায় নিয়ে গিয়েছিলাম। আমরা দুজন মিলে তিন রাত ধরে প্রথম পাতা থেকে শেষ পাতা পর্যন্ত পড়েছিলাম, আর নামগুলো আলাদা একটা খাতায় তুলেছিলাম—পঁচাত্তর বছরের তিনশো একচল্লিশটা নাম।</p>
+    <p>আঠাশটা না। তিনশো একচল্লিশটা।</p>
+    <p>মনসুর চাচার হাত কাঁপছিল লিখতে লিখতে।</p>
+    <p>খাতার শেষ ব্যবহৃত পাতাটায় আমার সই ছিল। তার নিচে চারটা লাইন, আর চারটাই কাটা—এমনকি ‘মা’ লেখা লাইনটাও, কাটা, পাশে ছোট করে লেখা: <em>অনাদায়ী। দোকান বন্ধ।</em></p>
+    <p>আমার স্বাদ ফেরেনি।</p>
+    <p>আজ দুই বছর হলো, আমি এখনো জানি না ভাত আর বিরিয়ানির পার্থক্য কী। মা প্রথম প্রথম কাঁদতেন, এখন অভ্যাস হয়ে গেছে—তিনি রান্না করে আমাকে জিজ্ঞেস করেন না, শুধু দেখেন আমি খেয়েছি কি না।</p>
+    <p>আব্বার গলাটাও ফেরেনি।</p>
+    <p>তানভীর এখনো হালিশহরে, এখনো নোটবুক পকেটে। ওর মা গত ঈদে মারা গেছেন। তানভীর জানাজায় গিয়েছিল, দাঁড়িয়ে ছিল, আর ফিরে এসে আমাকে ফোন করে বলেছিল, “ভাই, আমার কষ্ট হইতাছে না। এইটা কি স্বাভাবিক?”</p>
+    <p>আমি কী উত্তর দেব জানতাম না।</p>
+    <p>শামীম ভাই চাকরি ছেড়ে দিয়েছেন। এখন একটা বাইক সার্ভিসিংয়ের দোকান চালান। আমরা কথা বলি না, কিন্তু প্রতি মাসে একটা মেসেজ আসে—শুধু একটা নাম আর একটা ঠিকানা। যাদের নাম তিনি দিয়েছিলেন, তাদের পরিবারের ঠিকানা। তিনি খুঁজে বের করেন, আর আমাকে পাঠান। আমরা গিয়ে বলি না কী হয়েছিল। শুধু দেখে আসি, কিছু লাগবে কি না।</p>
+    <p>আর কেউ হারায়নি। দুই বছরে একজনও না। আমি খোঁজ রাখি।</p>
+
+    <div class="break">✦</div>
+
+    <p>একটা কথা বাকি আছে।</p>
+    <p>যে রাতে আমি খাতাটা নিয়ে ফিরেছিলাম, সেদিন সকালে মিম ফুফুর বাসা থেকে ফিরল। ব্যাগ রেখে, হাতমুখ ধুয়ে, আমার ঘরে এসে খাটে বসল।</p>
+    <p>“ভাইয়া, একটা কথা জিগাই?”</p>
+    <p>“জিগা।”</p>
+    <p>“আমার জন্মের দিন তুমি নাকি আমারে কোলে নিছিলা। আম্মা কয়। কেমন লাগছিল?”</p>
+    <p>আমি ওর মুখের দিকে তাকিয়ে রইলাম।</p>
+    <p>আমি মিথ্যা বলতে পারতাম। সুন্দর কিছু একটা বানিয়ে বলতে পারতাম, আর ও খুশি হতো।</p>
+    <p>আমি বললাম, “আমার মনে নাই, মিম।”</p>
+    <p>ওর মুখটা একটু পড়ে গেল।</p>
+    <p>“কিন্তু,” আমি বললাম, “আম্মার মনে আছে।”</p>
+    <p>আমি মাকে ডাকলাম। রান্নাঘর থেকে হাত মুছতে মুছতে এসে তিনি খাটের কিনারে বসলেন, আর বললেন—সেই হাসপাতাল, সেই ভোর, নয় বছরের একটা ছেলে যে বোনকে কোলে নিতে ভয় পাচ্ছিল, আর আব্বা যে কানে আজান দিয়েছিলেন, আর ছেলেটা জিজ্ঞেস করেছিল, “এত ছোট কেন?”</p>
+    <p>আমি ফোনে রেকর্ড করছিলাম।</p>
+    <p>এখন আমি সব রেকর্ড করি। মায়ের কথা, মিমের কথা, রইসউদ্দিন চাচার কথা। আমার ফোনে একশোর বেশি ফাইল। মা বিরক্ত হন—“আবার ওইটা চালু করছস?”</p>
+    <p>হ্যাঁ, করেছি।</p>
+    <p>কারণ ওই লোকটা একটা জিনিসে ঠিক ছিল: মানুষ যা হারায়, তা ফেরত পায় না।</p>
+    <p>আর একটা জিনিসে ভুল ছিল, আর সেই ভুলটার দাম সে পঁচাত্তর বছর দিয়েছে—</p>
+    <p>মনে রাখার কাজটা একজনের না।</p>
+
+    <div class="break">✦</div>
+
+    <p>সবশেষে একটা ছোট জিনিস।</p>
+    <p>সেদিন সকালে, ফুটপাত থেকে উঠে বাসায় ফেরার পথে, আমার ফোনে একটা নোটিফিকেশন এসেছিল। অ্যাপটা আমি তখন আনইনস্টল করে রেখেছিলাম, তবু এসেছিল।</p>
+    <p>সেইটাই ছিল শেষ।</p>
+
+    <p class="screen">অর্ডার #০০০১ · সম্পন্ন ✓<br>
+    পিকআপ: নিশিরাত মিষ্টান্ন ভাণ্ডার<br>
+    পণ্য: ২ সের সন্দেশ<br>
+    গ্রাহক: অন্নপূর্ণা ঘোষ<br>
+    সময়: ১৩৫৫ বঙ্গাব্দ · বিলম্ব ৭৫ বৎসর<br>
+    গ্রাহকের মন্তব্য: “দেরি হইছে। তবু আইছে।”</p>
+
+    <p class="end">সমাপ্ত</p>
+  </div>
+
+  <div class="tools">
+    <button class="tool" data-copy="chap-10">অধ্যায়টি কপি করুন</button>
+    <button class="tool" data-link="chap-10">লিংক কপি করুন</button>
+    <button class="tool" data-toc>সূচিপত্র</button>
+  </div>
+
+  <nav class="chap-nav">
+    <a class="nav-link" href="#chap-9"><span>পূর্ববর্তী</span>আমার বাড়ির অর্ডার</a>
+    <a class="nav-link next" href="#colophon"><span>শেষ পাতা</span>গ্রন্থপরিচয়</a>
+  </nav>
+</article>
+
+<section class="sheet" id="colophon">
+  <div class="rule-orn" aria-hidden="true"><span></span>❧<span></span></div>
+  <h2 class="section">গ্রন্থপরিচয়</h2>
+  <p class="section-note">নিশিরাতের মিষ্টির দোকান · ভৌতিক উপন্যাসিকা · দশ অধ্যায়</p>
+  <p style="margin-top:1.6rem;color:var(--ink-soft);text-align:justify">চট্টগ্রামের রাতের রাস্তায় একজন ডেলিভারি রাইডার, একটা দোকান যা মানচিত্রে নেই, আর একটা খাতা যেখানে পঁচাত্তর বছরের হিসাব লেখা। গল্পটা ভূতের, কিন্তু ভয়টা অন্য জায়গায়—যে জিনিসটা মানুষ কোনোদিন ফেলতেও পারে না, রাখতেও পারে না, সেই শোক নিয়ে।</p>
+  <p style="margin-top:1.6rem">রচনা ও স্বত্ব · <strong style="font-family:'Noto Serif Bengali',serif;color:var(--ink)">নুরজাহান আঁখি</strong></p>
+  <p><a href="https://akhisliterary-haven.github.io/akhis-lekhaghor/" style="color:var(--gold);text-decoration:none;border-bottom:1px solid var(--line)">আঁখির লেখালয়</a></p>
+  <div class="flourish" style="width:60%"><span>✦</span></div>
+</section>
+
+</main>
+
+<footer>
+  <p>নিশিরাতের মিষ্টির দোকান · ভৌতিক উপন্যাসিকা</p>
+  <p>© ২০২৬ নুরজাহান আঁখি · <a href="https://akhisliterary-haven.github.io/akhis-lekhaghor/">আঁখির লেখালয়</a></p>
+  <p class="motto">আমার শব্দ, আমার গল্প, আমার পৃথিবী।</p>
+</footer>
+
+<a href="#" class="totop" id="totop" aria-label="উপরে ফিরুন">↑</a>
+
+<script>
+(function(){
+  var K='nmd2-';
+  var get=function(k){try{return localStorage.getItem(K+k);}catch(e){return null;}};
+  var set=function(k,v){try{localStorage.setItem(K+k,v);}catch(e){}};
+  var BN='০১২৩৪৫৬৭৮৯';
+  function bn(n){return String(n).replace(/\d/g,function(d){return BN[+d];});}
+
+  var root=document.documentElement;
+  var chapters=[].slice.call(document.querySelectorAll('.chapter'));
+
+  /* ---------- reading settings ---------- */
+  var SIZES=[.92,1,1.08,1.18], base=1.07;
+  function applyFs(i){root.style.setProperty('--fs',(base*SIZES[i]).toFixed(3)+'rem');
+    set('fs',i);
+    document.querySelectorAll('[data-fs]').forEach(function(b){
+      b.setAttribute('aria-pressed', (b.dataset.fs==='0'&&i===1)?'true':'false');});}
+  var fsi=parseInt(get('fs')||'1',10); if(isNaN(fsi)||fsi<0||fsi>3)fsi=1; applyFs(fsi);
+
+  function applyLh(v){root.style.setProperty('--lh',v);set('lh',v);
+    document.querySelectorAll('[data-lh]').forEach(function(b){
+      b.setAttribute('aria-pressed',b.dataset.lh===String(v)?'true':'false');});}
+  applyLh(get('lh')||'2.1');
+
+  function applyTheme(t){
+    root.setAttribute('data-theme',t);set('theme',t);
+    var m=document.querySelector('meta[name="theme-color"]');
+    if(m)m.setAttribute('content',t==='paper'?'#d9d2c4':'#07080b');
+    document.querySelectorAll('[data-theme-set]').forEach(function(b){
+      b.setAttribute('aria-pressed',b.dataset.themeSet===t?'true':'false');});}
+  applyTheme(get('theme')||'night');
+
+  document.addEventListener('click',function(e){
+    var t=e.target.closest('[data-theme-set]');
+    if(t){applyTheme(t.dataset.themeSet);return;}
+    var f=e.target.closest('[data-fs]');
+    if(f){ if(f.dataset.fs==='0'){fsi=1;} else if(f.dataset.fs==='+'){fsi=Math.min(3,fsi+1);} else {fsi=Math.max(0,fsi-1);} applyFs(fsi); return;}
+    var l=e.target.closest('[data-lh]');
+    if(l){applyLh(l.dataset.lh);return;}
+  });
+
+  /* ---------- drawer & panel ---------- */
+  var drawer=document.getElementById('drawer'), scrim=document.getElementById('scrim'),
+      panel=document.getElementById('panel');
+  function closeAll(){drawer.classList.remove('on');panel.classList.remove('on');scrim.classList.remove('on');
+    drawer.setAttribute('aria-hidden','true');}
+  document.getElementById('tocbtn').addEventListener('click',function(){
+    panel.classList.remove('on');
+    var on=drawer.classList.toggle('on');scrim.classList.toggle('on',on);
+    drawer.setAttribute('aria-hidden',on?'false':'true');});
+  document.getElementById('setbtn').addEventListener('click',function(){
+    drawer.classList.remove('on');
+    var on=panel.classList.toggle('on');scrim.classList.toggle('on',on);});
+  document.getElementById('drawerclose').addEventListener('click',closeAll);
+  scrim.addEventListener('click',closeAll);
+  document.addEventListener('click',function(e){
+    if(e.target.closest('[data-toc]')){e.preventDefault();
+      drawer.classList.add('on');scrim.classList.add('on');drawer.setAttribute('aria-hidden','false');}
+    if(e.target.closest('.drawer a'))closeAll();
+  });
+  document.addEventListener('keydown',function(e){
+    if(e.key==='Escape')closeAll();
+    if(e.target.closest('input,textarea'))return;
+    if(e.key==='ArrowRight'||e.key==='ArrowLeft'){
+      var cur=currentChapterIndex();
+      var to=e.key==='ArrowRight'?cur+1:cur-1;
+      if(chapters[to])chapters[to].scrollIntoView();
+    }
+  });
+
+  /* ---------- progress, crumb, scroll-spy ---------- */
+  var bar=document.getElementById('progress'), top=document.getElementById('totop'),
+      ring=document.getElementById('ringfg'), pct=document.getElementById('ringpct'),
+      crumb=document.getElementById('crumb');
+  function currentChapterIndex(){
+    var y=window.scrollY+window.innerHeight*0.33, idx=-1;
+    chapters.forEach(function(c,i){if(c.offsetTop<=y)idx=i;});
+    return idx;
+  }
+  var readSet={};
+  try{readSet=JSON.parse(get('read')||'{}');}catch(e){readSet={};}
+  function markRead(id){ if(!readSet[id]){readSet[id]=1;set('read',JSON.stringify(readSet));paintRead();} }
+  function paintRead(){
+    document.querySelectorAll('li[data-ch]').forEach(function(li){
+      li.classList.toggle('read',!!readSet[li.dataset.ch]);});
+  }
+  paintRead();
+
+  var ticking=false;
+  function onScroll(){
+    var h=document.documentElement.scrollHeight-window.innerHeight;
+    var p=h>0?(window.scrollY/h):0;
+    bar.style.width=(p*100)+'%';
+    ring.style.strokeDashoffset=(88-88*p).toFixed(1);
+    pct.textContent=bn(Math.round(p*100));
+    top.classList.toggle('show',window.scrollY>800);
+
+    var i=currentChapterIndex();
+    if(i>=0){
+      var c=chapters[i];
+      crumb.textContent=c.dataset.folio+' · '+c.dataset.title;
+      document.querySelectorAll('li[data-ch]').forEach(function(li){
+        li.classList.toggle('current',li.dataset.ch===c.id);});
+      if(window.scrollY+window.innerHeight > c.offsetTop+c.offsetHeight-120) markRead(c.id);
+    }else{
+      crumb.textContent='নুরজাহান আঁখি';
+      document.querySelectorAll('li.current').forEach(function(li){li.classList.remove('current');});
+    }
+    if(window.scrollY>200) set('pos',JSON.stringify({y:window.scrollY,t:Date.now()}));
+    ticking=false;
+  }
+  window.addEventListener('scroll',function(){
+    if(!ticking){ticking=true;requestAnimationFrame(onScroll);} },{passive:true});
+  window.addEventListener('resize',onScroll);
+
+  /* ---------- resume ---------- */
+  (function(){
+    var box=document.getElementById('resume');
+    if(location.hash)return;
+    var raw=get('pos'); if(!raw)return;
+    var d; try{d=JSON.parse(raw);}catch(e){return;}
+    if(!d||!d.y||d.y<600)return;
+    var i=-1; chapters.forEach(function(c,k){if(c.offsetTop<=d.y+window.innerHeight*0.33)i=k;});
+    document.getElementById('resumetxt').textContent =
+      i>=0 ? ('অধ্যায় '+chapters[i].dataset.folio+' থেকে পড়বেন?') : 'আগের জায়গা থেকে পড়বেন?';
+    setTimeout(function(){box.classList.add('on');},900);
+    document.getElementById('resumego').addEventListener('click',function(){
+      window.scrollTo({top:d.y,behavior:'smooth'});box.classList.remove('on');});
+    document.getElementById('resumeno').addEventListener('click',function(){box.classList.remove('on');});
+    setTimeout(function(){box.classList.remove('on');},14000);
+  })();
+
+  /* ---------- paragraph reveal ---------- */
+  if('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: reduce)').matches){
+    root.classList.add('anim');
+    var io=new IntersectionObserver(function(es){
+      es.forEach(function(en){ if(en.isIntersecting){en.target.classList.add('seen');io.unobserve(en.target);} });
+    },{rootMargin:'0px 0px -8% 0px',threshold:0.05});
+    document.querySelectorAll('.chapter .story-body > *').forEach(function(el){io.observe(el);});
+  }
+
+  /* ---------- copy tools ---------- */
+  function flash(b,msg){var o=b.textContent;b.textContent=msg;setTimeout(function(){b.textContent=o;},1600);}
+  function fallback(t,b,msg){
+    var ta=document.createElement('textarea');
+    ta.value=t;ta.style.position='fixed';ta.style.opacity='0';
+    document.body.appendChild(ta);ta.select();
+    try{document.execCommand('copy');flash(b,msg);}catch(e){flash(b,'কপি করা গেল না');}
+    document.body.removeChild(ta);
+  }
+  function copyText(t,b,msg){
+    if(navigator.clipboard&&navigator.clipboard.writeText){
+      navigator.clipboard.writeText(t).then(function(){flash(b,msg);},function(){fallback(t,b,msg);});
+    }else{fallback(t,b,msg);}
+  }
+  document.addEventListener('click',function(e){
+    var b=e.target.closest('[data-copy],[data-link]');
+    if(!b)return;
+    var id=b.getAttribute('data-copy')||b.getAttribute('data-link');
+    var art=document.getElementById(id);
+    if(!art)return;
+    if(b.hasAttribute('data-copy')){
+      var t=art.querySelector('.chap-title').textContent.trim();
+      var body=[].map.call(art.querySelectorAll('.story-body p'),function(p){return p.textContent.trim();}).join('\n\n');
+      copyText(t+'\n— নুরজাহান আঁখি\n\n'+body,b,'কপি হয়েছে');
+    }else{
+      copyText(location.href.split('#')[0]+'#'+id,b,'লিংক কপি হয়েছে');
+    }
+  });
+
+  onScroll();
+})();
+</script>
+
+<script>
+(function(){
+  var K='nmd2-';
+  function get(k){try{return localStorage.getItem(K+k);}catch(e){return null;}}
+  function set(k,v){try{localStorage.setItem(K+k,v);}catch(e){}}
+  var chapters=[].slice.call(document.querySelectorAll('.chapter'));
+
+  /* ---------- typeface ---------- */
+  var FONTS={tiro:"'Tiro Bangla',serif",noto:"'Noto Serif Bengali',serif",hind:"'Hind Siliguri',sans-serif"};
+  function applyFont(k){
+    if(!FONTS[k])k='tiro';
+    document.documentElement.style.setProperty('--bodyfont',FONTS[k]);
+    set('font',k);
+    document.querySelectorAll('[data-font]').forEach(function(b){
+      b.setAttribute('aria-pressed',b.dataset.font===k?'true':'false');});
+  }
+  applyFont(get('font')||'tiro');
+  document.addEventListener('click',function(e){
+    var b=e.target.closest('[data-font]'); if(b)applyFont(b.dataset.font);
+  });
+
+  /* ---------- drawer tabs ---------- */
+  var titles={'pane-toc':'সূচিপত্র','pane-search':'খুঁজুন','pane-bm':'চিহ্নিত জায়গা'};
+  document.querySelectorAll('.dtab').forEach(function(t){
+    t.addEventListener('click',function(){
+      document.querySelectorAll('.dtab').forEach(function(x){x.setAttribute('aria-selected','false');});
+      t.setAttribute('aria-selected','true');
+      document.querySelectorAll('.dpane').forEach(function(p){p.classList.remove('on');});
+      document.getElementById(t.dataset.pane).classList.add('on');
+      document.getElementById('drawertitle').textContent=titles[t.dataset.pane];
+      if(t.dataset.pane==='pane-search'){setTimeout(function(){
+        document.getElementById('searchinput').focus();},250);}
+    });
+  });
+
+  /* ---------- search ---------- */
+  var paras=[];
+  chapters.forEach(function(c){
+    c.querySelectorAll('.story-body p').forEach(function(p,i){
+      if(!p.id)p.id=c.id+'-p'+i;
+      paras.push({el:p,text:p.textContent,ch:c.dataset.folio+' · '+c.dataset.title});
+    });
+  });
+  var input=document.getElementById('searchinput'),
+      out=document.getElementById('sresults'),
+      hint=document.getElementById('shint');
+  function esc(t){return t.replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c];});}
+  function runSearch(){
+    var q=input.value.trim();
+    out.innerHTML='';
+    if(q.length<2){hint.textContent='অন্তত দুই অক্ষর লিখুন';return;}
+    var hits=0;
+    paras.forEach(function(p){
+      var idx=p.text.indexOf(q);
+      if(idx<0||hits>=60)return;
+      hits++;
+      var from=Math.max(0,idx-40), to=Math.min(p.text.length,idx+q.length+60);
+      var snip=(from>0?'…':'')+esc(p.text.slice(from,idx))+'<mark>'+esc(q)+'</mark>'+
+               esc(p.text.slice(idx+q.length,to))+(to<p.text.length?'…':'');
+      var li=document.createElement('li');
+      var btn=document.createElement('button');
+      btn.innerHTML='<span class="where">'+esc(p.ch)+'</span>'+snip;
+      btn.addEventListener('click',function(){
+        closeDrawer();
+        p.el.scrollIntoView({block:'center'});
+        p.el.classList.remove('flashfind');void p.el.offsetWidth;p.el.classList.add('flashfind');
+      });
+      li.appendChild(btn);out.appendChild(li);
+    });
+    hint.textContent = hits? (toBn(hits)+'টি জায়গায় পাওয়া গেছে') : 'কিছু পাওয়া যায় নাই';
+  }
+  var BN='০১২৩৪৫৬৭৮৯';
+  function toBn(n){return String(n).replace(/\d/g,function(d){return BN[+d];});}
+  var t=null;
+  input.addEventListener('input',function(){clearTimeout(t);t=setTimeout(runSearch,180);});
+
+  function closeDrawer(){
+    document.getElementById('drawer').classList.remove('on');
+    document.getElementById('scrim').classList.remove('on');
+    document.getElementById('drawer').setAttribute('aria-hidden','true');
+  }
+
+  /* ---------- bookmarks ---------- */
+  var bms=[];
+  try{bms=JSON.parse(get('bm')||'[]');}catch(e){bms=[];}
+  var list=document.getElementById('bmlist'), empty=document.getElementById('bmempty');
+  function saveBm(){set('bm',JSON.stringify(bms));paintBm();}
+  function paintBm(){
+    list.innerHTML='';
+    empty.style.display=bms.length?'none':'block';
+    bms.forEach(function(b,i){
+      var li=document.createElement('li');
+      var go=document.createElement('button');go.className='go';
+      go.innerHTML='<span class="where">'+b.ch+'</span>'+b.snip;
+      go.addEventListener('click',function(){
+        closeDrawer();
+        var el=document.getElementById(b.pid);
+        if(el){el.scrollIntoView({block:'center'});
+          el.classList.remove('flashfind');void el.offsetWidth;el.classList.add('flashfind');}
+        else window.scrollTo({top:b.y});
+      });
+      var del=document.createElement('button');del.className='del';del.textContent='✕';
+      del.setAttribute('aria-label','মুছুন');
+      del.addEventListener('click',function(){bms.splice(i,1);saveBm();});
+      li.appendChild(go);li.appendChild(del);list.appendChild(li);
+    });
+  }
+  paintBm();
+  document.getElementById('bmbtn').addEventListener('click',function(){
+    var mid=window.scrollY+window.innerHeight*0.4, best=null, bd=1e9;
+    paras.forEach(function(p){
+      var r=p.el.getBoundingClientRect(), y=r.top+window.scrollY;
+      var d=Math.abs(y-mid); if(d<bd){bd=d;best=p;}
+    });
+    if(!best)return;
+    var snip=best.text.slice(0,70)+(best.text.length>70?'…':'');
+    if(bms.some(function(b){return b.pid===best.el.id;})){
+      bms=bms.filter(function(b){return b.pid!==best.el.id;});
+    }else{
+      bms.unshift({pid:best.el.id,ch:best.ch,snip:snip,y:window.scrollY});
+      if(bms.length>40)bms.pop();
+    }
+    saveBm();
+    var btn=this, old=btn.textContent;
+    btn.textContent='✓';btn.classList.add('marked');
+    setTimeout(function(){btn.textContent=old;btn.classList.remove('marked');},1200);
+  });
+
+  /* ---------- quote copy ---------- */
+  var bub=document.getElementById('qbubble'), lastSel='';
+  function hideBub(){bub.classList.remove('on');}
+  function onSel(){
+    var sel=window.getSelection();
+    if(!sel||sel.isCollapsed){hideBub();return;}
+    var txt=sel.toString().trim();
+    if(txt.length<12){hideBub();return;}
+    var node=sel.anchorNode;
+    if(!node||!(node.nodeType===1?node:node.parentElement).closest('.story-body')){hideBub();return;}
+    var r=sel.getRangeAt(0).getBoundingClientRect();
+    if(!r||!r.width){hideBub();return;}
+    lastSel=txt;
+    bub.style.left=Math.min(window.innerWidth-70,Math.max(70,r.left+r.width/2))+'px';
+    bub.style.top=Math.max(54,r.top)+'px';
+    bub.classList.add('on');
+  }
+  document.addEventListener('mouseup',function(){setTimeout(onSel,10);});
+  document.addEventListener('touchend',function(){setTimeout(onSel,180);});
+  document.addEventListener('scroll',hideBub,{passive:true});
+  bub.addEventListener('click',function(){
+    var art=document.querySelector('.chapter'), cur='';
+    var y=window.scrollY+window.innerHeight*0.33;
+    chapters.forEach(function(c){if(c.offsetTop<=y)cur=c.dataset.title;});
+    var text='“'+lastSel+'”\n— নিশিরাতের মিষ্টির দোকান'+(cur?' · '+cur:'')+'\nনুরজাহান আঁখি';
+    function done(){bub.textContent='কপি হয়েছে';
+      setTimeout(function(){bub.textContent='উক্তি কপি করুন';hideBub();},1300);}
+    if(navigator.clipboard&&navigator.clipboard.writeText){
+      navigator.clipboard.writeText(text).then(done,done);
+    }else{
+      var ta=document.createElement('textarea');ta.value=text;ta.style.position='fixed';ta.style.opacity='0';
+      document.body.appendChild(ta);ta.select();try{document.execCommand('copy');}catch(e){}
+      document.body.removeChild(ta);done();
+    }
+  });
+})();
+</script>
+</body>
+</html>
