@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#100914">
+<meta name="description" content="আঁখির লেখালয়ের উপন্যাসসমূহ।">
+<title>উপন্যাস | আঁখির লেখালয়</title>
+<style>
+:root{--bg:#100914;--panel:#17111f;--text:#fff5eb;--muted:#c5b7c7;--gold:#e8b85d;--gold2:#ffda8a;--line:rgba(232,184,93,.45)}
+*{box-sizing:border-box}
+body{margin:0;background:radial-gradient(ellipse at 50% 15%,#25132c 0,transparent 55%),var(--bg);color:var(--text);font-family:Georgia,'Noto Serif Bengali',serif;line-height:1.7}
+a{color:inherit;text-decoration:none}
+.wrap{width:min(1100px,92%);margin:auto}
+.topbar{background:rgba(15,9,20,.92);border-bottom:1px solid rgba(232,184,93,.18)}
+.nav{min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:18px}
+.brand{color:var(--gold2);font-size:clamp(19px,3vw,28px);line-height:1.2}
+.brand small{display:block;font:9px Georgia,serif;letter-spacing:3px;color:#d9c9b7;margin-top:5px}
+.links{display:flex;gap:22px;font-size:14px;color:#e6d9e6}
+.links a:hover,.back:hover{color:var(--gold2)}
+main{padding:42px 0 70px}
+.eyebrow{color:var(--gold);letter-spacing:3px;font-size:11px}
+.heading{font-size:clamp(30px,5vw,44px);margin:5px 0 4px}
+.sub{color:var(--muted);margin:0 0 28px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),320px));gap:24px}
+.card{overflow:hidden;background:linear-gradient(145deg,#201629,#15101c);border:1px solid var(--line);border-radius:14px;transition:transform .2s,border-color .2s}
+.card:hover{transform:translateY(-4px);border-color:var(--gold)}
+.cover{display:block;width:100%;aspect-ratio:3/4;object-fit:cover;background:#211529}
+.body{padding:18px}
+.pill{display:inline-block;border:1px solid var(--gold);border-radius:20px;padding:1px 10px;color:var(--gold2);font-size:10px;letter-spacing:2px}
+.title{font-size:24px;margin:9px 0 0}
+.author{color:var(--muted);margin:0 0 12px}
+.read{color:var(--gold2);text-decoration:underline;text-underline-offset:5px}
+.back{display:inline-block;color:var(--gold2);margin-bottom:24px}
+@media(max-width:600px){
+.nav{align-items:flex-start;flex-direction:column;padding:14px 0}
+.links{gap:16px;flex-wrap:wrap}
+.grid{grid-template-columns:1fr}
+.card{display:grid;grid-template-columns:38% 62%;align-items:center}
+.cover{height:100%;min-height:190px;aspect-ratio:auto}
+.body{padding:14px}
+.title{font-size:21px}
+}
+</style>
+</head>
+<body>
+<header class="topbar">
+<div class="wrap nav">
+<a class="brand" href="index.html">আঁখির লেখালয়<small>AKHI'S LITERARY HAVEN</small></a>
+<nav class="links">
+<a href="index.html">হোম</a>
+<a href="index.html#categories">সাহিত্য সংগ্রহ</a>
+</nav>
+</div>
+</header>
+<main class="wrap">
+<a class="back" href="index.html">← হোমপেজে ফিরে যান</a>
+<div class="eyebrow">THE NOVEL COLLECTION</div>
+<h1 class="heading">উপন্যাস</h1>
+<p class="sub">সম্পর্ক, চরিত্র ও কল্পনার দীর্ঘ যাত্রা।</p>
+<div class="grid">
+<a class="card" href="chithir-uttor-nei.html" aria-label="চিঠির উত্তর নেই বইটি পড়ুন">
+<img class="cover" src="assets/chithir-uttor-nei-cover.png" alt="চিঠির উত্তর নেই বইয়ের প্রচ্ছদ">
+<div class="body">
+<span class="pill">NOVEL</span>
+<h2 class="title">চিঠির উত্তর নেই</h2>
+<p class="author">নুরজাহান আঁখি</p>
+<span class="read">বইটি পড়ুন →</span>
+</div>
+</a>
+</div>
+</main>
+</body>
+</html>
