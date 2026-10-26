@@ -1,0 +1,101 @@
+
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ফ্যানফিকশন | আঁখির লেখালয়</title>
+<style>
+:root {
+  color-scheme: dark;
+  --bg: #100b14;
+  --card: #211725;
+  --gold: #e8b85d;
+  --text: #fff5eb;
+  --muted: #c5b7c7;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  padding: 24px 16px 48px;
+  background: var(--bg);
+  color: var(--text);
+  font-family: Georgia, serif;
+}
+header {
+  text-align: center;
+  padding: 28px 10px;
+}
+h1 { color: var(--gold); }
+header p { color: var(--muted); }
+.back {
+  color: var(--gold);
+  text-decoration: none;
+}
+.books {
+  max-width: 850px;
+  margin: 28px auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(145px, 1fr));
+  gap: 20px;
+}
+.book {
+  background: var(--card);
+  border: 1px solid #60482e;
+  border-radius: 12px;
+  padding: 14px;
+  text-align: center;
+}
+.cover {
+  aspect-ratio: 3 / 4;
+  display: grid;
+  place-items: center;
+  padding: 12px;
+  background: linear-gradient(145deg, #35203b, #100b14);
+  border: 1px solid #80613a;
+  color: var(--gold);
+  font-size: 19px;
+  line-height: 1.7;
+}
+.book h2 {
+  font-size: 17px;
+  line-height: 1.7;
+}
+.book p {
+  color: var(--muted);
+  font-size: 13px;
+}
+footer {
+  text-align: center;
+  margin-top: 40px;
+}
+</style>
+</head>
+<body>
+
+<header>
+  <a class="back" href="index.html">← মূল পৃষ্ঠায় ফিরুন</a>
+  <h1>ফ্যানফিকশন</h1>
+  <p>চরিত্র, কল্পনা ও অনুভূতির অন্য এক জগৎ</p>
+</header>
+
+<main class="books">
+  <article class="book">
+    <div class="cover">ঘাতক ও কোটিপতি</div>
+    <h2>ঘাতক ও কোটিপতি</h2>
+    <p>রহস্য, বিপদ ও সম্পর্কের গল্প।</p>
+  </article>
+
+  <article class="book">
+    <div class="cover">ভিনাইলের ওপারে তুমি</div>
+    <h2>ভিনাইলের ওপারে তুমি</h2>
+    <p>সংগীত, পরিচয় ও রহস্যের গল্প।</p>
+  </article>
+</main>
+
+<footer>
+  <a class="back" href="index.html">আঁখির লেখালয়ে ফিরে যান</a>
+</footer>
+
+</body>
+</html>
