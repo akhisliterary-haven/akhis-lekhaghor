@@ -1,0 +1,2128 @@
+<!DOCTYPE html>
+<html lang="bn" data-theme="night">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>নিঃশব্দের নোটবুক | নুরজাহান আঁখি</title>
+<meta name="description" content="নুরজাহান আঁখির গদ্য, অনুগল্প ও ভাবনার সংকলন — নিঃশব্দের নোটবুক।">
+<meta name="theme-color" content="#0d0710">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Bengali:wght@400;600;700&family=Tiro+Bangla:ital@0;1&family=Hind+Siliguri:wght@300;400;500&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0d0710;
+    --bg-deep:#080409;
+    --surface:#150d1a;
+    --gold:#d8b56a;
+    --gold-dim:rgba(216,181,106,.22);
+    --rule:rgba(216,181,106,.16);
+    --text:#ece3d6;
+    --text-soft:#a79b8d;
+    --maxw:34.5rem;
+  }
+  :root[data-theme="paper"]{
+    --bg:#efe7d6;
+    --bg-deep:#e7decb;
+    --surface:#f9f4e9;
+    --gold:#8b6a2b;
+    --gold-dim:rgba(139,106,43,.2);
+    --rule:rgba(60,44,28,.18);
+    --text:#241a14;
+    --text-soft:#6b5a49;
+  }
+  *{box-sizing:border-box}
+  html{
+    scroll-behavior:smooth;scroll-padding-top:5.5rem;
+    padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+  }
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+  body{
+    margin:0;background:var(--bg);color:var(--text);
+    font-family:'Tiro Bangla',serif;font-size:1.08rem;line-height:2.1;
+    -webkit-font-smoothing:antialiased;position:relative;
+  }
+  /* paper grain, barely there */
+  body::after{
+    content:"";position:fixed;inset:0;pointer-events:none;z-index:40;opacity:.05;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:31}
+  /* ---------- top bar ---------- */
+  .bar{
+    position:sticky;top:0;z-index:30;display:flex;align-items:center;justify-content:space-between;gap:1rem;
+    padding:.75rem 1.25rem;padding-top:calc(.75rem + env(safe-area-inset-top,0px));
+    background:color-mix(in srgb,var(--bg) 86%,transparent);backdrop-filter:blur(12px);
+    border-bottom:1px solid var(--rule);
+    font-family:'Hind Siliguri',sans-serif;font-size:.85rem;font-weight:300;
+  }
+  .bar .mark{font-family:'Noto Serif Bengali',serif;font-weight:600;font-size:.95rem;color:var(--text);text-decoration:none}
+  .bar nav{display:flex;align-items:center;gap:1.1rem}
+  .bar a,.bar button{color:var(--text-soft);text-decoration:none;background:none;border:0;font:inherit;cursor:pointer;padding:.2rem 0}
+  .bar a:hover,.bar button:hover{color:var(--gold)}
+  .progress{position:fixed;top:0;left:0;height:2px;width:0;background:var(--gold);z-index:35}
+  /* ---------- cover ---------- */
+  .cover{
+    position:relative;min-height:92vh;display:flex;flex-direction:column;justify-content:center;align-items:center;
+    text-align:center;padding:4.5rem 1.75rem 4rem;
+    background:
+      radial-gradient(130% 80% at 50% -10%,color-mix(in srgb,var(--gold) 12%,transparent),transparent 62%),
+      var(--bg-deep);
+    border-bottom:1px solid var(--rule);
+  }
+  .cover .frame{
+    position:absolute;inset:1.1rem;border:1px solid var(--gold-dim);pointer-events:none;
+  }
+  .cover .frame::before{content:"";position:absolute;inset:.42rem;border:1px solid var(--gold-dim);opacity:.55}
+  .cover .inner{position:relative;max-width:26rem;animation:rise 1.1s ease-out both}
+  @keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+  .cover .ornament{color:var(--gold);font-size:1.15rem;letter-spacing:.5rem;opacity:.85;margin-bottom:1.6rem}
+  .cover .kicker{
+    font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:300;
+    font-size:1.02rem;color:var(--text-soft);margin:0 0 1.1rem;
+  }
+  .cover h1{
+    font-family:'Noto Serif Bengali',serif;font-weight:700;
+    font-size:clamp(2.35rem,10.5vw,3.9rem);line-height:1.38;letter-spacing:-.01em;margin:0;color:var(--text);
+  }
+  .cover .rule{display:flex;align-items:center;justify-content:center;gap:.7rem;margin:1.7rem 0 1.5rem}
+  .cover .rule span{height:1px;width:3.2rem;background:var(--gold);opacity:.6}
+  .cover .rule em{color:var(--gold);font-style:normal;font-size:.7rem}
+  .cover .sub{font-style:italic;color:var(--text-soft);line-height:1.95;margin:0 auto;max-width:21rem}
+  .cover .author{font-family:'Noto Serif Bengali',serif;font-weight:400;font-size:1.12rem;margin:2.9rem 0 .35rem}
+  .cover .house{font-family:'Cormorant Garamond',serif;font-size:.95rem;color:var(--text-soft);letter-spacing:.06em}
+  /* ---------- layout ---------- */
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 1.4rem}
+  .section{padding:4.5rem 0 3.5rem}
+  .section-head{text-align:center;margin-bottom:2.6rem}
+  .section-head h2{font-family:'Noto Serif Bengali',serif;font-weight:600;font-size:1.3rem;margin:0 0 .6rem}
+  .section-head .dash{display:inline-block;width:2.2rem;height:1px;background:var(--gold);opacity:.6}
+  /* ---------- contents ---------- */
+  .toc{list-style:none;margin:0;padding:0;counter-reset:item}
+  .toc li+li{margin-top:.1rem}
+  .toc a{
+    display:grid;grid-template-columns:2.3rem 1fr;gap:.2rem 1rem;align-items:baseline;
+    padding:.95rem .35rem;text-decoration:none;color:var(--text);border-bottom:1px solid var(--rule);
+    transition:background .18s ease;
+  }
+  .toc a:hover,.toc a:focus-visible{background:color-mix(in srgb,var(--gold) 9%,transparent);outline:none}
+  .toc .num{font-family:'Cormorant Garamond',serif;font-size:1.05rem;color:var(--gold);line-height:1.6}
+  .toc .t{font-family:'Noto Serif Bengali',serif;font-weight:400;font-size:1.05rem;line-height:1.6}
+  .toc .meta{grid-column:2;font-family:'Hind Siliguri',sans-serif;font-weight:300;font-size:.76rem;color:var(--text-soft)}
+  .toc .meta i{font-style:normal;color:var(--gold-dim);padding:0 .45rem}
+  .note{font-family:'Hind Siliguri',sans-serif;font-weight:300;font-size:.82rem;color:var(--text-soft);text-align:center;margin-top:1.8rem}
+  /* ---------- pieces ---------- */
+  main{padding-bottom:1rem}
+  article{padding:3.2rem 0 2.6rem}
+  article+article{border-top:1px solid var(--rule)}
+  .opener{text-align:center;margin-bottom:2.3rem}
+  .opener .ch{
+    font-family:'Cormorant Garamond',serif;font-size:.95rem;letter-spacing:.22em;color:var(--gold);
+    display:flex;align-items:center;justify-content:center;gap:.8rem;margin-bottom:1rem;
+  }
+  .opener .ch::before,.opener .ch::after{content:"";height:1px;width:2.2rem;background:var(--gold);opacity:.45}
+  .kind-tag{font-family:'Hind Siliguri',sans-serif;font-weight:300;font-size:.78rem;color:var(--text-soft);margin:0 0 .45rem;letter-spacing:.04em}
+  article h3{
+    font-family:'Noto Serif Bengali',serif;font-weight:600;
+    font-size:clamp(1.6rem,6.4vw,2.15rem);line-height:1.5;margin:0;
+  }
+  .readtime{font-family:'Hind Siliguri',sans-serif;font-weight:300;font-size:.78rem;color:var(--text-soft);margin:.7rem 0 0}
+  article p{margin:0 0 1.35rem;text-align:justify;text-justify:inter-word;hyphens:auto}
+  .opener+p::first-letter{
+    float:left;font-family:'Noto Serif Bengali',serif;font-weight:700;color:var(--gold);
+    font-size:3.1rem;line-height:.92;padding:.35rem .5rem 0 0;
+  }
+  article p.gap{margin-top:2.1rem}
+  .frag{margin:0 0 2rem;padding-left:1.15rem;border-left:1px solid var(--gold-dim)}
+  .frag p{margin:0 0 .5rem;text-align:left}
+  .frag .when{font-family:'Cormorant Garamond',serif;font-size:.9rem;letter-spacing:.14em;color:var(--gold);margin-bottom:.3rem}
+  .dinghy{text-align:center;color:var(--gold);opacity:.6;margin:2.3rem 0;letter-spacing:.45rem}
+  .endmark{text-align:center;color:var(--gold);opacity:.7;margin:2.4rem 0 1.6rem}
+  .tools{display:flex;justify-content:space-between;align-items:center;gap:1rem;
+    font-family:'Hind Siliguri',sans-serif;font-weight:300;font-size:.8rem;padding-top:.4rem}
+  .tools a,.tools button{color:var(--text-soft);text-decoration:none;background:none;border:0;font:inherit;cursor:pointer;padding:.3rem 0}
+  .tools a:hover,.tools button:hover{color:var(--gold)}
+  /* ---------- author ---------- */
+  .about{background:var(--surface);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);padding:4rem 0 3.5rem}
+  .about h2{font-family:'Noto Serif Bengali',serif;font-weight:600;font-size:1.22rem;margin:0 0 1.5rem;text-align:center}
+  .about .dash{display:block;width:2.2rem;height:1px;background:var(--gold);opacity:.6;margin:0 auto 2rem}
+  .about p{margin:0 0 1.25rem;text-align:justify}
+  .about a{color:var(--gold)}
+  footer{padding:3rem 1.4rem 3.5rem;text-align:center;
+    font-family:'Cormorant Garamond',serif;font-size:.95rem;color:var(--text-soft);line-height:2}
+  footer .seal{color:var(--gold);letter-spacing:.4rem;margin-bottom:1rem;opacity:.7}
+  footer a{color:var(--text-soft)}
+  ::selection{background:var(--gold-dim)}
+  a:focus-visible,button:focus-visible{outline:1px solid var(--gold);outline-offset:4px}
+  @media (max-width:420px){ .cover .frame{inset:.7rem} article p{text-align:left} }
+  @media print{ .bar,.progress,.tools,body::after{display:none} body{background:#fff;color:#000} }
+</style>
+
+<style>
+  /* ============ motion layer ============ */
+  body,.bar,.cover,.about,.toc a{transition:background-color .55s ease,color .55s ease,border-color .55s ease}
+  .progress{transition:width .14s linear;box-shadow:0 0 10px color-mix(in srgb,var(--gold) 55%, transparent)}
+
+  /* --- cover: staggered curtain --- */
+  .cover .inner{animation:none}
+  .cover .inner>*{opacity:0;animation:riseIn .95s cubic-bezier(.2,.7,.25,1) forwards}
+  .cover .inner>*:nth-child(1){animation-delay:.15s}
+  .cover .inner>*:nth-child(2){animation-delay:.38s}
+  .cover .inner>*:nth-child(3){animation-delay:.56s}
+  .cover .inner>*:nth-child(4){animation-delay:.86s}
+  .cover .inner>*:nth-child(5){animation-delay:1.02s}
+  .cover .inner>*:nth-child(6){animation-delay:1.24s}
+  .cover .inner>*:nth-child(7){animation-delay:1.4s}
+  @keyframes riseIn{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+  .cover .frame{clip-path:inset(0 0 100% 0);animation:frameDraw 1.5s cubic-bezier(.2,.7,.25,1) .1s forwards}
+  @keyframes frameDraw{to{clip-path:inset(0 0 0 0)}}
+  .cover .rule span{width:0;animation:drawRule .9s cubic-bezier(.2,.7,.25,1) 1s forwards}
+  @keyframes drawRule{to{width:3.2rem}}
+  .cover .ornament{animation:riseIn .95s cubic-bezier(.2,.7,.25,1) .15s forwards,breathe 5.5s ease-in-out 1.6s infinite}
+  @keyframes breathe{0%,100%{opacity:.85;letter-spacing:.5rem}50%{opacity:.45;letter-spacing:.62rem}}
+  .cover .inner h1{letter-spacing:.06em;animation:riseIn .95s cubic-bezier(.2,.7,.25,1) .56s forwards,tighten 1.4s cubic-bezier(.2,.7,.25,1) .56s forwards}
+  @keyframes tighten{to{letter-spacing:-.01em}}
+
+  /* --- scroll reveal --- */
+  .rv{opacity:0;transform:translateY(16px);transition:opacity .75s ease,transform .75s cubic-bezier(.2,.7,.25,1)}
+  .rv.in{opacity:1;transform:none}
+  .toc li.rv{transform:translateY(10px)}
+  .frag.rv{transform:translateX(-14px)}
+  .opener .ch::before,.opener .ch::after{width:0;transition:width .8s cubic-bezier(.2,.7,.25,1) .18s}
+  .opener.in .ch::before,.opener.in .ch::after{width:2.2rem}
+  .endmark.rv{transform:scale(.6) rotate(-35deg);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.7,.25,1)}
+  .endmark.rv.in{transform:none}
+
+  /* --- contents rows --- */
+  .toc a{position:relative}
+  .toc a .num{display:inline-block;transition:transform .35s cubic-bezier(.2,.7,.25,1),color .3s ease}
+  .toc a:hover .num,.toc a:focus-visible .num{transform:translateX(5px)}
+  .toc a::after{content:"";position:absolute;left:.35rem;right:.35rem;bottom:-1px;height:1px;background:var(--gold);
+    transform:scaleX(0);transform-origin:left;transition:transform .45s cubic-bezier(.2,.7,.25,1)}
+  .toc a:hover::after,.toc a:focus-visible::after{transform:scaleX(1)}
+
+  /* --- buttons --- */
+  .tools button,.bar button{position:relative;transition:color .3s ease}
+  .tools a,.bar a{transition:color .3s ease}
+
+  /* --- floating return --- */
+  #toTop{
+    position:fixed;right:1.1rem;bottom:calc(1.3rem + env(safe-area-inset-bottom,0px));z-index:32;
+    width:2.9rem;height:2.9rem;border-radius:50%;display:grid;place-items:center;cursor:pointer;
+    border:1px solid var(--gold-dim);background:color-mix(in srgb,var(--bg) 88%,transparent);
+    backdrop-filter:blur(8px);color:var(--gold);font-size:.95rem;
+    opacity:0;transform:translateY(14px) scale(.85);pointer-events:none;
+    transition:opacity .45s ease,transform .45s cubic-bezier(.2,.7,.25,1),border-color .3s ease;
+  }
+  #toTop.show{opacity:1;transform:none;pointer-events:auto}
+  #toTop:hover{border-color:var(--gold)}
+  @media (prefers-reduced-motion:reduce){
+    .rv,.cover .inner>*,.cover .frame,.cover .rule span{opacity:1!important;transform:none!important;clip-path:none!important;width:3.2rem}
+    .opener .ch::before,.opener .ch::after{width:2.2rem}
+    #toTop{opacity:1;transform:none;pointer-events:auto}
+  }
+</style>
+
+<style>
+  /* ============ motion layer 2 — stronger ============ */
+  .bar,.cover,.section,main,.about,footer{position:relative;z-index:1}
+
+  /* drifting aurora behind everything */
+  #aurora{position:fixed;inset:-25%;z-index:0;pointer-events:none;opacity:.55}
+  #aurora i{position:absolute;display:block;border-radius:50%;filter:blur(70px);opacity:.5}
+  #aurora i:nth-child(1){width:46vmax;height:46vmax;left:-8%;top:-6%;
+    background:radial-gradient(circle,color-mix(in srgb,var(--gold) 26%,transparent),transparent 68%);
+    animation:drift1 26s ease-in-out infinite alternate}
+  #aurora i:nth-child(2){width:38vmax;height:38vmax;right:-10%;top:28%;
+    background:radial-gradient(circle,color-mix(in srgb,#7a4b8f 34%,transparent),transparent 68%);
+    animation:drift2 32s ease-in-out infinite alternate}
+  #aurora i:nth-child(3){width:34vmax;height:34vmax;left:18%;bottom:-12%;
+    background:radial-gradient(circle,color-mix(in srgb,var(--gold) 18%,transparent),transparent 70%);
+    animation:drift1 38s ease-in-out 3s infinite alternate-reverse}
+  @keyframes drift1{to{transform:translate3d(9vw,7vh,0) scale(1.18)}}
+  @keyframes drift2{to{transform:translate3d(-11vw,-6vh,0) scale(1.12)}}
+
+  /* floating dust on the cover */
+  .dust{position:absolute;inset:0;overflow:hidden;pointer-events:none}
+  .dust b{position:absolute;color:var(--gold);font-size:.6rem;opacity:0;animation:float 14s linear infinite}
+  .dust b:nth-child(1){left:12%;animation-delay:0s}
+  .dust b:nth-child(2){left:28%;font-size:.45rem;animation-duration:18s;animation-delay:2.5s}
+  .dust b:nth-child(3){left:47%;animation-duration:16s;animation-delay:6s}
+  .dust b:nth-child(4){left:66%;font-size:.5rem;animation-duration:20s;animation-delay:1.4s}
+  .dust b:nth-child(5){left:81%;animation-duration:15s;animation-delay:8s}
+  .dust b:nth-child(6){left:92%;font-size:.42rem;animation-duration:22s;animation-delay:4s}
+  @keyframes float{
+    0%{transform:translateY(102%) rotate(0deg);opacity:0}
+    12%{opacity:.75}
+    85%{opacity:.4}
+    100%{transform:translateY(-15%) rotate(220deg);opacity:0}
+  }
+
+  /* title shimmer sweep */
+  .cover h1{
+    background:linear-gradient(100deg,var(--text) 32%,var(--gold) 50%,var(--text) 68%);
+    background-size:260% 100%;background-position:120% 0;
+    -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+    animation:riseIn .95s cubic-bezier(.2,.7,.25,1) .56s forwards,
+              tighten 1.4s cubic-bezier(.2,.7,.25,1) .56s forwards,
+              sweep 6.5s ease-in-out 2.2s infinite;
+  }
+  @keyframes sweep{0%{background-position:120% 0}45%{background-position:-30% 0}100%{background-position:-30% 0}}
+
+  /* scroll cue */
+  .cue{position:absolute;left:50%;bottom:1.9rem;transform:translateX(-50%);color:var(--gold);
+    font-size:1.1rem;opacity:0;animation:cueIn .8s ease 2s forwards,bob 2.1s ease-in-out 2.8s infinite}
+  .cue.gone{animation:none;opacity:0;transition:opacity .5s ease}
+  @keyframes cueIn{to{opacity:.75}}
+  @keyframes bob{0%,100%{transform:translate(-50%,0)}50%{transform:translate(-50%,9px)}}
+
+  /* reveals: deeper, with blur and tilt */
+  main{perspective:1200px}
+  .rv{opacity:0;transform:translateY(30px);filter:blur(5px);
+      transition:opacity .9s ease,transform .9s cubic-bezier(.16,.84,.26,1),filter .9s ease}
+  .rv.in{opacity:1;transform:none;filter:none}
+  .opener.rv{transform:translateY(38px) rotateX(10deg) scale(.97);transform-origin:top center}
+  .frag.rv{transform:translateX(-26px) skewX(2deg)}
+  .toc li.rv{transform:translateY(14px) scale(.985)}
+
+  /* graphemes of a chapter title, one by one */
+  .g{display:inline-block;opacity:0;transform:translateY(14px) scale(1.1);filter:blur(4px);
+     transition:opacity .5s ease,transform .5s cubic-bezier(.16,.84,.26,1),filter .5s ease}
+  .in .g{opacity:1;transform:none;filter:none}
+
+  /* drop cap that lands */
+  .opener+p.dc::first-letter{all:unset}
+  .dropcap{
+    float:left;font-family:'Noto Serif Bengali',serif;font-weight:700;color:var(--gold);
+    font-size:3.4rem;line-height:.92;padding:.3rem .55rem 0 0;
+    opacity:0;transform:translateY(-16px) rotate(-8deg);
+    transition:opacity .7s ease .25s,transform .9s cubic-bezier(.2,1.3,.4,1) .25s,text-shadow .7s ease;
+  }
+  .in .dropcap{opacity:1;transform:none;text-shadow:0 0 22px color-mix(in srgb,var(--gold) 40%,transparent)}
+
+  /* chapter rules sweep wider */
+  .opener .ch::before,.opener .ch::after{transition:width .95s cubic-bezier(.16,.84,.26,1) .2s}
+  .opener.in .ch::before,.opener.in .ch::after{width:3.1rem}
+
+  /* ornaments turn */
+  .endmark.rv{transform:scale(.4) rotate(-120deg);transition:opacity .9s ease,transform 1s cubic-bezier(.2,1.25,.4,1)}
+  .dinghy{animation:spinGlow 9s ease-in-out infinite}
+  @keyframes spinGlow{0%,100%{opacity:.5;letter-spacing:.45rem}50%{opacity:.95;letter-spacing:.7rem}}
+
+  /* progress with a glow pulse */
+  .progress{height:3px;box-shadow:0 0 16px color-mix(in srgb,var(--gold) 75%,transparent)}
+
+  /* reading-time + tools lift on hover */
+  .tools button:hover,.tools a:hover{transform:translateY(-2px)}
+  .tools button,.tools a{display:inline-block;transition:color .3s ease,transform .3s ease}
+
+  #toTop{transition:opacity .45s ease,transform .5s cubic-bezier(.2,1.25,.4,1),border-color .3s ease}
+  #toTop:hover{transform:translateY(-4px) scale(1.07)}
+
+  @media (prefers-reduced-motion:reduce){
+    #aurora,.dust,.cue{display:none}
+    .g,.dropcap{opacity:1!important;transform:none!important;filter:none!important}
+    .cover h1{-webkit-text-fill-color:currentColor;background:none}
+  }
+</style>
+
+<style>
+  .tools{flex-wrap:wrap;gap:.6rem 1.2rem}
+  .tools .copytext{
+    border:1px solid var(--gold-dim);border-radius:2rem;padding:.35rem 1rem;
+    color:var(--gold);background:transparent;
+    font-family:'Hind Siliguri',sans-serif;font-weight:300;font-size:.8rem;
+    transition:border-color .3s ease,background .3s ease,transform .3s cubic-bezier(.2,1.25,.4,1),color .3s ease;
+  }
+  .tools .copytext:hover{border-color:var(--gold);background:color-mix(in srgb,var(--gold) 10%,transparent);transform:translateY(-2px)}
+  .tools .copytext.done{border-color:var(--gold);background:color-mix(in srgb,var(--gold) 16%,transparent)}
+</style>
+
+<style>
+  .copysheet{
+    position:fixed;inset:0;z-index:60;display:none;align-items:center;justify-content:center;
+    background:rgba(0,0,0,.6);backdrop-filter:blur(4px);padding:1.2rem;
+  }
+  .copysheet.open{display:flex}
+  .copysheet .cs-inner{
+    background:var(--surface);border:1px solid var(--gold-dim);border-radius:.6rem;
+    width:100%;max-width:32rem;padding:1.2rem;
+    padding-bottom:calc(1.2rem + env(safe-area-inset-bottom,0px));
+  }
+  .copysheet .cs-msg{
+    font-family:'Hind Siliguri',sans-serif;font-weight:300;font-size:.88rem;
+    color:var(--text);margin:0 0 .8rem;line-height:1.7;
+  }
+  .copysheet .cs-msg b{color:var(--gold);font-weight:500}
+  .copysheet .cs-area{
+    width:100%;height:42vh;resize:none;border:1px solid var(--rule);border-radius:.4rem;
+    background:var(--bg);color:var(--text);padding:.8rem;line-height:1.9;
+    font-family:'Tiro Bangla',serif;font-size:.95rem;
+  }
+  .copysheet .cs-close{
+    margin-top:.9rem;width:100%;padding:.6rem;border-radius:2rem;cursor:pointer;
+    border:1px solid var(--gold-dim);background:transparent;color:var(--gold);
+    font-family:'Hind Siliguri',sans-serif;font-size:.85rem;
+  }
+</style>
+</head>
+<body>
+<div class="progress" id="progress" aria-hidden="true"></div>
+
+<div class="bar">
+  <a class="mark" href="#cover">নিঃশব্দের নোটবুক</a>
+  <nav>
+    <a href="#suchipotro">সূচিপত্র</a>
+    <button id="themeBtn" type="button" aria-label="পাঠের আলো বদলান">কাগজ</button>
+  </nav>
+</div>
+
+<header class="cover" id="cover">
+  <div class="frame"></div>
+  <div class="inner">
+    <p class="ornament">✦ ✦ ✦</p>
+    <p class="kicker">গদ্য · অনুগল্প · ভাবনা</p>
+    <h1>নিঃশব্দের নোটবুক</h1>
+    <p class="rule"><span></span><em>✦</em><span></span></p>
+    <p class="sub">যে কথাগুলো কাউকে বলা হয়নি, সেগুলোও কোথাও না কোথাও লেখা থাকে।</p>
+    <p class="author">নুরজাহান আঁখি</p>
+    <p class="house">আঁখির লেখালয়</p>
+  </div>
+</header>
+
+<section class="section wrap" id="suchipotro">
+  <div class="section-head">
+    <h2>সূচিপত্র</h2>
+    <span class="dash"></span>
+  </div>
+  <ol class="toc">
+    <li><a href="#l1"><span class="num">I</span><span class="t">তালাটা এখনো আছে</span><span class="meta">গল্প<i>·</i>পড়তে ~৯ মিনিট</span></a></li>
+    <li><a href="#l2"><span class="num">II</span><span class="t">নিঃশব্দের ভাষা</span><span class="meta">গদ্য<i>·</i>পড়তে ~৯ মিনিট</span></a></li>
+    <li><a href="#l3"><span class="num">III</span><span class="t">রাত তিনটার টুকরো</span><span class="meta">টুকরো<i>·</i>পড়তে ~৬ মিনিট</span></a></li>
+    <li><a href="#l4"><span class="num">IV</span><span class="t">ভুল নম্বর</span><span class="meta">গল্প<i>·</i>পড়তে ~৭ মিনিট</span></a></li>
+    <li><a href="#l5"><span class="num">V</span><span class="t">যারা ফিরে আসে না</span><span class="meta">গদ্য<i>·</i>পড়তে ~৬ মিনিট</span></a></li>
+    <li><a href="#l6"><span class="num">VI</span><span class="t">ছাদের গাছগুলো</span><span class="meta">গল্প<i>·</i>পড়তে ~৬ মিনিট</span></a></li>
+    <li><a href="#l7"><span class="num">VII</span><span class="t">শহরের ছোট শব্দেরা</span><span class="meta">টুকরো<i>·</i>পড়তে ~৫ মিনিট</span></a></li>
+    <li><a href="#l8"><span class="num">VIII</span><span class="t">যে ছবিগুলো কেউ নিতে আসেনি</span><span class="meta">গল্প<i>·</i>পড়তে ~১০ মিনিট</span></a></li>
+    <li><a href="#l9"><span class="num">IX</span><span class="t">দুপুরের দুই বাক্স</span><span class="meta">গল্প<i>·</i>পড়তে ~১০ মিনিট</span></a></li>
+    <li><a href="#l10"><span class="num">X</span><span class="t">একা থাকা আর একলা লাগা</span><span class="meta">গদ্য<i>·</i>পড়তে ~১০ মিনিট</span></a></li>
+    <li><a href="#l11"><span class="num">XI</span><span class="t">বারো মাসের জানালা</span><span class="meta">টুকরো<i>·</i>পড়তে ~১০ মিনিট</span></a></li>
+    <li><a href="#l12"><span class="num">XII</span><span class="t">রঙের ভুল</span><span class="meta">গল্প<i>·</i>পড়তে ~১০ মিনিট</span></a></li>
+    <li><a href="#l13"><span class="num">XIII</span><span class="t">যে কাজগুলো কেউ দেখে না</span><span class="meta">গদ্য<i>·</i>পড়তে ~১০ মিনিট</span></a></li>
+    <li><a href="#l14"><span class="num">XIV</span><span class="t">চৌদ্দ নম্বর দেখা</span><span class="meta">গল্প<i>·</i>পড়তে ~১০ মিনিট</span></a></li>
+    <li><a href="#l15"><span class="num">XV</span><span class="t">নোটবুকের শেষ পাতা</span><span class="meta">টুকরো<i>·</i>পড়তে ~১০ মিনিট</span></a></li>
+  </ol>
+  <p class="note">পনেরোটি লেখা · সম্পূর্ণ</p>
+</section>
+
+<main class="wrap">
+<article id="l1">
+  <div class="opener">
+    <p class="ch">I</p>
+    <p class="kind-tag">গল্প</p>
+    <h3>তালাটা এখনো আছে</h3>
+    <p class="readtime">পড়তে ~৯ মিনিট</p>
+  </div>
+  <p>রুমানার ব্যাগে চাবি আছে তিনটে।</p>
+  <p>প্রথমটা তার নিজের ঘরের—পাঁচলাইশের গলির ভেতর তিনতলার ছোট ফ্ল্যাট, যার দরজা একটু ঠেলে ধরে ঘোরাতে হয়। দ্বিতীয়টা অফিসের ড্রয়ারের, আগ্রাবাদের সেই অ্যাকাউন্টস সেকশনের, যেখানে সে গত সাত বছর ধরে অন্যের টাকার হিসাব মেলায়। আর তৃতীয়টা ছোট, পিতলের, চ্যাপটা মাথাওয়ালা—যেটা কোনো দরজার নয়।</p>
+  <p>ওটা একটা টিনের বাক্সের তালার চাবি।</p>
+  <p>বাক্সটা এখন তার খাটের তলায়, পুরোনো একটা শাড়িতে মোড়া। দুই বছর তিন মাস হলো ওটা খোলা হয়নি।</p>
+  <p class="gap">মা মারা যাওয়ার পর বাড়িওয়ালা তিন মাস সময় দিয়েছিলেন। নুরুল হুদা সাহেব খারাপ মানুষ ছিলেন না, বরং বেশিই নরম। প্রতিবার ফোন করে এমনভাবে কথা শুরু করতেন, যেন ভাড়ার কথা বলতে এসে তিনি নিজেই লজ্জা পাচ্ছেন—"মা, আপনার যখন সুবিধা হয়। তাড়া নেই।" সুবিধা কোনোদিন হয়নি, কিন্তু তিন মাসের মাথায় ঘরটা ছাড়তেই হলো।</p>
+  <p>চকবাজারের ওই ঘরটা ছাড়ার দিন রুমানা একটা জিনিস বুঝেছিল, যেটা আগে কখনো ভাবেনি: একটা গোটা সংসার আসলে কত ছোট। সারা জীবনের একটা মানুষ, তার রান্না, তার অসুখ, তার রাত জাগা, তার দোয়া—সব মিলিয়ে দাঁড়াল দুটো ট্রাঙ্ক, একটা সেলাই মেশিন, চারটে কাঁসার থালা, তিনটে শাড়ি, একটা ভাঙা চশমা, আর একটা টিনের বাক্স।</p>
+  <p>ট্রাঙ্ক দুটো সে চাচাতো বোনকে দিয়ে দিয়েছে। সেলাই মেশিনটা নিচতলার দর্জি নিয়ে গেছে, বলেছিল "তেল দিলে এখনো চলবে, আপা"। থালাগুলো তার রান্নাঘরে আছে, কিন্তু সে ব্যবহার করে না—ধুয়ে তুলে রেখে দিয়েছে।</p>
+  <p>শুধু বাক্সটা সে কাউকে দেয়নি, খোলেওনি।</p>
+  <p class="dinghy">✦</p>
+  <p>ভেতরে কী আছে, সে জানে।</p>
+  <p>টাকা নয়। গয়না নয়—মায়ের গয়না বলতে ছিল দুটো কানের দুল, সেগুলো অসুখের সময়েই বিক্রি হয়ে গেছে, এবং সেই টাকায় কেনা হয়েছিল তিন মাসের ওষুধ, যার কোনোটাই শেষ পর্যন্ত কাজে লাগেনি।</p>
+  <p>বাক্সে আছে কাগজ। ব্যাংকের পুরোনো স্লিপ, বিদ্যুৎ বিলের রসিদ, রুমানার স্কুলের ফি জমা দেওয়ার কাগজ—অষ্টম শ্রেণি থেকে দশম শ্রেণি পর্যন্ত, সব কটা। মা কোনোদিন কোনো রসিদ ফেলতেন না। "প্রমাণ লাগে, মা। মানুষের কথার দাম নেই, কাগজের আছে।"</p>
+  <p>আর আছে একটা নোটবুক। সবুজ মলাট, সুতো দিয়ে বাঁধা, যার পাতাগুলো এখন নিশ্চয়ই হলদেটে হয়ে গেছে।</p>
+  <p>ওই নোটবুকে মা হিসাব লিখতেন। চাল কত, তেল কত, কেরোসিন কত, মেয়ের খাতা-কলম কত। প্রতি মাসের শেষে একটা দাগ টেনে যোগ-বিয়োগ। পাঁচ টাকার হিসাবও বাদ যেত না।</p>
+  <p>রুমানা একবারই ওটা খুলে দেখেছিল। মা তখন বেঁচে, হাসপাতাল থেকে ফিরেছে সপ্তাহখানেক হয়, ঘুমাচ্ছে। একটা পুরোনো প্রেসক্রিপশন খুঁজতে গিয়ে সে বাক্সটা খুলেছিল, আর নোটবুকটা হাতে নিয়ে এমনিই পাতা উল্টেছিল।</p>
+  <p>সংখ্যার নিচে মাঝে মাঝে দু-একটা বাক্য লেখা।</p>
+  <p>"আজ মেয়েটা রাগ করেছে। কিছু বলিনি।"</p>
+  <p>"মাছ কিনতে পারিনি। ও বুঝে ফেলেছে। খারাপ লাগল।"</p>
+  <p>"বৃষ্টি হলো। ছাদের কাপড় ভিজে গেল। মেয়েটার ইউনিফর্ম শুকাবে কখন?"</p>
+  <p>তিন পাতার পর রুমানা নোটবুকটা বন্ধ করে দিয়েছিল। হাত কাঁপছিল। বাক্সে রেখে, তালা লাগিয়ে, চাবিটা জায়গামতো গুঁজে রেখে সে রান্নাঘরে গিয়ে কল ছেড়ে দাঁড়িয়ে ছিল অনেকক্ষণ, যাতে পাশের ঘর থেকে কিছু শোনা না যায়।</p>
+  <p>তখন ভেবেছিল, মা সুস্থ হলে একদিন জিজ্ঞেস করবে—"এসব লিখে রেখেছ কেন?" জিজ্ঞেস করা হয়নি। সুস্থ হওয়াও হয়নি।</p>
+  <p class="dinghy">✦</p>
+  <p>অফিসে শিরীন আপা জানেন ব্যাপারটা। একদিন দুপুরে খেতে বসে রুমানা কথায় কথায় বলে ফেলেছিল।</p>
+  <p>শিরীন আপা চামচ নামিয়ে রেখে বলেছিলেন, "দুই বছর? খোলোনি?"</p>
+  <p>"না।"</p>
+  <p>"কেন?"</p>
+  <p>রুমানার তখন কোনো উত্তর ছিল না। সে বলেছিল, "সময় পাই না।"</p>
+  <p>শিরীন আপা হেসেছিলেন। মানুষ যখন জানে তাকে মিথ্যা বলা হচ্ছে, অথচ ঘাঁটাতে চায় না, তখন যেভাবে হাসে।</p>
+  <p>"শোনো," তিনি বলেছিলেন, "আমার শাশুড়ির একটা আলমারি ছিল। উনি মারা যাওয়ার পর তিন বছর কেউ ওটা খোলেনি। তারপর একদিন খুলে দেখা গেল ভেতরে কিচ্ছু নেই—দুটো ন্যাপথলিন আর একটা ছেঁড়া কাঁথা। আমরা সবাই এতদিন ধরে একটা ফাঁকা আলমারিকে ভয় পেয়েছিলাম।"</p>
+  <p>রুমানা কিছু বলেনি। কিন্তু মনে মনে ভেবেছিল, আমার বাক্সটা ফাঁকা নয়। আমি জানি ভেতরে কী আছে। আমি তো ওটাকে ভয় পাচ্ছি না।</p>
+  <p>অনেক পরে, সেই রাতে শুতে গিয়ে তার মনে হয়েছিল, কথাটা পুরোপুরি সত্যি নয়। সে ভয় পাচ্ছে—কিন্তু বাক্সটাকে নয়, নিজেকে। কারণ ওই নোটবুকের পাতাগুলো পড়তে শুরু করলে সে জানে না কোথায় থামবে, আর থামার পর যে মেয়েটা উঠে দাঁড়াবে, সে আজকের এই মেয়েটা থাকবে কি না।</p>
+  <p class="dinghy">✦</p>
+  <p>কোরবানির ঈদের আগে চাচাতো বোন ফোন করেছিল।</p>
+  <p>কথার মাঝখানে হঠাৎ জিজ্ঞেস করল, "আচ্ছা আপা, চাচির ওই বাক্সটা কী করলে? ওতে নাকি কাগজপত্র ছিল? জমির দলিল-টলিল নেই তো?"</p>
+  <p>"নেই।"</p>
+  <p>"দেখেছ ভালো করে? পরে ঝামেলা হলে—"</p>
+  <p>"দেখেছি।" রুমানা শান্ত গলায় মিথ্যাটা বলল, তারপর তাড়াতাড়ি প্রসঙ্গ ঘোরাল—ঈদে কে কোথায় যাচ্ছে, গরুর দাম এবার কেমন।</p>
+  <p>ফোন রেখে সে অনেকক্ষণ বসে রইল। ঘরে তখন সন্ধ্যা, নিচের গলিতে ফেরিওয়ালার হাঁক, পাশের ফ্ল্যাটে টিভিতে খবর চলছে। সে উঠে খাটের তলা থেকে বাক্সটা বের করল—প্রথমবার, দুই বছরে প্রথমবার।</p>
+  <p>শাড়িটা খুলল। টিনের গায়ে হাত রাখল। ঠান্ডা। ঢাকনার কোণায় মরচে ধরেছে, তালাটা ভারী হয়ে আছে, কড়ার সঙ্গে জং লেগে।</p>
+  <p>ব্যাগ থেকে চাবিটা বের করে ফুটোয় ঢোকাল।</p>
+  <p>ঘুরল না।</p>
+  <p>একটু জোর দিল। অর্ধেক পথ গিয়ে আটকে গেল, যেন ভেতরে কিছু একটা কামড়ে ধরে আছে। আরেকটু চাপ দিতে গিয়ে সে থেমে গেল—ভয় হলো, জোরে ঘোরালে চাবিটাই ভেঙে যাবে।</p>
+  <p>আশ্চর্য ব্যাপার, ওই মুহূর্তে তার বুকের ভেতর যেটা হলো, সেটা দুঃখ নয়। স্বস্তি।</p>
+  <p>তালাটা খুলছে না। মানে আজ পড়তে হবে না। মানে আরেকটু সময় পাওয়া গেল।</p>
+  <p>স্বস্তিটা টের পাওয়ার পরপরই লজ্জাটা এল। সে বাক্সটা আবার শাড়িতে মুড়ে খাটের তলায় ঢুকিয়ে দিল, হাত ধুয়ে এসে ভাত বসাল, এবং সে রাতে খেতে বসে আবিষ্কার করল, খিদেটা নেই।</p>
+  <p class="dinghy">✦</p>
+  <p>শ্রাবণের এক রাতে বৃষ্টি হলো খুব।</p>
+  <p>সেই বৃষ্টিতে রুমানার ঘরের জানালার কোণ দিয়ে পানি ঢুকল, মেঝে ভিজল, আর খাটের তলার শাড়ির একটা কোণ ভিজে গেল।</p>
+  <p>রাত দুটোয় টের পেয়ে সে বাক্সটা টেনে বের করল, শাড়ি খুলে ফেলল, শুকনো কাপড় দিয়ে টিনের গা মুছল। ভেতরে পানি ঢোকেনি, কিন্তু মোছার সময় তালাটা নাড়া পেয়ে একবার শব্দ করে উঠল—ঠক।</p>
+  <p>শব্দটা শুনে রুমানা মেঝেতে বসে পড়ল। এবং তারপর যা হলো, সেটা দুই বছরে একবারও হয়নি।</p>
+  <p>সে কাঁদল। কোনো কারণ ছাড়াই, ঘরের মেঝেতে, বাইরে বৃষ্টির শব্দের সঙ্গে সঙ্গে। অনেকক্ষণ।</p>
+  <p>কাঁদতে কাঁদতে তার মনে পড়ল, শেষ দুপুরে ঠিক এভাবেই সে মেঝেতে বসে ছিল। মা তখন সদ্য চলে গেছেন, ঘর ভরতি মানুষ, কেউ তার কাঁধে হাত রাখছে, কেউ পানি এগিয়ে দিচ্ছে, আর সে মেঝের একটা ফাটলের দিকে তাকিয়ে ভাবছে—"আমার তো এখন অনেক কাজ। কাঁদার সময় নেই।"</p>
+  <p>সেই সময়টা সে তারপর থেকে বানিয়েই যাচ্ছিল। অফিস, বাজার, বাড়িভাড়া, বিদ্যুৎ বিল, চাচাতো বোনের ফোন, ঈদ, শীত, আবার অফিস। যা কিছু করতে হয় সব করেছে। শুধু একটা তালা খোলা হয়নি, আর একটা মানুষ ভালো করে কাঁদা হয়নি।</p>
+  <p class="gap">ভোরের দিকে বৃষ্টি ধরে এল। আজানের আগের ওই অদ্ভুত স্তব্ধতার সময়টায় রুমানা উঠে বসল, মুখ ধুল, আর বাক্সটার দিকে তাকিয়ে বলল—নিজেকে, অথবা অন্য কাউকে—"ঠিক আছে। খুলব। কিন্তু আজ না।"</p>
+  <p>সকালে অফিসে যাওয়ার পথে সে দোকান থেকে এক শিশি মবিল কিনল।</p>
+  <p>সন্ধ্যায় ফিরে তালার কড়ায় দু-ফোঁটা তেল দিল। মরচেটা আলগা হতে সময় লাগবে, সে জানে। কয়েক দিন লাগবে, হয়তো সপ্তাহ।</p>
+  <p>এটুকুই আপাতত তার পরিকল্পনা। তালাটা সে খুলবে—জোর করে নয়, ভেঙে নয়, চাচাতো বোনের ফোন পেয়ে নয়। খুলবে এমন একটা দিনে, যেদিন সে নিজে ঠিক করবে যে আজ সে পড়তে পারবে। মাসের শেষে একটা দাগ টেনে যোগ-বিয়োগ মেলানোর মতো করে, ধীরে, পাতার পর পাতা।</p>
+  <p>কারণ ওই নোটবুকে যে মানুষটা হিসাব লিখতেন, তিনি তাড়াহুড়ো পছন্দ করতেন না। পাঁচ টাকার হিসাবও তিনি তিনবার দেখে তবে লিখতেন।</p>
+  <p class="gap">কিছু দরজা আমরা বন্ধ রাখি ভয়ে নয়। বন্ধ রাখি, কারণ ভেতরের মানুষটার কাজ তখনো শেষ হয়নি—হিসাব চলছে, পাতা বাকি আছে, আর শেষ পাতাটা দেখে ফেললে সত্যি সত্যিই আর কিছু লেখার থাকবে না।</p>
+  <p>তালাটা এখনো আছে। তেল দেওয়া হচ্ছে। এটুকুও তো এগোনোই।</p>
+  <p class="endmark">✦</p>
+  <div class="tools">
+    <a href="#suchipotro">← সূচিপত্র</a>
+    <button type="button" class="copytext" data-copytext="l1">লেখা কপি করুন</button>
+  </div>
+</article>
+
+<article id="l2">
+  <div class="opener">
+    <p class="ch">II</p>
+    <p class="kind-tag">গদ্য</p>
+    <h3>নিঃশব্দের ভাষা</h3>
+    <p class="readtime">পড়তে ~৯ মিনিট</p>
+  </div>
+  <p>বছর দুয়েক আগে এক বিকেলে আমি দুই নম্বর গেট থেকে বাসে উঠেছিলাম। পাশের সিটে বসেছিলেন মাঝবয়সী এক দম্পতি—স্বামী জানালার পাশে, স্ত্রী বাইরের দিকে। পুরো রাস্তায় তাঁরা একটাও কথা বলেননি। বহদ্দারহাট পেরিয়ে যাওয়ার সময় মহিলার আঁচল জানালার ফাঁকে উড়ে বাইরে চলে যাচ্ছিল; ভদ্রলোক কিছু না বলে হাত বাড়িয়ে কাপড়টা ভেতরে টেনে নিলেন, তারপর আবার আগের মতো বসে রইলেন। মহিলাও তাকালেন না, ধন্যবাদও দিলেন না।</p>
+  <p>আমি তখন ভেবেছিলাম, এই দুজনের মধ্যে বোধহয় ঝগড়া হয়েছে। অনেক পরে, নিজের জীবনের কিছু চুপ থাকা পেরিয়ে এসে আমি বুঝেছি—ওটা ঝগড়া ছিল না। ওটা ছিল এমন এক নীরবতা, যার ভেতরে বহু বছরের কথা জমা আছে, আর যা বলার, তা আগেই বলা হয়ে গেছে।</p>
+  <p>আমরা ভাবি নীরবতা মানে কিছু না-থাকা। আসলে নীরবতার ভেতরে শব্দের চেয়ে বেশি কথা জমে থাকে, শুধু সেগুলো অন্য ভাষায় লেখা। আর সেই ভাষাটা আমরা কেউই স্কুলে শিখিনি।</p>
+  <p class="dinghy">✦</p>
+  <p>এক ধরনের চুপ আছে, যেটা আসলে অপেক্ষা।</p>
+  <p>একটা সংসারে কে কার ওপর অভিমান করেছে, সেটা বোঝা যায় কথার সংখ্যা দিয়ে নয়—চুপ থাকার ধরন দিয়ে। ভাত বেড়ে দেওয়ার সময় যে চুপ, আর রাতে দরজা বন্ধ করার সময় যে চুপ, দুটো এক নয়।</p>
+  <p>প্রথমটায় একটা দরজা খোলা থাকে। মানুষটা চুপ করে প্লেটে ভাত তুলে দেয়, তরকারির বাটিটা একটু এগিয়ে দেয়, কিন্তু সারাক্ষণ ভেতরে ভেতরে অপেক্ষা করে—এখনই যদি কেউ একটা কথা বলে, সব ঠিক হয়ে যাবে। অভিমানী মানুষ আসলে চায় না যে তাকে কেউ ছেড়ে চলে যাক; সে চায় তাকে একটু ডাকা হোক।</p>
+  <p>দ্বিতীয় চুপটায় সেই অপেক্ষাটুকুও ফুরিয়ে গেছে। ওখানে মানুষ চুপ থাকে কারণ কথা বলে আর লাভ নেই বলে সে ধরে নিয়েছে। এই চুপটাই সম্পর্কের সবচেয়ে বিপজ্জনক অবস্থা—ঝগড়ার চেয়েও বেশি। ঝগড়ায় অন্তত দুজন মানুষ এখনো বিশ্বাস করে যে কথা বললে কিছু একটা বদলাতে পারে।</p>
+  <p>আমি দেখেছি, সম্পর্ক ভাঙে চিৎকারে নয়। ভাঙে সেদিন, যেদিন কেউ একজন ঠিক করে ফেলে—"থাক, বলে কী হবে।"</p>
+  <p class="dinghy">✦</p>
+  <p>আরেক ধরনের চুপ আছে, যেটা ভদ্রতা।</p>
+  <p>অফিসে আমরা রোজ এই ভাষাটা ব্যবহার করি। কারও সিদ্ধান্ত ভুল মনে হলে আমরা বলি না "এটা ভুল"; আমরা একটু থামি, কাগজটা উল্টে দেখি, তারপর বলি, "স্যার, আরেকবার দেখে নিই?" ওই ছোট্ট থামাটুকুই আসল বাক্য। যিনি অভিজ্ঞ, তিনি ওটুকু শুনেই বুঝে যান।</p>
+  <p>আবার এই ভদ্রতার চুপেরই একটা নিষ্ঠুর রূপ আছে। যখন কারও সঙ্গে অন্যায় হয় আর ঘরভর্তি মানুষ চুপ করে থাকে, তখন সেই চুপ কোনো নিরপেক্ষতা নয়। নীরবতা কখনো নিরপেক্ষ হয় না—যে পাল্লায় ওজন বেশি, নীরবতা সবসময় সেদিকেই হেলে পড়ে। যারা চুপ করে থেকে ভাবে "আমি তো কিছু বলিনি", তারা আসলে অনেক কিছু বলে ফেলে। শুধু যাকে বলা হয়, সে একা তা শুনতে পায়।</p>
+  <p class="dinghy">✦</p>
+  <p>টেলিফোনের চুপটা আলাদা, এবং সবচেয়ে স্পষ্ট।</p>
+  <p>ফোনে আমরা মুখ দেখতে পাই না, তাই ওখানে নীরবতা লুকোনোর কোনো জায়গা থাকে না। "আচ্ছা, রাখি" বলার আগে ওপাশের মানুষটা যদি এক সেকেন্ড বেশি থামে, ওই এক সেকেন্ডে যা বলা হয়, গোটা কথোপকথনে তা বলা হয় না।</p>
+  <p>ওই থামাটা মানে—"আর একটু কথা বলো।" কিংবা, "আজ আমার দিনটা ভালো যায়নি, কিন্তু আমি তোমাকে বলব না।" কিংবা মাঝে মাঝে শুধু, "তুমি ফোনটা রেখে দিলেই এই ঘরটা আবার খালি হয়ে যাবে।"</p>
+  <p>আমরা অনেক সময় এই এক সেকেন্ড শুনতে পাই না, কারণ আমাদের তাড়া থাকে। রান্না বসানো, বাস ছাড়ছে, কালকের রিপোর্ট বাকি। তারপর একদিন সেই মানুষটা আর ফোন করে না, এবং তখন আমরা অবাক হয়ে ভাবি, "ও তো কিছু বলেনি!" সে বলেছিল। প্রতিবার থেমে থেমে বলেছিল।</p>
+  <p class="dinghy">✦</p>
+  <p>নিঃশব্দের ভাষা শেখার জন্য কোনো বই নেই। যারা শেখে, তারা শেখে ঠেকে।</p>
+  <p>কেউ শেখে হাসপাতালের করিডোরে বসে—যেখানে ডাক্তার এসে কী বলবেন তার চেয়েও বেশি বোঝা যায় তিনি কীভাবে দাঁড়ান, কোন দিকে তাকান, কতক্ষণ পর কথা শুরু করেন। কেউ শেখে পরীক্ষার ফল বেরোনোর দিন, বাবার মুখ দেখে। কেউ শেখে এমন একটা ঘরে ঢুকে, যেখানে তার আসার আগপর্যন্ত কথা হচ্ছিল এবং তার ঢোকামাত্র থেমে গেছে—পৃথিবীর সবচেয়ে ভারী নীরবতাগুলোর একটা।</p>
+  <p>আমার মনে হয়, মানুষ হিসেবে আমরা যতটা পরিণত হই, ঠিক ততটাই আমরা চুপ থাকার ব্যাকরণ বুঝতে শিখি। ছোটবেলায় আমরা ভাবি ভালোবাসা মানে অনেক কথা। একটু বড় হয়ে বুঝি, ভালোবাসা মানে কথার মাঝখানের ফাঁকগুলোও সহ্য করতে পারা।</p>
+  <p class="dinghy">✦</p>
+  <p>আমি দীর্ঘদিন ভাবতাম, লেখা মানে কথা বলা। এখন মনে হয়, লেখা আসলে চুপ থাকার একটা পদ্ধতি।</p>
+  <p>যে কথাটা মুখে বলা যায়, সেটা লিখতে হয় না। মানুষ লেখে ঠিক সেই কথাগুলোই, যেগুলো বলতে গেলে গলা ধরে আসে। তাই একটা লেখার সবচেয়ে সত্যি জায়গাটা প্রায়ই তার বাক্যে থাকে না—থাকে দুটো অনুচ্ছেদের মাঝখানের ফাঁকা জায়গাটায়, যেখানে লেখক একবার থেমেছিলেন।</p>
+  <p>কবিতায় এই ব্যাপারটা সবচেয়ে স্পষ্ট। একটা কবিতার লাইনের শেষে যে শূন্যতা পড়ে থাকে, ওটাই কবিতাটাকে কবিতা করে। গদ্যে সেটা লুকোনো থাকে, কিন্তু থাকে।</p>
+  <p>আর এজন্যই বোধহয় যারা বেশি চুপ থাকে, তারা বেশি লেখে। ভেতরের জমা কথাগুলোকে কোথাও তো যেতে হবে।</p>
+  <p class="dinghy">✦</p>
+  <p>শহরে থাকলে মানুষ ভাবে চারপাশে এত শব্দ, এখানে আবার নীরবতা কোথায়।</p>
+  <p>কিন্তু রিকশার হর্ন, মাইকের আওয়াজ, পাশের ফ্ল্যাটের টিভি, রাত নয়টার ফেরিওয়ালা—এগুলো আসলে নীরবতাকে ঢেকে রাখার পর্দা। পর্দা সরালেই বোঝা যায়, এই শহরের সবচেয়ে চুপ জায়গাটা কোনো নির্জন মাঠ নয়।</p>
+  <p>সেটা হলো ভিড়ের মধ্যে দাঁড়িয়ে থাকা একজন মানুষ, যার সঙ্গে গত তিন দিনে কেউ একটা দরকারি কথার বাইরে কিছু বলেনি। যে সকালে অফিসে যায়, "জি স্যার", "আচ্ছা আপা", "বিল কত?"—এই কটা বাক্য বলে সারাদিন কাটিয়ে দেয়, তারপর রাতে ঘরে ফিরে দরজা বন্ধ করে, আর তখন টের পায় যে সারাদিনে কেউ তার নাম ধরে ডাকেনি।</p>
+  <p>নাম ধরে ডাকা জিনিসটা কত বড়, সেটা একা থাকতে শুরু করার আগপর্যন্ত কেউ বোঝে না।</p>
+  <p class="dinghy">✦</p>
+  <p>আমরা একে অপরকে কতটা ভালোবাসি, সেটা হয়তো মাপা যায় না। কিন্তু কার নীরবতা আমরা পড়তে পারি, আর কার পারি না—এটুকু দিয়ে সম্পর্কের দূরত্ব অনেকটা মাপা যায়।</p>
+  <p>যাকে চুপ থাকতে দেখে বুকটা অস্থির লাগে, সে কাছের মানুষ। তার চুপ আমাদের গায়ে লাগে, কারণ আমরা জানি ওই চুপের ভেতরে কী আছে।</p>
+  <p>আর যার চুপ দেখে আমাদের কিছুই মনে হয় না, তার সঙ্গে সম্ভবত অনেক আগেই কথা ফুরিয়ে গেছে—আমরা শুধু টের পাইনি, কারণ ভদ্রতার কথাগুলো তখনো চালু ছিল।</p>
+  <p class="gap">তবে এর একটা উল্টো দিকও আছে, এবং সেটাই আমার কাছে সবচেয়ে সুন্দর। দুজন মানুষ যদি একসঙ্গে চুপ করে থাকতে পারে, কোনো অস্বস্তি ছাড়া, কোনো কথা খুঁজে বের করার তাড়া ছাড়া—তাহলে বুঝতে হবে সম্পর্কটা পাকা হয়ে গেছে।</p>
+  <p>নতুন পরিচয়ে আমরা চুপ থাকতে ভয় পাই, তাই আবহাওয়ার কথা বলি, যানজটের কথা বলি। আর বহু বছরের পরিচয়ে আমরা পাশাপাশি বসে বারান্দায় সন্ধ্যা নামতে দেখি, কিছুই বলি না, এবং সেটাই যথেষ্ট লাগে। ওই বাসের দম্পতি হয়তো এই জায়গাটাতেই পৌঁছে গিয়েছিলেন, আর আমি বুঝিনি।</p>
+  <p class="dinghy">✦</p>
+  <p>কাউকে ভালোবাসলে তার কথাগুলো মন দিয়ে শোনা জরুরি। কিন্তু তার চেয়েও জরুরি, সে যখন কিছু বলছে না, তখন তার পাশে বসে থাকা।</p>
+  <p>কারও দুঃখের সময় আমরা প্রায়ই ভুলটা করি—সান্ত্বনার ভাষা খুঁজতে যাই। "সব ঠিক হয়ে যাবে", "আল্লাহ ভালো কিছু রেখেছেন", "আরও কত মানুষের কত কষ্ট"। এই বাক্যগুলো বেশিরভাগ সময় শোকের মানুষটার জন্য নয়, আমাদের নিজেদের অস্বস্তি কমানোর জন্য। কারণ কারও পাশে চুপ করে বসে থাকা কঠিন; মুখে কিছু বলে ফেললে মনে হয় কাজটা করা হলো।</p>
+  <p>অথচ যে মানুষটা সদ্য কাউকে হারিয়েছে, তার দরকার কোনো ব্যাখ্যা নয়। তার দরকার একটা মানুষ, যে ঘরে ঢুকে জুতো খুলে পাশে বসবে, এক গ্লাস পানি এগিয়ে দেবে, আর কিছু জিজ্ঞেস করবে না।</p>
+  <p>নিঃশব্দের ভাষায় ওটাই সবচেয়ে স্পষ্ট বাক্য—"আমি আছি।"</p>
+  <p class="gap">এই ভাষাটা আমি এখনো ভালোভাবে শিখে উঠতে পারিনি। মাঝে মাঝে ভুল পড়ি, মাঝে মাঝে কারও দীর্ঘশ্বাস শুনেও না শোনার ভান করি, কারণ সাড়া দিলে আমাকেও কিছু একটা করতে হবে।</p>
+  <p>কিন্তু চেষ্টা করি। আর ইদানীং একটা নিয়ম মানি: কথার মাঝখানে কেউ থেমে গেলে আমি তাড়াহুড়ো করে পরের প্রশ্নটা করি না। একটু অপেক্ষা করি।</p>
+  <p>বেশিরভাগ সময় দেখা যায়, ওই ফাঁকটুকুতেই মানুষ আসল কথাটা বলে ফেলে।</p>
+  <p class="endmark">✦</p>
+  <div class="tools">
+    <a href="#suchipotro">← সূচিপত্র</a>
+    <button type="button" class="copytext" data-copytext="l2">লেখা কপি করুন</button>
+  </div>
+</article>
+
+<article id="l3">
+  <div class="opener">
+    <p class="ch">III</p>
+    <p class="kind-tag">টুকরো</p>
+    <h3>রাত তিনটার টুকরো</h3>
+    <p class="readtime">পড়তে ~৬ মিনিট</p>
+  </div>
+  <p>রাত তিনটা কোনো সময় নয়, একটা জায়গা। যারা ওখানে গেছে তারা জানে—ওই জায়গাটায় শহরের নিয়ম চলে না, ঘড়ির হিসাব চলে না, এমনকি নিজের সম্পর্কে নিজের বানানো গল্পগুলোও চলে না। দিনের বেলায় আমরা যে মানুষটা হয়ে থাকি, রাত তিনটায় সে একটু খসে পড়ে। নিচের টুকরোগুলো সেই খসে পড়া সময়ের।</p>
+  <div class="frag">
+    <p class="when">১২:৫০</p>
+    <p>ঘুম না আসা মানে ক্লান্তি না থাকা নয়। শরীর রাজি, মন রাজি নয়। মন তখনো দিনের হিসাব মেলাচ্ছে—কোন কথাটা বলা উচিত ছিল, কোনটা বলা উচিত হয়নি।</p>
+  </div>
+  <div class="frag">
+    <p class="when">১:১০</p>
+    <p>শহরটা এই সময় তার মুখোশ খুলে রাখে। দিনে যে গলিটা ব্যস্ত, রাতে সেটা শুধু একটা কুকুরের, আর একটা নিভু নিভু বাতির। বাতিটা জ্বলে কার জন্য, কেউ জানে না। হয়তো কারও জন্য না—শুধু অভ্যাসে।</p>
+  </div>
+  <div class="frag">
+    <p class="when">১:২৫</p>
+    <p>ফ্রিজের শব্দ, ফ্যানের শব্দ, দূরের একটা ট্রাকের শব্দ। রাতের নীরবতা আসলে নিঃশব্দ নয়; ওটা কম শব্দের একটা ভাষা, যেখানে ছোট জিনিসগুলো হঠাৎ জোরে শোনা যায়।</p>
+  </div>
+  <div class="frag">
+    <p class="when">১:৪০</p>
+    <p>ঘুম না এলে মানুষ পুরোনো কথা ভাবে—এটা নিয়ম নয়, অভ্যাস। স্মৃতি জানে, এই সময়টায় তাকে ঠেকানোর মতো কেউ জেগে নেই। দিনের বেলা সে ভদ্র, দরজায় টোকা দিয়ে ঢোকে। রাতে সে ঢুকে পড়ে না বলেই।</p>
+  </div>
+  <div class="frag">
+    <p class="when">২:০০</p>
+    <p>ফোনের পর্দায় একটা নাম বহুবার খুঁজে দেখলাম। মেসেজ লিখলাম, মুছলাম, আবার লিখলাম। শেষে পাঠালাম না।</p>
+    <p>সকালে মনে হলো, ভালোই হয়েছে। দুপুরে মনে হলো, না, ভালো হয়নি। সন্ধ্যায় আর মনেই রইল না—এবং এটাই বোধহয় সবচেয়ে সত্যি অংশ।</p>
+  </div>
+  <div class="frag">
+    <p class="when">২:১৫</p>
+    <p>আমরা যাদের হারিয়ে ফেলি, তারা রাতে ফিরে আসে প্রশ্ন হয়ে। "তুমি কি ভালো আছ?" নয়। বরং—"সেদিন ওভাবে কথা বলেছিলে কেন?"</p>
+  </div>
+  <div class="frag">
+    <p class="when">২:৩০</p>
+    <p>পাশের বিল্ডিংয়ের চারতলায় একটা জানালায় আলো জ্বলে। প্রায় রোজ। কে জেগে থাকে জানি না—পরীক্ষার্থী, রোগীর সঙ্গী, নাকি আমার মতো কেউ।</p>
+    <p>মাঝে মাঝে মনে হয়, ওই আলোটাই এই শহরে আমার সবচেয়ে নিয়মিত সঙ্গী। আমরা পরস্পরকে চিনি না, কিন্তু রোজ রাতে একসঙ্গে জেগে থাকি।</p>
+  </div>
+  <div class="frag">
+    <p class="when">২:৪৫</p>
+    <p>ক্ষুধা লাগে না, তবু রান্নাঘরে যাই। ফ্রিজ খুলি, কিছু না নিয়ে বন্ধ করি। এটা খাওয়ার ব্যাপার না—এটা নিজেকে একটা কাজ দেওয়ার ব্যাপার।</p>
+  </div>
+  <div class="frag">
+    <p class="when">৩:০০</p>
+    <p>ঠিক তিনটা। পৃথিবীর সবচেয়ে একা সংখ্যা।</p>
+    <p>এর আগের সময়টা এখনো "রাত", এর পরের সময়টা প্রায় "ভোর"। তিনটা কোনোটাই নয়—এটা দুই পারের মাঝখানের জল।</p>
+  </div>
+  <div class="frag">
+    <p class="when">৩:১০</p>
+    <p>যে মানুষটা রোজ রাতে ভাবে "কাল থেকে সব গুছিয়ে নেব", সে আসলে মিথ্যা বলছে না। সে শুধু একটা রাত পার করার মতো ছোট একটা আশ্বাস খুঁজছে। আর কাল যখন আসে, তখন আশ্বাসটার কথা কারও মনে থাকে না—রাতটা তো পার হয়েই গেছে।</p>
+  </div>
+  <div class="frag">
+    <p class="when">৩:২০</p>
+    <p>বৃষ্টি হলে রাত তিনটা আরও বড় হয়ে যায়। মনে হয় সারা পৃথিবীতে জেগে আছি কেবল আমি আর টিনের চালে পড়া জলের শব্দ।</p>
+    <p>অদ্ভুত ব্যাপার হলো, এই একাকিত্বটা খারাপ লাগে না। বৃষ্টি একা থাকাকে একটা মর্যাদা দেয়।</p>
+  </div>
+  <div class="frag">
+    <p class="when">৩:৩০</p>
+    <p>পুরোনো ছবি দেখা উচিত নয় এই সময়ে। সবাই জানে। সবাই দেখে।</p>
+  </div>
+  <div class="frag">
+    <p class="when">৩:৪০</p>
+    <p>একটা কথা কাউকে বলা হয়নি: আমি মাঝে মাঝে রাতে উঠে ঘরের জিনিসপত্র গুছিয়ে ফেলি। বইগুলো সোজা করি, ওষুধের বাক্সটা জায়গামতো রাখি, কাপড় ভাঁজ করি।</p>
+    <p>দিনের বেলায় যা কিছুর ওপর আমার হাত নেই, রাতে অন্তত এই ঘরটার ওপর আছে।</p>
+  </div>
+  <div class="frag">
+    <p class="when">৩:৫০</p>
+    <p>দূরের একটা ট্রেনের হুইসেল। যে কোনোদিন ট্রেনে ওঠেনি, সেও ওই শব্দে একবার ভাবে—চলে যাওয়া যায়।</p>
+  </div>
+  <div class="frag">
+    <p class="when">৪:০০</p>
+    <p>নিচে দারোয়ান চাচার লাঠির ঠকঠক। সারা শহর ঘুমায় বলেই একজন মানুষকে জেগে থাকতে হয়। আমরা তার নামও জানি না।</p>
+    <p>কাল সকালে জিজ্ঞেস করব ভাবি। কোনোদিন করা হয় না।</p>
+  </div>
+  <div class="frag">
+    <p class="when">৪:১০</p>
+    <p>আজানের ঠিক আগের ওই কয়েক মিনিট—একটা অদ্ভুত স্তব্ধতা নামে। পাখিরাও তখনো শুরু করেনি, রাতও শেষ হয়নি। পৃথিবীটা কারও নয়; না রাতের, না দিনের।</p>
+    <p>আমার সবচেয়ে প্রিয় সময় ওটাই। কারণ ওই কয়েক মিনিটে কারও কাছে কোনো জবাবদিহি নেই।</p>
+  </div>
+  <div class="frag">
+    <p class="when">৪:২০</p>
+    <p>আজান। প্রথম মসজিদ, তারপর দ্বিতীয়, তারপর দূরের কোনোটা—একটার পেছনে আরেকটা, ঢেউয়ের মতো। রাতটা শেষ হয়ে যায় খুব ভদ্রভাবে, কোনো ঘোষণা ছাড়া।</p>
+  </div>
+  <div class="frag">
+    <p class="when">৪:৪০</p>
+    <p>জানালা দিয়ে দেখা যায় আকাশের রঙ বদলাচ্ছে—কালো থেকে ছাই, ছাই থেকে নীলচে। কেউ দেখুক বা না দেখুক, ব্যাপারটা রোজ ঘটে। ভরসা জিনিসটা বোধহয় এটাই: কিছু জিনিস আমাদের অনুমতির অপেক্ষা করে না।</p>
+  </div>
+  <div class="frag">
+    <p class="when">৫:১৫</p>
+    <p>রাতে যে দুশ্চিন্তাটা পাহাড়ের মতো লাগছিল, সকালে দেখা যায় সেটা একটা কাজ মাত্র—একটা ফোন করতে হবে, একটা কাগজ জমা দিতে হবে।</p>
+    <p>রাত জিনিসটা দুশ্চিন্তাকে বড় করে দেখায়। আলো শুধু আলো দেয় না, মাপও ঠিক করে দেয়।</p>
+  </div>
+  <div class="frag">
+    <p class="when">৬:০০</p>
+    <p>ছয়টা দশে নিচের দোকানের শাটার ওঠার আওয়াজ। এই শহরে দিন শুরু হয় ঘড়ি দেখে নয়, শাটারের শব্দ শুনে।</p>
+    <p>আমি তখন ঘুমিয়ে পড়ি। মাত্র তিন ঘণ্টা পাব জানি। তবু ঘুমটা আসে—কারণ রাতটা আর আমাকে একা ধরে রাখতে পারছে না।</p>
+  </div>
+  <p class="gap">এই টুকরোগুলো কোনো একটা রাতের নয়। অনেক রাতের। ঘুম না আসা মানুষদের একটা নিজস্ব ভূগোল আছে, আর সেই ভূগোলে সবাই প্রায় একই জায়গাগুলো দিয়ে হাঁটে—একই জানালা, একই ফোনের পর্দা, একই অসমাপ্ত বাক্য।</p>
+  <p>কেউ যদি আজ রাতে জেগে থাকো, জেনে রেখো: পাশের বিল্ডিংয়ের চারতলায় আলো জ্বলছে।</p>
+  <p class="endmark">✦</p>
+  <div class="tools">
+    <a href="#suchipotro">← সূচিপত্র</a>
+    <button type="button" class="copytext" data-copytext="l3">লেখা কপি করুন</button>
+  </div>
+</article>
+
+<article id="l4">
+  <div class="opener">
+    <p class="ch">IV</p>
+    <p class="kind-tag">গল্প</p>
+    <h3>ভুল নম্বর</h3>
+    <p class="readtime">পড়তে ~৭ মিনিট</p>
+  </div>
+  <p>প্রথম ফোনটা এসেছিল রাত এগারোটা দশে।</p>
+  <p>শায়লা তখন সবে শুয়েছে। অচেনা নম্বর দেখে ধরবে না ভেবেও ধরল—এই অভ্যাসটা তার বহুদিনের, কারণ একটা সময় ছিল যখন অচেনা নম্বর মানেই হাসপাতাল থেকে ফোন।</p>
+  <p>ওপাশে এক বৃদ্ধ কণ্ঠ, একটু হাঁপানো—"মা, খেয়েছিস?"</p>
+  <p>"আপনি ভুল নম্বরে ফোন করেছেন।"</p>
+  <p>"ও আচ্ছা। দুঃখিত, মা।" লাইনটা কেটে গেল।</p>
+  <p>শায়লা ফোনটা উল্টে বালিশের পাশে রাখল। ভুল নম্বর তো কতই আসে—কখনো বিকাশের এজেন্ট, কখনো কারও বিয়ের দাওয়াত, কখনো গভীর রাতে কোনো মাতাল। এটা তেমনই একটা।</p>
+  <p>তবু ঘুমানোর আগে তার মনে হলো, লোকটা "ভুল নম্বর" শুনেও "দুঃখিত" বলার আগে একটু থেমেছিলেন।</p>
+  <p class="dinghy">✦</p>
+  <p>পরের সপ্তাহে আবার। একই নম্বর, একই সময়ের কাছাকাছি, একই প্রশ্ন—"মা, খেয়েছিস?"</p>
+  <p>এবার শায়লা সঙ্গে সঙ্গে কাটল না। "আপনি কাকে চাইছেন?"</p>
+  <p>"আমার মেয়েকে। মিতু। ও ঢাকায় থাকে।" একটু থেমে, "নম্বরটা বোধহয় ভুল লিখেছি। চোখে কম দেখি তো। ডায়েরিতে লিখে রাখি, আর রাতে চশমা খুঁজে পাই না।"</p>
+  <p>"আপনার মেয়ের ঠিক নম্বরটা নেই?"</p>
+  <p>"আছে। কিন্তু ও ব্যস্ত থাকে। বিরক্ত হয়।"</p>
+  <p>কথাটা তিনি এত সহজভাবে বললেন, যেন আবহাওয়ার খবর দিচ্ছেন। কোনো অভিযোগ নেই, কোনো আহত ভাব নেই। যে মানুষ বহুদিন ধরে একটা সত্য মেনে নিয়েছে, সে-ই কেবল এভাবে বলতে পারে।</p>
+  <p>শায়লার কী বলা উচিত সে জানত না। সে বলল, "আপনি সাবধানে থাকবেন।"</p>
+  <p>"তুমিও, মা।"</p>
+  <p class="dinghy">✦</p>
+  <p>এরপর থেকে মাঝে মাঝে ফোন আসত। সপ্তাহে একবার, কখনো দুবার, সবসময় রাতের দিকে।</p>
+  <p>শায়লা ধরত।</p>
+  <p>লোকটা কোনোদিন বেশি কিছু জানতে চাইতেন না। ঢাকায় বৃষ্টি হচ্ছে কি না, বাজারে ইলিশের দাম কেমন, অফিস বাসা থেকে দূরে কি না, রাতে ফিরতে দেরি হয় কি না। শায়লা উত্তর দিত। সে কোনোদিন বলেনি যে সে ঢাকায় থাকে না—থাকে চট্টগ্রামে, চান্দগাঁওয়ের দিকে, এক কামরার একটা ফ্ল্যাটে। কী হবে বলে?</p>
+  <p>বৃষ্টির কথা জিজ্ঞেস করলে সে জানালার বাইরে তাকিয়ে সত্যি কথাই বলত। শুধু শহরের নামটা বদলে যেত।</p>
+  <p class="gap">একদিন অফিসে বান্ধবী রুনা শুনে আঁতকে উঠল, "তুই একটা অচেনা বুড়ো লোকের সঙ্গে রাতে কথা বলিস? যদি কোনো ফাঁদ হয়?"</p>
+  <p>"উনি কিছু চান না।"</p>
+  <p>"এখন চান না। পরে টাকা চাইবে, দেখিস।"</p>
+  <p>শায়লা তর্ক করেনি। কিন্তু মনে মনে ভেবেছিল—কেউ যদি সত্যিই টাকা চাইত, তাহলেও অন্তত এটুকু বোঝা যেত যে সে কিছু একটা চায়। আর এই লোকটা কিছুই চান না, শুধু জানতে চান কেউ খেয়েছে কি না। পৃথিবীতে এটা একটা দুর্লভ জিনিস।</p>
+  <p class="dinghy">✦</p>
+  <p>শীতের এক রাতে লোকটা বললেন, "তোমার গলাটা অবিকল ওর মতো।"</p>
+  <p>শায়লা হেসেছিল। "তাহলে তো ভালোই হলো।"</p>
+  <p>"ভালো হয়নি, মা। তোমার সঙ্গে কথা বলে আমি ওর অভাবটা ভুলে থাকি। এটা তো অন্যায়। তোমার নিজের লোকজনের সঙ্গে কথা বলার সময় আমি নিয়ে নিচ্ছি।"</p>
+  <p>"অন্যায় না।" শায়লা একটু থেমে বলল, "আমার বাবাও নেই। আমিও তো ভুলে থাকি।"</p>
+  <p>ওপাশে অনেকক্ষণ কোনো শব্দ ছিল না। শুধু একটা ফ্যানের একঘেয়ে আওয়াজ, আর কারও গলা পরিষ্কার করার চেষ্টা।</p>
+  <p>তারপর তিনি বললেন, "কবে?"</p>
+  <p>"ছয় বছর।"</p>
+  <p>"অসুখ?"</p>
+  <p>"হ্যাঁ।"</p>
+  <p>"তখন কাছে ছিলে?"</p>
+  <p>শায়লা বলল, "না। অফিসে ছিলাম।"</p>
+  <p>এই কথাটা সে ছয় বছরে কাউকে বলেনি—মাকেও না, রুনাকেও না। কীভাবে বলবে? সবাই জিজ্ঞেস করে "কীভাবে হলো", কেউ জিজ্ঞেস করে না "তুমি কোথায় ছিলে"।</p>
+  <p>লোকটা শুধু বললেন, "তোমার কোনো দোষ নেই, মা। আমরা যখন যেখানে থাকার কথা, সবসময় সেখানে থাকতে পারি না। তোমার বাবা জানতেন তুমি কাজে গেছ। বাবারা এসব বোঝে।"</p>
+  <p>শায়লা ফোনটা কানে চেপে ধরে চুপ করে রইল। এতদিন পর কারও মুখে এই কথাটা শোনার জন্য যে সে অপেক্ষা করছিল, সেটা সে নিজেই জানত না।</p>
+  <p class="dinghy">✦</p>
+  <p>ফাল্গুনের দিকে ফোন আসা কমে এল। প্রথমে দুই সপ্তাহ, তারপর এক মাস।</p>
+  <p>শায়লা নিজে কোনোদিন ফোন করেনি। কেন করেনি, তার ব্যাখ্যা দেওয়া কঠিন—হয়তো এই ভেবে যে সম্পর্কটা তাঁরই শুরু করা, শেষটাও তাঁরই হাতে থাক। হয়তো ভয়ে, পাছে ওপাশে অন্য কেউ ধরে।</p>
+  <p>চৈত্রের এক দুপুরে সে আর থাকতে পারল না। নম্বরটা বের করে ডায়াল করল।</p>
+  <p>বন্ধ।</p>
+  <p>পরদিন আবার। দুদিন পর আবার। সপ্তাহখানেক পর আবার। একই যান্ত্রিক কণ্ঠ, একই বাক্য।</p>
+  <p class="gap">শেষে একদিন রিং হলো।</p>
+  <p>ধরল একটা মেয়ে। ক্লান্ত, ব্যস্ত গলা। পেছনে কারও কান্না, বোধহয় ছোট বাচ্চার।</p>
+  <p>"হ্যালো, কে বলছেন?"</p>
+  <p>শায়লা বলল, "আমি… এই নম্বর থেকে একজন বয়স্ক মানুষ ফোন করতেন।"</p>
+  <p>ওপাশে একটা নিঃশ্বাসের শব্দ। তারপর, "আব্বা তো গত মাসে মারা গেছেন।"</p>
+  <p>শায়লা কিছু বলতে পারল না।</p>
+  <p>মেয়েটা বলল, "আপনি কি হাসপাতালের কেউ? নাকি ওষুধের দোকান থেকে—"</p>
+  <p>"না।" শায়লা থামল। "আমি… ভুল নম্বরে ফোন করেছি।"</p>
+  <p>"ও।" মেয়েটা ফোন রাখার আগে কেন যেন থেমে গেল। তারপর একটু নরম গলায় বলল, "আব্বার ডায়েরিতে একটা নম্বর লেখা ছিল, 'মিতু—২'। আমি ভেবেছিলাম আমারই পুরোনো নম্বর। কিন্তু আমার নম্বর না।"</p>
+  <p>শায়লার হাত ঠান্ডা হয়ে এল।</p>
+  <p>"আপনি কি…"</p>
+  <p>"না," শায়লা বলল। "আমি কেউ না।"</p>
+  <p class="dinghy">✦</p>
+  <p>ফোনটা রেখে সে অনেকক্ষণ জানালার পাশে দাঁড়িয়ে রইল।</p>
+  <p>নিচে গলিতে একটা রিকশা থামল, কেউ একজন নামল, হাতে বাজারের ব্যাগ। কারও মা হয়তো দরজা খুলে দিল। পাশের ফ্ল্যাটে কুকারের সিটি বাজল। পৃথিবীটা একেবারে স্বাভাবিকভাবে চলতে থাকল, যেভাবে সবসময় চলে—কারও ডায়েরিতে একটা নাম দুই নম্বর হয়ে লেখা থাকুক বা না থাকুক।</p>
+  <p>সে ভাবল, একবার যদি বলে দিত, "আমি ঢাকায় থাকি না, আমি মিতু না, আমার নাম শায়লা"—তাহলে কী হতো? লোকটা হয়তো লজ্জা পেয়ে আর ফোন করতেন না। হয়তো করতেন।</p>
+  <p>সারা জীবনে সে অনেক ভুল করেছে, কিন্তু ওই মিথ্যাটা ছিল তার করা সবচেয়ে যত্নের কাজ।</p>
+  <p class="gap">সেই রাতে ঘুমানোর আগে শায়লা ফোনের কনট্যাক্টে গিয়ে নামহীন নম্বরটা খুঁজে বের করল, আর নাম দিল—"বাবা—২"।</p>
+  <p>নম্বরটা আর কোনোদিন বাজবে না, সে জানে। তবু মুছল না।</p>
+  <p>পৃথিবীতে কিছু সম্পর্ক শুরু হয় ভুল করে, আর শেষ হয় ঠিক জায়গায় পৌঁছে। শুধু যাকে বলার কথা ছিল, তাকে আর বলা হয় না—আর যাকে বলা হয়ে যায়, সে কোনোদিন জানতেও পারে না তার ভাগে কতখানি পড়েছিল।</p>
+  <p class="endmark">✦</p>
+  <div class="tools">
+    <a href="#suchipotro">← সূচিপত্র</a>
+    <button type="button" class="copytext" data-copytext="l4">লেখা কপি করুন</button>
+  </div>
+</article>
+
+<article id="l5">
+  <div class="opener">
+    <p class="ch">V</p>
+    <p class="kind-tag">গদ্য</p>
+    <h3>যারা ফিরে আসে না</h3>
+    <p class="readtime">পড়তে ~৬ মিনিট</p>
+  </div>
+  <p>শোকের সবচেয়ে কঠিন দিনটা প্রথম দিন নয়।</p>
+  <p>প্রথম দিনগুলোতে বাড়িভর্তি মানুষ থাকে। কেউ রান্না পাঠায়, কেউ এসে হাত ধরে বসে থাকে, কেউ বারবার বলে "শক্ত হও"। দিনগুলো ভরে ওঠে কাজে—কাগজপত্র, দোয়ার আয়োজন, দূরের আত্মীয়দের ফোন। এত কিছুর ভেতরে বোঝাই যায় না যে একটা মানুষ সত্যি সত্যি নেই।</p>
+  <p>কঠিন হয় প্রায় দুই মাস পর। যখন সবাই নিজের জীবনে ফিরে গেছে, ফোন আসা কমে গেছে, আর তোমাকে একা একা শিখতে হচ্ছে কীভাবে এক প্লেট কম ভাত রাঁধতে হয়।</p>
+  <p>ওই শেখাটাই আসল শোক। কেউ এসে পাশে বসে না, কারণ বাইরে থেকে দেখে মনে হয় সব স্বাভাবিক হয়ে গেছে।</p>
+  <p class="dinghy">✦</p>
+  <p>আমরা বলি সময় সব সারিয়ে দেয়। সময় আসলে সারায় না। সময় শুধু ক্ষতটাকে রোজকার রুটিনের ভেতর লুকিয়ে রাখতে শেখায়।</p>
+  <p>একটা মানুষ চলে গেলে তার জায়গাটা খালি থাকে না—ভরাট হয় অভ্যাস দিয়ে। আমরা ওই চেয়ারটায় কাপড় রাখতে শুরু করি, ওই পাশটায় বই রেখে দিই, ওই কাপটা আর ব্যবহার করি না। ঘরটা দেখতে স্বাভাবিক লাগে। কিন্তু ঘরের ভেতরের প্রত্যেকটা জিনিস জানে, কোথায় কী নেই।</p>
+  <p class="gap">পুরোনো ওষুধের পাতাটা মানুষ ফেলতে পারে না। পুরোনো চশমাটা ড্রয়ারে থেকে যায়, যদিও কেউ ওটা আর পরবে না। মোবাইলের গ্যালারিতে একটা ঝাপসা ছবি—যেটা তোলার সময় কেউ পোজ দেয়নি, যেখানে মানুষটা হয়তো শুধু আধখানা ফ্রেমে আছে—সেটাও মুছি না।</p>
+  <p>লোকে বলে এগুলো আঁকড়ে থাকা, এগিয়ে না যাওয়া। আমার তা মনে হয় না। শোক আসলে ভালোবাসারই আরেক রূপ, যার যাওয়ার জায়গা নেই। যতটা ভালোবাসা দেওয়ার ছিল, মানুষটা চলে যাওয়ায় সেটুকু হাতে জমে থাকে। ওই জমে থাকা ভালোবাসা রাখার জন্য আমাদের কিছু পাত্র লাগে—একটা শাড়ির ভাঁজ, একটা চশমা, একটা না-মোছা ছবি।</p>
+  <p class="dinghy">✦</p>
+  <p>আরেকটা কথা কেউ বলে না: যারা ফিরে আসে না, তাদের সঙ্গে আমাদের ঝগড়াগুলোও অসমাপ্ত থেকে যায়।</p>
+  <p>যে অভিমানটা মিটিয়ে নেওয়ার ছিল, যে "দুঃখিত" বলাটা বাকি ছিল, যে প্রশ্নটা করব করব করে করা হয়নি—সেগুলো আর কোনোদিন শেষ হবে না। এই না-বলা কথাগুলো শোকের চেয়ে ভারী। মানুষ মারা গেলে আমরা কাঁদি, কিন্তু রাতে ঘুম ভাঙে ওই অসমাপ্ত বাক্যটার জন্য।</p>
+  <p>আর সবচেয়ে নিষ্ঠুর ব্যাপার হলো, সময়ের সঙ্গে সঙ্গে আমাদের মনে থাকে না কে ঠিক ছিল, কে ভুল। শুধু মনে থাকে যে একটা দিন আমরা মুখ ঘুরিয়ে চলে গিয়েছিলাম, আর ভেবেছিলাম কাল ঠিক করে নেব।</p>
+  <p>"কাল" জিনিসটার ওপর আমরা বড্ড বেশি ভরসা করি।</p>
+  <p class="dinghy">✦</p>
+  <p>মানুষ সান্ত্বনা দিতে এসে প্রায়ই একটা ভুল করে—ব্যাখ্যা দিতে শুরু করে।</p>
+  <p>"উনি তো কষ্ট পাচ্ছিলেন, ভালোই হয়েছে।" "আল্লাহ যা করেন ভালোর জন্যই করেন।" "আরও কত মানুষের কত বড় কষ্ট।"</p>
+  <p>এই বাক্যগুলোর কোনোটাই মিথ্যা নয়। কিন্তু শোকের মানুষটার কাছে এগুলো পৌঁছায় না, কারণ শোক যুক্তি দিয়ে চলে না। যে মেয়েটা মায়ের শাড়ির গন্ধ শুঁকে কাঁদছে, সে জানে অন্যদেরও কষ্ট আছে। ওই মুহূর্তে তার দরকার কোনো তুলনা নয়।</p>
+  <p>যা সত্যি কাজে লাগে, সেগুলো খুব ছোট জিনিস। কেউ এসে জুতো খুলে পাশে বসল। কেউ রান্নাঘরে ঢুকে চুপচাপ বাসনগুলো ধুয়ে দিল। কেউ এক মাস পর—যখন সবাই ভুলে গেছে—ফোন করে বলল, "আজ হঠাৎ ওনার কথা মনে পড়ল।"</p>
+  <p>ওই শেষ বাক্যটা সোনার চেয়েও দামি। কারণ শোকের মানুষ সবচেয়ে বেশি যেটা ভয় পায়, সেটা মৃত্যু নয়—বিস্মৃতি। তার ভয় হয়, কিছুদিন পর পৃথিবীতে আর কেউ মানুষটাকে মনে রাখবে না, শুধু সে ছাড়া।</p>
+  <p class="dinghy">✦</p>
+  <p>শোক ছোট হয় না। শোক আকার বদলায়।</p>
+  <p>প্রথম দিকে সেটা একটা দেয়াল—সারাক্ষণ সামনে দাঁড়িয়ে থাকে, কিছু দেখা যায় না। কয়েক বছর পর সেটা হয়ে যায় একটা পাথর, যেটা পকেটে থাকে। রোজ টের পাওয়া যায় না, কিন্তু হঠাৎ হাত দিলে বোঝা যায় ওজনটা একটুও কমেনি।</p>
+  <p>আর তারপর শুরু হয় অতর্কিত আক্রমণগুলো। বাজারে কারও গলা শুনে ফিরে তাকানো। কোনো ওষুধের দোকানে সেই পরিচিত নামটা দেখা। ঈদের দিন সকালে সেমাই রাঁধতে গিয়ে চিনির পরিমাণ জিজ্ঞেস করার জন্য ঘুরে দাঁড়ানো—আর ঘুরে দাঁড়িয়ে মনে পড়া।</p>
+  <p>এই মুহূর্তগুলোর জন্য কোনো প্রস্তুতি হয় না। মানুষ বছরের পর বছর শক্ত থাকতে পারে, আর তারপর একটা কাঁচা হলুদের গন্ধে ভেঙে পড়তে পারে।</p>
+  <p class="dinghy">✦</p>
+  <p>তবু জীবন চলে।</p>
+  <p>এবং এখানেই সবচেয়ে আশ্চর্য ব্যাপারটা। চলে যাওয়া মানুষরা আমাদের ভেতরে থেকে যায়—স্মৃতি হয়ে নয়, আচরণ হয়ে।</p>
+  <p>আমি যখন কাউকে বলি "খেয়েছ?", তখন আসলে আমার নিজের কণ্ঠ নয়, অন্য কারও অভ্যাস কথা বলছে। যখন বৃষ্টি নামলেই ছাদের দিকে তাকাই, তখন কারও শেখানো চোখ দিয়ে তাকাচ্ছি। যখন টাকা গুনে তিনবার দেখি, যখন অতিথিকে দরজা পর্যন্ত এগিয়ে দিই, যখন কারও অসুখের খবর শুনে অস্থির হয়ে যাই—প্রতিবার কেউ একজন আমার ভেতর থেকে কাজ করে যায়।</p>
+  <p>আমরা ভাবি আমরা মানুষটাকে মনে রেখেছি। আসলে মানুষটা আমাদের ভেতরে বেঁচে থেকে আমাদের দিয়ে কাজ করিয়ে নিচ্ছে।</p>
+  <p class="gap">এটাই বোধহয় একমাত্র ফিরে আসা, যেটা সম্ভব।</p>
+  <p>তারা দরজা দিয়ে ঢোকে না, ফোন করে না, নাম ধরে ডাকে না। কিন্তু আমাদের সবচেয়ে ভালো অভ্যাসগুলোর ভেতরে তারা থেকে যায়—ছোট ছোট যত্নে, খাওয়ার খোঁজ নেওয়ায়, আর কাউকে ভালোবাসার সেই ধরনটায়, যেটা আমরা একদিন তাদের কাছ থেকেই শিখেছিলাম।</p>
+  <p>তাই যদি কখনো মনে হয় সব ভুলে যাচ্ছি, নিজের হাতের দিকে তাকিয়ো। যেভাবে তুমি কারও মাথায় হাত রাখো, যেভাবে প্লেটে একটু বেশি তুলে দাও—ওগুলো তোমার শেখা নয়, পাওয়া।</p>
+  <p>যারা ভালোবাসতে শিখিয়ে যায়, তারা পুরোপুরি চলে যেতে পারে না।</p>
+  <p class="endmark">✦</p>
+  <div class="tools">
+    <a href="#suchipotro">← সূচিপত্র</a>
+    <button type="button" class="copytext" data-copytext="l5">লেখা কপি করুন</button>
+  </div>
+</article>
+
+<article id="l6">
+  <div class="opener">
+    <p class="ch">VI</p>
+    <p class="kind-tag">গল্প</p>
+    <h3>ছাদের গাছগুলো</h3>
+    <p class="readtime">পড়তে ~৬ মিনিট</p>
+  </div>
+  <p>ছয়তলা বাড়িটার ছাদে এগারোটা টব। আটটা মরিচের, দুটো পুদিনার, আর একটা গোলাপ—যেটা কোনোদিন ফোটে না।</p>
+  <p>গাছগুলো লাগিয়েছিলেন চারতলার মিসেস রহমান। গত বছর তিনি ছেলের কাছে কানাডা চলে যান। যাওয়ার দিন সিঁড়িতে দাঁড়িয়ে তিনি হাঁপাতে হাঁপাতে সবাইকে বলে গিয়েছিলেন, "কেউ একটু পানি দিয়ো, বাবা। সপ্তাহে দুদিন দিলেই হবে।"</p>
+  <p>সিঁড়িতে তখন সাতজন মানুষ। সবাই মাথা নেড়েছিল। কেউ বলেছিল, "আপনি নিশ্চিন্তে যান, আন্টি।" কেউ বলেছিল, "এটা আর এমন কী কাজ।"</p>
+  <p>তারপর যা হয়—কেউ দেয়নি।</p>
+  <p class="dinghy">✦</p>
+  <p>প্রথম দুই সপ্তাহ গাছগুলো টিকে ছিল বৃষ্টির জোরে। তারপর ভাদ্রের রোদ পড়ল, আর পুদিনার পাতা কুঁকড়ে যেতে শুরু করল।</p>
+  <p>পাঁচতলার রাফি—ক্লাস নাইনে পড়ে—একদিন বিকেলে ছাদে উঠেছিল এমনি, কোচিং থেকে ফিরে। ছাদটা তার পছন্দের জায়গা। ঘরে বসে থাকলে মা জিজ্ঞেস করেন পড়া হয়েছে কি না, আব্বু ফোনে কথা বলার সময় জানতে চান এবার টেস্টে কত পেল। ছাদে কেউ কিছু জিজ্ঞেস করে না।</p>
+  <p>সেদিন সে দেখল আটটা মরিচগাছের পাঁচটার পাতা হলুদ, মাটি ফেটে চৌচির। গোলাপের টবে একটা শুকনো ডাল।</p>
+  <p>সে নিচে গিয়ে বালতি আনল।</p>
+  <p class="gap">প্রথম প্রথম সে ভেবেছিল, গাছ মরে গেলে আসলে কেউ টের পাবে না। মিসেস রহমান কানাডায়, ফোন করেন কালেভদ্রে, কেউ তাঁকে বলতেও যাবে না যে আপনার গাছগুলো মরে গেছে।</p>
+  <p>পরে সে বুঝল, সে নিজে টের পাবে।</p>
+  <p>সেটাই যথেষ্ট কারণ।</p>
+  <p class="dinghy">✦</p>
+  <p>এরপর থেকে রোজ বিকেলে, কোচিং থেকে ফিরে, রাফি ছাদে ওঠে। বালতিতে পানি নিয়ে এগারোটা টবে ঢালে। কেউ তাকে বলেনি। সে কাউকে বলেওনি।</p>
+  <p>কাজটা এমন কিছু না—পনেরো মিনিট। কিন্তু অদ্ভুত ব্যাপার হলো, দিনের এই পনেরো মিনিটই তার সবচেয়ে ভালো লাগে। ছাদে তখন রোদ পড়ে আসে, পাশের বাড়ির ছাদে কেউ কাপড় তোলে, দূরে কোথাও আজানের প্রস্তুতি চলে। মাটিতে পানি পড়লে একটা গন্ধ ওঠে, যার কোনো নাম নেই।</p>
+  <p>শীতের দিকে মরিচ ধরল। ছোট ছোট, সবুজ, শক্ত।</p>
+  <p>রাফি ছিঁড়ল না।</p>
+  <p class="dinghy">✦</p>
+  <p>মার্চে পুদিনা ঝাঁকড়া হয়ে গেল। এত বেশি হলো যে ছাদে উঠলে গন্ধ পাওয়া যায়।</p>
+  <p>একদিন নিচতলার শাহানা খালা কাপড় শুকাতে এসে দেখে ফেললেন। হাত দিয়ে পাতা ছুঁয়ে অবাক গলায় বললেন, "এগুলো তো মরে যায়নি! কে পানি দেয় রে?"</p>
+  <p>রাফি কাঁধ ঝাঁকাল।</p>
+  <p>খালা তার দিকে তাকিয়ে রইলেন কিছুক্ষণ। তারপর বললেন, "একটু নিই, বাবা? ইফতারে বড়া বানাব।"</p>
+  <p>"নেন, খালা।" রাফি বলল, "উনি তো নিতেই বলেছিলেন।"</p>
+  <p>খালা একটু থমকে গেলেন। "উনি?"</p>
+  <p>"মিসেস রহমান আন্টি।"</p>
+  <p>নামটা অনেকদিন পর এই বাড়িতে কেউ উচ্চারণ করল। খালা কয়েক সেকেন্ড চুপ করে থাকলেন, তারপর শুধু বললেন, "হ্যাঁ। উনি তো নিতেই বলেছিলেন।"</p>
+  <p class="gap">পরের সপ্তাহে খালা একটা নতুন টব এনে রাখলেন—ধনেপাতার।</p>
+  <p>তার পরের মাসে তিনতলার শিউলি আপা একটা, আর দারোয়ান চাচা দুটো—একটা লাউয়ের চারা, একটা কী গাছ কেউ জানে না। চাচা বললেন, "দেখি কী হয়।"</p>
+  <p>কেউ ঘোষণা দেয়নি, কোনো আলোচনা হয়নি, কোনো "ছাদ-বাগান কমিটি" হয়নি। শুধু ছাদের এক কোণে ছোট একটা বাগান দাঁড়িয়ে গেল, যার কোনো মালিক নেই।</p>
+  <p>সন্ধ্যার দিকে কেউ কেউ এখন ছাদে উঠে দাঁড়ায়। দুই-চারটে কথা হয়—কে বাজারে কত দিয়ে কী কিনল, কার ছেলের পরীক্ষা কবে। শাহানা খালা একদিন রাফিকে বললেন, "তোর জন্যই তো, বাবা।"</p>
+  <p>রাফি লজ্জা পেয়ে বলল, "আমি তো খালি পানি দিই।"</p>
+  <p class="dinghy">✦</p>
+  <p>গোলাপটা শুধু ফুটল না।</p>
+  <p>গাছটা মরেনি—পাতা আছে, ডাল আছে, নতুন কচি পাতাও আসে মাঝে মাঝে। কিন্তু কুঁড়ি আসে না।</p>
+  <p>রাফি ইউটিউবে দেখল, গোলাপে নাকি সার লাগে, রোদ লাগে, ডাল ছেঁটে দিতে হয়। সে একদিন ভয়ে ভয়ে দুটো ডাল কাটল। তারপর দুই সপ্তাহ ঘুম ভাঙলেই মনে হতো—মেরে ফেললাম না তো?</p>
+  <p>মরেনি। কিন্তু ফুলও এল না।</p>
+  <p class="dinghy">✦</p>
+  <p>ঈদের আগের দিন মিসেস রহমান ভিডিও কলে এলেন।</p>
+  <p>ফোনটা ছিল শাহানা খালার হাতে। সবাই মিলে ছাদে উঠল—খালা, শিউলি আপা, দারোয়ান চাচা, আর রাফি, পেছনে দাঁড়িয়ে।</p>
+  <p>ক্যামেরা ঘুরিয়ে ছাদের দিকে ধরা হলো। লাউয়ের ডগা মাচার দিকে উঠছে, ধনেপাতা ঘন, মরিচগাছে লাল-সবুজ মরিচ।</p>
+  <p>ওপাশে মিসেস রহমান অনেকক্ষণ কিছু বললেন না।</p>
+  <p>খালা ভাবলেন লাইন কেটে গেছে। "আন্টি? শুনছেন?"</p>
+  <p>"শুনছি।" গলাটা অন্যরকম শোনাল। তারপর তিনি বললেন, "গোলাপটা ফুটেছে?"</p>
+  <p>সবাই রাফির দিকে তাকাল।</p>
+  <p>রাফি ফোনের সামনে এসে বলল, "না, আন্টি।"</p>
+  <p>"কে পানি দেয় রে?"</p>
+  <p>"আমি।"</p>
+  <p>"কতদিন ধরে?"</p>
+  <p>রাফি হিসাব করল। "এগারো মাস।"</p>
+  <p>ওপাশে আবার চুপ। তারপর মিসেস রহমান বললেন, "ফুটবে। ওটার একটু সময় লাগে। আমার হাতেও তিন বছর লেগেছিল।" একটু থেমে, "তুমি পানি দিতে থেকো, বাবা।"</p>
+  <p class="dinghy">✦</p>
+  <p>ফোনটা রাখার পর সবাই নিচে নেমে গেল। রাফি রয়ে গেল।</p>
+  <p>সন্ধ্যা নামছিল। পাশের বাড়ির ছাদে কেউ কাপড় তুলছিল। নিচের রাস্তায় ঈদের আগের ভিড়, রিকশার টুংটাং, কোথাও একটা মাইকে ঘোষণা।</p>
+  <p>সে বালতিটা তুলে নিয়ে এগারোটা টবে—এখন ষোলোটা—পানি দিতে শুরু করল। গোলাপের টবটা সবার শেষে, যেমন রোজ দেয়।</p>
+  <p>মাটিতে পানি পড়ার শব্দ, আর সেই নামহীন গন্ধ।</p>
+  <p class="gap">তিন সপ্তাহ পর, এক বৃষ্টির সকালে, রাফি দেখল গোলাপের ডালের মাথায় একটা ছোট শক্ত কুঁড়ি।</p>
+  <p>সে কাউকে বলল না। ছবিও তুলল না। শুধু কিছুক্ষণ দাঁড়িয়ে রইল, তারপর বালতিটা জায়গামতো রেখে নিচে নেমে এল।</p>
+  <p>কিছু খবর জমিয়ে রাখতে হয়। যিনি জানতে চেয়েছিলেন, তিনি তো ফোন করবেনই—আর তখন বলা যাবে।</p>
+  <p>যত্ন জিনিসটা আসলে অদ্ভুত। যাকে দেওয়া হয়, সে কাছে না থাকলেও সেটা কোথাও না কোথাও গিয়ে পৌঁছায়।</p>
+  <p class="endmark">✦</p>
+  <div class="tools">
+    <a href="#suchipotro">← সূচিপত্র</a>
+    <button type="button" class="copytext" data-copytext="l6">লেখা কপি করুন</button>
+  </div>
+</article>
+
+<article id="l7">
+  <div class="opener">
+    <p class="ch">VII</p>
+    <p class="kind-tag">টুকরো</p>
+    <h3>শহরের ছোট শব্দেরা</h3>
+    <p class="readtime">পড়তে ~৫ মিনিট</p>
+  </div>
+  <p>শহরকে মানুষ চেনে চোখ দিয়ে—রাস্তা, দালান, সাইনবোর্ড। অথচ একটা শহরের আসল পরিচয় তার শব্দে। চোখ বন্ধ করে দাঁড়ালে বোঝা যায় কোথায় আছি, কোন সময়ে আছি, এমনকি দিনটা ভালো যাচ্ছে না খারাপ। নিচের টুকরোগুলো সেইসব ছোট শব্দের, যেগুলো আমরা রোজ শুনি বলেই আর শুনতে পাই না।</p>
+  <div class="frag">
+    <p class="when">শাটার</p>
+    <p>ছয়টা দশে নিচের দোকানের শাটার ওঠে। এই শহরে দিন শুরু হয় ঘড়ি দেখে নয়, শাটারের শব্দ শুনে। যে বাড়িতে কেউ অসুস্থ, সেখানে এই শব্দটা একটা স্বস্তি—রাতটা শেষ হয়েছে।</p>
+  </div>
+  <div class="frag">
+    <p class="when">ঝাড়ু</p>
+    <p>ভোরে উঠোন ঝাঁট দেওয়ার শব্দ। একঘেয়ে, নিয়মিত, কারও ঘুম ভাঙায় না। সারা পৃথিবীতে সবচেয়ে কম কৃতজ্ঞতা পাওয়া শব্দ বোধহয় এটাই।</p>
+  </div>
+  <div class="frag">
+    <p class="when">পাখি</p>
+    <p>শহরে পাখির ডাক শোনা যায় শুধু ভোরে, আর কারেন্ট গেলে। বাকি সময় ওরা ডাকে না তা নয়—আমরা শুনি না।</p>
+  </div>
+  <div class="frag">
+    <p class="when">হেল্পারের ডাক</p>
+    <p>"নিউমার্কেট, নিউমার্কেট, একজন—এই যে আপা!" বাসের দরজায় ঝুলে থাকা ছেলেটার গলা ভাঙা, কিন্তু সুর আছে। প্রত্যেক রুটের নিজস্ব একটা সুর আছে; নিয়মিত যাত্রীরা শব্দ না শুনেও বুঝে যায় কোন বাস এল।</p>
+  </div>
+  <div class="frag">
+    <p class="when">ফেরিওয়ালা</p>
+    <p>"পুরান লোহা, ভাঙা টিভি, নষ্ট ফ্রিজ…" সকালের গলিতে এই ডাকটা একটা ছন্দ হয়ে ঢোকে। ছোটবেলায় মনে হতো লোকটা গান গাইছে। এখন মনে হয়, মানুষ রোজ একই কথা এতবার বলতে বলতে ওটাকে গান বানিয়ে না ফেললে টিকে থাকতে পারত না।</p>
+  </div>
+  <div class="frag">
+    <p class="when">কাঁচা আম</p>
+    <p>দুপুরে আমওয়ালার হাঁক গলির মাথায় এসে থামে। দরদাম হয় পাঁচ টাকার জন্য, যেন ওই পাঁচ টাকাতেই দিনটার মান-অপমান।</p>
+    <p>শেষে দুজনেই জেতে। ক্রেতা ভাবে ঠকেনি, বিক্রেতা জানে ঠকায়নি।</p>
+  </div>
+  <div class="frag">
+    <p class="when">কুকার</p>
+    <p>দুপুর একটার দিকে বিল্ডিংয়ের নানা তলা থেকে প্রেশার কুকারের সিটি। একটার পর একটা, আলাদা আলাদা সুরে। কেউ কাউকে চেনে না, অথচ সবাই প্রায় একই সময়ে ভাত বসায়।</p>
+  </div>
+  <div class="frag">
+    <p class="when">ছুটির ঘণ্টা</p>
+    <p>স্কুলছুটির শব্দ পৃথিবীর সবচেয়ে প্রাণবন্ত শব্দ। একশো জোড়া জুতো একসঙ্গে দৌড়ালে বোঝা যায়, ভবিষ্যৎ এখনো হাল ছাড়েনি।</p>
+  </div>
+  <div class="frag">
+    <p class="when">রিকশার ঘণ্টি</p>
+    <p>ক্রিং-ক্রিং। এই শহরে এটাই একমাত্র হর্ন, যেটা শুনলে রাগ হয় না।</p>
+  </div>
+  <div class="frag">
+    <p class="when">জাহাজের ভোঁ</p>
+    <p>বন্দরের দিক থেকে ভারী, লম্বা একটা শব্দ ভেসে আসে—দিনে দুই-একবার। যারা এই শহরে বড় হয়েছে, তাদের কাছে ওটা কিছুই না। যারা বাইরে থেকে আসে, তারা প্রথমবার শুনে থমকে দাঁড়ায় আর জিজ্ঞেস করে, "এটা কী?"</p>
+    <p>আমরা বলি, "জাহাজ।" তারপর নিজেরাই একটু অবাক হই—আরে তাই তো, আমাদের শহরে জাহাজ আসে।</p>
+  </div>
+  <div class="frag">
+    <p class="when">গ্লাসের টুং</p>
+    <p>বিকেলের দোকানে চামচ-গ্লাসের টুংটাং, সঙ্গে রাজনীতির আলোচনা। কেউ কারও কথা শোনে না, তবু আলোচনাটা জরুরি—কারণ এটা আসলে কথা বলার জন্য নয়, একসঙ্গে বসার অজুহাত।</p>
+  </div>
+  <div class="frag">
+    <p class="when">সেলাই মেশিন</p>
+    <p>নিচতলার দর্জির দোকান থেকে একটানা খটখট। এই শব্দ থামলে বুঝতে হয় দোকান বন্ধ, নয়তো কারও কিছু হয়েছে।</p>
+    <p>প্রতিবেশীর খবর আমরা জানালা দিয়ে নিই না—শব্দ দিয়ে নিই।</p>
+  </div>
+  <div class="frag">
+    <p class="when">আজান</p>
+    <p>মাগরিবের আজান একসঙ্গে শুরু হয় না। প্রথম মসজিদ, তারপর দ্বিতীয়, তারপর দূরের কোনোটা—ঢেউয়ের মতো শহরের ওপর দিয়ে চলে যায়। যে যেখানেই থাকুক, ওই কয়েক মিনিট সবাই একটু ধীর হয়ে যায়।</p>
+  </div>
+  <div class="frag">
+    <p class="when">কারেন্ট</p>
+    <p>বিদ্যুৎ চলে গেলে পুরো বিল্ডিং একসঙ্গে দীর্ঘশ্বাস ফেলে—ফ্যান থামে, ফ্রিজ থামে, টিভি থামে। তারপর এক মুহূর্ত নিখুঁত নীরবতা।</p>
+    <p>তারপর কারও বারান্দা থেকে হাসির আওয়াজ আসে। অন্ধকারে মানুষ একটু বেশি সহজ হয়।</p>
+  </div>
+  <div class="frag">
+    <p class="when">বৃষ্টি</p>
+    <p>টিনের চালে, জানালার কার্নিশে, গাড়ির ছাদে—একই বৃষ্টির তিন রকম শব্দ। যে ঘরে টিনের চাল নেই, সে ঘরে বৃষ্টির অর্ধেক সৌন্দর্য পৌঁছায় না।</p>
+  </div>
+  <div class="frag">
+    <p class="when">সিঁড়ি</p>
+    <p>পায়ের শব্দ শুনে বোঝা যায় কে আসছে। মায়ের পায়ের শব্দ আলাদা, ভাইয়ের আলাদা, অতিথির আলাদা।</p>
+    <p>আর কেউ চলে যাওয়ার পর সবচেয়ে বেশি যেটা মিস করা হয়, সেটা তার গলা নয়—সিঁড়িতে তার পায়ের শব্দটা।</p>
+  </div>
+  <div class="frag">
+    <p class="when">ট্রেন</p>
+    <p>রাতের দিকে দূরের একটা হুইসেল। যে কোনোদিন ট্রেনে ওঠেনি, সেও ওই শব্দে একবার ভাবে—চলে যাওয়া যায়।</p>
+  </div>
+  <div class="frag">
+    <p class="when">লাঠি</p>
+    <p>শেষ রাতে দারোয়ানের লাঠির ঠকঠক। সারা শহর ঘুমায় বলেই একজন মানুষকে জেগে থাকতে হয়। আমরা তার নামও জানি না।</p>
+  </div>
+  <p class="gap">এই শব্দগুলোর একটাও আমাদের জন্য তৈরি হয়নি। কেউ আমাদের শোনানোর জন্য শাটার তোলে না, কুকার বসায় না, ঘণ্টি বাজায় না। তবু দিনের পর দিন এগুলো শুনতে শুনতে এগুলোই হয়ে যায় আমাদের ঘড়ি, আমাদের ক্যালেন্ডার, আমাদের নিরাপত্তা।</p>
+  <p>একা থাকলে এটা আরও বেশি করে বোঝা যায়। ঘর একদম চুপ থাকলে ভয় লাগে, কিন্তু নিচে রিকশার ঘণ্টি বাজলে মনে হয়—ঠিক আছে, পৃথিবীটা আছে, আমিও আছি।</p>
+  <p>কোনো একদিন যদি অন্য শহরে চলে যেতে হয়, রাস্তার নাম ভুলে যাব, দোকানের নাম ভুলে যাব। কিন্তু ভোরের শাটার আর বন্দরের সেই ভারী ভোঁ—ওগুলো শুনলে সঙ্গে সঙ্গে বুঝে যাব, বাড়ি কোথায় ছিল।</p>
+  <p class="endmark">✦</p>
+  <div class="tools">
+    <a href="#suchipotro">← সূচিপত্র</a>
+    <button type="button" class="copytext" data-copytext="l7">লেখা কপি করুন</button>
+  </div>
+</article>
+
+
+<article id="l8">
+  <div class="opener">
+    <p class="ch">VIII</p>
+    <p class="kind-tag">গল্প</p>
+    <h3>যে ছবিগুলো কেউ নিতে আসেনি</h3>
+    <p class="readtime">পড়তে ~১০ মিনিট</p>
+  </div>
+  <p>আন্দরকিল্লার যে গলিটা মোড় থেকে বাঁ দিকে নেমে গেছে, তার মাঝামাঝি একটা দোকান আছে—সাইনবোর্ডের রং চটে গেছে, তবু অক্ষরগুলো পড়া যায়: <i>নিউ স্টার স্টুডিও, প্রতিষ্ঠা ১৯৭৯</i>।</p>
+  <p>দোকানটা এখনো খোলে। সকাল দশটায় শাটার ওঠে, রাত আটটায় নামে। ভেতরে একটা কাঠের কাউন্টার, দেয়ালজুড়ে বাঁধানো ছবি—বর-কনে, মুখে ভাত, বিদেশ যাওয়ার আগে পাসপোর্ট সাইজের জন্য এসে বসা ছেলেরা। সবই পুরোনো। নতুন ছবি দেয়ালে ওঠে না, কারণ নতুন ছবি আর ছাপা হয় না।</p>
+  <p>মনসুর আলী চেয়ারে বসে থাকেন। আটষট্টি বছর বয়স। দিনে তিন-চারজন আসে—বেশিরভাগই পুরোনো ছবির স্ক্যান করাতে, কেউ কেউ ছবি বাঁধাতে। দোকান চলে না, কিন্তু বন্ধও হয় না।</p>
+  <p>লোকে জিজ্ঞেস করে, "চাচা, এখনো বসে থাকেন কেন?"</p>
+  <p>তিনি হাসেন। বলেন, "বসে থাকি।"</p>
+  <p>আসল উত্তরটা তিনি কাউকে বলেন না। আসল উত্তরটা কাউন্টারের নিচের ড্রয়ারে।</p>
+  <p class="dinghy">✦</p>
+  <p>ড্রয়ারটায় একশো সাতচল্লিশটা খাম আছে।</p>
+  <p>প্রত্যেকটায় ছবি—ধোয়া, ছাপা, কাটা, প্যাকেট করা। প্রত্যেকটায় গায়ে পেনসিলে লেখা একটা নাম, একটা তারিখ, আর বাকি টাকার অঙ্ক।</p>
+  <p>এগুলো সেই ছবি, যেগুলো কেউ নিতে আসেনি।</p>
+  <p>মনসুর আলী চল্লিশ বছরে বুঝেছেন, ছবি না নেওয়ার কারণ কখনো একটা নয়। কেউ টাকা জোগাড় করতে পারেনি। কেউ শহর ছেড়ে চলে গেছে। কারও বিয়েটা ভেঙে গেছে, আর বিয়ের আগের ছবিগুলো তখন আর কেউ দেখতে চায় না। কারও পরিবারে কিছু একটা ঘটে গেছে, যার পর আর স্টুডিওতে আসার মতো মন থাকে না।</p>
+  <p>প্রথম দিকে তিনি ছয় মাস পর পর না-নেওয়া ছবিগুলো ফেলে দিতেন। তখন তিনি তরুণ, ব্যবসাটা রমরমা, আর ড্রয়ারে জায়গা দরকার।</p>
+  <p>১৯৯৩ সালের পর থেকে তিনি আর ফেলেন না।</p>
+  <p>সে বছর এক ভদ্রলোক এসেছিলেন ছেলের ছবি নিতে—ছয় বছর পর। ছবিটা তিনি ফেলে দিয়েছিলেন। ভদ্রলোক অনেকক্ষণ দাঁড়িয়ে ছিলেন, তারপর শুধু বলেছিলেন, "ঠিক আছে।" ছেলেটা ততদিনে বেঁচে নেই, এটা মনসুর আলী পরে শুনেছিলেন পাশের দোকান থেকে।</p>
+  <p>তারপর থেকে একটা ছবিও তিনি ফেলেননি।</p>
+  <p class="gap">ড্রয়ারটা ভরতে ভরতে শহরটাও বদলে গেল। সত্তর-আশির দশকে ঈদের আগে স্টুডিওর সামনে লাইন পড়ত; মানুষ নতুন জামা পরে ছবি তুলতে আসত, কারণ ছবি তোলা তখন একটা উপলক্ষ ছিল। মনসুর আলীর তিনজন সহকারী ছিল। একজন আলো ধরত, একজন ধোয়ার কাজ করত, একজন ক্যাশে বসত।</p>
+  <p>এখন কেউ নেই। মোবাইল আসার পর মানুষ দিনে চল্লিশটা ছবি তোলে, একটাও ছাপে না। তিনি মাঝে মাঝে ভাবেন, এতগুলো ছবি সব যায় কোথায়? ফোন হারিয়ে গেলে, মানুষটা মারা গেলে—ওগুলো কি কোনো ড্রয়ারে জমা থাকে? কেউ কি ত্রিশ বছর পর খুঁজে পায়?</p>
+  <p>তাঁর স্ত্রী মারা যান ছিয়ানব্বই সালের জুনে। একমাত্র ছেলে দুবাই, বছরে একবার আসে। রাতে তিনি হোটেল থেকে ভাত কিনে খান, আর দোকান বন্ধ করার আগে কাউন্টার মুছে রাখেন—যদিও কাউন্টারে ধুলো জমার মতো কাজ হয় না।</p>
+  <p class="dinghy">✦</p>
+  <p>মেয়েটা এল এক বর্ষার দুপুরে।</p>
+  <p>ছাতা ভাঁজ করতে করতে ভেতরে ঢুকল, শাড়ির পাড় ভেজা, হাতে একটা পুরোনো কাগজের টুকরো। বয়স তিরিশের কম।</p>
+  <p>"চাচা, এটা কি আপনার দোকানের?"</p>
+  <p>মনসুর আলী চশমা পরে কাগজটা নিলেন। একটা রসিদ—তাঁর নিজের হাতের লেখা, কালি ফ্যাকাশে হয়ে গেছে, কিন্তু উপরে ছাপা নামটা স্পষ্ট। তারিখ: ১২ মার্চ, ১৯৯৬। জমা পঞ্চাশ টাকা, বাকি একশো বিশ।</p>
+  <p>নাম লেখা: রাহেলা বেগম।</p>
+  <p>"আপনার কী হন?"</p>
+  <p>"আমার আম্মা।" মেয়েটা একটু থামল। "গত ফেব্রুয়ারিতে মারা গেছেন। ওনার ট্রাঙ্ক গোছাতে গিয়ে এই কাগজটা পেলাম। একটা ডায়েরির ভেতরে।"</p>
+  <p>মনসুর আলী রসিদটা হাতে নিয়ে বসে রইলেন।</p>
+  <p>"আমি জানি অনেক বছর হয়ে গেছে," মেয়েটা তাড়াতাড়ি বলল, "আপনি নিশ্চয়ই ফেলে দিয়েছেন। আমি আসলে শুধু দেখতে এসেছিলাম দোকানটা এখনো আছে কি না। আম্মা মাঝে মাঝে বলতেন, আন্দরকিল্লার এক স্টুডিওতে নাকি—"</p>
+  <p>"আপনার নাম?"</p>
+  <p>"তাসনিম।"</p>
+  <p>তিনি উঠে দাঁড়ালেন। হাঁটুতে ব্যথা, উঠতে সময় লাগে। কাউন্টারের নিচ থেকে ড্রয়ারটা টেনে বের করলেন।</p>
+  <p class="dinghy">✦</p>
+  <p>খামগুলো সাল অনুযায়ী সাজানো। তিনি ১৯৯৬ খুঁজে পেতে সময় নিলেন না—ওই বছরটা তাঁর মনে আছে, কারণ ওই বছর তাঁর স্ত্রী মারা যান।</p>
+  <p>সাতটা খাম। তিন নম্বরটায় পেনসিলে লেখা: <i>রাহেলা বেগম — ১২/৩/৯৬ — ১২০ টাকা বাকি</i>।</p>
+  <p>তিনি খামটা কাউন্টারে রাখলেন।</p>
+  <p>তাসনিম নড়ল না। অনেকক্ষণ শুধু তাকিয়ে রইল খামটার দিকে, যেভাবে মানুষ এমন কিছুর দিকে তাকায় যার জন্য সে প্রস্তুত ছিল না।</p>
+  <p>"আছে?" ফিসফিস করে বলল।</p>
+  <p>"আছে।"</p>
+  <p>"ত্রিশ বছর?"</p>
+  <p>"ত্রিশ বছর।"</p>
+  <p>মেয়েটা খামটা ছুঁল, কিন্তু খুলল না। হাত কাঁপছিল। "আপনি… ফেলে দেননি কেন?"</p>
+  <p>মনসুর আলী কিছুক্ষণ চুপ করে থেকে বললেন, "মানুষ আসে, মা। দশ বছর পরে আসে, বিশ বছর পরে আসে। একজন তো পঁয়ত্রিশ বছর পরেও এসেছিল।"</p>
+  <p class="dinghy">✦</p>
+  <p>খামে তিনটা ছবি।</p>
+  <p>প্রথমটায় একজন তরুণী, শাড়ি পরা, চুল বাঁধা, স্টুডিওর সেই চিরচেনা নীল পর্দার সামনে দাঁড়ানো। মুখে একটা সামান্য হাসি—যে হাসিতে মানুষ ক্যামেরার দিকে তাকায় যখন সে জানে না হাসবে কি হাসবে না।</p>
+  <p>দ্বিতীয়টায় একই তরুণী বসা, কোলে একটা বাচ্চা মেয়ে, মাস ছয়েক বয়স, মাথায় টুপি।</p>
+  <p>তৃতীয়টায় বাচ্চাটা একা, একটা কাঠের টুলের ওপর, পেছনে কেউ একজন হাত দিয়ে ধরে আছে যাতে পড়ে না যায়—ছবিতে শুধু হাতটা দেখা যাচ্ছে, মানুষটা নয়।</p>
+  <p>তাসনিম দ্বিতীয় ছবিটা তুলে নিল।</p>
+  <p>"এটা আমি।"</p>
+  <p>"জি।"</p>
+  <p>"আম্মার এত কম বয়সের ছবি আমার কাছে নেই।" সে কথাটা শেষ করতে পারল না।</p>
+  <p>মনসুর আলী কাউন্টারের নিচ থেকে একটা প্লাস্টিকের চেয়ার টেনে দিলেন। "বসেন।"</p>
+  <p>মেয়েটা বসল, আর তারপর, সম্পূর্ণ অপরিচিত একটা দোকানে, এক বৃদ্ধের সামনে, অনেকক্ষণ ধরে কাঁদল।</p>
+  <p>মনসুর আলী কিছু বললেন না। এসব সময়ে কী বলতে হয়, সেটা তিনি চল্লিশ বছরে শিখে ফেলেছেন—কিছু বলতে হয় না। তিনি উঠে গিয়ে দোকানের দরজাটা আধখোলা করে দিলেন, যাতে গলি থেকে কেউ সরাসরি ভেতরে না তাকাতে পারে।</p>
+  <p class="dinghy">✦</p>
+  <p>কান্না থামার পর তাসনিম জিজ্ঞেস করল, "আম্মা নেননি কেন, চাচা? একশো বিশ টাকার জন্য?"</p>
+  <p>মনসুর আলী রসিদটার দিকে তাকালেন।</p>
+  <p>"আপনার আব্বা কী করতেন?"</p>
+  <p>"ট্রাকে কাজ করতেন। আমার দুই বছর বয়সে মারা যান—অ্যাক্সিডেন্টে।"</p>
+  <p>বৃদ্ধ মাথা নাড়লেন ধীরে। "তাহলে তো মিলেই যায়।"</p>
+  <p>"কী মিলে যায়?"</p>
+  <p>"তারিখটা দেখেন। মার্চ ছিয়ানব্বই। আপনার বয়স তখন ছয় মাস।" তিনি একটু থামলেন। "ছবি তোলার পর মানুষ এক সপ্তাহের মধ্যে নিতে আসে, মা। যারা আসে না, তাদের বেশিরভাগের ক্ষেত্রে ওই এক সপ্তাহেই কিছু একটা ঘটে যায়।"</p>
+  <p>তাসনিম চুপ করে রইল।</p>
+  <p>"একশো বিশ টাকা তখন অনেক টাকা," তিনি যোগ করলেন। "আর স্বামী মারা যাওয়ার পর একটা মেয়ের হাতে ছয় মাসের বাচ্চা—ছবি তখন সবার শেষে।"</p>
+  <p class="gap">"আমি টাকাটা দিয়ে দিই?" তাসনিম ব্যাগ খুলল।</p>
+  <p>"কী বলেন!"</p>
+  <p>"না চাচা, রসিদে লেখা আছে—"</p>
+  <p>"ওই দাম এখন আর নাই।" মনসুর আলী হাত তুললেন। "আর আপনার আম্মা অ্যাডভান্স দিয়ে গেছেন। অ্যাডভান্স দেওয়া মানে উনি ছবিটা চেয়েছিলেন। চাওয়াটাই দাম।"</p>
+  <p class="dinghy">✦</p>
+  <p>যাওয়ার আগে তাসনিম ড্রয়ারটার দিকে তাকাল।</p>
+  <p>"আর কত আছে?"</p>
+  <p>"একশো সাতচল্লিশ। আপনারটা বাদ দিলে একশো ছিচল্লিশ।"</p>
+  <p>"এগুলোর মানুষগুলো কোথায়?"</p>
+  <p>"কে জানে। কেউ বিদেশ, কেউ গ্রামে, কেউ…" তিনি বাক্যটা শেষ করলেন না।</p>
+  <p>"আপনি কি সারাজীবন অপেক্ষা করবেন?"</p>
+  <p>মনসুর আলী চেয়ারে বসতে বসতে বললেন, "আমার আর কী কাজ আছে, মা।"</p>
+  <p>মেয়েটা কিছুক্ষণ ভাবল। তারপর বলল, "চাচা, আমি যদি নামগুলোর একটা তালিকা করি? ছবি না—শুধু নাম আর সাল। ফেসবুকে দিই। এই শহরের অনেক মানুষ আছে ওখানে।"</p>
+  <p>বৃদ্ধ ভুরু কুঁচকালেন। "লোকে বিশ্বাস করবে?"</p>
+  <p>"রসিদের ছবি দেব। আপনার দোকানের ছবি দেব।"</p>
+  <p>তিনি অনেকক্ষণ কিছু বললেন না। তারপর কাউন্টারের নিচ থেকে একটা পুরোনো খাতা বের করে দিলেন—যেটায় তিনি চল্লিশ বছর ধরে প্রত্যেকটা অর্ডার লিখে রেখেছেন।</p>
+  <p>"লিখেন।"</p>
+  <p class="dinghy">✦</p>
+  <p>প্রথম মাসে এল তিনজন।</p>
+  <p>প্রথমজন একজন বৃদ্ধা, লাঠি ভর দিয়ে হাঁটেন, সঙ্গে নাতনি। তাঁর বিয়ের ছবি তাঁর শাশুড়ি নিতে দেননি—"ওসব ছবি-টবি লাগবে না, সংসার করো।" সেই শাশুড়ি মারা গেছেন বত্রিশ বছর আগে। বৃদ্ধা খামটা হাতে নিয়ে অনেকক্ষণ উল্টেপাল্টে দেখলেন, তারপর নাতনিকে বললেন, "দেখ, তোর দাদার মাথায় চুল ছিল।"</p>
+  <p>দ্বিতীয়জন এক ভদ্রলোক, কুমিল্লা থেকে বাস ধরে এসেছেন। তাঁর বাবার একমাত্র ছবি—১৯৮৪ সালের। ছবিটা হাতে নিয়ে তিনি কিছু বললেন না, শুধু দুই হাতে ধরে রইলেন, যেন ভারী কিছু।</p>
+  <p>তৃতীয়জন একটা ছেলে, যে কিছুই জানত না; শুধু তালিকায় তার দাদার নামটা দেখে কৌতূহলে এসেছিল। এসে দেখে সত্যিই তার দাদা।</p>
+  <p>দ্বিতীয় মাসে এল পাঁচজন।</p>
+  <p class="gap">তাসনিম এখন মাঝে মাঝে আসে। শুক্রবার বিকেলে এসে খাতাটা নিয়ে বসে, পুরোনো নামগুলো মিলিয়ে দেখে, নতুন করে পোস্ট দেয়। মনসুর আলী তাকে চা আনিয়ে দেন, আর পুরোনো দিনের গল্প বলেন—কোন অভিনেতা একবার এই দোকানে ছবি তুলেছিলেন, কোন বছর বন্যায় নিচের তাক ডুবে গিয়েছিল।</p>
+  <p>একদিন তাসনিম জিজ্ঞেস করল, "চাচা, তিন নম্বর ছবিটায় যে হাতটা দেখা যায়—ওটা কার, বলতে পারবেন?"</p>
+  <p>বৃদ্ধ হাসলেন। "আমার। বাচ্চাটা টুল থেকে পড়ে যাচ্ছিল।"</p>
+  <p>মনসুর আলী এখনো সকাল দশটায় শাটার তোলেন। দোকান এখনো চলে না। কিন্তু এখন তিনি দরজার দিকে মুখ করে বসেন।</p>
+  <p>লোকে জিজ্ঞেস করে, "চাচা, এখনো বসে থাকেন কেন?"</p>
+  <p>এখন তিনি উত্তর দেন।</p>
+  <p>বলেন, "অপেক্ষা করি। একশো একচল্লিশজন বাকি আছে।"</p>
+  <p class="endmark">✦</p>
+  <div class="tools">
+    <a href="#suchipotro">← সূচিপত্র</a>
+    <button type="button" class="copytext" data-copytext="l8">লেখা কপি করুন</button>
+  </div>
+</article>
+
+
+<article id="l9">
+  <div class="opener">
+    <p class="ch">IX</p>
+    <p class="kind-tag">গল্প</p>
+    <h3>দুপুরের দুই বাক্স</h3>
+    <p class="readtime">পড়তে ~১০ মিনিট</p>
+  </div>
+  <p>অফিসের ফ্রিজটা তিন তলার করিডোরের শেষ মাথায়। পুরোনো, একটা দরজা ঠিকমতো লাগে না, ভেতরে সবসময় একটা মিশ্র গন্ধ—কারও শুঁটকি, কারও আমের আচার, কারও ভুলে ফেলে যাওয়া দই।</p>
+  <p>সকাল নটার মধ্যে পনেরো-ষোলোটা টিফিন বাক্স ওখানে জমা হয়, আর দুপুর দেড়টায় একসঙ্গে বের হয়।</p>
+  <p>নাবিলার বাক্সটা স্টিলের, গোল, ঢাকনায় একটা টোল খাওয়া দাগ। বাক্সটা তার মায়ের—মা এখন রান্না করেন না, কোমরের ব্যথায় বেশিক্ষণ দাঁড়াতে পারেন না, তাই রান্নাটা এখন নাবিলাই করে। ভোর ছয়টায় উঠে। ভাত, একটা তরকারি, মাঝে মাঝে ডিম বা এক টুকরো মাছ।</p>
+  <p>ভোরে রান্না করা জিনিসটা অভ্যাস হয়ে গেলে আর কষ্ট লাগে না। কষ্ট লাগে অন্য জায়গায়—সাতটা দশের বাসটা ধরতে না পারলে, অথবা বৃষ্টির দিনে ব্যাগে বাক্সটা কাত হয়ে ঝোল পড়ে গেলে। নাবিলা আট বছর ধরে এই পথে যাতায়াত করছে, আর এই আট বছরে সে শিখেছে যে অফিসের দিনটা আসলে দুপুর দেড়টার ওই আধা ঘণ্টার জন্য কাটানো হয়।</p>
+  <p class="dinghy">✦</p>
+  <p>প্রথম দিন সে ভেবেছিল তার ভুল হয়েছে।</p>
+  <p>ভাত একটু কম লাগছিল। সে ভাবল, সকালে তাড়াহুড়োয় কম নিয়েছে হয়তো।</p>
+  <p>দ্বিতীয় দিন—বুধবার—বাক্সে দুই টুকরো মাছ দিয়েছিল, পেল এক টুকরো।</p>
+  <p>তৃতীয় দিন ভাতের ওপরটা এমনভাবে সমান করা ছিল, যেভাবে সে কোনোদিন করে না।</p>
+  <p>নাবিলার মেজাজ খারাপ হয়ে গেল। রাগটা খাবার নিয়ে নয়—খাবার সে কাউকে চাইলে এমনিতেই দিত। রাগটা এই জন্য যে কেউ তার জিনিসে হাত দিচ্ছে, আর সেটা লুকিয়ে।</p>
+  <p class="gap">দুপুরে সে পাশের সিটের রুনুকে বলল।</p>
+  <p>রুনু সঙ্গে সঙ্গে উত্তেজিত, "আমি জানতাম! আমার দইটাও তো গত সপ্তাহে—আপা, এটা নিশ্চিত ওই নতুন পিয়নটা।"</p>
+  <p>"প্রমাণ ছাড়া বলো না।"</p>
+  <p>"তাহলে ধরো। সিসিটিভি আছে তো করিডোরে।"</p>
+  <p>নাবিলা কিছু বলল না। অ্যাডমিনকে বলা মানে একটা লিখিত অভিযোগ, একটা তদন্ত, আর এই অফিসে কারও গায়ে একবার চোরের দাগ লাগলে সেটা আর ওঠে না।</p>
+  <p>সে ঠিক করল নিজেই দেখবে।</p>
+  <p class="dinghy">✦</p>
+  <p>বৃহস্পতিবার সে বাক্সে ভাত দিল স্বাভাবিকের চেয়ে একটু বেশি, আর ঢাকনা লাগানোর আগে ভাতের ওপর চামচ দিয়ে হালকা করে একটা দাগ টানল—সোজা একটা রেখা, মাঝবরাবর।</p>
+  <p>সাড়ে বারোটার দিকে সে উঠে করিডোরে গেল, ফ্রিজ থেকে একটু দূরে ফাইল ক্যাবিনেটের পেছনে দাঁড়িয়ে রইল। হাতে একটা ফাইল, যেন কাজে এসেছে।</p>
+  <p>বারোটা চল্লিশে ফ্রিজের দরজা খুলল।</p>
+  <p>মেয়েটার বয়স উনিশ-কুড়ি। স্যাম্পল সেকশনের নতুন ট্রেইনি—নাবিলা মুখ চেনে, নাম জানে না। সরু হাত, বড় একটা ওড়না দুবার পেঁচিয়ে পরা, পায়ে সস্তা স্যান্ডেল।</p>
+  <p>মেয়েটা নাবিলার বাক্সটা বের করল। একবার দুদিকে তাকাল। তারপর ঢাকনা খুলে, নিজের ব্যাগ থেকে একটা ছোট প্লাস্টিকের বাটি বের করে, খুব দ্রুত হাতে—কিন্তু খুব সাবধানে—এক মুঠো ভাত তুলে নিল। শুধু ভাত। তরকারিতে হাত দিল না।</p>
+  <p>তারপর চামচ দিয়ে ভাতের ওপরটা সমান করে দিল, ঢাকনা লাগাল, বাক্সটা আগের জায়গায় রাখল।</p>
+  <p>ঘুরে দাঁড়াতেই নাবিলাকে দেখল।</p>
+  <p class="dinghy">✦</p>
+  <p>মেয়েটার মুখ থেকে রক্ত নেমে গেল।</p>
+  <p>বাটিটা হাত থেকে পড়ে যায়নি, কিন্তু হাতটা কাঁপছিল। সে কিছু বলল না। নাবিলাও না।</p>
+  <p>দশ সেকেন্ড, হয়তো পনেরো।</p>
+  <p>তারপর মেয়েটা ফিসফিস করে বলল, "আপা, চাকরিটা…"</p>
+  <p>"তোমার নাম কী?"</p>
+  <p>"রুমি।"</p>
+  <p>"বাসা কই?"</p>
+  <p>"মোহরা।"</p>
+  <p>"কতদিন হলো জয়েন করেছ?"</p>
+  <p>"দুই মাস।" গলাটা ভেঙে আসছিল। "আপা, আমি আর কোনোদিন—"</p>
+  <p>"বেতন পেয়েছ?"</p>
+  <p>মেয়েটা থেমে গেল। তারপর মাথা নাড়ল। না।</p>
+  <p>নাবিলা জানত। ট্রেইনিদের প্রথম বেতন তিন মাস পরে একসঙ্গে দেওয়া হয়—এই নিয়মটা তার নিজের সময়েও ছিল, আট বছর আগে।</p>
+  <p>"দুপুরে কিছু খাও না?"</p>
+  <p>"মাঝে মাঝে।" রুমি মেঝের দিকে তাকিয়ে বলল, "বাসা থেকে আনি। কিন্তু আম্মার শরীরটা খারাপ, রান্না হয় না রোজ। আর…" সে থামল। "ভাত দিয়ে পেট ভরে, আপা। তরকারি লাগে না।"</p>
+  <p class="gap">নাবিলা অনেকক্ষণ কিছু বলল না।</p>
+  <p>আট বছর আগের একটা দুপুর তার মনে পড়ল—যখন সে নিজে নতুন, বেতন নেই, আর দুপুরে বাথরুমে গিয়ে কল থেকে পানি খেয়ে পেট ভরানোর চেষ্টা করত, যাতে কেউ জিজ্ঞেস না করে "তুমি খাচ্ছ না কেন?"</p>
+  <p>সে বলল, "বাটিটা রাখো।"</p>
+  <p>রুমি ভয়ে ভয়ে বাটিটা এগিয়ে দিল।</p>
+  <p>নাবিলা সেটা নিয়ে ফ্রিজ থেকে নিজের বাক্সটা বের করল, ঢাকনা খুলল, আর বাটিতে আরও দুই চামচ ভাত দিল। তারপর তরকারিটা—আলু দিয়ে মুরগি, সকালে রান্না—অর্ধেকটা ঢেলে দিল।</p>
+  <p>"খেয়ে নাও।"</p>
+  <p>"আপা, না—"</p>
+  <p>"ফ্রিজের সামনে দাঁড়িয়ে তর্ক কোরো না। কেউ এসে পড়বে।"</p>
+  <p class="dinghy">✦</p>
+  <p>পরদিন সকালে নাবিলা ভাত বসাল বেশি করে।</p>
+  <p>মা জিজ্ঞেস করলেন, "এত ভাত কেন?"</p>
+  <p>"অফিসে একজনকে দেব।"</p>
+  <p>"কে?"</p>
+  <p>"নতুন একটা মেয়ে।"</p>
+  <p>মা আর কিছু জিজ্ঞেস করলেন না, শুধু সকালের তরকারিতে দুটো আলু বেশি দিলেন।</p>
+  <p class="gap">নাবিলা সেদিন দুটো বাক্স নিয়ে গেল। দ্বিতীয়টা প্লাস্টিকের, পুরোনো।</p>
+  <p>দুপুরে রুমিকে ডেকে বলল, "এটা নাও।"</p>
+  <p>"আপা, আমি সত্যি—"</p>
+  <p>"আম্মা বেশি রেঁধে ফেলে," নাবিলা বলল, চোখ না তুলে। "ফেলে দিতে হয়। নষ্ট করার চেয়ে ভালো।"</p>
+  <p>এটা মিথ্যা, এবং দুজনেই জানত। কিন্তু মিথ্যাটা দরকার ছিল। সাহায্য জিনিসটা হাতে নেওয়া সহজ হয় না, যদি না তাকে অন্য কোনো নাম দেওয়া হয়।</p>
+  <p>রুমি বাক্সটা নিল। বলল, "ধন্যবাদ, আপা।" তারপর কিছুক্ষণ দাঁড়িয়ে থেকে যোগ করল, "আমি কাউকে বলিনি, আপনিও বলেননি—এইটার জন্য বেশি।"</p>
+  <p class="dinghy">✦</p>
+  <p>এরপর ব্যাপারটা একটা নিয়ম হয়ে গেল।</p>
+  <p>রোজ রাতে নাবিলা পরদিনের হিসাব করে রাখে—কতটুকু চাল ভেজাতে হবে, তরকারি কতটা। প্রথম মাসে বাজারের খরচ একটু বাড়ল, কিন্তু এত সামান্য যে হিসাবের খাতায় সেটা আলাদা করে চোখে পড়ে না। সে একদিন ভেবে দেখল—একটা মানুষের দুপুরের ভাত আসলে কত কম জিনিস। আমরা শুধু ভাবি অনেক।</p>
+  <p>রোজ সকালে নাবিলা দুটো বাক্স গোছায়। কোনোদিন খিচুড়ি, কোনোদিন ভাত-ডাল, শুক্রবারের পরদিন মাঝে মাঝে একটু গরুর মাংস। রুমি দুপুরে এসে চুপচাপ নিয়ে যায়, বিকেলে ধুয়ে ফেরত দেয়—এত পরিষ্কার করে ধোয়া যে বাক্সটা চকচক করে।</p>
+  <p>অফিসে কেউ জানল না। রুনু একদিন জিজ্ঞেস করেছিল, "আপা, ওই চোর ধরলেন?"</p>
+  <p>নাবিলা বলেছিল, "ওটা আমার ভুল ছিল। আমিই কম নিয়ে আসতাম।"</p>
+  <p>রুনু বিশ্বাস করেনি। দুই সপ্তাহ পর সে একদিন করিডোরে নাবিলাকে রুমির হাতে বাক্স দিতে দেখে ফেলল, আর দুপুরে এসে চোখ সরু করে বলল, "আপা, আপনি ওই মেয়েটাকে খাবার দেন কেন?"</p>
+  <p>"ও আমার দূরসম্পর্কের আত্মীয়।"</p>
+  <p>"আগে তো বলেননি।"</p>
+  <p>"তুমি তো জিজ্ঞেসও করোনি।"</p>
+  <p>রুনু আর ঘাঁটায়নি। মিথ্যা বলতে নাবিলার কোনোদিন ভালো লাগে না, কিন্তু সে ভেবে দেখেছে—সত্যি কথাটা বললে অফিসের পনেরো জন মানুষ রুমির দিকে একটা বিশেষ দৃষ্টিতে তাকাবে, আর ওই দৃষ্টিটা ক্ষুধার চেয়েও ভারী।</p>
+  <p class="gap">শীতের এক সকালে রুমি একটা ছোট কৌটা নিয়ে এল। ভেতরে নারকেলের নাড়ু।</p>
+  <p>"আম্মা বানিয়েছে, আপা। আপনার কথা বলেছি।"</p>
+  <p>"কী বলেছ?"</p>
+  <p>"বলেছি, অফিসে একজন আপা আছে যে আমার খেয়াল রাখে।" রুমি একটু হাসল। "আম্মা জিজ্ঞেস করেছে আপনি বিয়ে করেছেন কি না।"</p>
+  <p>নাবিলা হেসে ফেলল। "মায়েরা সব এক।"</p>
+  <p class="gap">তিন মাসের মাথায় রুমি প্রথম বেতন পেল।</p>
+  <p>সেদিন সে একটা প্যাকেট নিয়ে এল—ছোট্ট, কাগজে মোড়া। ভেতরে একটা স্টিলের টিফিন বাক্স, নতুন, গোল, একদম নাবিলার পুরোনোটার মতো।</p>
+  <p>"আপা, আপনারটার ঢাকনায় দাগ পড়ে গেছে।"</p>
+  <p>নাবিলা বাক্সটা হাতে নিয়ে বলল, "এটা তোমার প্রথম বেতন, রুমি। এভাবে খরচ করে না।"</p>
+  <p>"আপনিও তো করেছিলেন।"</p>
+  <p>কথাটার কোনো উত্তর ছিল না।</p>
+  <p class="dinghy">✦</p>
+  <p>দুই বছর পরের কথা।</p>
+  <p class="gap">রুমি চাকরিটা ছাড়ে পরের বছর। যেদিন রিজাইন দিল, সেদিন বিকেলে এসে নাবিলার টেবিলের পাশে দাঁড়িয়ে রইল কিছুক্ষণ।</p>
+  <p>"আপা, একটা কথা বলি? প্রথম দিন যখন আপনি আমাকে ধরে ফেললেন, আমি ভেবেছিলাম জীবনটা শেষ। মোহরা থেকে এখানে আসতে আশি টাকা লাগে, আপা। ওই চাকরিটা না থাকলে—"</p>
+  <p>"থাক।"</p>
+  <p>"না, শুনেন। আমি অনেক ভেবেছি, আপনি কেন অ্যাডমিনে বলেননি।"</p>
+  <p>নাবিলা কম্পিউটারের দিকে তাকিয়ে বলল, "কারণ আমি জানতাম তুমি তরকারিতে হাত দাওনি।"</p>
+  <p>রুমি বুঝল না। "তাতে কী?"</p>
+  <p>"যে মানুষ সত্যিই চুরি করে, সে ভালো জিনিসটা নেয়। তুমি শুধু ভাত নিয়েছিলে।" নাবিলা এবার তাকাল। "ওটা চুরি না, রুমি। ওটা ক্ষুধা।"</p>
+  <p>রুমি এখন আর এই অফিসে নেই—বড় একটা কোম্পানিতে, ভালো পদে। ঈদে ফোন করে, মাঝে মাঝে ছুটির দিনে দেখা করতে আসে।</p>
+  <p>গত মাসে এসে বলল, "আপা, আমাদের ওখানে একটা মেয়ে আছে। নতুন। আমি খেয়াল করেছি, ও দুপুরে খায় না।"</p>
+  <p>নাবিলা চায়ের কেটলি নামাতে নামাতে জিজ্ঞেস করল, "তারপর?"</p>
+  <p>"আমি এখন দুইটা বাক্স নিয়ে যাই।"</p>
+  <p>"ও নেয়?"</p>
+  <p>"প্রথম দিন নেয়নি। আমি বলেছি, আম্মা বেশি রেঁধে ফেলে—নষ্ট করার চেয়ে ভালো।"</p>
+  <p>নাবিলা হাসল।</p>
+  <p class="gap">মানুষ ভাবে উপকার জিনিসটা সোজা পথে চলে—যাকে দিই, সে ফেরত দেয়।</p>
+  <p>আসলে চলে না। উপকার সামনের দিকে হাঁটে, একজন থেকে আরেকজনে, আর ফিরে তাকায় না। আট বছর আগে যে আপা নাবিলার টেবিলে চুপচাপ একটা কলা আর দুটো বিস্কুট রেখে গিয়েছিলেন, তিনি আজ কোথায় আছেন নাবিলা জানে না। কোনোদিন ধন্যবাদও বলা হয়নি।</p>
+  <p>কিন্তু হিসাবটা মিলে যাচ্ছে। ভিন্ন একটা অফিসে, ভিন্ন একটা ফ্রিজের সামনে, একটা মেয়ে আজ দুপুরে খাচ্ছে।</p>
+  <p>আর সেই মেয়েটা একদিন হয়তো আরেকজনকে বলবে—"আম্মা বেশি রেঁধে ফেলে, নষ্ট করার চেয়ে ভালো।"</p>
+  <p>মিথ্যাটা এভাবেই চলতে থাকুক।</p>
+  <p class="endmark">✦</p>
+  <div class="tools">
+    <a href="#suchipotro">← সূচিপত্র</a>
+    <button type="button" class="copytext" data-copytext="l9">লেখা কপি করুন</button>
+  </div>
+</article>
+
+
+<article id="l10">
+  <div class="opener">
+    <p class="ch">X</p>
+    <p class="kind-tag">গদ্য</p>
+    <h3>একা থাকা আর একলা লাগা</h3>
+    <p class="readtime">পড়তে ~১০ মিনিট</p>
+  </div>
+  <p>বাংলায় দুটো আলাদা কথা আছে—"একা থাকা" আর "একলা লাগা"। শুনতে প্রায় এক, কিন্তু জিনিস দুটো সম্পূর্ণ আলাদা। আমরা গুলিয়ে ফেলি বলেই একা মানুষদের নিয়ে আমাদের ধারণাগুলো এত ভুল।</p>
+  <p>একা থাকা একটা অবস্থা। একলা লাগা একটা অনুভূতি।</p>
+  <p>এই পার্থক্যটা আমি বুঝেছিলাম এক শুক্রবার দুপুরে। ঘরে আমি একা, বাইরে রোদ, নিচে কারও বাসা থেকে রান্নার গন্ধ আসছে। আমার খারাপ লাগছিল না একটুও—বরং মনে হচ্ছিল দিনটা আমার নিজের। ঠিক সেই সময় এক আত্মীয়ের ফোন এল, আর তিনি কুড়ি মিনিট ধরে আমাকে বোঝালেন আমি কত কষ্টে আছি।</p>
+  <p>ফোনটা রাখার পর প্রথমবার আমার খারাপ লাগতে শুরু করল।</p>
+  <p>একলা লাগা জিনিসটা অনেক সময় বাইরে থেকে ধার করা। কেউ এসে আমাদের মনে করিয়ে দেয় যে আমাদের দুঃখ পাওয়া উচিত, আর আমরা বাধ্য ছেলেমেয়ের মতো দুঃখ পেতে শুরু করি।</p>
+  <p>একজন মানুষ একা থাকতে পারে অথচ তার একলা না-ও লাগতে পারে। আবার একজন মানুষ ভরা বাড়িতে, স্বামী-সন্তান-শাশুড়ির মাঝখানে বসে থেকেও এমনভাবে একলা বোধ করতে পারে যে রাতে বালিশে মুখ গুঁজতে হয়।</p>
+  <p>প্রথমটা নিয়ে সবাই কথা বলে। দ্বিতীয়টা নিয়ে কেউ বলে না, কারণ ওটা স্বীকার করা মানে কৃতঘ্ন হয়ে যাওয়া।</p>
+  <p class="dinghy">✦</p>
+  <p>একা থাকার কিছু সুবিধা আছে, যেগুলোর কথা ভদ্রতার খাতিরে আমরা জোরে বলি না।</p>
+  <p>ঘরটা ঠিক যেমন রেখে গিয়েছিলাম, ফিরে এসে তেমনই পাই। চুপ করে থাকতে চাইলে কাউকে কৈফিয়ত দিতে হয় না। রাত এগারোটায় ভাত খেতে ইচ্ছা না করলে মুড়ি খেয়ে শুয়ে পড়া যায়, আর কেউ জিজ্ঞেস করে না "এটা কোনো খাওয়া হলো?"</p>
+  <p>শুক্রবার দুপুরে জানালার পাশে বসে কিছু না করে দুই ঘণ্টা কাটিয়ে দেওয়া যায়। এই "কিছু না করা"র মূল্য যারা কোনোদিন একা থাকেনি, তারা বোঝে না। সারাজীবন মানুষের মাঝখানে থাকতে থাকতে অনেকের নিজের সঙ্গে দেখা হওয়ার সুযোগই হয় না।</p>
+  <p>একা থাকলে নিজের সঙ্গে দেখা হয়। রোজ হয়।</p>
+  <p>কাকে ফোন দিলে মন ভালো হয়, কোন গানটা বারবার শুনি, কোন স্মৃতিটা এড়িয়ে যাই—এসব ছোট তথ্য জমতে জমতে একটা মানুষের পুরো মানচিত্র তৈরি হয়ে যায়। সংসারে থাকলে এই মানচিত্রটা কখনো আঁকা হয় না, কারণ সেখানে প্রশ্নটা সবসময় "সবার জন্য কী ভালো", কখনো "আমার জন্য কী ভালো" নয়।</p>
+  <p>প্রথম প্রথম সেটা অস্বস্তিকর—যেভাবে আয়নার সামনে বেশিক্ষণ দাঁড়িয়ে থাকা অস্বস্তিকর। পরে অভ্যাস হয়ে যায়। আর তারপর একদিন টের পাওয়া যায়, নিজের সম্পর্কে এমন কিছু জানা হয়ে গেছে, যেটা ভিড়ের মধ্যে থাকলে কোনোদিন জানা হতো না।</p>
+  <p class="dinghy">✦</p>
+  <p>কিন্তু একা থাকার একটা দাম আছে, আর সেই দামটা বেশিরভাগ সময় রাতে এসে চাইতে আসে।</p>
+  <p>জ্বর হলে কেউ কপালে হাত রাখে না। ওষুধ নিজে উঠে গিয়ে খেতে হয়, পানি নিজে গরম করতে হয়, আর সবচেয়ে কঠিন—শরীর খারাপ লাগছে কি না, সেটা নিজেকেই বিচার করতে হয়। ডাক্তারের কাছে যাওয়ার মতো অবস্থা হয়েছে কি না, এই সিদ্ধান্তটা একা নেওয়া কঠিন।</p>
+  <p>রাতে ঘরে কোনো শব্দ হলে উঠে দেখতে হয়। ভয় লাগলেও দেখতে হয়, কারণ দ্বিতীয় কোনো মানুষ নেই যাকে বলা যায় "একটু দেখ তো।"</p>
+  <p>আর আছে সেই নির্দিষ্ট মুহূর্তটা—অফিস থেকে ফিরে দরজা খুলে ঢোকার মুহূর্ত। ঘরটা ঠিক যেমন রেখে গিয়েছিলাম, তেমনই আছে। সকালে তাড়াহুড়োয় বিছানার যে কোণটা ভাঁজ করা হয়নি, সেটা এখনো ভাঁজ করা হয়নি।</p>
+  <p>সুবিধাটা আর অসুবিধাটা একই জিনিস। শুধু দিনের কোন সময় সেটা ঘটছে, তার ওপর নির্ভর করে কোনটা মনে হবে।</p>
+  <p class="dinghy">✦</p>
+  <p>আমাদের সমাজে একা থাকা জিনিসটাকে একটা স্থায়ী অবস্থা হিসেবে কেউ ভাবে না। সবাই ভাবে এটা একটা অপেক্ষা-ঘর—যতক্ষণ না "আসল জীবন" শুরু হচ্ছে।</p>
+  <p>তাই প্রশ্নগুলো আসে। "এখনো একা? বয়স তো যাচ্ছে।" "ভাই-বোনের কাছে গিয়ে থাকো না কেন?" "রান্না করে কী হবে, একজন মানুষের জন্য!"</p>
+  <p>এই প্রশ্নগুলোর পেছনে বেশিরভাগ সময় নিষ্ঠুরতা থাকে না—থাকে উদ্বেগ, আর একটু কল্পনার অভাব। যে মানুষটা সারা জীবন ভরা সংসারে কাটিয়েছে, সে সত্যিই কল্পনা করতে পারে না যে কারও একা থাকাটা পছন্দ হতে পারে।</p>
+  <p>কিন্তু একটা জিনিস তারা ঠিক ধরে। একা থাকলে একটা ব্যাপার সত্যি সত্যি কঠিন হয়ে যায়—নিজেকে গুরুত্ব দেওয়া।</p>
+  <p>আমরা নিজের জন্য ভালো মাছটা রাঁধি না। নিজের জন্য টেবিলে সুন্দর করে খাবার সাজাই না, প্লেট হাতে নিয়ে ফোন দেখতে দেখতে খেয়ে ফেলি। নিজের জন্য নতুন চাদর কিনি না—"একাই তো থাকি, যা আছে চলবে।"</p>
+  <p>আর এভাবেই একা থাকাটা ধীরে ধীরে একলা লাগায় বদলে যায়। বাইরের কেউ কিছু করে না। আমরা নিজেরাই নিজেকে অতিথির মর্যাদাটুকু দিতে ভুলে যাই।</p>
+  <p class="gap">মেয়েদের ক্ষেত্রে এর সঙ্গে আরেকটা স্তর যোগ হয়।</p>
+  <p>বাসা ভাড়া নিতে গেলে প্রথম প্রশ্ন—"একা থাকবেন? পরিবার কই?" দারোয়ান দেরি করে ফেরার হিসাব রাখে। রাত দশটার পর দরজায় কড়া নাড়লে বুক ধক করে ওঠে। ঈদের ছুটিতে পুরো বিল্ডিং খালি হয়ে গেলে একটা অদ্ভুত নিস্তব্ধতা নামে, আর তখন সিঁড়িতে একটা শব্দ হলেই সারা রাত কান খাড়া থাকে।</p>
+  <p>এসব নিয়ে অভিযোগ করে লাভ নেই, কারণ এগুলো বদলাতে সময় লাগবে। কিন্তু একটা কথা মনে রাখা দরকার: এই ক্লান্তিটা একাকিত্বের নয়, সতর্ক থাকার। দুটোকে এক করে ফেললে মনে হয় একা থাকাটাই ভুল—অথচ ভুলটা অন্য জায়গায়।</p>
+  <p class="dinghy">✦</p>
+  <p>একলা লাগা জিনিসটার কিছু চিহ্ন আছে, যেগুলো মানুষ নিজের ক্ষেত্রে দেরিতে চিনতে পারে।</p>
+  <p>ফোনটা বারবার হাতে নেওয়া, যদিও কোনো নোটিফিকেশন নেই। একই তিনটা অ্যাপ ঘুরেফিরে খোলা। পুরোনো কথোপকথন পড়া।</p>
+  <p>অপ্রয়োজনে দোকানে যাওয়া—শুধু কারও সঙ্গে দুটো কথা বলার জন্য। দারোয়ান চাচার সঙ্গে আবহাওয়া নিয়ে পাঁচ মিনিট আলাপ, যেটা আসলে আবহাওয়া নিয়ে নয়।</p>
+  <p>ছুটির দিনগুলোকে ভয় পাওয়া। কর্মদিবসে একলা লাগার সময় থাকে না, কিন্তু শুক্রবার সকাল নয়টা থেকে রাত নয়টা পর্যন্ত বারো ঘণ্টা—ওটা একটা লম্বা পথ।</p>
+  <p>আর সবচেয়ে স্পষ্ট চিহ্ন: কেউ ফোন করলে অপ্রয়োজনে কথা লম্বা করা। যে মানুষ "আচ্ছা রাখি" বলতে বলতে আরও দশ মিনিট কথা বলে, সে আসলে ফোন রাখতে চাইছে না।</p>
+  <p class="dinghy">✦</p>
+  <p>এই জায়গাটায় মানুষ সাধারণত দুটো ভুল করে।</p>
+  <p>প্রথম ভুল—যে কাউকে জীবনে ঢুকিয়ে ফেলা, শুধু ঘরটা ফাঁকা লাগে বলে। একলা লাগা একটা কষ্ট, কিন্তু ভুল মানুষের পাশে থেকে একলা লাগা তার চেয়ে অনেক বড় কষ্ট। প্রথমটায় অন্তত আশা থাকে।</p>
+  <p>এই ভুলটা শুধু বিয়ের ক্ষেত্রে হয় না। বন্ধুত্বেও হয়, চাকরিতেও হয়। আমরা এমন একটা দলের সঙ্গে মিশে থাকি, যাদের সঙ্গে কথা বলে ফিরে এসে আরও খালি লাগে—শুধু এই ভয়ে যে না মিশলে কেউ থাকবে না। অথচ যে সঙ্গ ক্লান্ত করে, সেটা একাকিত্বের চেয়ে ভালো নয়; সেটা একাকিত্বের ভিড়-করা সংস্করণ।</p>
+  <p>দ্বিতীয় ভুল—উল্টো দিকে ছুটে যাওয়া। "আমার কাউকে লাগে না" বলে নিজেকে এমনভাবে গুটিয়ে নেওয়া যে একসময় সত্যিই কেউ আর ডাকে না। মানুষ অভিমানে দরজা বন্ধ করে, আর তারপর অভিযোগ করে যে কেউ নক করে না।</p>
+  <p class="gap">মাঝামাঝি একটা জায়গা আছে, এবং সেটা শেখা যায়।</p>
+  <p>যেমন, দিনের ভেতর দু-একটা ছোট আচার তৈরি করা। সকালে উঠে জানালা খুলে দেওয়া। নিজের জন্য ভালো করে রান্না করা—অন্তত সপ্তাহে একদিন, যেদিন প্লেট সাজিয়ে, বসে, ফোন না দেখে খাওয়া হবে। সন্ধ্যায় দশ মিনিট হাঁটা, একই পথে, যাতে কয়েকটা মুখ পরিচিত হয়ে যায়।</p>
+  <p>আর সবচেয়ে কাজের জিনিসটা হলো, এমন কিছু থাকা যেটার আমাকে দরকার। একটা গাছ, একটা বিড়াল, একটা কাজ যেটা আমি না করলে হবে না। যে মানুষটার ওপর কারও বা কিছুর নির্ভরতা আছে, সে সহজে তলিয়ে যায় না।</p>
+  <p>আমার ক্ষেত্রে সেটা লেখা। দিনের শেষে কয়েকটা লাইন, যেগুলো কেউ পড়বে কি না তার কোনো নিশ্চয়তা নেই। কিন্তু খাতাটা খোলা মানেই ঘরে একটা দ্বিতীয় উপস্থিতি।</p>
+  <p class="dinghy">✦</p>
+  <p>একটা কথা অবশ্য সৎভাবে বলা দরকার: এসব করলেই একলা লাগা পুরোপুরি চলে যায় না।</p>
+  <p>কোনো কোনো সন্ধ্যা আসবে—বিশেষ করে ঈদের আগের সন্ধ্যা, বা ভারী বৃষ্টির দিন—যখন সব নিয়ম, সব আচার, সব গাছপালা ব্যর্থ হবে। বুকের ভেতর একটা ফাঁকা জায়গা থাকবে, আর কিছু দিয়ে সেটা ভরবে না।</p>
+  <p>আমি এখন আর ওই সন্ধ্যাগুলোকে সারানোর চেষ্টা করি না। বসে থাকি। জানালা খুলে বৃষ্টি দেখি। ভেতরের কথাটা শুনি, যেটা বলে—তোমার কাউকে মনে পড়ছে।</p>
+  <p>কাউকে মনে পড়া কোনো দুর্বলতা নয়। ওটা প্রমাণ যে একসময় কাউকে ভালোবাসা হয়েছিল, কিংবা এখনো হচ্ছে।</p>
+  <p>আর একটা ব্যাপার খেয়াল করেছি: এই সন্ধ্যাগুলো যতটা ভয়ংকর মনে হয়, ততটা লম্বা নয়। রাত এগারোটার দিকে ভেতরটা আবার শান্ত হয়ে আসে। সকালে উঠে মনে হয়, কাল এত অস্থির লাগছিল কেন?</p>
+  <p>একলা লাগা জোয়ারের মতো—আসে, থাকে, নেমে যায়। যারা ভাবে এটা স্থায়ী, তারা ভাটার সময়টুকু পর্যন্ত অপেক্ষা করেনি।</p>
+  <p class="gap">একা থাকার আসল লক্ষ্য কখনোই এটা নয় যে কোনোদিন একলা লাগবে না।</p>
+  <p>লক্ষ্যটা হলো নিজের সঙ্গটাকে ভয় না পাওয়া। নিজের ঘরে ঢুকে স্বস্তি পাওয়া। নিজের জন্য দুপুরে ভাত বেড়ে নেওয়ার সময় মনে না হওয়া যে এটা শুধু একজনের জন্য বলে কম যত্ন করলেও চলে।</p>
+  <p>নিজেকে একজন মানুষের মর্যাদা দেওয়া—যতটা মর্যাদা আমরা অন্য যে কোনো অতিথিকে দিতাম।</p>
+  <p>যে এটুকু পারে, সে একা থাকতে পারে। আর যে পারে না, সে ভরা ঘরেও একলা থেকে যায়।</p>
+  <p class="endmark">✦</p>
+  <div class="tools">
+    <a href="#suchipotro">← সূচিপত্র</a>
+    <button type="button" class="copytext" data-copytext="l10">লেখা কপি করুন</button>
+  </div>
+</article>
+
+
+<article id="l11">
+  <div class="opener">
+    <p class="ch">XI</p>
+    <p class="kind-tag">টুকরো</p>
+    <h3>বারো মাসের জানালা</h3>
+    <p class="readtime">পড়তে ~১০ মিনিট</p>
+  </div>
+  <p>আমার ঘরের একটাই জানালা, আর সেটা দক্ষিণমুখী। সামনে একটা সরু গলি, গলির ওপারে চারতলা একটা বাড়ি, বাড়ির পাশে একটা কৃষ্ণচূড়া গাছ—যেটা আমার চেয়ে অনেক পুরোনো। পাঁচ বছর ধরে এই জানালার সামনে বসে আমি একই দৃশ্য দেখছি, আর প্রতি বছর আবিষ্কার করছি দৃশ্যটা একই নয়।</p>
+  <p>বারোটা মাস, একটা জানালা। যা দেখেছি, টুকরো করে লিখে রাখলাম।</p>
+  <div class="frag">
+    <p class="when">বৈশাখ</p>
+    <p>দুপুরে গলিটা সাদা হয়ে যায়—এত রোদ যে রং বলে কিছু থাকে না। বিকেল চারটার দিকে হঠাৎ আকাশের এক কোণ কালি হয়ে ওঠে, আর পুরো বিল্ডিং একসঙ্গে ছাদে দৌড়ায় কাপড় তুলতে।</p>
+    <p>কালবৈশাখীর আগের পাঁচ মিনিট পৃথিবীর সবচেয়ে ব্যস্ত সময়। তারপর ঝড় নামে, আর সবাই যে যার জানালায় দাঁড়িয়ে দেখে—যে গাছটা পড়বে না জেনেও আমরা প্রতিবার ভয় পাই।</p>
+    <p>ঝড়ের পর গলিটা অন্যরকম হয়ে যায়: ভাঙা ডাল, ছেঁড়া পলিথিন, কারও ছাদ থেকে উড়ে আসা একপাটি মোজা। বৈশাখ জিনিসটা এমনই—এক ঘণ্টায় সব এলোমেলো করে দিয়ে পরদিন সকালে এমন রোদ ওঠে যেন কিছুই হয়নি।</p>
+  </div>
+  <div class="frag">
+    <p class="when">জ্যৈষ্ঠ</p>
+    <p>আমওয়ালারা গলিতে ঢোকে। দরদাম চলে, আর ওপরের তলার খালা ঝুড়ি নামিয়ে দেন দড়ি বেঁধে—বাজার করতে নিচে নামার দরকার হয় না।</p>
+    <p>গরমে মানুষ কম কথা বলে। সিঁড়িতে দেখা হলে শুধু মাথা নাড়ে। এই মাসে সালাম-কালামও ঘামে ভিজে ছোট হয়ে যায়।</p>
+    <p>রাত এগারোটার পর সবাই বারান্দায় বেরিয়ে আসে—হাতপাখা, মোবাইল, কেউ কেউ শুধু দাঁড়িয়ে। কারেন্ট গেলে পুরো গলিটা একসঙ্গে জেগে ওঠে, আর অন্ধকারে প্রতিবেশীদের গলা শোনা যায় যাদের দিনের বেলা দেখাই হয় না।</p>
+  </div>
+  <div class="frag">
+    <p class="when">আষাঢ়</p>
+    <p>প্রথম বৃষ্টির দিনটা সবাই আলাদা করে মনে রাখে। জানালা খুলে দিলে মাটির গন্ধ ঢোকে, আর সেই গন্ধে প্রত্যেকবার মনে হয়—এইবার সব ঠিক হয়ে যাবে।</p>
+    <p>তিন দিন পর গলিতে পানি জমে। তখন আর কিছু ঠিক হয় না, শুধু রিকশাভাড়া দ্বিগুণ হয়।</p>
+    <p>নিচতলার মানুষগুলো ইট দিয়ে দরজার সামনে বাঁধ দেয়। প্রতি বছর একই ইট, একই জায়গায়। কেউ অভিযোগ করে না—শুধু বলে, "এইবার তাড়াতাড়ি আসছে।"</p>
+  </div>
+  <div class="frag">
+    <p class="when">শ্রাবণ</p>
+    <p>টানা বৃষ্টি। দুপুর আর সন্ধ্যার মধ্যে কোনো তফাত থাকে না। কাপড় শুকায় না, ঘরের ভেতর একটা স্যাঁতসেঁতে গন্ধ, দেয়ালের কোণে ছোট একটা দাগ ফিরে আসে—যেটা প্রতি বছর আসে, আর প্রতি বছর আমি ভাবি এবার রং করাব।</p>
+    <p>এই মাসে মানুষ বেশি ফোন করে। কারণ বৃষ্টির দিনে একা থাকলে কথা বলার লোক লাগে।</p>
+    <p>আর এই মাসেই সবচেয়ে ভালো ঘুম হয়। বৃষ্টির শব্দ একটা পর্দার মতো কাজ করে—বাইরের পৃথিবীটা ঢেকে দেয়, আর ভেতরের মানুষটাকে ছুটি দেয়।</p>
+  </div>
+  <div class="frag">
+    <p class="when">ভাদ্র</p>
+    <p>বৃষ্টি কমে, ভ্যাপসা গরম বাড়ে। কৃষ্ণচূড়ার পাতায় ধুলো জমতে শুরু করে।</p>
+    <p>গলির মোড়ের দোকানে নতুন খাতা আর কলম ঝোলে—স্কুলে কী একটা পরীক্ষা আসছে। মায়েরা ছেলেমেয়েদের নিয়ে যায়, আর ছেলেমেয়েরা সবচেয়ে দামি কলমটার দিকে তাকিয়ে থাকে, যেটা কেনা হবে না।</p>
+  </div>
+  <div class="frag">
+    <p class="when">আশ্বিন</p>
+    <p>আকাশ বদলে যায়। এই একটা মাস চট্টগ্রামের আকাশ এমন নীল হয় যে বিশ্বাস করতে কষ্ট হয় এটা সেই একই আকাশ।</p>
+    <p>দূরে কোথাও ঢাকের শব্দ। রাতে আলোর মালা, মাইকে গান। আমার জানালা থেকে কিছুই দেখা যায় না, শুধু শোনা যায়—আর শোনাটাই যথেষ্ট। উৎসব জিনিসটার অর্ধেক তো শব্দ।</p>
+    <p>উৎসবের দিনগুলোতে একা থাকা মানুষের একটা কৌশল আছে: বাইরের আনন্দটাকে নিজের ভাবতে শেখা। গলিতে বাচ্চারা নতুন জামা পরে ঘুরছে—ওদের আনন্দটা দেখে যে ভালো লাগে, সেটাও তো আমারই ভালো লাগা।</p>
+  </div>
+  <div class="frag">
+    <p class="when">কার্তিক</p>
+    <p>হঠাৎ করে সন্ধ্যা আগে নামতে শুরু করে। পাঁচটা বাজতেই আলো জ্বালাতে হয়, আর মনে হয় দিনটা কেউ চুরি করে নিয়ে গেল।</p>
+    <p>এই মাসে আমি বেশি লিখি। কারণ সন্ধ্যা লম্বা হলে ভেতরের কথাগুলো জায়গা পায়।</p>
+    <p>কার্তিকের একটা নিজস্ব বিষণ্নতা আছে, যেটার কোনো কারণ নেই। শুধু আলো কমে যায়, আর মন তার সঙ্গে তাল মেলায়। এটা জানা থাকলে ভয় লাগে না—আমি এখন বুঝি, এটা আমি নই, এটা মাসটা।</p>
+  </div>
+  <div class="frag">
+    <p class="when">অগ্রহায়ণ</p>
+    <p>নতুন চালের ভাতের গন্ধ। খালার বাসা থেকে পিঠা আসে, আর আমি প্লেট ফেরত দিতে দেরি করি—এটা একটা অলিখিত নিয়ম, খালি প্লেট ফেরত দিতে নেই।</p>
+    <p>সকালে জানালার কাচে প্রথম হালকা ঘোলা ভাব। শীত আসছে, কিন্তু এখনো বলে না।</p>
+  </div>
+  <div class="frag">
+    <p class="when">পৌষ</p>
+    <p>ভোরে গলিটা ফাঁকা থাকে বেশিক্ষণ। দারোয়ান চাচা চাদর মুড়ি দিয়ে বসে থাকেন, আর সাতটার আগে কেউ বের হয় না।</p>
+    <p>বারান্দায় লেপ-কাঁথা রোদে দেওয়া হয়। এই দৃশ্যটা আমার খুব প্রিয়—পুরো বিল্ডিংয়ের রঙিন কাঁথাগুলো একসঙ্গে ঝুলে থাকে, আর বাড়িটাকে হঠাৎ অনেক বেশি জীবন্ত লাগে।</p>
+    <p>কোন কাঁথা কার, সেটা দেখেই বোঝা যায় কোন ঘরে কত বছরের সংসার। নতুন সংসারে কম্বল থাকে; পুরোনো সংসারে থাকে কাঁথা, যেটার প্রতিটা সেলাই কারও হাতের।</p>
+  </div>
+  <div class="frag">
+    <p class="when">মাঘ</p>
+    <p>এই শহরে শীত বেশি দিন থাকে না, তাই যে কদিন থাকে সবাই একটু বাড়িয়ে উপভোগ করে। সোয়েটার বের হয়, যেটার দরকার আসলে নেই।</p>
+    <p>রাতে কম্বলের নিচে ঢুকে মনে হয়, শরীরটা এতদিন ক্লান্ত ছিল, কেউ খেয়াল করেনি। শীত মানুষকে বিশ্রাম নেওয়ার অজুহাত দেয়।</p>
+    <p>ভোরে গলির মোড়ে ভাপা পিঠার দোকান বসে। ধোঁয়া ওঠে, মানুষ দাঁড়িয়ে অপেক্ষা করে। এই শহরে শীতের প্রমাণ থার্মোমিটারে নেই, ওই ধোঁয়াটায়।</p>
+  </div>
+  <div class="frag">
+    <p class="when">ফাল্গুন</p>
+    <p>কৃষ্ণচূড়া গাছটা প্রথমে খালি হয়ে যায়। পুরোনো পাতা ঝরে, কয়েক সপ্তাহ গাছটাকে মরা মনে হয়।</p>
+    <p>মানুষ দেখে বলে, "গাছটা গেছে।" আমি জানি যায়নি। পাঁচ বছর ধরে দেখছি—প্রতি বছর এই মাসে ওটা সব ছেড়ে দেয়, আর প্রতি বছর ফিরে আসে।</p>
+    <p>কিছু জিনিস ফিরে আসার আগে সম্পূর্ণ খালি হতে হয়।</p>
+  </div>
+  <div class="frag">
+    <p class="when">চৈত্র</p>
+    <p>গরম ফিরে আসে, আর গাছে লাল আসে। প্রথমে দু-একটা, তারপর একদিন সকালে উঠে দেখি পুরো ডালটা জ্বলছে।</p>
+    <p>নিচে গলিতে বাচ্চারা ফুল কুড়ায়। একটা মেয়ে প্রতিবছর ফুল দিয়ে চুল সাজায়—প্রতি বছর সে একটু করে বড় হয়, আর একদিন নিশ্চয়ই আর কুড়াবে না।</p>
+    <p>চৈত্রের শেষ দিকটা অদ্ভুত। বছরটা ফুরিয়ে আসছে, অথচ গাছটা তখনই সবচেয়ে সুন্দর। শেষ হওয়া আর ফুটে ওঠা যে একই সময়ে ঘটতে পারে, এটা আমি এই গাছের কাছ থেকে শিখেছি।</p>
+  </div>
+  <p class="gap">তবে ঋতু ছাড়াও এই জানালা দিয়ে আরও কিছু দেখা যায়—যেগুলো বছরে একবার আসে না, জীবনে একবার আসে।</p>
+  <div class="frag">
+    <p class="when">একটা বিয়ে</p>
+    <p>ওপারের বাড়ির দোতলায় গত বছর বিয়ে হলো। তিন দিন ধরে আলোর মালা জ্বলল, গলিতে গাড়ি ঢুকল, হলুদের দিন ছাদে মাইক বাজল।</p>
+    <p>মেয়েটা চলে যাওয়ার পর দোতলার জানালাটা অনেক দিন বন্ধ ছিল। একদিন খুলল—এক ভদ্রমহিলা দাঁড়িয়ে ছিলেন, কিছু করছিলেন না। মায়েরা মেয়ে বিদায়ের পর ওভাবেই দাঁড়িয়ে থাকেন।</p>
+  </div>
+  <div class="frag">
+    <p class="when">একটা সাইকেল</p>
+    <p>গলির ছেলেটা সাইকেল চালানো শিখল গত শীতে। প্রথম সপ্তাহে ওর বাবা পেছনে ধরে দৌড়াতেন। দ্বিতীয় সপ্তাহে ধরতেন, কিন্তু দৌড়াতেন না। তৃতীয় সপ্তাহে শুধু দাঁড়িয়ে দেখতেন।</p>
+    <p>বড় হওয়ার পুরো ব্যাপারটা ওই তিন সপ্তাহে ধরা আছে। কেউ একজন ধরে রাখে, তারপর আলগা করে, তারপর শুধু দাঁড়িয়ে দেখে।</p>
+  </div>
+  <div class="frag">
+    <p class="when">একটা অ্যাম্বুলেন্স</p>
+    <p>রাত দুটোয় গলিতে আলো ঘুরতে থাকে, কিন্তু সাইরেন বাজে না—রাতে ওরা সাইরেন বাজায় না। সবাই জানালায় এসে দাঁড়ায়, কেউ কিছু জিজ্ঞেস করে না।</p>
+    <p>পরদিন সকালে জানা যায় কে। তারপর কয়েক দিন গলিটা একটু চুপচাপ থাকে, মানুষ একটু বেশি সালাম দেয়, একটু বেশি খোঁজ নেয়।</p>
+    <p>এই ভদ্রতাটা এক সপ্তাহ টেকে। তারপর সবাই আবার আগের মতো ব্যস্ত হয়ে যায়, এবং সেটাও ঠিক আছে—এভাবেই মানুষ বাঁচে।</p>
+  </div>
+  <div class="frag">
+    <p class="when">একটা ট্রাক</p>
+    <p>কেউ বাসা বদলালে গলিতে ট্রাক আসে, আর পুরো সংসারটা সিঁড়ি দিয়ে নামতে থাকে—খাট, আলমারি, ফ্রিজ, বালতি, একটা প্লাস্টিকের চেয়ার।</p>
+    <p>সবশেষে নামে ঝাড়ু আর ছোট একটা টব। জানালা থেকে দেখলে মনে হয়, একটা পরিবারের সবকিছু আসলে একটা ট্রাকেই ধরে যায়।</p>
+  </div>
+  <div class="frag">
+    <p class="when">একটা রং</p>
+    <p>দুই বছর আগে ওপারের বাড়িটা রং করা হলো—ফ্যাকাশে হলুদ থেকে গাঢ় গোলাপি। প্রথম এক মাস আমার চোখে লাগত; মনে হতো পুরোনো দৃশ্যটা কেউ নষ্ট করে দিল।</p>
+    <p>এখন আর মনে পড়ে না আগে কী রং ছিল। চোখ সব কিছুতে অভ্যস্ত হয়ে যায়—এটাই আমাদের সবচেয়ে বড় রক্ষাকবচ, আবার সবচেয়ে বড় দুর্বলতা।</p>
+  </div>
+  <div class="frag">
+    <p class="when">একটা বিড়াল</p>
+    <p>গলির হলুদ বিড়ালটা তিন বছর ধরে আছে। কারও না, সবার। একেক বাসা একেক নাম দিয়েছে।</p>
+    <p>গত বর্ষায় ওর একটা পা খোঁড়া হলো। এখনো আসে, একটু ধীরে। নিচতলার খালা দরজার পাশে একটা বাটি রেখে দেন।</p>
+    <p>কেউ দায়িত্ব নেয়নি, তবু বিড়ালটা বেঁচে আছে। পাড়া জিনিসটা বোধহয় এটাই—যেখানে কারও দায়িত্ব না হয়েও কিছু একটা টিকে যায়।</p>
+  </div>
+  <p class="gap">বারো মাস ঘুরে এলে একটা জিনিস স্পষ্ট হয়: দৃশ্যটা বদলায় না, চোখটা বদলায়।</p>
+  <p>যে বছর মন ভালো ছিল, সেই বছরের বর্ষাকে মনে হয়েছিল সুন্দর। যে বছর ভেতরটা এলোমেলো ছিল, সেই বছর একই বৃষ্টিকে মনে হয়েছিল অসহ্য। গাছটা কিছুই জানে না—সে শুধু ঝরায় আর ফোটায়।</p>
+  <p>আর এটাই বোধহয় জানালার সবচেয়ে বড় শিক্ষা। পৃথিবী আমাদের মেজাজ অনুযায়ী চলে না, কিন্তু আমাদের মেজাজ পাল্টানোর জন্য অপেক্ষাও করে না। রোদ উঠবেই, বৃষ্টি নামবেই, ফুল ফুটবেই—আমরা দেখি বা না দেখি।</p>
+  <p>তাই যেদিন কিছুই ভালো লাগে না, আমি জানালাটা খুলে দিই। কোনো সমাধান পাই না। শুধু মনে পড়ে যায় যে বাইরে একটা আস্ত ঋতু চলছে, আর সেটা আমার অনুমতির অপেক্ষা করছে না।</p>
+  <p>এটুকু মনে পড়াই অনেক সময় যথেষ্ট।</p>
+  <p>কেউ যদি জিজ্ঞেস করে পাঁচ বছরে এই জানালা দিয়ে কী শিখলাম, আমি বলব—অপেক্ষা করতে। গাছটা ফাল্গুনে খালি হয়, চৈত্রে জ্বলে ওঠে, আর মাঝের সময়টায় কিছুই করে না, শুধু দাঁড়িয়ে থাকে।</p>
+  <p>আমরা মানুষরাই কেবল মাঝের সময়টাকে ব্যর্থতা মনে করি।</p>
+  <p class="endmark">✦</p>
+  <div class="tools">
+    <a href="#suchipotro">← সূচিপত্র</a>
+    <button type="button" class="copytext" data-copytext="l11">লেখা কপি করুন</button>
+  </div>
+</article>
+
+
+<article id="l12">
+  <div class="opener">
+    <p class="ch">XII</p>
+    <p class="kind-tag">গল্প</p>
+    <h3>রঙের ভুল</h3>
+    <p class="readtime">পড়তে ~১০ মিনিট</p>
+  </div>
+  <p>সন্ধ্যা সাতটায় শিরীন আপা টেবিলের ওপর ছাপানো প্যানেলটা মেলে ধরলেন, আর তিন সেকেন্ডের মধ্যে বুঝে গেলেন রাতটা দীর্ঘ হতে যাচ্ছে।</p>
+  <p>রংটা ভুল।</p>
+  <p>খুব বেশি নয়—চোখে প্রথমে ধরাও পড়ে না। বায়ারের দেওয়া শেডকার্ডে যে লাল, সেটা একটু গভীর, ইটের দিকে ঘেঁষা। আর টেবিলের ওপর যেটা শুকাচ্ছে, সেটা একটু উজ্জ্বল, কমলার দিকে এক পা এগিয়ে।</p>
+  <p>পাশাপাশি না রাখলে কেউ ধরতে পারবে না।</p>
+  <p>কিন্তু কাল সকাল দশটায় যিনি আসবেন, তিনি পাশাপাশিই রাখবেন। কিউসি ইন্সপেকশনের লোকেরা শেডকার্ড হাতে নিয়েই ঢোকে।</p>
+  <p class="dinghy">✦</p>
+  <p>প্রিন্টিং সেকশনটা কারখানার পেছন দিকে—লম্বা একটা ঘর, ছাদে টিউবলাইট, বাতাসে থিনারের গন্ধ, আর একটানা ড্রায়ারের শব্দ। শিরীন আপা এখানে আছেন নয় বছর।</p>
+  <p>এই নয় বছরে তিনি শিখেছেন, প্রিন্টিং লাইনের বিপদটা মেশিনে নয়, মানুষের চোখে। মেশিন যা শেখানো হয় তাই করে। চোখ ক্লান্ত হলে মিথ্যা বলে।</p>
+  <p>তিনি আরও শিখেছেন, এই ঘরে ভুল ধরা পড়ে দেরিতে—কারণ রং শুকাতে সময় লাগে, আর যতক্ষণে শুকায়, ততক্ষণে লাইন অনেক দূর এগিয়ে গেছে।</p>
+  <p>তিনি ট্রের দিকে তাকালেন। মেশানো রং, প্রায় শেষ। পাশে প্যানেলের স্তূপ।</p>
+  <p>"কয়টা হইছে?"</p>
+  <p>লাইনম্যান বাবুল ভাই খাতা দেখে বললেন, "বারোশো সাতাশি।"</p>
+  <p>শিরীন আপা চোখ বন্ধ করলেন এক মুহূর্ত।</p>
+  <p>"কে মিশাইছে?"</p>
+  <p>ঘরটা চুপ হয়ে গেল। ড্রায়ারের শব্দটা হঠাৎ অনেক জোরে শোনা যেতে লাগল।</p>
+  <p>কোণার দিক থেকে একটা ছেলে এগিয়ে এল। বয়স উনিশ-কুড়ি, হাতে এখনো লাল দাগ, গলায় তোয়ালে। নাম জসিম, কাজে ঢুকেছে চল্লিশ দিন।</p>
+  <p>"আমি, আপা।"</p>
+  <p class="dinghy">✦</p>
+  <p>নিয়ম খুব সহজ। রং মেশানোর পর একটা স্যাম্পল প্যানেলে ছেপে, শুকিয়ে, শেডকার্ডের সঙ্গে মিলিয়ে, সুপারভাইজারকে দেখিয়ে তবে লাইন চালু হবে।</p>
+  <p>জসিম মিশিয়েছে, ছেপেছে, কিন্তু শুকানোর আগেই মিলিয়ে দেখেছে। ভেজা অবস্থায় প্লাস্টিসল রং সবসময় একটু গভীর দেখায়। শুকালে হালকা হয়ে যায়।</p>
+  <p>চল্লিশ দিনের একটা ছেলের পক্ষে এটা না জানা অস্বাভাবিক নয়। শিরীন আপা নিজেও প্রথম বছরে এই ভুলটা করেছিলেন—তখন তাঁর সুপারভাইজার ছিলেন মোস্তফা ভাই, যিনি দুটো কথা শুনিয়ে দিয়ে, তারপর সারারাত পাশে দাঁড়িয়ে কাজটা ঠিক করিয়েছিলেন।</p>
+  <p>"আপা…" জসিমের গলা কাঁপছিল। "আপা, আমি স্যাম্পল দেখাইছিলাম—"</p>
+  <p>"ভেজা স্যাম্পল দেখাইছিলা।"</p>
+  <p>ছেলেটা চুপ করে গেল।</p>
+  <p>"কাকে দেখাইছিলা?"</p>
+  <p>"বাবুল ভাইরে।"</p>
+  <p>বাবুল ভাই সঙ্গে সঙ্গে বললেন, "আমি তো তখন ফ্রেম ওয়াশে ছিলাম, আপা! আমি ভালো কইরা দেখি নাই—"</p>
+  <p>"থামেন।" শিরীন আপা হাত তুললেন। "এখন কে দেখছে, কে দেখে নাই—এইটা নিয়া কথা বললে সকাল হইয়া যাইব।"</p>
+  <p>তিনি ঘড়ির দিকে তাকালেন। সাতটা বিশ।</p>
+  <p>ঘরের আটজন মানুষ তাঁর দিকে তাকিয়ে আছে। এরা সবাই জানে এখন দুটো রাস্তা—একটায় একজন মানুষের চাকরি যায়, আরেকটায় আটজনের ঘুম।</p>
+  <p>কেউ মুখ খুলছে না, কারণ সিদ্ধান্তটা তাদের নয়। কিন্তু চোখগুলো অপেক্ষা করছে, আর শিরীন আপা জানেন—আজ রাতে তিনি যা করবেন, সেটাই আগামী দুই বছর এই ঘরের নিয়ম হয়ে থাকবে।</p>
+  <p class="dinghy">✦</p>
+  <p>হিসাবটা তিনি মাথায় করে ফেললেন।</p>
+  <p>বারোশো প্যানেল আবার ছাপতে হলে নতুন কাপড় লাগবে—নেই। যা আছে তা দিয়ে হবে না।</p>
+  <p>দ্বিতীয় পথ: ছাপা প্যানেলগুলোর ওপরেই সঠিক শেডে আরেকবার ছাপ দেওয়া। রং চাপা পড়ে ঠিক শেড আসবে, যদি রেজিস্ট্রেশন—মানে ছাপের জায়গাটা—চুলের মতো নিখুঁত হয়। এক মিলিমিটার এদিক-ওদিক হলেই ডাবল ইমেজ, আর তখন পুরোটাই নষ্ট।</p>
+  <p>সারারাত লাগবে। আটজন লোক লাগবে।</p>
+  <p>তৃতীয় পথ: ম্যানেজারকে এখনই জানানো। তিনি জানাবেন ওপরে। লট রিজেক্ট হবে, কারণ দেখিয়ে রিপোর্ট হবে, আর রিপোর্টে একটা নাম বসবে।</p>
+  <p>শিরীন আপা জানেন সেই নামটা বসলে কী হয়। চল্লিশ দিনের একটা ছেলে—প্রবেশনে। ক্ষতির অঙ্কটা তার দুই বছরের বেতনের সমান।</p>
+  <p class="gap">তিনি জসিমের দিকে তাকালেন।</p>
+  <p>"বাসায় কে কে আছে?"</p>
+  <p>"আম্মা। দুই বোন।"</p>
+  <p>"আব্বা?"</p>
+  <p>"নাই।"</p>
+  <p>তিনি আর কিছু জিজ্ঞেস করলেন না। এই কারখানার অর্ধেক ছেলেমেয়ের উত্তর একই।</p>
+  <p class="dinghy">✦</p>
+  <p>সাতটা পঁয়তাল্লিশে তিনি বাবুল ভাইকে বললেন, "নতুন রং মিশান। আমি দেখব, শুকায়া দেখব। আর যারা নাইটে আছে, সবাইরে ডাকেন।"</p>
+  <p>"আপা, ওভারটাইম অ্যাপ্রুভাল…"</p>
+  <p>"কাল সকালে নিব। আমার নামে লিখেন।"</p>
+  <p>বাবুল ভাই একটু ইতস্তত করে বললেন, "আর ম্যানেজার স্যার?"</p>
+  <p>"স্যার সকাল আটটায় আসেন। আমরা তার আগে শেষ করব।"</p>
+  <p class="gap">রাত নটায় প্রথম ঠিক শেডটা এল। শিরীন আপা নিজে প্যানেলটা ড্রায়ারে দিলেন, বের করলেন, ঠান্ডা হতে দিলেন, তারপর শেডকার্ডের পাশে রেখে টিউবলাইটের নিচে ধরলেন।</p>
+  <p>মিলে গেছে।</p>
+  <p>"চালান।"</p>
+  <p class="dinghy">✦</p>
+  <p>প্রথম দুইশো প্যানেলে সব ঠিকঠাক চলল। দুইশো এক নম্বরে একটা প্যানেল নষ্ট হলো—ফ্রেম এক চুল সরে গিয়ে ডাবল ছাপ।</p>
+  <p>বাবুল ভাই ফ্রেমটা ঠিক করলেন, আর শিরীন আপা নষ্ট প্যানেলটা আলাদা করে রাখলেন। "এইটা গুনায় ধরেন। শেষে মিলাইতে হইব।"</p>
+  <p>সারারাতে এমন নষ্ট হলো মোট নয়টা। বারোশো সাতাশির মধ্যে নয়টা—গ্রহণযোগ্য।</p>
+  <p class="gap">রাত এগারোটায় হাত ধরে এল।</p>
+  <p>স্ক্রিন প্রিন্টে একটা ছাপ মানে স্কুইজি দিয়ে সমান চাপে একবার টান। বারোশো বার। চাপ কমে গেলে রং বসে না, বেশি হলে ছড়িয়ে যায়।</p>
+  <p>দুটোর দিকে একজন বলল, "আপা, হাত আর চলে না।"</p>
+  <p>শিরীন আপা নিজে স্কুইজি হাতে নিলেন। নয় বছর আগে তিনি এই কাজটাই করতেন—সারাদিন দাঁড়িয়ে, একই টান।</p>
+  <p>তিনি একশোটা প্যানেল ছাপলেন। তারপর হাত ছেড়ে দিয়ে বললেন, "এইবার তোমরা।"</p>
+  <p>কেউ কিছু বলল না, কিন্তু গতি বেড়ে গেল। সুপারভাইজার নিজে স্কুইজি ধরলে একটা ঘরের ভেতরের বাতাস বদলে যায়।</p>
+  <p class="gap">রাত আড়াইটায় চা এল—ক্যান্টিনের লোক ঘুমিয়ে ছিল, বাবুল ভাই গিয়ে তুলে এনেছেন।</p>
+  <p>আটজন মানুষ মেঝেতে বসে পাঁচ মিনিট বিশ্রাম নিল। কেউ কাজের কথা বলল না। একজন বলল তার মেয়ের এবার বৃত্তি পরীক্ষা; আরেকজন বলল বাড়িওয়ালা ভাড়া বাড়াইতে চায়।</p>
+  <p>রাতের শিফটের এই কথাগুলো দিনের বেলায় হয় না। দিনে সবাই শুধু পদবি—লাইনম্যান, হেল্পার, সুপারভাইজার। রাত তিনটায় সবাই আবার মানুষ হয়ে যায়।</p>
+  <p>জসিম সারারাত একটাও কথা বলেনি। সে শুধু প্যানেল এগিয়ে দিচ্ছিল, ড্রায়ারে তুলছিল, নামাচ্ছিল। চারটার দিকে শিরীন আপা দেখলেন ছেলেটার চোখ লাল, আর সে হাতের উল্টো পিঠ দিয়ে বারবার চোখ মুছছে।</p>
+  <p>তিনি কাছে গিয়ে চাপা গলায় বললেন, "ছাপার সময় চোখ মুছবা না। হাতে রং।"</p>
+  <p>জসিম মাথা নাড়ল।</p>
+  <p>"আর কান্দনের কিছু হয় নাই। ভুল সবাই করে। যে ভুল রাতের মধ্যে ঠিক করা যায়, ওইটা ভুলই না—ওইটা কাজ।"</p>
+  <p class="dinghy">✦</p>
+  <p>ভোর চারটার দিকে বিদ্যুৎ এক মিনিটের জন্য চলে গেল।</p>
+  <p>জেনারেটর চালু হতে চল্লিশ সেকেন্ড লাগে। ওই চল্লিশ সেকেন্ড পুরো ঘর অন্ধকার, শুধু দরজার বাইরে উঠোনের আলো। কেউ নড়ল না, কারণ হাতে রং।</p>
+  <p>অন্ধকারে বাবুল ভাই বললেন, "আপা, মোস্তফা ভাইয়ের কথা মনে আছে? ২০১৬ সালে ওই নেভি ব্লু লটটা?"</p>
+  <p>"মনে আছে।"</p>
+  <p>"ওই রাতেও আপনে ছিলেন।"</p>
+  <p>"আমি তখন আপনার জায়গায় ছিলাম," শিরীন আপা বললেন। "আর ভুলটা আমার ছিল।"</p>
+  <p>অন্ধকারে কেউ কিছু বলল না, কিন্তু কোণার দিক থেকে জসিমের নড়াচড়ার শব্দ থেমে গেল। সে শুনেছে।</p>
+  <p class="gap">শেষ প্যানেলটা ড্রায়ার থেকে বের হলো ভোর পাঁচটা চল্লিশে।</p>
+  <p>বাইরে তখন আলো ফুটছে। প্রিন্টিং সেকশনের দরজা দিয়ে দেখা যাচ্ছিল কারখানার উঠোন, ধুয়ে রাখা স্ক্রিনগুলো দেয়ালে হেলান দেওয়া, আর দূরে মেইন গেটে ডে-শিফটের প্রথম লোকজন ঢুকছে।</p>
+  <p>আটজন মানুষ মেঝেতেই বসে পড়ল।</p>
+  <p class="gap">ম্যানেজার সাহেব এলেন আটটা দশে। রেজিস্টারে ওভারটাইমের এন্ট্রি দেখে ভুরু কুঁচকালেন।</p>
+  <p>"রাতে কী হইছিল, শিরীন?"</p>
+  <p>"শেড মিসম্যাচ ছিল, স্যার। ঠিক করা হইছে।"</p>
+  <p>"কার ভুল?"</p>
+  <p>শিরীন আপা এক সেকেন্ড সময় নিলেন।</p>
+  <p>"স্যাম্পল অ্যাপ্রুভাল আমার দায়িত্ব, স্যার।"</p>
+  <p>ম্যানেজার সাহেব তাঁর দিকে তাকিয়ে রইলেন কিছুক্ষণ। তিনি পঁচিশ বছর এই লাইনে আছেন; কোন উত্তরের পেছনে কী থাকে, বোঝেন।</p>
+  <p>তারপর শুধু বললেন, "ওভারটাইমের কাগজটা দুপুরের আগে পাঠায়া দিয়েন।"</p>
+  <p>আর কিছু জিজ্ঞেস করলেন না।</p>
+  <p>দরজা পর্যন্ত গিয়ে তিনি ঘুরে দাঁড়ালেন। "শিরীন, নতুন ছেলেগুলারে শেড চেকের ট্রেনিংটা একটু লিখিত কইরা দিয়েন। দেয়ালে টাঙায়া রাখব।"</p>
+  <p>"জি স্যার।"</p>
+  <p class="dinghy">✦</p>
+  <p>কিউসি এল দশটা পঁচিশে। শেডকার্ড পাশে রেখে, আলোর নিচে ধরে, বারোটা প্যানেল র‌্যান্ডম চেক করলেন।</p>
+  <p>লট পাস।</p>
+  <p>কিউসির লোকটা বের হওয়ার সময় বললেন, "শেডটা ভালো আসছে। আগের লটের চাইতে ভালো।"</p>
+  <p>শিরীন আপা শুধু বললেন, "ধন্যবাদ, স্যার।"</p>
+  <p>পেছনে দাঁড়িয়ে জসিম শুনল। সে কিছু বলল না, কিন্তু সেদিন সারাদিন তার মুখটা অন্যরকম ছিল—যেভাবে মানুষ তাকায় যখন সে সদ্য বুঝেছে, তাকে ফেলে দেওয়া হয়নি।</p>
+  <p class="gap">দুপুরে শিরীন আপা জসিমকে ডাকলেন।</p>
+  <p>ছেলেটা এল মাথা নিচু করে। সে ধরেই নিয়েছে আজ তাকে বিদায় করা হবে।</p>
+  <p>শিরীন আপা তার হাতে একটা পরিষ্কার সাদা প্যানেল আর শেডকার্ডটা ধরিয়ে দিয়ে বললেন, "বলো তো, ভেজা আর শুকনা রঙের পার্থক্য কত?"</p>
+  <p>"দুই-তিন শেড হালকা হয়, আপা।"</p>
+  <p>"আর?"</p>
+  <p>"আর… টিউবলাইটের নিচে না, জানালার আলোতে মিলায়া দেখতে হয়।"</p>
+  <p>"কে বলছে?"</p>
+  <p>"রাতে বাবুল ভাই বলছে।"</p>
+  <p>শিরীন আপা মাথা নাড়লেন। "ঠিক আছে। এখন থেকে রং মিশানোর পর দুইটা কাজ করবা—শুকাইবা, তারপর জানালার পাশে নিয়া মিলাইবা। দুইবার দেখবা, একবার ছাপবা। মনে থাকব?"</p>
+  <p>"জি, আপা।"</p>
+  <p class="dinghy">✦</p>
+  <p>তিন বছর পরের কথা।</p>
+  <p>জসিম এখন লাইনম্যান। তার নিচে চারজন নতুন ছেলে।</p>
+  <p>গত সপ্তাহে একটা ছেলে ভেজা স্যাম্পল নিয়ে তার কাছে গিয়েছিল। জসিম প্যানেলটা হাতে নিয়ে দেখল, তারপর ছেলেটাকে বলল, "শুকাও। তারপর জানালার পাশে আসো।"</p>
+  <p>ছেলেটা বলল, "ভাই, মিলছে তো!"</p>
+  <p>"শুকাইলে হালকা হইব।" জসিম স্কুইজিটা নামিয়ে রাখল। "দুইবার দেখবা, একবার ছাপবা।"</p>
+  <p class="gap">কারখানার ভেতরে কিছু জিনিস নিয়ম হয়ে ছাপা থাকে—দেয়ালে, নোটিশ বোর্ডে, বাংলায় আর ইংরেজিতে।</p>
+  <p>আর কিছু জিনিস চলে মুখে মুখে, একজন থেকে আরেকজনে, রাতের শিফটের ক্লান্ত হাত ধরে।</p>
+  <p>দ্বিতীয়গুলোই বেশি দিন টেকে।</p>
+  <p class="gap">শিরীন আপা এখনো ওই সেকশনেই আছেন। দেয়ালে এখন একটা লেমিনেট করা কাগজ ঝোলে—শেড চেকের পাঁচটা ধাপ, বাংলায় লেখা, নিচে তাঁর নাম।</p>
+  <p>কেউ পড়ে না। নতুন ছেলেরা নিয়মটা শেখে জসিমের কাছ থেকে, জানালার পাশে দাঁড়িয়ে, হাতে শুকনো একটা প্যানেল নিয়ে।</p>
+  <p>এভাবেই শেখানো জিনিস থেকে যায়—কাগজে নয়, কারও অভ্যাসে।</p>
+  <p class="endmark">✦</p>
+  <div class="tools">
+    <a href="#suchipotro">← সূচিপত্র</a>
+    <button type="button" class="copytext" data-copytext="l12">লেখা কপি করুন</button>
+  </div>
+</article>
+
+
+<article id="l13">
+  <div class="opener">
+    <p class="ch">XIII</p>
+    <p class="kind-tag">গদ্য</p>
+    <h3>যে কাজগুলো কেউ দেখে না</h3>
+    <p class="readtime">পড়তে ~১০ মিনিট</p>
+  </div>
+  <p>একটা সংসারে প্রতিদিন অসংখ্য কাজ হয়, যেগুলো কেউ দেখে না।</p>
+  <p>লবণের কৌটা কোনোদিন খালি থাকে না। বাথরুমের সাবান শেষ হওয়ার আগেই নতুনটা এসে যায়। ফ্যানের সুইচের পাশের দেয়ালের দাগটা কবে মুছল, কেউ বলতে পারবে না। বারান্দার গাছটায় কে পানি দেয়, বাড়ির অর্ধেক লোক জানে না।</p>
+  <p>এগুলো কাজ নয়—এগুলো "এমনিতেই হয়ে যায়"।</p>
+  <p>ছোটবেলায় আমি সত্যিই তাই ভাবতাম। মনে হতো ঘরটা নিজে নিজেই গোছানো থাকে, ভাত নিজে নিজেই গরম থাকে, ঈদের আগে জামাগুলো নিজে নিজেই ধোয়া হয়ে যায়।</p>
+  <p>বড় হয়ে একদিন নিজে সংসার সামলাতে গিয়ে বুঝেছিলাম, "এমনিতেই হয়ে যাওয়া" বলে পৃথিবীতে কিছু নেই। প্রত্যেকটা "এমনিতেই"-এর পেছনে একজন মানুষ আছে, যে ভোরে উঠেছে।</p>
+  <p>অন্তত যারা করে না, তাদের কাছে।</p>
+  <p class="dinghy">✦</p>
+  <p>অদৃশ্য কাজের একটা নিষ্ঠুর নিয়ম আছে: যতক্ষণ হয়, ততক্ষণ কেউ দেখে না; যেদিন হয় না, সেদিন সবাই দেখে।</p>
+  <p>যে মানুষটা দশ বছর ধরে রোজ রাতে দরজার ছিটকিনি দিয়েছে, তার কথা কেউ বলে না। কিন্তু যেদিন একদিন সে ভুলে যায়, সেদিন সকালে আলোচনা হয়।</p>
+  <p>এই হিসাবটা উল্টো। যে কাজ চোখে পড়ে না, সেটাই আসলে সবচেয়ে নিয়মিত হতে হয়। একদিন ভাত না রাঁধলে চলে না; একদিন ওষুধ না আনলে চলে না। অথচ প্রশংসা জমা হয় বড় বড় ঘটনায়—কেউ বাড়ি কিনলে, কেউ চাকরি পেলে।</p>
+  <p>রোজকার টিকে থাকাটা কার শ্রমে চলছে, সেই হিসাব কেউ রাখে না।</p>
+  <p class="dinghy">✦</p>
+  <p>অদৃশ্য কাজের সবচেয়ে ক্লান্তিকর অংশটা হাত দিয়ে করা হয় না—মাথা দিয়ে করা হয়।</p>
+  <p>রান্না করাটা কাজ। কিন্তু তার আগে আছে—কী রান্না হবে, বাজারে কী কী লাগবে, গত সপ্তাহে কী রান্না হয়েছিল, কার কোনটা পছন্দ নয়, চাল আর কত দিন চলবে। এই পুরো তালিকাটা কারও না কারও মাথায় সারাক্ষণ খোলা থাকে।</p>
+  <p>বাচ্চার স্কুলের বেতন কবে, কার জন্মদিন কবে, গ্যাস বিলের শেষ তারিখ কবে, কার ওষুধ ফুরিয়ে আসছে, কোন আত্মীয়কে ফোন করা হয়নি অনেকদিন—এই মনে রাখাটাই একটা পূর্ণকালীন কাজ।</p>
+  <p>আর সবচেয়ে মজার ব্যাপার: এই কাজটায় কেউ সাহায্য করতে চাইলে বলে, "বলো, কী করতে হবে?"</p>
+  <p>এই প্রশ্নটার মধ্যেই সমস্যাটা লুকিয়ে আছে। কারণ "কী করতে হবে" বলে দেওয়াটাও একটা কাজ। যে মানুষটা তালিকাটা মাথায় রাখে, তার বোঝা কমে না—শুধু হাতের কাজ কমে।</p>
+  <p>সাহায্য মানে কাজ ভাগ করা নয়, মনে রাখার দায়িত্বটা ভাগ করা।</p>
+  <p>পার্থক্যটা ছোট মনে হয়, কিন্তু যিনি তালিকাটা বহন করেন তিনি জানেন এটা কত বড়। হাতের কাজ শেষ হলে বিশ্রাম নেওয়া যায়; মাথার তালিকা কোনোদিন বন্ধ হয় না। ঘুমানোর আগে শেষ ভাবনাটা হয়—কাল সকালে দুধটা আনতে হবে।</p>
+  <p class="dinghy">✦</p>
+  <p>অফিসেও এর একটা সংস্করণ আছে।</p>
+  <p>প্রতিটা দলে এমন একজন থাকে, যে মিটিংয়ের আগে মনে করিয়ে দেয়, ফাইলটা খুঁজে বের করে, নতুন ছেলেটাকে দেখিয়ে দেয় কোথায় কী আছে, দুই সহকর্মীর ভুল বোঝাবুঝি চুপচাপ মিটিয়ে দেয়।</p>
+  <p>বার্ষিক মূল্যায়নে এই কাজগুলোর কোনো ঘর নেই। সেখানে লেখা থাকে টার্গেট, আউটপুট, অর্জন।</p>
+  <p>অথচ ওই মানুষটা দুই মাসের ছুটিতে গেলে দলটা হোঁচট খায়, আর কেউ ঠিক বুঝতে পারে না কেন। সবাই বলে, "কী যেন একটা মিসিং।"</p>
+  <p>ওই "কী যেন একটা"-ই হলো অদৃশ্য কাজ।</p>
+  <p>এই কাজগুলোর একটা অদ্ভুত বৈশিষ্ট্য আছে—যে করে, সে নিজেও এগুলোকে কাজ বলে মনে করে না। জিজ্ঞেস করলে বলে, "আমি তো তেমন কিছু করি না, শুধু একটু গুছিয়ে দিই।"</p>
+  <p>এই "শুধু একটু" শব্দ দুটো বাংলা ভাষার সবচেয়ে বড় মিথ্যাগুলোর একটা।</p>
+  <p class="dinghy">✦</p>
+  <p>সম্পর্কের ক্ষেত্রেও একই জিনিস ঘটে, আর সেখানে আরও নিঃশব্দে।</p>
+  <p>প্রতিটা বন্ধুত্বে সাধারণত একজন থাকে যে বেশি ফোন করে। প্রতিটা আত্মীয়তায় একজন থাকে যে আগে খোঁজ নেয়। প্রতিটা পরিবারে একজন থাকে যে সবাইকে একসঙ্গে বসানোর চেষ্টা করে।</p>
+  <p>এই মানুষগুলো কোনো কৃতিত্ব পায় না। বরং মাঝে মাঝে উল্টোটা শোনে—"তুমি তো সবসময়ই ফোন করো, তোমার তো সময় আছে।"</p>
+  <p>সময় আছে বলে নয়। সম্পর্কটা হারিয়ে যাবে, এই ভয় আছে বলে।</p>
+  <p class="gap">একটা পরীক্ষা করে দেখা যায়। কাউকে ফোন করা বন্ধ করে দিয়ে দেখুন কত দিন পর সে নিজে করে।</p>
+  <p>অনেকে এই পরীক্ষাটা অভিমান করে করে ফেলে, আর ফল দেখে ভেঙে পড়ে।</p>
+  <p>আমার মনে হয় পরীক্ষাটা না করাই ভালো। কারণ এতে শুধু প্রমাণ হয় কে বেশি পরিশ্রম করছিল—সম্পর্কটা তাতে বাঁচে না। যে ফোন করত, সে-ও হারায়; যাকে করা হতো, সে-ও হারায়। জেতে কেউ না।</p>
+  <p class="dinghy">✦</p>
+  <p>প্রশ্ন হলো, অদৃশ্য কাজ করতে করতে মানুষ ক্লান্ত হয় কেন? কাজটা তো বেশিরভাগ সময় ছোট।</p>
+  <p>কারণ ক্লান্তিটা কাজের নয়, অদৃশ্যতার।</p>
+  <p>একজন মানুষ দিনের পর দিন রান্না করতে পারে, বাচ্চা সামলাতে পারে, অসুস্থ শাশুড়ির সেবা করতে পারে—যদি সপ্তাহে একবারও কেউ বলে, "তুমি অনেক করো, আমি দেখি।"</p>
+  <p>এই এক লাইনের জন্য মানুষ বছরের পর বছর টিকে যায়।</p>
+  <p>আমি এমন একজনকে চিনি, যিনি বারো বছর শয্যাশায়ী শাশুড়ির সেবা করেছেন। বারো বছর। তাঁকে একবার জিজ্ঞেস করেছিলাম, সবচেয়ে কঠিন দিনটা কোনটা ছিল।</p>
+  <p>তিনি অসুখের কোনো দিনের কথা বলেননি। বলেছিলেন এক ঈদের কথা—যেদিন আত্মীয়রা এসে ঘণ্টাখানেক বসে, শাশুড়ির কপালে হাত রেখে, ফেরার পথে বলে গিয়েছিলেন, "আহা, মানুষটা কত কষ্ট পাচ্ছে।"</p>
+  <p>কেউ তাঁর দিকে তাকায়নি। পুরো দিনে একজনও না।</p>
+  <p>আর এই এক লাইন না পেলে ছোট কাজও পাহাড় হয়ে ওঠে। তখন থালা ধোয়ার শব্দ একটু বেশি জোরে হয়, দরজা একটু বেশি শব্দ করে বন্ধ হয়। মানুষ রাগ করে না—মানুষ শুধু চায় কেউ একবার তাকাক।</p>
+  <p class="dinghy">✦</p>
+  <p>দেখতে শেখা যায়। কয়েকটা সহজ উপায় আছে।</p>
+  <p>প্রথম: কৃতজ্ঞতাটা নির্দিষ্ট করা। "তুমি অনেক ভালো" কথাটা ভালো, কিন্তু "আজ আমার শার্টটা ইস্ত্রি করা ছিল, খেয়াল করেছি"—এটা অনেক বড়। নির্দিষ্ট প্রশংসা প্রমাণ করে যে সত্যিই দেখা হয়েছে।</p>
+  <p>দ্বিতীয়: জিজ্ঞেস না করে করে ফেলা। "কী করব বলো" না বলে চালের কৌটাটা দেখে আসা।</p>
+  <p>তৃতীয়: মনে রাখার দায়িত্ব নেওয়া। "এই মাসের বিলগুলো আমি দেখব"—শুধু টাকা দেওয়া নয়, তারিখ মনে রাখাসহ।</p>
+  <p>চতুর্থ, আর সবচেয়ে কঠিন: নিজের অদৃশ্য কাজের হিসাব না রাখা। যারা মনে মনে খতিয়ান লেখে—আমি এতবার করেছি, সে এতবার—তারা একদিন সেই খতিয়ান খুলে বসে, আর তখন সম্পর্কটা আদালত হয়ে যায়।</p>
+  <p class="dinghy">✦</p>
+  <p>তবু একটা কথা সৎভাবে বলা দরকার।</p>
+  <p>সব অদৃশ্য কাজ ভালোবাসা নয়। কিছু অদৃশ্য কাজ চাপিয়ে দেওয়া। বিশেষ করে এই দেশে, এই সমাজে, কাজগুলো কার ঘাড়ে পড়বে সেটা জন্মের সময়ই অনেকটা ঠিক হয়ে যায়।</p>
+  <p>যে মেয়েটা অফিস করে ফিরে এসে রান্না করে, আর যার ভাই ফিরে এসে বিশ্রাম নেয়—সেখানে "দেখা হচ্ছে না" বলে দুঃখ পাওয়াটা সমাধান নয়। সেখানে আসল কথাটা হলো ভাগাভাগি।</p>
+  <p>কৃতজ্ঞতা জরুরি, কিন্তু কৃতজ্ঞতা দিয়ে অসম বোঝা ঢেকে দেওয়া যায় না। "তুমি তো সব সামলাও, মাশাআল্লাহ"—এই বাক্যটা অনেক সময় প্রশংসা নয়, বরং দায়িত্বটা স্থায়ীভাবে এক জায়গায় আটকে দেওয়ার একটা ভদ্র পদ্ধতি।</p>
+  <p class="dinghy">✦</p>
+  <p>আমার নিজের ক্ষেত্রে একটা অভ্যাস তৈরি হয়েছে।</p>
+  <p>কোনো বাসায় গেলে আমি এখন খেয়াল করি—কে উঠে দাঁড়াচ্ছে। খাওয়ার মাঝখানে পানি শেষ হলে কে যাচ্ছে, অতিথি যাওয়ার পর প্লেটগুলো কে তুলছে, বাচ্চাটা কাঁদলে কে প্রথমে তাকাচ্ছে।</p>
+  <p>বেশিরভাগ বাড়িতে এটা একই মানুষ। আর সে মানুষটা প্রায়ই সেই, যে গল্পের আসরে সবচেয়ে কম কথা বলে—কারণ সে বসার সময় পায়নি।</p>
+  <p>যাওয়ার আগে আমি চেষ্টা করি তাকে আলাদা করে কিছু একটা বলতে। রান্নার প্রশংসা নয়—ওটা সবাই করে। বরং এমন কিছু, যা প্রমাণ করে আমি দেখেছি। "আপনি তো সারাটা সময় দাঁড়িয়েই ছিলেন।"</p>
+  <p>প্রায় প্রতিবার একই ঘটনা ঘটে। মানুষটা প্রথমে একটু থতমত খায়, তারপর হাসে, তারপর বলে, "আরে না না, এ আর এমন কী।"</p>
+  <p>কিন্তু চোখটা অন্য কথা বলে। ওই চোখ বলে—কেউ একজন দেখেছে।</p>
+  <p class="gap">আর একটা অভ্যাস তৈরি হয়েছে, যেটা একটু উল্টো দিকের।</p>
+  <p>আমি মাঝে মাঝে ইচ্ছা করে এমন কিছু করি, যেটা কেউ জানবে না। সিঁড়ির বাতিটা নষ্ট হলে নিজে কিনে লাগিয়ে দেওয়া, কারও দরজার সামনের পত্রিকাটা ভেতরে ঠেলে দেওয়া, গলির কুকুরটার জন্য পানি রেখে আসা।</p>
+  <p>কাউকে বলি না। প্রথমে ভাবতাম এটা মহত্ত্ব। এখন বুঝি, এটা আসলে একটা অনুশীলন—নিজেকে মনে করিয়ে দেওয়া যে কাজটা স্বীকৃতির জন্য করা হয় না, আর স্বীকৃতি না পেলেও কাজটার মূল্য কমে না।</p>
+  <p>এই অনুশীলনটা করলে অন্যের অদৃশ্য কাজ চোখে পড়া সহজ হয়ে যায়। যে নিজে অন্ধকারে কিছু করেছে, সে অন্ধকারে অন্য কাউকে কাজ করতে দেখলে চিনতে পারে।</p>
+  <p class="gap">পৃথিবীটা আসলে বড় বড় সিদ্ধান্তের ওপর দাঁড়িয়ে নেই। দাঁড়িয়ে আছে অসংখ্য ছোট, পুনরাবৃত্ত, নামহীন কাজের ওপর—যেগুলো কেউ না কেউ রোজ করে যাচ্ছে বলেই সকালে ঘুম থেকে উঠে আমরা দেখতে পাই, লবণের কৌটা ভরা আছে।</p>
+  <p>ওই মানুষগুলোর একটা তালিকা কোথাও নেই। কোনো পুরস্কার নেই, কোনো সনদ নেই। মৃত্যুর পর শোকবার্তায়ও লেখা হয় না—"ইনি ত্রিশ বছর ধরে প্রতিদিন সকালে সবার আগে উঠতেন।"</p>
+  <p>তাই যতটুকু পারা যায়, নিজের তালিকাটা নিজেই বানিয়ে নেওয়া ভালো—আর মাঝে মাঝে সেখান থেকে একজনকে ফোন করে বলা, যে আমি জানি তুমি কী কী করো।</p>
+  <p class="endmark">✦</p>
+  <div class="tools">
+    <a href="#suchipotro">← সূচিপত্র</a>
+    <button type="button" class="copytext" data-copytext="l13">লেখা কপি করুন</button>
+  </div>
+</article>
+
+
+<article id="l14">
+  <div class="opener">
+    <p class="ch">XIV</p>
+    <p class="kind-tag">গল্প</p>
+    <h3>চৌদ্দ নম্বর দেখা</h3>
+    <p class="readtime">পড়তে ~১০ মিনিট</p>
+  </div>
+  <p>চৌদ্দ নম্বরটা হওয়ার কথা ছিল শুক্রবার বিকেল চারটায়।</p>
+  <p>রুকসানা তিনটা পঁয়তাল্লিশে তৈরি হয়ে বিছানার কিনারে বসে রইল। নীল জামদানিটা—যেটা এর আগে চারবার পরা হয়েছে, চারটা আলাদা বিকেলে, চারটা আলাদা পরিবারের সামনে।</p>
+  <p>পাশের ঘর থেকে হাসিনা ফুপুর গলা, "ভাবি, সিঙ্গাড়াগুলা গরম রাখো! ঠান্ডা সিঙ্গাড়া দিলে মানুষ কী ভাববে!"</p>
+  <p>রুকসানা আয়নার দিকে তাকাল। একত্রিশ বছর বয়স, চোখের নিচে হালকা দাগ, কপালের বাঁ পাশে একটা ছোট তিল।</p>
+  <p>তেরোবার সে এই আয়নার সামনে বসেছে।</p>
+  <p>প্রথমবার ছিল পঁচিশ বছর বয়সে। তখনো ব্যাপারটায় একটা উত্তেজনা ছিল—কে আসবে, কেমন দেখতে, কী কথা হবে। বন্ধুদের সঙ্গে হাসাহাসি হতো, রাতে কল্পনা হতো।</p>
+  <p>ছাব্বিশে উত্তেজনাটা কমে গেল। আটাশে সেটা হয়ে গেল একটা অনুষ্ঠান—যেমন ঈদের আগে ঘর পরিষ্কার করা, করতেই হয়। আর ত্রিশের পর এটা হয়ে দাঁড়াল একটা পরীক্ষা, যেটায় সে বারবার ফেল করছে, অথচ সিলেবাসটা কেউ তাকে দেয়নি।</p>
+  <p class="dinghy">✦</p>
+  <p>নিয়মটা সবসময় একই।</p>
+  <p>অতিথিরা আসেন চার-পাঁচজন—পাত্রের মা, এক খালা, এক ভাবি, কখনো একজন চাচা। পাত্র বসেন সোফার ডান কোণে, বেশিরভাগ সময় ফোনটা হাতে ধরে রাখেন কিন্তু দেখেন না।</p>
+  <p>প্রথম দশ মিনিট আবহাওয়া আর রাস্তার জ্যাম। তারপর নাশতা। তারপর প্রশ্ন শুরু।</p>
+  <p>"মেয়ে কী করে?"</p>
+  <p>"ব্যাংকে আছে, আন্টি। পাঁচ বছর।"</p>
+  <p>"ও আচ্ছা।" একটা ছোট্ট বিরতি, যার মধ্যে পুরো একটা বাক্য লুকানো থাকে। "বিয়ের পরে তো আর চাকরি করার দরকার নাই, কী বলেন?"</p>
+  <p>"রান্নাবান্না পারে?"</p>
+  <p>"জি আন্টি, সবই পারে।" এটা সবসময় ভাবি উত্তর দেয়, কারণ নিজের মুখে বললে নাকি বিনয় থাকে না।</p>
+  <p>"বয়স কত হইল?"</p>
+  <p>এই প্রশ্নটায় ঘরের বাতাস একটু বদলে যায়। ভাবি বলে, "এই তো, ঊনত্রিশ-ত্রিশ।"</p>
+  <p>রুকসানা চুপ করে থাকে। প্রতিবার। তার বয়স একত্রিশ, এবং প্রতিবার কেউ একজন সেটা দুই বছর কমিয়ে দেয়, আর সে চোখ নামিয়ে বসে থাকে—যেন বয়সটা একটা অপরাধ, আর সে অভিযুক্ত।</p>
+  <p class="dinghy">✦</p>
+  <p>তেরোটা দেখার মধ্যে তিনটা পর্যন্ত এগিয়েছিল।</p>
+  <p>প্রথমটা ভেঙে যায় যৌতুকের কথায়—ওঁরা সরাসরি বলেননি, বলেছিলেন "ছেলের একটা গাড়ির শখ আছে"। আব্বা তখন বেঁচে, তিনি হেসে বলেছিলেন, "আমার মেয়ের শখ একটা ভালো মানুষ।" ওঁরা আর ফোন করেননি।</p>
+  <p>দ্বিতীয়টা ভেঙে যায় ছবি দেখে—পাত্র ছবিতে রুকসানাকে পছন্দ করেছিল, সামনাসামনি দেখে বলেছিল "ছবিতে একটু বেশি ফর্সা লাগছিল"।</p>
+  <p>তৃতীয়টা প্রায় হয়েই গিয়েছিল। তারিখ ঠিক, মিষ্টি কেনা হয়েছে। তারপর জানা গেল পাত্রের আগে একটা বিয়ে ছিল, আর সেটা লুকানো হয়েছিল। ভেঙে দেওয়ার সিদ্ধান্তটা রুকসানা নিজে নিয়েছিল, আর সেদিন হাসিনা ফুপু বলেছিলেন, "এত বাছলে হয়? বয়স তো আর থেমে নাই।"</p>
+  <p>সেই থেকে প্রতিটা দেখার আগে ওই বাক্যটা ঘরের কোথাও না কোথাও ঝুলে থাকে।</p>
+  <p class="gap">আব্বা মারা যাওয়ার পর ব্যাপারটা আরও কঠিন হয়ে গেছে।</p>
+  <p>আব্বা থাকতে তিনি প্রতিবার বৈঠক শেষে রুকসানাকে আলাদা ডেকে জিজ্ঞেস করতেন, "তোর কী মনে হইল?" প্রশ্নটা ছোট, কিন্তু ওটুকুতেই বোঝা যেত সিদ্ধান্তটা তার।</p>
+  <p>এখন বৈঠক শেষে সবাই নিজেরা আলোচনা করে, আর রুকসানা রান্নাঘরে গিয়ে প্লেট গোছায়। তার মতামত জানতে চাওয়া হয় সবার শেষে, যখন বাকিরা প্রায় ঠিক করে ফেলেছে।</p>
+  <p class="dinghy">✦</p>
+  <p>চারটা দশে ওঁরা এলেন। ফেনী থেকে, চারজন—পাত্রের মা, বড় বোন, দুলাভাই, আর পাত্র।</p>
+  <p>পাত্রের নাম তানভীর। বয়স ছত্রিশ, একটা বেসরকারি কোম্পানিতে চাকরি করে, ঢাকায় থাকে।</p>
+  <p>রুকসানাকে ডাকা হলো চারটা পঁচিশে। ছোট চাচাতো বোন তমা দরজা পর্যন্ত এগিয়ে দিয়ে ফিসফিস করে বলল, "আপু, একটু হাসো।"</p>
+  <p>সে হাসল। সেই নির্দিষ্ট হাসিটা, যেটা তেরোবারের অনুশীলনে নিখুঁত হয়ে গেছে—যথেষ্ট বিনয়ী, কিন্তু বেশি আগ্রহী নয়।</p>
+  <p class="gap">প্রশ্নগুলো এল যথারীতি।</p>
+  <p>চাকরি। রান্না। পরিবারে কে কে। তারপর পাত্রের মা বললেন, "মেয়ের গায়ের রংটা তো ছবিতে অন্যরকম লাগছিল।"</p>
+  <p>ঘরে দুই সেকেন্ড নীরবতা।</p>
+  <p>ভাবি তাড়াতাড়ি বলল, "ছবিটা ফ্ল্যাশে তোলা তো, আন্টি—"</p>
+  <p>"না না, সমস্যা নাই।" ভদ্রমহিলা হাত নাড়লেন। "আজকাল তো সবই পাওয়া যায়, পার্লারে গেলেই হয়।"</p>
+  <p>রুকসানা তাকিয়ে রইল সামনের টেবিলের দিকে, যেখানে সিঙ্গাড়াগুলো ঠান্ডা হয়ে যাচ্ছে।</p>
+  <p>তেরো বার সে এরকম কথা শুনেছে এবং চুপ করে থেকেছে। চুপ করে থাকাটা ভদ্রতা, চুপ করে থাকাটা মেয়েলি, চুপ করে থাকাটা সম্বন্ধ টিকিয়ে রাখার উপায়।</p>
+  <p>চৌদ্দ নম্বরে সে মুখ তুলল।</p>
+  <p>"আন্টি, আমার গায়ের রং এটাই। পার্লারে গেলে বদলাবে না।"</p>
+  <p class="dinghy">✦</p>
+  <p>ঘরটা স্তব্ধ হয়ে গেল।</p>
+  <p>হাসিনা ফুপুর হাত থেকে চামচ পড়ে গেল প্লেটে—ঠং।</p>
+  <p>ভাবি কিছু একটা বলতে গেল, "ও আসলে বলতে চাইছে—"</p>
+  <p>"না ভাবি," রুকসানা শান্ত গলায় বলল, "আমি যা বলতে চাইছি, তা-ই বলেছি।"</p>
+  <p>সে পাত্রের মায়ের দিকে তাকাল। ভদ্রমহিলা অবাক, কিন্তু রাগান্বিত নন—বরং এমনভাবে তাকিয়ে আছেন যেন আসবাবপত্রের একটা জিনিস হঠাৎ কথা বলে উঠেছে।</p>
+  <p>"আমি একত্রিশ বছর বয়সী," রুকসানা বলল। "ঊনত্রিশ না। আমি ব্যাংকে চাকরি করি এবং বিয়ের পরেও করব। রান্না মোটামুটি পারি, শখ করে করি না। আর আমি চাই আপনারা এগুলো জেনেই সিদ্ধান্ত নেন, যাতে পরে কারও মনে না হয় ঠকেছেন।"</p>
+  <p>সে একটু থামল, তারপর যোগ করল—"আর আমার মা অসুস্থ। বিয়ে হলেও আমি ওনার দায়িত্ব ছাড়ব না। এটা আগে বলে রাখা ভালো।"</p>
+  <p>বলা শেষ করে সে নিজেই একটু অবাক হলো—গলাটা কাঁপেনি।</p>
+  <p class="dinghy">✦</p>
+  <p>বাকি দশ মিনিট কীভাবে কাটল, রুকসানার মনে নেই।</p>
+  <p>শুধু একটা জিনিস মনে আছে—কথা বলার সময় সে চোখের কোণ দিয়ে দেখেছিল, সোফার ডান কোণে বসা মানুষটা প্রথমবারের মতো ফোনটা নামিয়ে রেখেছে, আর সোজা তার দিকে তাকিয়ে আছে।</p>
+  <p>ওঁরা বিদায় নিলেন ঠান্ডা ভদ্রতায়—"আমরা জানাব", যে বাক্যটার অর্থ পৃথিবীর সব মেয়েই জানে।</p>
+  <p>দরজা বন্ধ হওয়ার পর হাসিনা ফুপু ফেটে পড়লেন। "তুই কী করলি! তোর কি মাথা খারাপ? এতদিন পর একটা ভালো সম্বন্ধ—"</p>
+  <p>"ফুপু, উনি আমার গায়ের রং নিয়ে কথা বলছিলেন।"</p>
+  <p>"আরে, মুরুব্বিরা ওইরকম বলেই! আমারে নিয়াও বলছিল, চল্লিশ বছর আগে।"</p>
+  <p>"আর আপনার খারাপ লাগেনি?"</p>
+  <p>হাসিনা ফুপু থেমে গেলেন। মুখ খুললেন, আবার বন্ধ করলেন।</p>
+  <p>রুকসানা নরম গলায় বলল, "লেগেছিল, ফুপু। আপনি শুধু বলতে পারেননি।"</p>
+  <p>"তো! মুরুব্বি মানুষ, কথা বলছে! তাই বইলা মুখের উপর—"</p>
+  <p>"আমি খারাপ কিছু বলিনি।"</p>
+  <p>"তুই সত্য কথা বলছস।" ফুপু বসে পড়লেন সোফায়। "বিয়ের বাজারে সত্য কথা বইলা কেউ টিকতে পারে না, মা।"</p>
+  <p class="gap">রাতে রুকসানা ছাদে উঠে অনেকক্ষণ দাঁড়িয়ে রইল।</p>
+  <p>তার খারাপ লাগছিল না—এটাই সবচেয়ে আশ্চর্য। তেরোবার যে ভারটা নিয়ে সে নিচে নেমে এসেছে, আজ সেটা নেই।</p>
+  <p>সে বুঝল, এতদিন সে প্রত্যাখ্যানে কষ্ট পায়নি। কষ্ট পেয়েছে এই ভেবে যে প্রতিবার ঘরের ভেতরে যে মেয়েটা বসে থাকত, সেটা সে নয়—সেটা একটা ছাঁটা, মাপা, হিসাব করে বানানো কেউ। আর ওই মেয়েটাকে কেউ পছন্দ করলেও তো লাভ ছিল না; কারণ বিয়ের পর তাকে সারাজীবন ওই অভিনয়টাই করে যেতে হতো।</p>
+  <p>নিচে নামার আগে সে একবার আকাশের দিকে তাকাল। আব্বা থাকলে আজ কী বলতেন, সেটা সে ভালো করেই জানে। "তোর কী মনে হইল?"—এটাই বলতেন।</p>
+  <p>আর আজ প্রথমবার তার কাছে একটা উত্তর ছিল।</p>
+  <p class="dinghy">✦</p>
+  <p>নয় দিন পর অচেনা একটা নম্বর থেকে মেসেজ এল।</p>
+  <p>"আসসালামু আলাইকুম। আমি তানভীর। আপনার নম্বরটা ভাবির কাছ থেকে নিয়েছি। বিরক্ত করলে দুঃখিত।"</p>
+  <p>রুকসানা অনেকক্ষণ তাকিয়ে রইল। তারপর লিখল, "ওয়ালাইকুম সালাম। বলুন।"</p>
+  <p>"সেদিন আমি কিছু বলিনি, এজন্য আগে ক্ষমা চাই। আম্মার কথাটা ঠিক হয়নি। আমি তখনই বলতে পারতাম, কিন্তু পারিনি।"</p>
+  <p>তিনটে বিন্দু ভেসে উঠল, মিলিয়ে গেল, আবার ভেসে উঠল।</p>
+  <p>"আপনি যেটা করেছেন, ওটা আমার সারাজীবনেও করা হয়নি।"</p>
+  <p class="gap">পরের মেসেজটা এল এক মিনিট পর।</p>
+  <p>"আমি আপনাকে একটা প্রশ্ন করতে চাই, যেটা সেদিন কেউ করেনি। আপনি নিজে কী চান?"</p>
+  <p>রুকসানা ফোনটা হাতে নিয়ে বারান্দায় গিয়ে দাঁড়াল।</p>
+  <p>নিচে গলিতে রাত সাড়ে দশটার চট্টগ্রাম—রিকশার ঘণ্টি, কারও বাসায় টিভির শব্দ, মোড়ের দোকানে কয়েকজন দাঁড়িয়ে।</p>
+  <p>প্রশ্নটা এত সহজ, অথচ তেরোটা বিকেলে কেউ করেনি। সবাই জানতে চেয়েছে সে কী পারে, কী রাঁধে, কত বয়স, কেমন দেখতে। কেউ জানতে চায়নি সে কী চায়।</p>
+  <p>আর এখন, প্রশ্নটা সামনে আসার পর, রুকসানা আবিষ্কার করল—সে উত্তরটা জানে না।</p>
+  <p>একত্রিশ বছরের একটা মেয়ে, যে প্রতিদিন সকালে ব্যাংকে যায়, মায়ের ওষুধ আনে, ভাইয়ের মেয়েকে পড়ায়, মাসের টাকা হিসাব করে—সে কোনোদিন নিজেকে এই প্রশ্নটা করেনি। করার অনুমতি ছিল না।</p>
+  <p class="gap">সে টাইপ করল, মুছল, আবার টাইপ করল।</p>
+  <p>শেষে পাঠাল: "জানি না। কেউ কোনোদিন জিজ্ঞেস করেনি, তাই ভেবে দেখিনি। একটু সময় দিলে ভেবে বলতে পারি?"</p>
+  <p>উত্তর এল সঙ্গে সঙ্গে।</p>
+  <p>"দিলাম।"</p>
+  <p class="dinghy">✦</p>
+  <p>এই গল্পের কোনো বিয়ে নেই। অন্তত এখনো নেই।</p>
+  <p>কী হবে, রুকসানা নিজেও জানে না। হয়তো কিছুই হবে না—হয়তো তানভীরের আম্মা রাজি হবেন না, হয়তো দূরত্ব, হয়তো অন্য কিছু।</p>
+  <p>কিন্তু একটা জিনিস বদলে গেছে, আর সেটা আর বদলাবে না।</p>
+  <p>পনেরো নম্বর দেখা যদি কোনোদিন হয়, রুকসানা ওই ঘরে আর অন্য কাউকে পাঠাবে না। যে বসবে, সে-ই বসবে—একত্রিশ, চাকরিজীবী, শ্যামলা, এবং নিজের বয়সটা নিজের মুখে বলতে পারা একজন মানুষ।</p>
+  <p>কেউ পছন্দ করুক বা না করুক, অন্তত প্রত্যাখ্যানটা তখন সত্যিকারের তাকেই করা হবে।</p>
+  <p>আর সত্যিকারের নিজেকে প্রত্যাখ্যাত হতে দেওয়ার সাহসটাই বোধহয় বড় হওয়ার শেষ ধাপ।</p>
+  <p class="endmark">✦</p>
+  <div class="tools">
+    <a href="#suchipotro">← সূচিপত্র</a>
+    <button type="button" class="copytext" data-copytext="l14">লেখা কপি করুন</button>
+  </div>
+</article>
+
+
+<article id="l15">
+  <div class="opener">
+    <p class="ch">XV</p>
+    <p class="kind-tag">টুকরো</p>
+    <h3>নোটবুকের শেষ পাতা</h3>
+    <p class="readtime">পড়তে ~১০ মিনিট</p>
+  </div>
+  <p>নোটবুকের শেষ দিকে কিছু পাতা থাকে, যেখানে পুরো লেখা হয় না—শুধু কয়েকটা লাইন, তারিখ ছাড়া, প্রসঙ্গ ছাড়া। পরে পড়তে গেলে মনে পড়ে না কোন দিন লেখা হয়েছিল, কিন্তু মনে পড়ে কেন লেখা হয়েছিল।</p>
+  <p>এই বইয়ের শেষ লেখাটা সেরকম। কোনো গল্প নেই, কোনো যুক্তি নেই। শুধু যা শিখেছি, যা এখনো শিখিনি, আর যা শিখব বলে ভাবছি।</p>
+  <div class="frag">
+    <p class="when">যত্ন</p>
+    <p>ভালোবাসা একটা অনুভূতি, যত্ন একটা কাজ। অনুভূতি হঠাৎ আসে, কাজ রোজ করতে হয়।</p>
+    <p>যাকে ভালোবাসি বলি অথচ যার জন্য কিছু করি না—সেই ভালোবাসাটা আসলে আমার নিজের জন্য, তার জন্য নয়।</p>
+  </div>
+  <div class="frag">
+    <p class="when">অপেক্ষা</p>
+    <p>অপেক্ষা দুই রকম। একটা, যেখানে জানি কেউ আসবে—ট্রেনের জন্য দাঁড়ানো। আরেকটা, যেখানে জানি না।</p>
+    <p>দ্বিতীয়টা কঠিন, কিন্তু ওটাই আমাদের বেশিরভাগ জীবন। আর একটা সময় পর বোঝা যায়, অপেক্ষা করতে করতেই আসলে জীবনটা কেটে যাচ্ছে—অপেক্ষাটাই জীবন, মাঝখানের ফাঁকা সময় নয়।</p>
+  </div>
+  <div class="frag">
+    <p class="when">ভুল</p>
+    <p>যে ভুল রাতের মধ্যে ঠিক করা যায়, সেটা ভুল নয়—সেটা কাজ।</p>
+    <p>আর যে ভুলটা ঠিক করা যায় না, সেটার জন্য নিজেকে সারাজীবন শাস্তি দেওয়াও কোনো সমাধান নয়। অনুশোচনা একটা শিক্ষক হতে পারে, কিন্তু জেলখানা হতে দিতে নেই।</p>
+  </div>
+  <div class="frag">
+    <p class="when">ক্ষমা</p>
+    <p>ক্ষমা মানে ভুলে যাওয়া নয়, আর মেনে নেওয়াও নয়। ক্ষমা মানে ঠিক করা যে এই বোঝাটা আমি আর বইব না।</p>
+    <p>মানুষ ভাবে ক্ষমা অন্যকে দেওয়া হয়। আসলে ওটা নিজেকে দেওয়া হয়—অন্যজন প্রায়ই জানতেও পারে না।</p>
+  </div>
+  <div class="frag">
+    <p class="when">বয়স</p>
+    <p>প্রতিটা বয়সেই কেউ না কেউ বলবে, "তোমার তো সময় চলে যাচ্ছে।"</p>
+    <p>কুড়িতে বলবে পড়াশোনার কথা, ত্রিশে বিয়ের কথা, চল্লিশে সঞ্চয়ের কথা। যারা বলে, তারা আসলে নিজেদের ভয়টা উচ্চারণ করে।</p>
+    <p>সময় কারও জন্য যায় না, কারও জন্য থামেও না। সময় শুধু যায়।</p>
+  </div>
+  <div class="frag">
+    <p class="when">টাকা</p>
+    <p>টাকা সুখ কিনতে পারে না—কথাটা বেশিরভাগ সময় বলেন তাঁরাই, যাঁদের টাকা আছে।</p>
+    <p>টাকা সুখ দেয় না ঠিকই, কিন্তু একটা জিনিস দেয়: পছন্দ করার সুযোগ। কোন চাকরিটা ছাড়ব, কোন সম্পর্কে থাকব না—এই সিদ্ধান্তগুলো যার হাতে টাকা নেই, তার হাতে থাকে না।</p>
+    <p>তাই মেয়েদের বলি—নিজের একটা আলাদা হিসাব রাখো, যত ছোটই হোক।</p>
+  </div>
+  <div class="frag">
+    <p class="when">বন্ধুত্ব</p>
+    <p>তিরিশের পর বন্ধু বানানো কঠিন, কিন্তু বন্ধু হারানো খুব সহজ—শুধু কয়েক মাস ফোন না করলেই হয়।</p>
+    <p>যে মানুষটার কথা মাঝে মাঝে মনে পড়ে, তাকে আজই একটা মেসেজ দেওয়া যায়। "মনে পড়ল" লিখতে তিন সেকেন্ড লাগে, আর ওই তিন সেকেন্ড বহু বছর বাঁচিয়ে রাখে।</p>
+  </div>
+  <div class="frag">
+    <p class="when">ঘর</p>
+    <p>ঘর মানে জায়গা নয়, অভ্যাস। যেখানে অন্ধকারেও সুইচটা কোথায় জানি, যেখানে কোন দরজাটা ঠেলে ধরে ঘোরাতে হয় জানি—সেটাই ঘর।</p>
+    <p>এজন্যই নতুন জায়গায় গিয়ে প্রথম কয়েক মাস এত ক্লান্ত লাগে। প্রতিটা ছোট জিনিস আবার নতুন করে শিখতে হয়।</p>
+  </div>
+  <div class="frag">
+    <p class="when">মা</p>
+    <p>মায়েদের একটা বিশেষ ক্ষমতা আছে—তাঁরা গলার স্বর শুনেই বুঝে ফেলেন।</p>
+    <p>আর আমাদের একটা বিশেষ অভ্যাস আছে—আমরা বলি "ভালো আছি", যদিও জানি উনি বিশ্বাস করেননি।</p>
+    <p>এই দুটো জিনিস মিলেই বোধহয় সংসার। কেউ জানে, কেউ জানে যে সে জানে, তবু কেউ কিছু বলে না।</p>
+  </div>
+  <div class="frag">
+    <p class="when">ভয়</p>
+    <p>সবচেয়ে বেশি যা ভয় পেয়েছি জীবনে, তার নব্বই ভাগ ঘটেনি।</p>
+    <p>আর যে দশ ভাগ ঘটেছে, সেগুলোর জন্য আগে থেকে ভয় পেয়ে কোনো লাভ হয়নি—যখন সত্যিই ঘটেছে, তখন সামলানোর শক্তিটা কোথা থেকে যেন এসে গেছে।</p>
+    <p>শক্তিটা আগে আসে না। ওটা ঘটনার সঙ্গে সঙ্গে আসে। এটা জানা থাকলে ভবিষ্যৎ নিয়ে রাতের ভয় একটু কমে।</p>
+  </div>
+  <div class="frag">
+    <p class="when">অভ্যাস</p>
+    <p>আমরা ভাবি চরিত্র দিয়ে মানুষ চেনা যায়। আসলে চেনা যায় অভ্যাস দিয়ে।</p>
+    <p>কে ভালো মানুষ, সেটা বোঝা যায় সে ক্লান্ত থাকলে কেমন আচরণ করে তা দেখে। ভালো সময়ে সবাই ভদ্র।</p>
+  </div>
+  <div class="frag">
+    <p class="when">কৃতজ্ঞতা</p>
+    <p>"ধন্যবাদ" শব্দটা আমরা অপরিচিতদের বেশি বলি, আপনজনদের কম।</p>
+    <p>দোকানদারকে বলি, রিকশাওয়ালাকে বলি, আর যে মানুষটা বিশ বছর ধরে রোজ ভাত বেড়ে দিয়েছে তাকে বলি না—কারণ ধরে নিই সে জানে।</p>
+    <p>সে জানে না। কেউ জানে না, যতক্ষণ না বলা হয়।</p>
+  </div>
+  <div class="frag">
+    <p class="when">নীরবতা</p>
+    <p>যার সঙ্গে চুপ করে বসে থাকা যায়, সে-ই কাছের মানুষ।</p>
+    <p>আর নিজের সঙ্গে চুপ করে বসে থাকতে পারাটা সবচেয়ে বড় অর্জন। যে পারে, তার আর কারও সঙ্গ অসহ্য লাগে না—কারণ সে কারও ওপর নিজের শূন্যতা ভরাট করার দায়িত্ব চাপায় না।</p>
+  </div>
+  <div class="frag">
+    <p class="when">হারানো</p>
+    <p>যা হারিয়ে যায়, তার শোকটা আসলে দুই ভাগের: জিনিসটা হারানোর শোক, আর যে মানুষটা ওটার সঙ্গে জড়িয়ে ছিল তাকে হারানোর শোক।</p>
+    <p>একটা পুরোনো চিরুনি ফেলতে না পারার কারণ চিরুনিটা নয়।</p>
+  </div>
+  <div class="frag">
+    <p class="when">লেখা</p>
+    <p>আমি লিখি কারণ মুখে বলতে পারি না।</p>
+    <p>খাতাটা কোনোদিন পাল্টা প্রশ্ন করে না, কোনোদিন বলে না "এটা তো তেমন কিছু না"। আর লেখার পর জিনিসটা একটু হালকা হয়ে যায়—যেন ভেতর থেকে বের করে বাইরে একটা তাকে রেখে দেওয়া হলো।</p>
+    <p>যারা লেখে না, তারা অন্য কোনোভাবে এই কাজটা করে—কেউ রান্না করে, কেউ গাছ লাগায়, কেউ ঘর গোছায়। নাম আলাদা, কাজ এক।</p>
+  </div>
+  <div class="frag">
+    <p class="when">সময়</p>
+    <p>দিনের ভেতর সবচেয়ে কম যত্ন পায় যে সময়টা, সেটা সকাল নয়, রাত নয়—বিকেল।</p>
+    <p>সকাল তাড়াহুড়োর, রাত বিশ্রামের। বিকেলটা কারও নয়। অথচ জীবনের বেশিরভাগ গুরুত্বপূর্ণ কথা বিকেলেই বলা হয়—বারান্দায় দাঁড়িয়ে, চা হাতে, যখন কারও কোথাও যাওয়ার তাড়া নেই।</p>
+  </div>
+  <div class="frag">
+    <p class="when">অভিমান</p>
+    <p>অভিমান রাগের চেয়ে বিপজ্জনক। রাগ শব্দ করে, মিটেও যায় তাড়াতাড়ি। অভিমান চুপ করে বসে থাকে আর বড় হতে থাকে।</p>
+    <p>আর সবচেয়ে কষ্টের ব্যাপার—অভিমান প্রায়ই ভুল মানুষের ওপর জমে। যে সবচেয়ে কাছের, তার ওপরই সবচেয়ে বেশি। কারণ আমরা শুধু তাদের ওপরই অভিমান করি, যাদের হারানোর ভয় নেই বলে মনে হয়।</p>
+  </div>
+  <div class="frag">
+    <p class="when">তুলনা</p>
+    <p>নিজের জীবনকে অন্যের জীবনের সঙ্গে মেলানো সবচেয়ে সহজ কাজ, আর সবচেয়ে অকেজো।</p>
+    <p>আমরা নিজের ভেতরটা দেখি, আর অন্যের বাইরেটা। এই দুটো জিনিস কোনোদিন মিলবে না—তুলনাটা শুরুতেই অসম।</p>
+  </div>
+  <div class="frag">
+    <p class="when">শরীর</p>
+    <p>আমরা শরীরকে এমনভাবে ব্যবহার করি যেন ওটা একটা যন্ত্র, আর যন্ত্রটা অভিযোগ করলে বিরক্ত হই।</p>
+    <p>ঘুম কম, খাওয়া অনিয়মিত, সারাদিন দাঁড়িয়ে থাকা—তারপর রাতে কোমর ব্যথা করলে মনে হয় শরীরটা বিশ্বাসঘাতকতা করছে।</p>
+    <p>আসলে সে শুধু কথা বলছে। সারাদিন যে একমাত্র মানুষটা আমার সঙ্গে থাকে, সে-ই শরীর।</p>
+  </div>
+  <div class="frag">
+    <p class="when">না</p>
+    <p>"না" বলতে শেখা একটা দক্ষতা, আর মেয়েদের ক্ষেত্রে ওটা শেখানোই হয় না।</p>
+    <p>আমরা শিখি কীভাবে সবাইকে খুশি রাখতে হয়, কীভাবে অনুরোধ ফেরানো যায় না, কীভাবে নিজের ক্লান্তিটা হাসি দিয়ে ঢাকতে হয়।</p>
+    <p>তারপর একদিন ক্লান্ত হয়ে ভাবি, কেউ আমার কথা ভাবে না কেন। ভাবে না, কারণ আমরা কোনোদিন জানতে দিইনি যে ভাবার মতো কিছু আছে।</p>
+  </div>
+  <div class="frag">
+    <p class="when">স্মৃতি</p>
+    <p>স্মৃতি সৎ নয়। সে ঘটনাগুলো একটু করে বদলে দেয় প্রতিবার মনে পড়ার সময়।</p>
+    <p>যে দিনটাকে আজ সবচেয়ে সুখের মনে হচ্ছে, সেদিনও নিশ্চয়ই কোনো একটা ঝামেলা ছিল—বাস মিস, কারও সঙ্গে কথা কাটাকাটি। মনে নেই, কারণ মন শুধু আলোটুকু রেখে দিয়েছে।</p>
+    <p>এটা মনের সবচেয়ে বড় দয়া। আর এটা জানা থাকলে আজকের খারাপ দিনটাও একটু সহনীয় হয়—কারণ জানি, একদিন এই দিনটারও শুধু আলোটুকু থাকবে।</p>
+  </div>
+  <div class="frag">
+    <p class="when">প্রশ্ন</p>
+    <p>মানুষকে সাহায্য করার সবচেয়ে সহজ উপায় প্রশ্ন করা—কিন্তু ঠিক প্রশ্নটা।</p>
+    <p>"কেমন আছ?" প্রশ্নটার উত্তর সবাই জানে: "ভালো।" ওটা প্রশ্ন নয়, অভিবাদন।</p>
+    <p>বরং জিজ্ঞেস করা যায়—"আজ দিনটা কেমন গেল?" কিংবা "ওই ঝামেলাটার কী হলো?" নির্দিষ্ট প্রশ্ন প্রমাণ করে যে আগের কথাগুলো মনে আছে, আর মানুষ ঠিক ওইটুকুই চায়।</p>
+  </div>
+  <div class="frag">
+    <p class="when">বৃষ্টি</p>
+    <p>বৃষ্টি কোনো সমস্যার সমাধান করে না। কাপড় শুকায় না, রাস্তা ডুবে যায়, কাজের দেরি হয়।</p>
+    <p>তবু বৃষ্টি নামলে ভেতরটা একটু নরম হয়ে আসে।</p>
+    <p>বোধহয় এই জন্য যে বৃষ্টির দিনে পৃথিবী আমাদের কাছ থেকে কিছু চায় না। বাইরে যাওয়া যাবে না, কাজ হবে না—একটা বৈধ অজুহাত হাতে এসে যায়। মানুষের সবচেয়ে বেশি দরকার বোধহয় থামার অনুমতি।</p>
+  </div>
+  <div class="frag">
+    <p class="when">আশা</p>
+    <p>আশা কোনো প্রতিশ্রুতি নয়। আশা মানে শুধু এটুকু ধরে নেওয়া যে সামনে এমন কিছু আছে, যা এখনো দেখিনি।</p>
+    <p>আর এটুকু ধরে নেওয়াটা যুক্তির ব্যাপার নয়, অভ্যাসের ব্যাপার। রোজ সকালে উঠে কাজে যাওয়াই আসলে আশার সবচেয়ে বড় প্রমাণ—মানুষ বিশ্বাস না করলে উঠত না।</p>
+  </div>
+  <p class="gap">এই বইয়ের লেখাগুলো আলাদা আলাদা—কেউ গল্প, কেউ গদ্য, কেউ কয়েক লাইনের টুকরো। কিন্তু লিখতে গিয়ে দেখলাম, সবগুলোর ভেতর একটাই কথা ঘুরেফিরে আসছে।</p>
+  <p>কথাটা হলো: মানুষ আসলে দেখা পেতে চায়। ভালোবাসার আগে, সাহায্যের আগে, সমাধানের আগে—শুধু এটুকু যে কেউ একজন লক্ষ করুক।</p>
+  <p>তালাটা যে এখনো খোলা হয়নি, কেউ লক্ষ করুক। ড্রয়ারে একশো ছিচল্লিশটা খাম পড়ে আছে, কেউ লক্ষ করুক। ফ্রিজের সামনে একটা মেয়ে ভাত নিচ্ছে, তরকারিতে হাত দিচ্ছে না—কেউ লক্ষ করুক।</p>
+  <p class="gap">তাই শেষ কথাটা এটাই।</p>
+  <p>যদি আজ কাউকে দেখে মনে হয় সে ক্লান্ত, তাকে বলে ফেলো। যদি কারও কথা মনে পড়ে, মেসেজটা পাঠিয়ে দাও। যদি কেউ চুপ করে থাকে, তাড়াহুড়ো করে পরের প্রশ্নটা কোরো না—একটু অপেক্ষা করো।</p>
+  <p>আর নিজের ভেতরে যে কথাগুলো জমে আছে, সেগুলোর জন্য একটা জায়গা বানিয়ে নাও। খাতা হোক, ফোনের নোট হোক, কাউকে বলা হোক।</p>
+  <p>কারণ যে কথাগুলো কাউকে বলা হয়নি, সেগুলোও কোথাও না কোথাও লেখা থাকা দরকার।</p>
+  <p>আমার জন্য সেই জায়গাটা এই নোটবুক। তোমার জন্য অন্য কিছু হোক—শুধু থাকুক।</p>
+  <p class="endmark">✦</p>
+  <div class="tools">
+    <a href="#suchipotro">← সূচিপত্র</a>
+    <button type="button" class="copytext" data-copytext="l15">লেখা কপি করুন</button>
+  </div>
+</article>
+</main>
+
+<section class="about">
+  <div class="wrap">
+    <h2>লেখক পরিচিতি</h2>
+    <span class="dash"></span>
+    <p>নুরজাহান আঁখি লেখেন অনুভূতি, স্মৃতি আর নির্জনতা নিয়ে। কবিতা, ছোটগল্প, উপন্যাস ও ভৌতিক সাহিত্যের পাশাপাশি তিনি গদ্য ও অনুগল্পেও মানুষের না-বলা কথাগুলোকেই খুঁজে ফেরেন।</p>
+    <p>তাঁর লেখার জগৎ শহর, বৃষ্টি, পুরোনো ঘর আর সাধারণ মানুষের ছোট ছোট যত্ন দিয়ে গড়া। "নিঃশব্দের নোটবুক" তাঁর গদ্য ও অনুগল্পের সংকলন—যে কথাগুলো কাউকে বলা হয়নি, সেগুলোর জন্য একটি জায়গা।</p>
+    <p>লেখকের নিজস্ব সাহিত্যভুবন: <a href="https://akhisliterary-haven.github.io/akhis-lekhaghor/">আঁখির লেখালয়</a>।</p>
+  </div>
+</section>
+
+<footer>
+  <p class="seal">✦ ✦ ✦</p>
+  © ২০২৬ নুরজাহান আঁখি · আঁখির লেখালয়<br>
+  আমার শব্দ, আমার গল্প, আমার পৃথিবী।
+</footer>
+
+<script>
+  (function(){
+    var root=document.documentElement,btn=document.getElementById('themeBtn');
+    function label(){btn.textContent=root.getAttribute('data-theme')==='night'?'কাগজ':'রাত';}
+    try{var s=localStorage.getItem('nn-theme');if(s){root.setAttribute('data-theme',s);}}catch(e){}
+    label();
+    btn.addEventListener('click',function(){
+      root.setAttribute('data-theme',root.getAttribute('data-theme')==='night'?'paper':'night');
+      label();
+      try{localStorage.setItem('nn-theme',root.getAttribute('data-theme'));}catch(e){}
+    });
+    var bar=document.getElementById('progress');
+    function tick(){var h=document.documentElement.scrollHeight-window.innerHeight;
+      bar.style.width=(h>0?(window.scrollY/h)*100:0)+'%';}
+    window.addEventListener('scroll',tick,{passive:true});
+    window.addEventListener('resize',tick);tick();
+    document.addEventListener('click',function(e){
+      var b=e.target.closest('[data-copy]');if(!b)return;
+      var url=location.origin+location.pathname+'#'+b.getAttribute('data-copy');
+      var done=function(){var o=b.textContent;b.textContent='লিংক কপি হয়েছে';setTimeout(function(){b.textContent=o;},1800);};
+      if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(url).then(done,done);}
+      else{var t=document.createElement('textarea');t.value=url;document.body.appendChild(t);t.select();
+        try{document.execCommand('copy');}catch(err){}document.body.removeChild(t);done();}
+    });
+  })();
+</script>
+
+<script>
+  (function(){
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var sel = '.section-head, .toc li, .opener, main article > p, main article .frag, .endmark, .about h2, .about p';
+    var items = Array.prototype.slice.call(document.querySelectorAll(sel));
+    if(!reduce && 'IntersectionObserver' in window){
+      items.forEach(function(el){ el.classList.add('rv'); });
+      var seen = new WeakMap();
+      var io = new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if(!e.isIntersecting) return;
+          var el = e.target, parent = el.parentNode;
+          var i = seen.get(parent) || 0;
+          el.style.transitionDelay = Math.min(i,5) * 70 + 'ms';
+          seen.set(parent, i + 1);
+          el.classList.add('in');
+          io.unobserve(el);
+        });
+      }, {rootMargin:'0px 0px -12% 0px', threshold:.08});
+      items.forEach(function(el){ io.observe(el); });
+    } else {
+      items.forEach(function(el){ el.classList.add('in'); });
+    }
+
+    var top = document.createElement('button');
+    top.id = 'toTop'; top.type = 'button';
+    top.setAttribute('aria-label','উপরে ফিরে যান');
+    top.textContent = '↑';
+    document.body.appendChild(top);
+    top.addEventListener('click', function(){
+      window.scrollTo({top:0, behavior: reduce ? 'auto' : 'smooth'});
+    });
+    function toggleTop(){ top.classList.toggle('show', window.scrollY > 640); }
+    window.addEventListener('scroll', toggleTop, {passive:true});
+    toggleTop();
+  })();
+</script>
+
+<script>
+  (function(){
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    var aurora = document.createElement('div');
+    aurora.id = 'aurora';
+    aurora.innerHTML = '<i></i><i></i><i></i>';
+    document.body.insertBefore(aurora, document.body.firstChild);
+
+    var cover = document.getElementById('cover');
+    if(cover && !reduce){
+      var dust = document.createElement('div');
+      dust.className = 'dust';
+      dust.innerHTML = '<b>✦</b><b>✦</b><b>✧</b><b>✦</b><b>✧</b><b>✦</b>';
+      cover.appendChild(dust);
+      var cue = document.createElement('div');
+      cue.className = 'cue'; cue.textContent = '↓';
+      cover.appendChild(cue);
+      window.addEventListener('scroll', function(){
+        if(window.scrollY > 120) cue.classList.add('gone');
+      }, {passive:true});
+    }
+
+    function graphemes(str){
+      try{
+        if(window.Intl && Intl.Segmenter){
+          return Array.from(new Intl.Segmenter('bn',{granularity:'grapheme'}).segment(str), function(x){return x.segment;});
+        }
+      }catch(e){}
+      return null;
+    }
+
+    if(!reduce){
+      // chapter titles, grapheme by grapheme
+      document.querySelectorAll('.opener h3').forEach(function(h){
+        var gs = graphemes(h.textContent);
+        if(!gs) return;
+        h.textContent = '';
+        gs.forEach(function(g,i){
+          var sp = document.createElement('span');
+          sp.className = 'g';
+          sp.style.transitionDelay = (0.25 + i*0.035) + 's';
+          sp.textContent = g;
+          if(g === ' ') sp.style.whiteSpace = 'pre';
+          h.appendChild(sp);
+        });
+      });
+
+      // drop cap as its own element so it can land
+      document.querySelectorAll('.opener').forEach(function(op){
+        var p = op.nextElementSibling;
+        if(!p || p.tagName !== 'P') return;
+        var node = p.firstChild;
+        if(!node || node.nodeType !== 3) return;
+        var gs = graphemes(node.nodeValue);
+        if(!gs || !gs.length) return;
+        var first = gs[0];
+        node.nodeValue = node.nodeValue.slice(first.length);
+        var sp = document.createElement('span');
+        sp.className = 'dropcap';
+        sp.textContent = first;
+        p.insertBefore(sp, p.firstChild);
+        p.classList.add('dc');
+      });
+    }
+
+    // cover parallax
+    if(cover && !reduce){
+      var inner = cover.querySelector('.inner'), frame = cover.querySelector('.frame'), ticking = false;
+      function para(){
+        var y = window.scrollY;
+        if(y < window.innerHeight * 1.2){
+          if(inner){
+            inner.style.transform = 'translate3d(0,' + (y * 0.28) + 'px,0)';
+            inner.style.opacity = Math.max(0, 1 - y / (window.innerHeight * 0.7));
+          }
+          if(frame){ frame.style.transform = 'scale(' + (1 + y / 4200) + ')'; }
+        }
+        ticking = false;
+      }
+      window.addEventListener('scroll', function(){
+        if(!ticking){ ticking = true; window.requestAnimationFrame(para); }
+      }, {passive:true});
+    }
+  })();
+</script>
+
+<script>
+(function(){
+  function chapterText(article){
+    var clone = article.cloneNode(true);
+    var drop = clone.querySelectorAll('.tools,.endmark,.dinghy,.kind-tag,.readtime,.ch');
+    for(var i=0;i<drop.length;i++){ drop[i].parentNode.removeChild(drop[i]); }
+    var blocks = clone.querySelectorAll('h3, p');
+    var out = [];
+    for(var j=0;j<blocks.length;j++){
+      var t = blocks[j].textContent.replace(/\s+/g,' ').trim();
+      if(t) out.push(t);
+    }
+    out.push('\u2014 \u09a8\u09bf\u0983\u09b6\u09ac\u09cd\u09a6\u09c7\u09b0 \u09a8\u09cb\u099f\u09ac\u09c1\u0995 \u00b7 \u09a8\u09c1\u09b0\u099c\u09be\u09b9\u09be\u09a8 \u0986\u0981\u0996\u09bf');
+    return out.join('\n\n');
+  }
+
+  function flash(btn){
+    var old = btn.getAttribute('data-label') || btn.textContent;
+    btn.setAttribute('data-label', old);
+    btn.textContent = 'কপি হয়েছে ✓';
+    btn.classList.add('done');
+    setTimeout(function(){ btn.textContent = old; btn.classList.remove('done'); }, 1900);
+  }
+
+  function execCopy(text){
+    var ta = document.createElement('textarea');
+    ta.value = text;
+    ta.setAttribute('readonly','');
+    ta.style.position = 'fixed';
+    ta.style.top = '0';
+    ta.style.left = '0';
+    ta.style.width = '1px';
+    ta.style.height = '1px';
+    ta.style.opacity = '0.01';
+    document.body.appendChild(ta);
+    var ok = false;
+    try{
+      ta.focus();
+      ta.select();
+      ta.setSelectionRange(0, text.length);
+      ok = document.execCommand('copy');
+    }catch(e){ ok = false; }
+    document.body.removeChild(ta);
+    return ok;
+  }
+
+  var sheet, sheetBox;
+  function openSheet(text){
+    if(!sheet){
+      sheet = document.createElement('div');
+      sheet.className = 'copysheet';
+      sheet.innerHTML =
+        '<div class="cs-inner">' +
+          '<p class="cs-msg">লেখাটি সিলেক্ট করা আছে — চেপে ধরে <b>Copy</b> দিন।</p>' +
+          '<textarea class="cs-area" readonly></textarea>' +
+          '<button type="button" class="cs-close">বন্ধ করুন</button>' +
+        '</div>';
+      document.body.appendChild(sheet);
+      sheetBox = sheet.querySelector('.cs-area');
+      sheet.addEventListener('click', function(e){
+        if(e.target === sheet || e.target.classList.contains('cs-close')){
+          sheet.classList.remove('open');
+        }
+      });
+    }
+    sheetBox.value = text;
+    sheet.classList.add('open');
+    setTimeout(function(){
+      sheetBox.focus();
+      sheetBox.select();
+      try{ sheetBox.setSelectionRange(0, text.length); }catch(e){}
+    }, 60);
+  }
+
+  document.addEventListener('click', function(e){
+    var b = e.target && e.target.closest ? e.target.closest('[data-copytext]') : null;
+    if(!b) return;
+    e.preventDefault();
+    var article = document.getElementById(b.getAttribute('data-copytext'));
+    if(!article) return;
+    var text = chapterText(article);
+
+    if(execCopy(text)){ flash(b); return; }
+
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(text).then(function(){ flash(b); },
+                                               function(){ openSheet(text); });
+    } else {
+      openSheet(text);
+    }
+  }, false);
+})();
+</script>
+</body>
+</html>
