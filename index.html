@@ -265,6 +265,29 @@ a{color:inherit;text-decoration:none}
   font-size:14px
 }
 
+
+.featured-novel{
+  margin-top:15px;
+  padding:12px 13px;
+  border:1px solid rgba(232,184,93,.32);
+  border-radius:9px;
+  background:rgba(232,184,93,.06);
+  display:flex;
+  flex-direction:column;
+  gap:3px
+}
+.featured-novel span{
+  color:var(--gold);
+  font-size:10px;
+  letter-spacing:1px
+}
+.featured-novel a{
+  color:var(--gold2);
+  font-size:17px
+}
+.featured-novel a:hover{text-decoration:underline}
+.featured-novel small{color:var(--muted);font-size:11px}
+
 .quote{
   text-align:center;
   color:#d9c8d7;
@@ -563,15 +586,20 @@ footer{
       </div>
     </article>
 
-    <article class="card" data-search="উপন্যাস novels novel">
+    <article class="card" data-search="উপন্যাস novels novel নীলুর বিয়ের দিন নীলু নুরজাহান আঁখি">
       <img class="card-img" src="assets/novels.jpg"
-        alt="পুরোনো বই ও উষ্ণ আলো">
+        alt="উপন্যাসের সংগ্রহ">
 
       <div class="card-body">
         <span class="pill">NOVELS</span>
         <h3>উপন্যাস</h3>
         <p>সম্পর্ক, চরিত্র ও কল্পনার দীর্ঘ যাত্রা।</p>
-        <a class="card-link" href="novels.html">উপন্যাস পড়ুন →</a>
+        <a class="card-link" href="novels.html">উপন্যাসের সংগ্রহ দেখুন →</a>
+        <div class="featured-novel">
+          <span>নতুন সংযোজন</span>
+          <a href="nilur-biyer-din.html">নীলুর বিয়ের দিন</a>
+          <small>নুরজাহান আঁখি</small>
+        </div>
       </div>
     </article>
 
