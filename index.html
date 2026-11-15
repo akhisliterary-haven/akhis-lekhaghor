@@ -473,6 +473,14 @@ footer{
   }
 }
 </style>
+<style>
+.card-books{margin:14px 0 4px;padding-top:12px;border-top:1px solid rgba(232,184,93,.28);display:grid;gap:8px}
+.card-books-head{font-size:12px;color:var(--gold)}
+.book-hit{display:flex;align-items:center;gap:10px;padding:9px 12px;background:#1b1222;border:1px solid #694a5f;border-radius:8px;transition:border-color .25s,background .25s}
+.book-hit:hover,.book-hit:focus-visible{border-color:var(--gold2);background:#2a1a26;outline:none}
+.book-hit-title{flex:1;min-width:0;font-size:16px;color:var(--gold2);line-height:1.4}
+.book-hit-go{flex:none;font-size:12px;color:var(--gold)}
+</style>
 </head>
 
 <body>
@@ -529,7 +537,7 @@ footer{
 
     <form class="search" id="searchForm">
       <input id="search" type="search"
-        placeholder="কবিতা, গল্প বা উপন্যাস খুঁজুন…"
+        placeholder="বইয়ের নাম বা বিভাগ লিখুন…"
         aria-label="সাহিত্য খুঁজুন">
       <button type="submit">খুঁজুন</button>
     </form>
@@ -626,7 +634,7 @@ footer{
   </div>
 
   <p id="noResults" class="muted" hidden>
-    কোনো বিভাগ পাওয়া যায়নি। অন্য শব্দ দিয়ে খুঁজুন।
+    কোনো বই বা বিভাগ পাওয়া যায়নি। অন্য শব্দ দিয়ে খুঁজুন।
   </p>
 
   <div class="quote">
@@ -755,23 +763,90 @@ footer{
 </footer>
 
 <script>
+/* ===== সাহিত্য খোঁজা: বিভাগ + প্রতিটি বই ===== */
+const BOOKS = [
+  {t:'নীল খামের চিঠি', c:'কবিতা', p:'kobita.html', h:'nil-khamer-chithi.html', k:'nil khamer chithi neel poetry kobita কাব্যগ্রন্থ কবিতার বই'},
+  {t:'অনুপস্থিতির রঙ', c:'কবিতা', p:'kobita.html', h:'onuposthitir-rong-reviewed.html', k:'onuposthitir rong rong poetry kobita কাব্যগ্রন্থ কবিতার বই রং'},
+  {t:'আত্মউপলব্ধি ও নিঃসঙ্গতা', c:'কবিতা', p:'kobita.html', h:'atmo-upolobdhi-o-nissongota.html', k:'atmo upolobdhi o nissongota introversive solitary poetry kobita কাব্যগ্রন্থ কবিতার বই আত্ম উপলব্ধি নিসঙ্গতা'},
+  {t:'যে কথাগুলো বলা হয়নি', c:'কবিতা', p:'kobita.html', h:'je-kothagulo-bola-hoyni.html', k:'je kothagulo bola hoyni poetry kobita কাব্যগ্রন্থ কবিতার বই'},
+  {t:'নাম না-জানা স্টেশন', c:'ছোটগল্প', p:'chotogolpo.html', h:'naam-na-jana-station-1.html', k:'naam na jana station nam short stories golpo গল্পের বই সংকলন ইস্টিশন'},
+  {t:'চিঠির উত্তর নেই', c:'উপন্যাস', p:'novels.html', h:'chithir-uttor-nei.html', k:'chithir uttor nei novel uponnash romance প্রেমের উপন্যাস'},
+  {t:'নীলুর বিয়ের দিন', c:'উপন্যাস', p:'novels.html', h:'nilur-biyer-din.html', k:'nilur biyer din nilu novel uponnash নীলু'},
+  {t:'ঘাতক ও কোটিপতি', c:'ফ্যানফিকশন', p:'fanfiction.html', h:'ghatok-o-kotipoti.html', k:'ghatok o kotipoti killer billionaire fanfiction gl'},
+  {t:'ভিনাইলের ওপারে তুমি', c:'ফ্যানফিকশন', p:'fanfiction.html', h:'vinyler-opare-tumi.html', k:'vinyler opare tumi vinyl fanfiction gl ভিনাইল'},
+  {t:'নিঃশব্দের নোটবুক', c:'অন্যান্য লেখা', p:'onnyanno-lekha.html', h:'nishobder-notebook.html', k:'nishobder notebook prose reflections গদ্য ভাবনা অনুগল্প নিশব্দের'},
+  {t:'ধুলো ও আলো', c:'অন্যান্য লেখা', p:'onnyanno-lekha.html', h:'dhulo-o-alo.html', k:'dhulo o alo history ইতিহাস নবী মানবইতিহাস ধূলো'},
+  {t:'একটি দেশের জন্মকথা', c:'অন্যান্য লেখা', p:'onnyanno-lekha.html', h:'ekti-desher-jonmokotha.html', k:'ekti desher jonmokotha history ইতিহাস মুক্তিযুদ্ধ বাংলাদেশ ১৯৭১ 1971 liberation war'},
+  {t:'নিশুতিপুর', c:'ভূতের গল্প', p:'bhuter-golpo.html', h:'nishutipur.html', k:'nishutipur horror ghost ভৌতিক উপন্যাস'},
+  {t:'নিশিরাতের মিষ্টির দোকান', c:'ভূতের গল্প', p:'bhuter-golpo.html', h:'nishiraater-mishtir-dokan.html', k:'nishiraater nishirater mishtir dokan horror ghost ভৌতিক উপন্যাসিকা'},
+  {t:'আট তলা', c:'ভূতের গল্প', p:'bhuter-golpo.html', h:'aat-tola.html', k:'aat tola at tola horror ghost ভৌতিক উপন্যাসিকা কায়রো লিফট আটতলা'}
+];
+
 const input = document.getElementById('search');
-const cards = [...document.querySelectorAll('.card')];
+const cards = [...document.querySelectorAll('#categories .card')];
 const empty = document.getElementById('noResults');
 
+/* বানানের ছোটখাটো পার্থক্য (হাইফেন, যতিচিহ্ন, বাড়তি ফাঁকা) উপেক্ষা করা হয় */
+function norm(v) {
+  return (v || '').normalize('NFC').toLowerCase()
+    .replace(/[‌‍]/g, '')
+    .replace(/[-–—‐·.,|'"’‘“”!?()।:;\/]+/g, ' ')
+    .replace(/\s+/g, ' ').trim();
+}
+
+function matches(hay, q) {
+  if (!q) return true;
+  if (q.split(' ').every(w => hay.includes(w))) return true;
+  return hay.replace(/ /g, '').includes(q.replace(/ /g, ''));
+}
+
+BOOKS.forEach(b => { b.hay = norm(b.t + ' ' + b.c + ' ' + b.k); });
+cards.forEach(card => {
+  const link = card.querySelector('a[href$=".html"]');
+  card._page = link ? link.getAttribute('href') : '';
+  card._hay = norm((card.dataset.search || '') + ' ' + card.textContent);
+});
+
+function toBn(n) {
+  return String(n).replace(/\d/g, d => '০১২৩৪৫৬৭৮৯'[d]);
+}
+
 function filter() {
-  const q = input.value.trim().toLowerCase();
+  const q = norm(input.value);
+  const found = q ? BOOKS.filter(b => matches(b.hay, q)) : [];
+
   let count = 0;
-
   cards.forEach(card => {
-    const text = (
-      (card.dataset.search || '') + ' ' + card.innerText
-    ).toLowerCase();
+    const mine = found.filter(b => b.p === card._page);
+    const old = card.querySelector('.card-books');
+    if (old) old.remove();
 
-    const show = text.includes(q);
+    if (mine.length) {
+      const box = document.createElement('div');
+      box.className = 'card-books';
+      const head = document.createElement('div');
+      head.className = 'card-books-head';
+      head.textContent = 'এই বিভাগে পাওয়া গেছে — ' + toBn(mine.length) + 'টি বই';
+      box.appendChild(head);
+      mine.forEach(b => {
+        const a = document.createElement('a');
+        a.className = 'book-hit';
+        a.href = b.h;
+        const name = document.createElement('span');
+        name.className = 'book-hit-title';
+        name.textContent = b.t;
+        const go = document.createElement('span');
+        go.className = 'book-hit-go';
+        go.textContent = 'পড়ুন →';
+        a.append(name, go);
+        box.appendChild(a);
+      });
+      const body = card.querySelector('.card-body');
+      body.insertBefore(box, body.querySelector('.card-link'));
+    }
 
+    const show = !q || mine.length > 0 || matches(card._hay, q);
     card.hidden = !show;
-
     if (show) count++;
   });
 
