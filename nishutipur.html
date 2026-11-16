@@ -81,6 +81,5 @@ function show(i){B.forEach((_,k)=>{document.getElementById("b"+k).hidden=k!=i;ta
 function cp(i,j,b){const t=B[i].ch[j][0]+"\n\n"+B[i].ch[j][1];const ok=()=>{b.textContent="কপি হয়েছে ✓";setTimeout(()=>b.textContent="কপি করুন",1600)};
  (navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(ok,()=>{const a=document.createElement("textarea");a.value=t;document.body.appendChild(a);a.select();try{document.execCommand("copy");ok()}catch(e){}a.remove()})}
 </script>
-<script data-goatcounter="https://akhislekhaloy.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>
