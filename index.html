@@ -5,6 +5,21 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#100914">
 <meta name="description" content="নুরজাহান আঁখির নিজস্ব সাহিত্যভুবন—কবিতা, গল্প, উপন্যাস ও অন্যান্য সাহিত্যকর্ম।">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23100914'/%3E%3Crect x='3' y='3' width='58' height='58' rx='11' fill='none' stroke='%23e8b85d' stroke-opacity='.55' stroke-width='2'/%3E%3Ctext x='32' y='45' text-anchor='middle' font-size='38' font-family='Noto Serif Bengali%2Cserif' fill='%23ffda8a'%3E%E0%A6%86%3C/text%3E%3C/svg%3E">
+<link rel="canonical" href="https://akhisliterary-haven.github.io/akhis-lekhaghor/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="আঁখির লেখালয়">
+<meta property="og:title" content="আঁখির লেখালয় | Akhi's Literary Haven">
+<meta property="og:description" content="নুরজাহান আঁখির নিজস্ব সাহিত্যভুবন—কবিতা, গল্প, উপন্যাস ও অন্যান্য সাহিত্যকর্ম।">
+<meta property="og:url" content="https://akhisliterary-haven.github.io/akhis-lekhaghor/">
+<meta property="og:image" content="https://akhisliterary-haven.github.io/akhis-lekhaghor/assets/share.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="bn_BD">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="আঁখির লেখালয় | Akhi's Literary Haven">
+<meta name="twitter:description" content="নুরজাহান আঁখির নিজস্ব সাহিত্যভুবন—কবিতা, গল্প, উপন্যাস ও অন্যান্য সাহিত্যকর্ম।">
+<meta name="twitter:image" content="https://akhisliterary-haven.github.io/akhis-lekhaghor/assets/share.jpg">
 <title>আঁখির লেখালয় | Akhi's Literary Haven</title>
 
 <style>
@@ -538,6 +553,13 @@ footer{
 .fx-line{position:relative;width:90px;height:1px;margin:14px auto;background:linear-gradient(90deg,transparent,#d4af6e,transparent)}
 .fx-stat{position:relative;margin:2px 0;color:#b9a8c6;font-size:.92rem}
 .fx-hint{position:relative;margin-top:14px;color:#d4af6e;font-size:.8rem;letter-spacing:.06em;opacity:.85}
+.contact-sec{padding:54px 0 58px}
+.contact-card{max-width:760px;margin:auto;text-align:center;padding:clamp(26px,5vw,42px);border:1px solid rgba(232,184,93,.4);border-radius:16px;background:linear-gradient(145deg,rgba(36,23,43,.9),rgba(19,14,25,.9));box-shadow:0 15px 50px rgba(0,0,0,.25)}
+.contact-card h2{font-size:clamp(28px,4vw,40px);font-weight:normal;color:var(--gold2);margin:6px 0 10px}
+.contact-card p{color:#d1c1d2;margin:0 auto 24px;max-width:560px}
+.contact-links{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
+.contact-links a{display:inline-flex;padding:11px 24px;border:1px solid var(--gold);border-radius:7px;color:var(--gold2);background:linear-gradient(135deg,rgba(232,184,93,.12),rgba(104,45,110,.15));transition:.3s}
+.contact-links a:hover{background:linear-gradient(135deg,#ffdc8d,#d89d49);color:#251526;transform:translateY(-3px)}
 </style>
 </head>
 
@@ -814,7 +836,20 @@ footer{
 
 </main>
 
-<footer id="contact">
+<section class="contact-sec" id="contact" aria-labelledby="contact-title">
+  <div class="wrap">
+    <div class="contact-card">
+      <div class="eyebrow">GET IN TOUCH</div>
+      <h2 id="contact-title">যোগাযোগ</h2>
+      <p>লেখা নিয়ে কিছু বলতে চান, মতামত জানাতে চান, বা শুধু একটা শুভেচ্ছা পাঠাতে চান? নিচের যেকোনো জায়গায় লিখুন।</p>
+      <div class="contact-links">
+        <a href="https://www.facebook.com/share/16JoFmGg3eC/" target="_blank" rel="noopener noreferrer">Facebook ↗</a>
+        <a href="https://www.instagram.com/nurjahan.akhi/" target="_blank" rel="noopener noreferrer">Instagram ↗</a>
+      </div>
+    </div>
+  </div>
+</section>
+<footer>
   © 2026 নুরজাহান আঁখি · আঁখির লেখালয়
   <br>
   <span class="gold">আমার শব্দ, আমার গল্প, আমার পৃথিবী।</span>
@@ -1659,7 +1694,7 @@ document.getElementById('searchForm').addEventListener('submit', event => {
       });
     }, {threshold: 0, rootMargin: '0px 0px -8% 0px'});
     var groups = [
-      document.querySelectorAll('#library .section-head, #library .quote, #daily-quote, footer'),
+      document.querySelectorAll('#library .section-head, #library .quote, #daily-quote, .contact-card, footer'),
       document.querySelectorAll('.author-profile > *')
     ];
     groups.forEach(function (list, g) {
