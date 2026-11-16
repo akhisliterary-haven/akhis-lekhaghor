@@ -249,6 +249,44 @@
         align-items: flex-start;
       }
     }
+
+    .lock {
+      max-width: 520px;
+      margin: 10px auto 36px;
+      padding: 26px 22px;
+      text-align: center;
+      border: 1px solid rgba(246,217,168,.35);
+      border-radius: 20px;
+      background: linear-gradient(145deg, var(--panel2), var(--panel));
+      box-shadow: 0 12px 32px rgba(0,0,0,.2);
+    }
+    .lock-icon { font-size: 2rem; line-height: 1; margin-bottom: 8px; }
+    .lock h2 { margin-bottom: 6px; }
+    .lock p { color: var(--muted); margin: 0 0 16px; }
+    .lock form { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; }
+    .lock input {
+      flex: 1 1 200px; min-width: 0;
+      padding: 11px 14px; border-radius: 999px;
+      border: 1px solid rgba(246,217,168,.35);
+      background: rgba(0,0,0,.25); color: var(--text);
+      font: inherit; text-align: center; letter-spacing: .08em;
+    }
+    .lock input:focus { outline: none; border-color: var(--accent); }
+    .lock button {
+      padding: 10px 22px; border: 0; border-radius: 999px;
+      background: var(--accent); color: #241529;
+      font: inherit; font-weight: 700; cursor: pointer;
+    }
+    .lock button:disabled { opacity: .6; cursor: wait; }
+    .msg { min-height: 1.6em; margin-top: 10px; color: var(--gold); font-size: .92rem; }
+    .relock {
+      display: block; margin: -18px auto 30px; padding: 6px 16px;
+      border: 1px solid var(--line); border-radius: 999px;
+      background: transparent; color: var(--muted);
+      font: inherit; font-size: .85rem; cursor: pointer;
+    }
+    .relock:hover { color: var(--text); border-color: var(--accent); }
+    [hidden] { display: none !important; }
   </style>
 </head>
 
@@ -270,45 +308,32 @@
     </header>
 
     <section class="notice" aria-label="প্রবেশ কোড সংক্রান্ত তথ্য">
-      <strong>প্রবেশ কোড প্রয়োজন</strong><br>
-      দুটি গল্পের জন্য একই প্রবেশ কোড ব্যবহার করা যাবে।
-      কোড না থাকলে নিচের Facebook অথবা Instagram লিংকে যোগাযোগ করে
-      অনুরোধ জানাও।
+      <strong>প্রবেশ কোড প্রয়োজন</strong><br>
+      এই বিভাগের সব গল্প তালাবন্ধ। একটি কোডেই পুরো বিভাগ আর সব গল্প খুলবে।
+      কোড না থাকলে নিচের Facebook অথবা Instagram লিংকে যোগাযোগ করে অনুরোধ জানান।
     </section>
 
-    <main class="books" aria-label="ফ্যানফিকশন গল্পের তালিকা">
-
-      <article class="book">
-        <span class="number">গল্প ০১</span>
-        <h2>ঘাতক ও কোটিপতি</h2>
-        <p class="desc">
-          রহস্য, বিপদ আর অপ্রত্যাশিত মোড়ের ভেতর দিয়ে এগিয়ে চলা
-          একটি ফ্যানফিকশন। গল্পের দরজা খুলতে প্রবেশ কোড লাগবে।
-        </p>
-        <a class="read" href="./ghatok-o-kotipoti.html">
-          গল্প পড়ুন ↗
-        </a>
-      </article>
-
-      <article class="book">
-        <span class="number">গল্প ০২</span>
-        <h2>ভিনাইলের ওপারে তুমি</h2>
-        <p class="desc">
-          সুর, অনুভূতি আর দূরত্বের ওপারে গড়ে ওঠা এক গল্প।
-          পড়া শুরু করতে প্রবেশ কোড প্রয়োজন।
-        </p>
-        <a class="read" href="./vinyler-opare-tumi.html">
-          গল্প পড়ুন ↗
-        </a>
-      </article>
-
+    <main id="ffMain">
+      <section class="lock" id="lockBox" aria-labelledby="lock-title">
+        <div class="lock-icon" aria-hidden="true">🔒</div>
+        <h2 id="lock-title">গল্পের তালিকা দেখতে কোড দিন</h2>
+        <p>কোড দিলে এই বিভাগের সব গল্প খুলে যাবে।</p>
+        <form id="ffForm">
+          <input id="ffCode" type="password" autocomplete="current-password"
+            placeholder="প্রবেশ কোড" aria-label="প্রবেশ কোড" required>
+          <button type="submit" id="ffBtn">খুলুন</button>
+        </form>
+        <div class="msg" id="ffMsg" aria-live="polite"></div>
+      </section>
+      <div id="ffList"></div>
+      <button class="relock" id="ffRelock" type="button" hidden>🔒 আবার তালা দিন</button>
     </main>
 
     <section class="contact" aria-labelledby="contact-title">
       <h2 id="contact-title">প্রবেশ কোড চাই?</h2>
       <p>
-        কোডের জন্য লেখকের সঙ্গে যোগাযোগ করো।
-        ব্যক্তিগত বার্তায় গল্পের নাম উল্লেখ করবে।
+        কোডের জন্য লেখকের সঙ্গে যোগাযোগ করুন।
+        ব্যক্তিগত বার্তায় জানান যে ফ্যানফিকশন বিভাগের কোড চান।
       </p>
 
       <div class="socials">
@@ -333,5 +358,61 @@
     </footer>
 
   </div>
+<script>
+(function () {
+  "use strict";
+  var KEY = "akhi-ff";
+  var u = function (s) { return Uint8Array.from(atob(s), function (c) { return c.charCodeAt(0); }); };
+  var salt = u("8FrxgNnlEEXUtt0qt6sy2Q=="), iv = u("VWE8udJPlpIIM0XN"), data = u("ZEtmXOqRq80Am2mLzl4+HcOibsQjJrIKOcvb+JkD1G2gIRk5FlM13d0qLHefaAqytWU073s9/HjyqOAImeAh6/JxGHeMn981CQs0K+DjmtUoZJLlKrmrgBRt3WB8uKbb7hWMxOv4PP64ArJbhe2yZ81ORdp9koq76JM8xnIHvFX6aoKtEVC96Kua58rYo+/BO2YQQWBhVL6eMjmgxew7mA7pJwSvkKpBEjhfaohNSGnktkV8fq1LcUt5dqsh1W1n86jbEpjmnDz+VW8udqHKDFdZVu7BiDjDofDSpwLPwk2uctC3wWXvFY8W+91vQqPAhCL/gn9brnN0K1SqC3Sz2lTwyDj/vgbaZ2om+lRROjp0xLXS5N22txMlbW4cGt9QsgZ45eavkMMDgJmqEdsAtzsxhKKViD21u9U2e2n6l7EloTauwbbDCgd2t73Gn08UtAXn/NVivJDMKhY3nMCaCEUzGK0dWiyb+WY5jSEUOqh5LpwS+CX+XD1m6xVCIp0KCZ/KRB+VmaodzT986voCqeWZePwdvAfQbyoJ0T2wuj1tvrMRYPWfLN43Lr7UT5EAQsv+B89TAklG/N7gwU1nCsNalK4Uw/0Or2RpBN1cXK0GWduLc2pWzyRPjzPKO4Sqi25DZmo/UdLLYfjGQpVmE1W0vc2uw0dPDMcL7JLDX3F57ASdYO83P8IcaHz8tUEuRTzWp3+75LejD40UBSkHm4ALH9mYG1h+T0K/ZeWI/KNrMpZOoyzkf9GbEQV5LtM5lu5cFoD6dzLIcmSIrBO434AcKsD0rJ9DcvMELCrdkxBPlTAuDsmgXksQrgAsSPe+giU6VTRBjYoLwFJyYIV8NG5vwc3m9+8kRuzQZiqSP2yUm1Z2raYa5C6GwfLIOFY3VATCf0nyMmjryloXpuZLmYFzAQswv+ymb2sQO5cHZIYB0xo5COPrmXK9rwf30FtOmAPqFQrjcsb4X7M+MYP0OqtEvCovc+o9z8l1/eOBqOYIJ+o2QyNVjeReWcSnPgPCRAGOc6PmCPnkfsPAabxphKCtKcDD4MqDDOVYdOak5Goc9/GJy1zyYo+wVaEK45PY1855fJaQQCVyoVrh2afLCZud72RCpuibfvNQzQJzP8Jc+cHJyqk1295/uMbDlaf6mJKWeuuSYiGJJt2kBBk5+CJCtYgb2LVCf8mQknUdfOt5cmAIkEgpsKuc/8vc+LaKs1hDsAGC/Utd023Cmjj+D2kSujawrEv/w5Osc42eAF4guJaFgjT6/D3/y6+KhNpFNQhI9lIYEoC+ylxyerUKA8pAnPi0HwIUz2ZbkTihNXdghKFAoKxn0gsEPe1JvWequwSBVyVuZHAzG78oDmICtUtW1puG/1F57dtQo48oRgDoGjeVmqCdQveuMZd/1d8gVPToLWguJRVdWsBHwQfDyBbCQTw1QJu7eUfVFwNJUaLqD23XXfR97OeSccxXcgDol9gngxqi45t0xTN4FITfPAYRSYVPhnC2bdPXg8l5PMYL73xydoyghRZAgZL3TTA05xLypMzzEQ+M3aZjRpjlNH934G+LRkerNTJvwVvhVkIqPAvd7L55hXzz2/SW4LXL9YAYdc07xFC4rCwCS5SnWzxHUasqIIXG4owhi9fECTa6Sq9GAd56fuRMu30njrJhyb2DmWmkalHFPKSaL3JI4XijXO++kzOi6TSkjC0fs0CHSLuRA3cc50YDe/xXMns5ta9PxqsSJKNUdKX6Ub8yaVAsaSitwyuoauSUbWmFpKNbvEO7thj2bmtS9zBfQeJux0WX5DHmBd4nM60hNJlTVwIVBKoSYa/dS02sdUqErEAPiO8N9zDqsd2OJOgkZf0+CuH1BOOF7PZ+lIqSglImYm1oAQhrEsOwEszdwWCYq7o49Xf7lgE7GL4DQslHtfpvO85d86vXwgbI1Ldwz9ARxhuHPltSDJiP/7sqEdoUzmnl6I0YIzB/RghY");
+  var form = document.getElementById("ffForm"), input = document.getElementById("ffCode");
+  var btn = document.getElementById("ffBtn"), msg = document.getElementById("ffMsg");
+  var box = document.getElementById("lockBox"), list = document.getElementById("ffList");
+  var relock = document.getElementById("ffRelock");
+
+  async function open(code, quiet) {
+    if (!window.crypto || !crypto.subtle) {
+      msg.textContent = "এই ব্রাউজারে তালা খোলা যাচ্ছে না। Chrome দিয়ে চেষ্টা করুন।";
+      return false;
+    }
+    btn.disabled = true;
+    if (!quiet) msg.textContent = "যাচাই করা হচ্ছে…";
+    try {
+      var km = await crypto.subtle.importKey("raw", new TextEncoder().encode(code), "PBKDF2", false, ["deriveKey"]);
+      var key = await crypto.subtle.deriveKey({name: "PBKDF2", salt: salt, iterations: 310000, hash: "SHA-256"},
+        km, {name: "AES-GCM", length: 256}, false, ["decrypt"]);
+      var plain = await crypto.subtle.decrypt({name: "AES-GCM", iv: iv}, key, data);
+      list.innerHTML = new TextDecoder().decode(plain);
+      box.hidden = true;
+      relock.hidden = false;
+      try { sessionStorage.setItem(KEY, code); } catch (e) {}
+      return true;
+    } catch (err) {
+      if (!quiet) msg.textContent = "কোডটি সঠিক নয়। আবার চেষ্টা করুন অথবা লেখিকার সঙ্গে যোগাযোগ করুন।";
+      try { sessionStorage.removeItem(KEY); } catch (e) {}
+      return false;
+    } finally {
+      btn.disabled = false;
+    }
+  }
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    open(input.value, false);
+  });
+
+  relock.addEventListener("click", function () {
+    try { sessionStorage.removeItem(KEY); } catch (e) {}
+    list.innerHTML = "";
+    input.value = "";
+    msg.textContent = "";
+    relock.hidden = true;
+    box.hidden = false;
+  });
+
+  var saved = null;
+  try { saved = sessionStorage.getItem(KEY); } catch (e) {}
+  if (saved) open(saved, true);
+})();
+</script>
 </body>
 </html>
