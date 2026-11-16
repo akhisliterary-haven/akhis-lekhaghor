@@ -487,6 +487,25 @@ footer{
     transition:none!important
   }
 }
+
+/* ---- নতুন সংযোজন ---- */
+.nb-sec{padding-bottom:10px}
+.nb-row{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:18px;margin-top:26px}
+.nb-item{display:block;color:inherit;text-decoration:none;position:relative}
+.nb-cover{position:relative;aspect-ratio:2/3;border-radius:8px;overflow:hidden;border:1px solid rgba(232,184,93,.35);box-shadow:0 10px 26px rgba(0,0,0,.45);background:#1b1220}
+.nb-cover img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .45s}
+.nb-item:hover .nb-cover img,.nb-item:focus-visible .nb-cover img{transform:scale(1.05)}
+.nb-item:focus-visible{outline:2px solid var(--gold2);outline-offset:4px;border-radius:8px}
+.nb-badge{position:absolute;top:8px;left:8px;background:linear-gradient(135deg,#ffdc8d,#d89d49);color:#251526;font-size:11px;padding:2px 9px;border-radius:99px;box-shadow:0 3px 10px rgba(0,0,0,.4)}
+.nb-title{margin:10px 0 0;font-size:15px;line-height:1.4;color:var(--gold2)}
+.nb-kind{font-size:12px;color:#c5b7c7}
+@media(max-width:900px){
+  .nb-row{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:14px;padding-bottom:12px;margin-right:-4%;padding-right:4%;scrollbar-width:none}
+  .nb-row::-webkit-scrollbar{display:none}
+  .nb-item{flex:0 0 38%;scroll-snap-align:start}
+}
+@media(max-width:520px){.nb-item{flex-basis:44%}}
+@media(prefers-reduced-motion:reduce){.nb-cover img{transition:none}}
 </style>
 <style>
 .card-books{margin:14px 0 4px;padding-top:12px;border-top:1px solid rgba(232,184,93,.28);display:grid;gap:8px}
@@ -628,6 +647,46 @@ section[id],footer[id]{scroll-margin-top:84px}
       সাহিত্যভুবনে প্রবেশ করুন →
     </a>
   </div>
+</section>
+
+<section class="section nb-sec" id="new-books" aria-labelledby="nb-title">
+<div class="wrap">
+  <div class="eyebrow">NEW ARRIVALS</div>
+  <h2 id="nb-title">নতুন সংযোজন</h2>
+  <p class="muted">সাম্প্রতিক যোগ হওয়া বইগুলো—কভারে চাপ দিলেই পড়া শুরু।</p>
+  <div class="nb-row">
+    <a class="nb-item" href="nishi-dakeni.html">
+      <div class="nb-cover"><span class="nb-badge">নতুন</span><img src="assets/nishi-dakeni-cover.png" alt="নিশি ডাকেনি — প্রচ্ছদ" loading="lazy"></div>
+      <div class="nb-title">নিশি ডাকেনি</div>
+      <div class="nb-kind">ভূতের গল্প</div>
+    </a>
+    <a class="nb-item" href="ekti-desher-jonmokotha.html">
+      <div class="nb-cover"><img src="assets/ekti-desher-jonmokotha-cover.png" alt="একটি দেশের জন্মকথা — প্রচ্ছদ" loading="lazy"></div>
+      <div class="nb-title">একটি দেশের জন্মকথা</div>
+      <div class="nb-kind">ইতিহাস</div>
+    </a>
+    <a class="nb-item" href="aat-tola.html">
+      <div class="nb-cover"><img src="assets/aat-tola-cover.png" alt="আট তলা — প্রচ্ছদ" loading="lazy"></div>
+      <div class="nb-title">আট তলা</div>
+      <div class="nb-kind">ভূতের গল্প</div>
+    </a>
+    <a class="nb-item" href="je-kothagulo-bola-hoyni.html">
+      <div class="nb-cover"><img src="assets/je-kothagulo-bola-hoyni-cover.png" alt="যে কথাগুলো বলা হয়নি — প্রচ্ছদ" loading="lazy"></div>
+      <div class="nb-title">যে কথাগুলো বলা হয়নি</div>
+      <div class="nb-kind">কবিতা</div>
+    </a>
+    <a class="nb-item" href="nilur-biyer-din.html">
+      <div class="nb-cover"><img src="assets/nilur-biyer-din-cover.png" alt="নীলুর বিয়ের দিন — প্রচ্ছদ" loading="lazy"></div>
+      <div class="nb-title">নীলুর বিয়ের দিন</div>
+      <div class="nb-kind">উপন্যাস</div>
+    </a>
+    <a class="nb-item" href="dhulo-o-alo.html">
+      <div class="nb-cover"><img src="assets/dhulo-o-alo-cover.png" alt="ধুলো ও আলো — প্রচ্ছদ" loading="lazy"></div>
+      <div class="nb-title">ধুলো ও আলো</div>
+      <div class="nb-kind">ইতিহাস</div>
+    </a>
+  </div>
+</div>
 </section>
 
 <section class="section" id="library">
