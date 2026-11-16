@@ -1,0 +1,1804 @@
+<!DOCTYPE html>
+<html lang="bn" class="js">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>নিশি ডাকেনি — নুরজাহান আঁখি | আঁখির লেখালয়</title>
+<meta name="description" content="নিশি ডাকেনি — নুরজাহান আঁখির ভূতের গল্প। গ্রামবাংলার নিশির ডাক, একটি হারিয়ে যাওয়া ভাই আর মাঠের শেষে পুরোনো নীলকুঠি।">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tiro+Bangla&family=Noto+Serif+Bengali:wght@400;600;700&family=Hind+Siliguri:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#07090f;
+    --bg2:#0d1220;
+    --ink:#d9dbe3;
+    --ink-soft:#9aa0b4;
+    --lamp:#f2b45a;
+    --lamp-soft:rgba(242,180,90,.16);
+    --moss:#5f7d6a;
+    --blood:#b4463c;
+    --line:rgba(217,219,227,.12);
+    --card:rgba(16,22,38,.78);
+    --fs:19px;
+  }
+  body.paper{
+    --bg:#efe6d4;
+    --bg2:#e6dbc4;
+    --ink:#2b2620;
+    --ink-soft:#6c6254;
+    --lamp:#a5621b;
+    --lamp-soft:rgba(165,98,27,.12);
+    --moss:#4c6b55;
+    --blood:#9a3328;
+    --line:rgba(43,38,32,.14);
+    --card:rgba(255,250,240,.7);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Noto Serif Bengali','Tiro Bangla',serif;
+    line-height:1.95;
+    transition:background .5s,color .5s;
+    overflow-x:hidden;
+  }
+
+  /* ---------- top bar ---------- */
+  .topbar{
+    position:sticky;top:0;z-index:50;
+    display:flex;align-items:center;justify-content:space-between;gap:.6rem;
+    padding:.55rem 1rem;
+    background:color-mix(in srgb,var(--bg) 88%,transparent);
+    backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+    font-family:'Hind Siliguri',sans-serif;
+  }
+  .topbar a.home{color:var(--ink-soft);text-decoration:none;font-size:.92rem;white-space:nowrap}
+  .topbar a.home:hover{color:var(--lamp)}
+  .controls{display:flex;align-items:center;gap:.35rem}
+  .controls button{
+    font-family:'Hind Siliguri',sans-serif;
+    background:transparent;color:var(--ink);
+    border:1px solid var(--line);border-radius:999px;
+    min-width:2.4rem;height:2.1rem;padding:0 .7rem;
+    cursor:pointer;font-size:.95rem;transition:.25s;
+  }
+  .controls button:hover{border-color:var(--lamp);color:var(--lamp)}
+  .controls .lbl{font-size:.82rem;color:var(--ink-soft);margin-right:.15rem}
+  .progress{position:absolute;left:0;bottom:-1px;height:2px;width:0;background:var(--lamp);box-shadow:0 0 8px var(--lamp)}
+
+  /* ---------- cover ---------- */
+  .cover{
+    position:relative;min-height:94vh;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    text-align:center;padding:4rem 1.5rem 7rem;overflow:hidden;
+    background:
+      radial-gradient(ellipse at 72% 18%,rgba(232,236,255,.10),transparent 38%),
+      radial-gradient(ellipse at 50% 120%,var(--lamp-soft),transparent 55%),
+      linear-gradient(180deg,var(--bg2),var(--bg));
+  }
+  .moon{
+    position:absolute;top:9%;right:14%;width:88px;height:88px;border-radius:50%;
+    background:radial-gradient(circle at 38% 38%,#f4f1e6,#c9c3b0 70%);
+    box-shadow:0 0 60px 18px rgba(240,236,220,.14);
+    opacity:.85;
+  }
+  body.paper .moon{opacity:.35}
+  .fog{
+    position:absolute;left:-50%;width:200%;height:180px;pointer-events:none;
+    background:radial-gradient(ellipse at center,rgba(200,210,230,.11),transparent 65%);
+    filter:blur(8px);
+  }
+  .fog.f1{bottom:16%;animation:drift 38s linear infinite}
+  .fog.f2{bottom:4%;animation:drift 55s linear infinite reverse;opacity:.8}
+  @keyframes drift{from{transform:translateX(-12%)}to{transform:translateX(12%)}}
+  .bamboo{position:absolute;bottom:0;left:0;width:100%;height:46%;pointer-events:none}
+  .bamboo path,.bamboo rect{fill:#03050a}
+  body.paper .bamboo path,body.paper .bamboo rect{fill:#3a3328;opacity:.55}
+  .kuthi-light{animation:flick 4.5s infinite}
+  @keyframes flick{0%,100%{opacity:.9}45%{opacity:.35}50%{opacity:.95}62%{opacity:.5}}
+
+  .cover .genre{
+    position:relative;font-family:'Hind Siliguri',sans-serif;
+    font-size:.95rem;color:var(--lamp);margin-bottom:1.4rem;
+  }
+  .cover h1{
+    position:relative;font-family:'Tiro Bangla',serif;font-weight:400;
+    font-size:clamp(3.2rem,12vw,6.2rem);line-height:1.15;
+    color:var(--ink);
+    text-shadow:0 0 30px rgba(242,180,90,.18);
+  }
+  .cover h1 .no{color:var(--blood);display:inline-block;animation:breathe 6s ease-in-out infinite}
+  @keyframes breathe{0%,100%{opacity:1}50%{opacity:.55}}
+  .cover .whisper{
+    position:relative;margin-top:1.5rem;font-style:italic;color:var(--ink-soft);
+    font-size:1.08rem;
+  }
+  .cover .author{
+    position:relative;margin-top:2.6rem;font-family:'Hind Siliguri',sans-serif;
+    font-size:1.05rem;
+  }
+  .cover .author::before{content:"";display:block;width:46px;height:1px;background:var(--lamp);margin:0 auto .9rem}
+  .scroll-hint{
+    position:absolute;bottom:1.6rem;left:50%;transform:translateX(-50%);
+    font-family:'Hind Siliguri',sans-serif;font-size:.82rem;color:var(--ink-soft);
+    text-decoration:none;z-index:2;
+  }
+
+  /* ---------- sections ---------- */
+  .wrap{max-width:720px;margin:0 auto;padding:0 1.25rem}
+  .section-title{
+    font-family:'Tiro Bangla',serif;font-weight:400;font-size:1.7rem;
+    text-align:center;margin:4.5rem 0 1.8rem;color:var(--lamp);
+  }
+  .intro{
+    background:var(--card);border:1px solid var(--line);border-radius:18px;
+    padding:1.6rem 1.5rem;margin-top:3.5rem;
+    font-size:calc(var(--fs) * .92);color:var(--ink-soft);text-align:center;
+  }
+  .toc{list-style:none;display:grid;gap:.7rem}
+  .toc li a,.toc li .soon{
+    display:flex;align-items:center;gap:1rem;
+    padding:1rem 1.2rem;border-radius:14px;
+    background:var(--card);border:1px solid var(--line);
+    color:var(--ink);text-decoration:none;transition:.3s;
+  }
+  .toc li a:hover{border-color:var(--lamp);transform:translateX(4px);box-shadow:0 0 22px var(--lamp-soft)}
+  .toc .num{
+    font-family:'Tiro Bangla',serif;font-size:1.5rem;color:var(--lamp);
+    width:2.2rem;text-align:center;flex-shrink:0;
+  }
+  .toc .t{flex:1}
+  .toc .t b{display:block;font-weight:600;font-size:1.08rem}
+  .toc .t small{font-family:'Hind Siliguri',sans-serif;color:var(--ink-soft);font-size:.85rem}
+  .toc .soon{opacity:.45;cursor:default}
+
+  /* ---------- chapter ---------- */
+  .chapter{margin-top:5rem;padding-top:1rem}
+  .ch-head{text-align:center;margin-bottom:2.4rem}
+  .ch-head .label{font-family:'Hind Siliguri',sans-serif;font-size:.82rem;color:var(--ink-soft)}
+  .ch-head h2{
+    font-family:'Tiro Bangla',serif;font-weight:400;
+    font-size:clamp(2.2rem,8vw,3.2rem);color:var(--ink);margin:.4rem 0 .6rem;
+  }
+  .ch-meta{
+    display:flex;justify-content:center;align-items:center;gap:.8rem;flex-wrap:wrap;
+    font-family:'Hind Siliguri',sans-serif;font-size:.88rem;color:var(--ink-soft);
+  }
+  .copy-btn{
+    font-family:'Hind Siliguri',sans-serif;font-size:.85rem;
+    background:var(--lamp-soft);color:var(--lamp);
+    border:1px solid color-mix(in srgb,var(--lamp) 40%,transparent);
+    border-radius:999px;padding:.3rem .95rem;cursor:pointer;transition:.25s;
+  }
+  .copy-btn:hover{background:var(--lamp);color:var(--bg)}
+  .ch-body{font-size:var(--fs)}
+  .ch-body p{margin-bottom:1.15em;text-align:justify;hyphens:auto}
+  .ch-body p.drop::first-letter{
+    font-family:'Tiro Bangla',serif;float:left;font-size:3.4em;line-height:.9;
+    padding:.12em .14em 0 0;color:var(--lamp);
+  }
+  .ch-body .dlg{padding-left:.2em}
+  .ch-body .sep{text-align:center;color:var(--lamp);letter-spacing:1.2em;margin:2.4em 0;opacity:.75}
+  .diary{
+    margin:1.6em 0;padding:1.3em 1.4em;border-radius:6px;
+    background:
+      repeating-linear-gradient(180deg,transparent 0 1.9em,rgba(120,140,190,.10) 1.9em calc(1.9em + 1px)),
+      color-mix(in srgb,var(--bg2) 80%,#c9c0a6 6%);
+    border-left:3px solid var(--blood);
+    font-family:'Hind Siliguri',sans-serif;
+  }
+  .diary .entry{margin-bottom:1em}
+  .diary .entry:last-child{margin-bottom:0}
+  .diary .date{color:var(--blood);font-weight:600;display:block;font-size:.9em}
+  .diary .shaky{display:inline-block;animation:shake 5s infinite}
+  @keyframes shake{0%,92%,100%{transform:none}93%{transform:translateX(-1px) rotate(-.4deg)}95%{transform:translateX(1px) rotate(.4deg)}97%{transform:translateX(-1px)}}
+  .sketch{display:block;margin:1em auto 0;width:150px;opacity:.85}
+  .sketch path,.sketch rect,.sketch line{stroke:var(--ink-soft);fill:none;stroke-width:1.4}
+  .sketch circle{fill:var(--lamp);stroke:none}
+  .call{
+    display:block;text-align:center;font-family:'Tiro Bangla',serif;
+    font-size:1.25em;color:var(--lamp);margin:1.4em 0;
+    text-shadow:0 0 18px var(--lamp-soft);
+  }
+  .ch-body .rule{
+    text-align:center;font-style:italic;color:var(--ink-soft);margin:1.2em 0;
+  }
+  .ch-body .final{
+    margin:2.4em 0 1em;text-align:center;font-family:'Tiro Bangla',serif;
+    font-size:1.35em;color:var(--blood);line-height:1.6;
+  }
+  .ch-end{
+    text-align:center;margin:3rem 0 0;font-family:'Hind Siliguri',sans-serif;color:var(--ink-soft);font-size:.92rem;
+  }
+  .ch-end .next{
+    display:inline-block;margin-top:.9rem;padding:.65rem 1.4rem;border-radius:999px;
+    border:1px dashed var(--line);color:var(--ink-soft);
+  }
+
+  /* ---------- author ---------- */
+  .author-card{
+    background:var(--card);border:1px solid var(--line);border-radius:18px;
+    padding:1.8rem 1.6rem;text-align:center;font-size:calc(var(--fs) * .9);
+  }
+  .author-card h3{font-family:'Tiro Bangla',serif;font-weight:400;font-size:1.5rem;color:var(--lamp);margin-bottom:.6rem}
+  footer{
+    text-align:center;padding:4rem 1rem 3rem;font-family:'Hind Siliguri',sans-serif;
+    font-size:.88rem;color:var(--ink-soft);
+  }
+  footer a{color:var(--lamp);text-decoration:none}
+
+  .toast{
+    position:fixed;left:50%;bottom:1.6rem;transform:translate(-50%,30px);opacity:0;
+    background:var(--lamp);color:#111;font-family:'Hind Siliguri',sans-serif;
+    padding:.6rem 1.3rem;border-radius:999px;transition:.35s;z-index:99;pointer-events:none;
+  }
+  .toast.show{opacity:1;transform:translate(-50%,0)}
+
+  .to-top{
+    position:fixed;right:1rem;bottom:1rem;width:2.6rem;height:2.6rem;border-radius:50%;
+    background:var(--card);border:1px solid var(--line);color:var(--lamp);
+    display:flex;align-items:center;justify-content:center;text-decoration:none;
+    opacity:0;pointer-events:none;transition:.3s;z-index:40;
+  }
+  .to-top.on{opacity:1;pointer-events:auto}
+
+  /* ================= ANIMATIONS ================= */
+  #fireflies{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;transition:opacity 1.6s}
+  body.hush #fireflies{opacity:0}
+  main.wrap,footer{position:relative;z-index:1}
+  .topbar{z-index:60}
+
+  /* clouds drifting over the moon */
+  .cloud{position:absolute;height:38px;border-radius:50%;pointer-events:none;
+    background:radial-gradient(ellipse at center,rgba(150,160,190,.30),transparent 70%);filter:blur(6px)}
+  .cloud.c1{top:11%;width:240px;animation:cloud 46s linear infinite}
+  .cloud.c2{top:15%;width:180px;animation:cloud 63s linear infinite;animation-delay:-30s;opacity:.7}
+  @keyframes cloud{from{left:-260px}to{left:110%}}
+  .moon{animation:moonbreath 9s ease-in-out infinite}
+  @keyframes moonbreath{0%,100%{box-shadow:0 0 60px 18px rgba(240,236,220,.14)}50%{box-shadow:0 0 90px 30px rgba(240,236,220,.22)}}
+
+  /* falling bamboo leaves */
+  .leaf{position:absolute;top:-30px;width:7px;height:26px;border-radius:50% 50% 50% 50%/80% 80% 20% 20%;
+    background:linear-gradient(#26331f,#0b120c);pointer-events:none;opacity:.85;
+    animation:fall linear infinite}
+  body.paper .leaf{background:linear-gradient(#6d7a4f,#3f4a2d)}
+  @keyframes fall{
+    0%{transform:translate(0,0) rotate(0)}
+    25%{transform:translate(28px,25vh) rotate(70deg)}
+    50%{transform:translate(-18px,50vh) rotate(150deg)}
+    75%{transform:translate(24px,72vh) rotate(230deg)}
+    100%{transform:translate(-6px,98vh) rotate(320deg);opacity:0}
+  }
+
+  /* cover entrance */
+  .js .cover .genre,.js .cover h1 .w,.js .cover .whisper,.js .cover .author{opacity:0}
+  .cover h1 .w{display:inline-block}
+  .loaded .cover .genre{animation:rise 1.2s .2s forwards}
+  .loaded .cover h1 .w{animation:ghost 2.2s forwards}
+  .loaded .cover h1 .w:nth-child(1){animation-delay:.6s}
+  .loaded .cover h1 .w:nth-child(2){animation-delay:1.3s}
+  .loaded .cover .whisper{animation:whisperIn 2.4s 2.4s forwards}
+  .loaded .cover .author{animation:rise 1.4s 3.4s forwards}
+  @keyframes rise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+  @keyframes ghost{0%{opacity:0;filter:blur(14px);transform:translateY(20px) scale(1.06)}60%{opacity:.8;filter:blur(2px)}100%{opacity:1;filter:none;transform:none}}
+  @keyframes whisperIn{0%{opacity:0;filter:blur(6px);transform:translateX(-10px)}100%{opacity:1;filter:none;transform:none}}
+  .scroll-hint{animation:bob 2.4s ease-in-out infinite}
+  @keyframes bob{0%,100%{transform:translate(-50%,0)}50%{transform:translate(-50%,6px)}}
+
+  /* swinging lantern in chapter heads */
+  .lantern{width:26px;height:40px;margin:0 auto 1rem;position:relative;transform-origin:50% -18px;animation:swing 3.6s ease-in-out infinite}
+  .lantern::before{content:"";position:absolute;left:50%;top:-18px;width:1px;height:18px;background:var(--ink-soft)}
+  .lantern::after{content:"";position:absolute;inset:6px 4px 4px;border-radius:40% 40% 30% 30%;
+    border:1.5px solid var(--ink-soft);
+    background:radial-gradient(circle at 50% 60%,#ffd38a,var(--lamp) 40%,transparent 75%);
+    box-shadow:0 0 24px 8px var(--lamp-soft);animation:flame 2.2s infinite}
+  @keyframes swing{0%,100%{transform:rotate(-7deg)}50%{transform:rotate(7deg)}}
+  @keyframes flame{0%,100%{opacity:1}30%{opacity:.7}35%{opacity:1}70%{opacity:.82}}
+
+  /* scroll reveal */
+  .js .reveal{opacity:0;transform:translateY(18px);transition:opacity 1s ease,transform 1s ease,filter 1s ease;filter:blur(2px)}
+  .js .reveal.in{opacity:1;transform:none;filter:none}
+
+  /* twinkling separators */
+  .ch-body .sep.in{animation:twinkle 3s ease-in-out infinite}
+  @keyframes twinkle{0%,100%{opacity:.75;text-shadow:none}50%{opacity:1;text-shadow:0 0 12px var(--lamp)}}
+
+  /* whispered calls: word by word */
+  .call .w{display:inline-block;opacity:0;filter:blur(8px)}
+  .call.in .w{animation:callw 1.4s forwards, waver 4s 1.6s ease-in-out infinite}
+  @keyframes callw{to{opacity:1;filter:none}}
+  @keyframes waver{0%,100%{transform:none;opacity:1}50%{transform:translateY(-2px);opacity:.6}}
+
+  /* diary: written line by line */
+  .js .diary .entry{clip-path:inset(0 100% 0 0);transition:clip-path 1.6s ease}
+  .diary.in .entry{clip-path:inset(0 0 0 0)}
+  .diary.in .entry:nth-child(2){transition-delay:.8s}
+  .diary.in .entry:nth-child(3){transition-delay:1.6s}
+  .diary.in .entry:nth-child(4){transition-delay:2.4s}
+  .diary.wall{background:rgba(40,36,32,.35);border-left-color:var(--ink-soft);
+    font-family:'Tiro Bangla',serif;font-size:1.15em;text-align:center;
+    text-shadow:0 0 1px currentColor;letter-spacing:0}
+
+  /* rule lines breathe */
+  .ch-body .rule.in{animation:breath 5s ease-in-out infinite}
+  @keyframes breath{0%,100%{opacity:1}50%{opacity:.55}}
+
+  /* the final line */
+  .final .w{display:inline-block;opacity:0}
+  .final.in .w{animation:dread 1.8s forwards}
+  .final.in{animation:jolt .5s 2.6s 2}
+  @keyframes dread{0%{opacity:0;filter:blur(10px);transform:scale(1.2)}100%{opacity:1;filter:none;transform:none;text-shadow:0 0 22px rgba(180,70,60,.55)}}
+  @keyframes jolt{0%,100%{transform:none}20%{transform:translate(-2px,1px)}40%{transform:translate(2px,-1px)}60%{transform:translate(-1px,-1px)}80%{transform:translate(1px,1px)}}
+  .vignette{position:fixed;inset:0;pointer-events:none;z-index:55;opacity:0;transition:opacity 1.8s;
+    background:radial-gradient(ellipse at center,transparent 35%,rgba(0,0,0,.75) 100%)}
+  body.hush .vignette{opacity:1}
+  body.paper .vignette{background:radial-gradient(ellipse at center,transparent 40%,rgba(60,30,20,.4) 100%)}
+
+  .toc li{opacity:1}
+  .js .toc li{opacity:0;transform:translateX(-14px);transition:.7s}
+  .js .toc li.in{opacity:1;transform:none}
+  .ch-end a.go{color:var(--lamp);text-decoration:none;border-style:solid;border-color:color-mix(in srgb,var(--lamp) 45%,transparent)}
+  .ch-end a.go:hover{background:var(--lamp-soft)}
+
+  #ch5 .ch-body .final{color:var(--lamp)}
+  #ch5 .final.in{animation:none}
+  #ch5 .final.in .w{animation:warmIn 2.4s forwards}
+  @keyframes warmIn{0%{opacity:0;filter:blur(8px)}100%{opacity:1;filter:none;text-shadow:0 0 26px var(--lamp-soft)}}
+  @media (max-width:520px){
+    :root{--fs:18px}
+    .topbar a.home span{display:none}
+    .controls .lbl{display:none}
+    .moon{width:64px;height:64px;right:10%}
+  }
+  @media (prefers-reduced-motion:reduce){*{animation:none!important}}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <a class="home" href="https://akhisliterary-haven.github.io/akhis-lekhaghor/">← <span>আঁখির লেখালয়</span></a>
+  <div class="controls">
+    <span class="lbl">লেখার আকার</span>
+    <button id="fsDown" aria-label="লেখা ছোট করুন">অ−</button>
+    <button id="fsReset" aria-label="লেখা আগের মাপে">অ</button>
+    <button id="fsUp" aria-label="লেখা বড় করুন">অ+</button>
+    <button id="theme" aria-label="রং বদলান">☾</button>
+  </div>
+  <div class="progress" id="progress"></div>
+</header>
+
+<!-- ================= COVER ================= -->
+<section class="cover">
+  <div class="moon"></div>
+  <div class="fog f1"></div>
+  <div class="fog f2"></div>
+
+  <svg class="bamboo" viewBox="0 0 1200 420" preserveAspectRatio="none" aria-hidden="true">
+    <!-- far field + indigo house -->
+    <path d="M0 360 Q300 340 600 352 T1200 345 L1200 420 L0 420Z" opacity=".55"/>
+    <g opacity=".7">
+      <rect x="760" y="280" width="120" height="72"/>
+      <path d="M752 282 L770 262 L812 270 L830 258 L868 266 L888 282Z"/>
+    </g>
+    <circle class="kuthi-light" cx="842" cy="298" r="5" fill="#f2b45a" style="fill:#f2b45a"/>
+    <!-- bamboo grove -->
+    <path d="M0 420 L0 120 Q8 60 20 0 L26 0 Q16 70 14 140 L22 420Z"/>
+    <path d="M40 420 L46 160 Q60 80 90 10 L96 14 Q70 90 62 170 L60 420Z"/>
+    <path d="M90 420 L100 200 Q118 140 150 80 L155 84 Q130 150 116 210 L110 420Z"/>
+    <path d="M14 140 Q-30 120 -40 150 Q-10 140 14 150Z M62 170 Q110 140 140 150 Q100 160 62 182Z M100 200 Q60 180 30 200 Q70 200 100 212Z M46 160 Q20 120 -10 118 Q20 140 46 172Z M116 210 Q160 196 190 214 Q150 214 114 222Z"/>
+    <path d="M1200 420 L1200 90 Q1188 40 1176 0 L1170 2 Q1180 60 1182 120 L1178 420Z"/>
+    <path d="M1150 420 L1146 150 Q1134 90 1110 30 L1104 34 Q1124 100 1130 160 L1132 420Z"/>
+    <path d="M1182 120 Q1230 100 1240 130 Q1210 124 1182 132Z M1130 160 Q1086 130 1050 140 Q1090 150 1130 172Z M1146 220 Q1100 206 1070 226 Q1110 224 1146 232Z"/>
+    <!-- grass -->
+    <path d="M0 420 L0 392 Q200 378 400 396 Q600 384 800 394 Q1000 380 1200 392 L1200 420Z"/>
+  </svg>
+
+  <div class="genre">ভূতের গল্প · রহস্য</div>
+  <h1>নিশি ডাকে<span class="no">নি</span></h1>
+  <p class="whisper">রাতে কেউ নাম ধরে ডাকলে, সাড়া দিও না।</p>
+  <div class="author">নুরজাহান আঁখি</div>
+  <a class="scroll-hint" href="#toc">↓ সূচিপত্র</a>
+</section>
+
+<main class="wrap">
+
+  <div class="intro">
+    গ্রামবাংলায় একটা পুরোনো বিশ্বাস আছে। গভীর রাতে কেউ প্রিয় মানুষের গলায় নাম ধরে ডাকে। যে সাড়া দেয়, সে ঘোরের মধ্যে পেছন পেছন চলে যায়, আর ফেরে না। মানুষ একে বলে নিশির ডাক।<br><br>
+    বেতকুড়ি গ্রামে পরপর তিনজন মানুষ হারিয়ে গেছে। সবাই বলছে, নিশি ডেকে নিয়ে গেছে। কিন্তু সত্যিই কি তাই?
+  </div>
+
+  <h2 class="section-title" id="toc">সূচিপত্র</h2>
+  <ul class="toc">
+    <li><a href="#ch1"><span class="num">১</span><span class="t"><b>ফেরা</b><small class="rt" data-for="ch1"></small></span><span>→</span></a></li>
+    <li><a href="#ch2"><span class="num">২</span><span class="t"><b>দিনের আলোয় নীলকুঠি</b><small class="rt" data-for="ch2"></small></span><span>→</span></a></li>
+    <li><a href="#ch3"><span class="num">৩</span><span class="t"><b>কুঠির নিচে</b><small class="rt" data-for="ch3"></small></span><span>→</span></a></li>
+    <li><a href="#ch4"><span class="num">৪</span><span class="t"><b>তিনটা টোকা</b><small class="rt" data-for="ch4"></small></span><span>→</span></a></li>
+    <li><a href="#ch5"><span class="num">৫</span><span class="t"><b>নিশি ডাকেনি</b><small class="rt" data-for="ch5"></small></span><span>→</span></a></li>
+  </ul>
+
+  <!-- ================= CHAPTER 1 ================= -->
+  <article class="chapter" id="ch1">
+    <div class="ch-head">
+      <div class="lantern" aria-hidden="true"></div>
+      <div class="label">অধ্যায় এক</div>
+      <h2>ফেরা</h2>
+      <div class="ch-meta">
+        <span class="rt" data-for="ch1"></span>
+        <button class="copy-btn" data-copy="ch1">⧉ কপি করুন</button>
+      </div>
+    </div>
+
+    <div class="ch-body" id="ch1-body">
+<p>ফোনটা এল রাত দুটো দশে।</p>
+<p>রুমকি তখন হাসপাতালের নার্সদের ছোট ঘরটায় বসে ঝিমোচ্ছিল। নাইট ডিউটি চলছে। বাইরে করিডোর দিয়ে একটা ট্রলি কিচকিচ শব্দ করে চলে গেল। তারপর আবার সব চুপ। শুধু মাথার ওপরে টিউবলাইটটা একটানা ঝিঁঝিঁ করে যাচ্ছে।</p>
+<p>টেবিলের ওপর ফোনটা কেঁপে উঠল। স্ক্রিনে নাম ভাসছে—চাচি।</p>
+<p>এত রাতে চাচি কোনোদিন ফোন করে না। রুমকির বুকের ভেতরটা হঠাৎ ঠান্ডা হয়ে গেল। সে তাড়াতাড়ি ফোন ধরল।</p>
+<p class="dlg">"হ্যালো? চাচি?"</p>
+<p>ওপাশে প্রথমে কোনো কথা নেই। শুধু একটা ভারী নিঃশ্বাসের শব্দ। যেন কেউ অনেকক্ষণ কেঁদেছে, এখন আর কান্নাও আসছে না।</p>
+<p>তারপর চাচির ভাঙা গলা শোনা গেল।</p>
+<p class="dlg">"রুমকি রে... তপুরে পাওয়া যাইতেছে না।"</p>
+<p>রুমকি উঠে দাঁড়াল। চেয়ারটা পেছনে সরে গিয়ে মেঝেতে ঘষা খেল।</p>
+<p class="dlg">"পাওয়া যাচ্ছে না মানে? কোথায় গেছে?"</p>
+<p class="dlg">"জানি না রে মা। রাইতে খাইয়া শুইছিল। বারোটার দিকে তোর চাচা উইঠা দেখে, ঘর খালি। দরজার খিল ভিতর থিকা খোলা।"</p>
+<p class="dlg">"আশেপাশে খুঁজেছ? ওর বন্ধুদের বাড়ি? মসজিদের দিকে?"</p>
+<p class="dlg">"সব খুঁজছি। সারা পাড়া জাগাইছি। কোথাও নাই।"</p>
+<p>চাচি একটু থামল। তারপর গলা একদম নিচু করে, প্রায় ফিসফিস করে বলল—</p>
+<p class="dlg">"মানুষ কইতেছে, নিশিতে ডাকছে।"</p>
+<p>রুমকি কিছুক্ষণ কোনো কথা বলতে পারল না। জানালার বাইরে ঢাকার আকাশ। কমলা রঙের আলোয় ঘোলা। দূরে কোথাও একটা অ্যাম্বুলেন্সের সাইরেন বাজছে।</p>
+<p>নিশি।</p>
+<p>ছোটবেলায় নানির মুখে শোনা সেই গল্প। রাতের বেলা কেউ প্রিয় মানুষের গলায় নাম ধরে ডাকে। যে সাড়া দেয়, সে ঘোরের মধ্যে উঠে পেছন পেছন চলে যায়। আর ফেরে না।</p>
+<p class="dlg">"চাচি," রুমকি শান্ত গলায় বলল, "ওসব কিছু না। তপু হয়তো কোনো কারণে রাগ করে বেরিয়েছে। থানায় খবর দাও। আমি সকালের প্রথম বাসেই আসছি।"</p>
+<p>ফোন রেখে সে অনেকক্ষণ দাঁড়িয়ে রইল। হাত দুটো কাঁপছিল। সে নিজেকে বোঝাল—সে একজন নার্স। সে বিজ্ঞান পড়েছে। মানুষের শরীর, রোগ, ওষুধ—এসব নিয়েই তার কাজ। নিশি বলে কিছু নেই।</p>
+<p>তবু একটা কথা মাথা থেকে কিছুতেই যাচ্ছিল না।</p>
+<p>দুই দিন আগে তপু তাকে ফোন করেছিল। কথার শেষে হঠাৎ বলেছিল—</p>
+<p class="dlg">"বুবু, রাইতে মায়ের গলা শুনি।"</p>
+<p>রুমকি তখন হেসে ফেলেছিল। বলেছিল, "মাকে মনে পড়ে তো, তাই স্বপ্নে শুনিস। বেশি রাত জাগবি না। পড়া শেষ করে ঘুমাবি।"</p>
+<p>তপু আর কিছু বলেনি। শুধু বলেছিল, "আচ্ছা।"</p>
+<p>সেই "আচ্ছা"-টা এখন রুমকির কানে বাজছে। অনেক দূর থেকে আসা একটা ছোট্ট শব্দের মতো।</p>
+
+<div class="sep">✦ ✦ ✦</div>
+
+<p>সায়েদাবাদ থেকে সকাল ছয়টার বাস।</p>
+<p>রুমকি জানালার পাশে বসল। বাস শহর ছাড়িয়ে যখন হাইওয়েতে উঠল, তখন সূর্য উঠছে। দুই পাশে ধানক্ষেত। কার্তিকের শেষ। ধান পেকে সোনালি হয়ে আছে। মাঠের ওপর পাতলা কুয়াশা শুয়ে আছে চাদরের মতো।</p>
+<p>অন্য সময় হলে এই দৃশ্য দেখে রুমকির মন ভালো হয়ে যেত। আজ কিছুই চোখে পড়ছিল না।</p>
+<p>সে ফোন খুলে তপুর ছবি দেখল। গত ঈদে তোলা। পনেরো বছরের হ্যাংলা-পাতলা ছেলে। মাথায় এলোমেলো চুল। হাসলে বাঁ গালে একটা টোল পড়ে। ঠিক মায়ের মতো।</p>
+<p>তপু ক্লাস নাইনে পড়ে। পড়াশোনায় খুব ভালো না, আবার খারাপও না। তবে হাতের কাজে ওর জুড়ি নেই। পুরোনো রেডিও খুলে আবার জোড়া দেয়। নষ্ট টর্চ ঠিক করে। আর ঘুড়ি বানায়—এমন ঘুড়ি, যা পুরো বেতকুড়ি গ্রামে আর কেউ বানাতে পারে না।</p>
+<p>মা মারা গেছেন দুই বছর হলো। বাবা গেছেন তারও আগে, তপু তখন খুব ছোট। মায়ের মৃত্যুর পর রুমকি চেয়েছিল তপুকে ঢাকায় নিয়ে যেতে। কিন্তু নার্সিং হোস্টেলের ছোট্ট ঘরে একটা ছেলেকে রাখার উপায় ছিল না। তাই তপু রয়ে গেল গ্রামে, চাচা-চাচির কাছে। নিজেদের পুরোনো বাড়িতেই।</p>
+<p>রুমকি প্রতি মাসে টাকা পাঠাত। প্রতি সপ্তাহে ফোন করত। ভাবত, আর একটু গুছিয়ে নিতে পারলেই ভাইটাকে কাছে নিয়ে আসবে।</p>
+<p>আর একটু। আর একটু। এই করে করে দুই বছর চলে গেল।</p>
+<p>বাসের জানালায় কপাল ঠেকিয়ে রুমকি চোখ বন্ধ করল।</p>
+<p>"আল্লাহ," সে মনে মনে বলল, "শুধু ওকে ফিরিয়ে দাও। আর কিছু চাই না।"</p>
+
+<div class="sep">✦ ✦ ✦</div>
+
+<p>জেলা শহরে বাস থামল দুপুর একটায়। সেখান থেকে বেতকুড়ি আরও এক ঘণ্টার পথ। প্রথমে অটো, তারপর নদীর পাড় ধরে ভ্যান।</p>
+<p>ভ্যানওয়ালা কালু মিয়া রুমকিকে দেখেই চিনল।</p>
+<p class="dlg">"আপনে সালেহা খালার মাইয়া না? ঢাকায় থাকেন?"</p>
+<p>রুমকি মাথা নাড়ল।</p>
+<p>কালু মিয়া আর কোনো কথা না বলে প্যাডেল মারতে লাগল। কিন্তু খানিক পরে পেছনে না ফিরেই বলল—</p>
+<p class="dlg">"আপনেগো বাড়ির পোলাডাও গেল। এই নিয়া তিনজন হইল।"</p>
+<p>রুমকি সোজা হয়ে বসল। "তিনজন মানে?"</p>
+<p class="dlg">"আপনে জানেন না? আষাঢ় মাসে বাদল মাঝি গেল। রাইতে ঘাটে নৌকা বাইন্ধা বাড়ি ফিরতেছিল। আর পৌঁছায় নাই। নৌকা ঘাটেই বান্ধা আছিল। মানুষটা নাই।"</p>
+<p>ভ্যানটা একটা গর্তে পড়ে ঝাঁকুনি খেল।</p>
+<p class="dlg">"তারপর গত মাসে মাস্টার সাবের পোলা শফিক। কলেজে পড়ত। রাইতে উঠানে বইসা মোবাইল টিপতেছিল। মায় ঘরের ভিতর থিকা শুনছে, শফিক কারে জানি কইতেছে—'আইতাছি।' তারপর আর কোনো সাড়াশব্দ নাই। মোবাইলটা উঠানে পইড়া আছিল।"</p>
+<p class="dlg">"পুলিশ কিছু করেনি?"</p>
+<p>কালু মিয়া একটু হাসল। সে হাসিতে কোনো আনন্দ নেই।</p>
+<p class="dlg">"পুলিশ আইছে, লেইখা নিছে, চইলা গেছে। নদীতে জাল ফেলছে। কিছু পায় নাই। একটা লাশও না। একটা কাপড়ও না।"</p>
+<p>সে একটু থেমে গলা নামিয়ে বলল, "এইসব পুলিশের কাম না আপা। এইটা নিশির কাম। মাগরিবের পর এখন আর গ্রামে কেউ বাইরে থাকে না। সবাই দরজায় খিল দিয়া বইসা থাকে। কেউ নাম ধইরা ডাকলেও সাড়া দেয় না।"</p>
+<p>রুমকি কিছু বলল না। নদীর দিকে তাকিয়ে রইল। সোনাখালী নদী। শীতের শুরুতে পানি কমে গেছে। পাড়ে কাশফুল শুকিয়ে বাদামি হয়ে আছে।</p>
+<p>এই নদীতেই তপুকে সে সাঁতার শিখিয়েছিল। তপু তখন সাত বছরের। ভয়ে রুমকির গলা জড়িয়ে ধরে চিৎকার করত। আর মা পাড়ে দাঁড়িয়ে হাসত।</p>
+
+<div class="sep">✦ ✦ ✦</div>
+
+<p>বাড়ির সামনে ভিড়।</p>
+<p>পাড়ার মহিলারা উঠানের এক কোণে জটলা করে বসে আছে। পুরুষেরা বাইরের আমগাছের নিচে। রুমকিকে দেখে সবাই চুপ হয়ে গেল। কেউ কেউ মুখে আঁচল চাপা দিল।</p>
+<p>চাচি দৌড়ে এসে রুমকিকে জড়িয়ে ধরল। চাচির চোখ ফোলা, চুল এলোমেলো।</p>
+<p class="dlg">"আমি পাহারা দিতে পারলাম না রে মা। আমি পারলাম না।"</p>
+<p>রুমকি চাচির পিঠে হাত রাখল। "কেঁদো না চাচি। আমি এসেছি। আমরা ওকে খুঁজে বের করব।"</p>
+<p>চাচা মজিদ বারান্দার খুঁটিতে হেলান দিয়ে দাঁড়িয়ে ছিলেন। মানুষটা এক রাতেই যেন দশ বছর বুড়ো হয়ে গেছেন। রুমকিকে দেখে তিনি শুধু একবার মাথা নাড়লেন।</p>
+<p>চাচাতো বোন মিনু, আট বছরের ছোট্ট মেয়ে, চাচির শাড়ির আঁচল ধরে দাঁড়িয়ে ছিল। বড় বড় চোখ মেলে সে রুমকিকে দেখছিল। কিছু বলছিল না।</p>
+<p>একটু পরে ভিড় হালকা হলে রুমকি চাচার পাশে গিয়ে বসল।</p>
+<p class="dlg">"চাচা, আমাকে সব খুলে বলো। একদম শুরু থেকে।"</p>
+<p>চাচা অনেকক্ষণ চুপ করে থাকলেন। তারপর ধীরে ধীরে বললেন।</p>
+<p>রাতে এশার পর সবাই খেয়েছে। তপু খুব কম কথা বলছিল। খেয়েই নিজের ঘরে চলে গেছে। ওই ঘরটা আগে ছিল রুমকি আর মায়ের ঘর। মা মারা যাওয়ার পর থেকে তপু সেখানেই ঘুমায়।</p>
+<p>বারোটার দিকে চাচার ঘুম ভাঙে। কেন ভাঙল, তিনি জানেন না। শুধু মনে হয়েছিল, বাড়িটা বড় বেশি চুপচাপ। ঝিঁঝিঁ পোকার ডাক পর্যন্ত নেই।</p>
+<p>তিনি উঠে বারান্দায় আসেন। দেখেন, সদর দরজা হাট করে খোলা। খিলটা ভেতর থেকে নামানো।</p>
+<p>তপুর ঘরে গিয়ে দেখেন, বিছানা খালি। বালিশটা তখনো একটু গরম।</p>
+<p class="dlg">"তারপর?" রুমকি জিজ্ঞেস করল।</p>
+<p class="dlg">"তারপর সারা রাইত খুঁজছি। হারিকেন নিয়া, টর্চ নিয়া। পাড়ার পোলাপান সবাই আইছিল। ভোরের দিকে পুকুরঘাটে পাইছি এইটা।"</p>
+<p>চাচা লুঙ্গির কোঁচড় থেকে একটা জিনিস বের করে রুমকির হাতে দিলেন।</p>
+<p>একটা নীল রঙের রাবারের স্যান্ডেল। ডান পায়ের। ফিতার গোড়ায় সেলাই করা। রুমকি চিনল। গত মাসে এটা ছিঁড়ে গিয়েছিল, তপু ফোনে বলেছিল। নিজেই সুই-সুতা দিয়ে সেলাই করে নিয়েছে।</p>
+<p class="dlg">"কোন পুকুরঘাটে?"</p>
+<p class="dlg">"পিছনের পুরান পুকুরে। বাঁশঝাড় পার হইয়া।"</p>
+<p>রুমকির মনে পড়ল। বাড়ির পেছনে ঘন বাঁশঝাড়। তার ওপারে একটা পুরোনো শ্যাওলা-ধরা পুকুর। পুকুরের ওপারে খোলা মাঠ। আর মাঠের একেবারে শেষ মাথায়, গাছপালায় ঢাকা একটা ভাঙা দোতলা বাড়ি।</p>
+<p>নীলকুঠি।</p>
+<p>ইংরেজ আমলে নীলকরেরা ওখানে থাকত। গ্রামের মানুষ বলে, ওখানে অনেক মানুষকে আটকে রেখে মারা হয়েছিল। এখন কেউ ওদিকে যায় না। দিনের বেলাতেও না।</p>
+<p>ছোটবেলায় মা বারবার সাবধান করত—"নীলকুঠির দিকে কোনোদিন যাবি না। কেউ ডাকলেও না।"</p>
+
+<div class="sep">✦ ✦ ✦</div>
+
+<p>চাচি এক বাটি ভাত আর ডাল এনে দিলেন। রুমকির খাওয়ার একটুও ইচ্ছে ছিল না। তবু চাচির মুখের দিকে তাকিয়ে দুই লোকমা মুখে দিল।</p>
+<p class="dlg">"চাচি, রাতে তুমি কিছু শুনেছিলে?"</p>
+<p>চাচি একবার চাচার দিকে তাকালেন। তারপর মাথা নিচু করলেন।</p>
+<p class="dlg">"কও," চাচা বললেন। "লুকাইয়া কী লাভ।"</p>
+<p>চাচি ফিসফিস করে বললেন, "বারোটার একটু আগে আমার ঘুম পাতলা হইছিল। তখন শুনছি, বাঁশঝাড়ের দিক থিকা কেউ ডাকতেছে।"</p>
+<p class="dlg">"কে ডাকছিল?"</p>
+<p class="dlg">"একটা মাইয়া মানুষের গলা। লম্বা কইরা টাইনা টাইনা ডাকতেছিল—'ত-পু... ও ত-পু...'"</p>
+<p>রুমকির হাতের লোকমা থেমে গেল।</p>
+<p class="dlg">"আমি ভাবছি স্বপ্ন দেখতেছি," চাচি বললেন। "পাশ ফিরা শুইছি। তারপর দরজার ক্যাঁচ শব্দ। ভাবছি তপু বাথরুমে যাইতেছে। উঠি নাই।" চাচির গলা কেঁপে উঠল। "আল্লাহ, আমি যদি একবার উঠতাম..."</p>
+<p>রুমকি চাচির হাত ধরল। কিন্তু তার মনের ভেতরে অন্য একটা প্রশ্ন ঘুরছিল।</p>
+<p>লম্বা করে টেনে টেনে ডাকা। "ত-পু... ও ত-পু..."</p>
+<p>মা ঠিক এভাবে ডাকত। সন্ধ্যাবেলা, যখন ওরা দুই ভাইবোন মাঠে খেলত আর ফিরতে দেরি করত। উঠানে দাঁড়িয়ে মা হাঁক দিত—"রু-ম-কি... ও রু-ম-কি... ত-পু... বাড়ি আয়..."</p>
+<p>সেই ডাক শুনলে পুরো পাড়া বুঝত, সালেহার ছেলেমেয়েদের বাড়ি ফেরার সময় হয়েছে।</p>
+<p>রুমকি মাথা ঝাঁকাল। না। এভাবে ভাবা চলবে না। গ্রামের যেকোনো মা-ই তো এভাবে ডাকে।</p>
+
+<div class="sep">✦ ✦ ✦</div>
+
+<p>বিকেলে রুমকি তপুর ঘরে ঢুকল।</p>
+<p>ঘরটা ছোট। মাটির দেয়াল, টিনের চাল। একটা জানালা, যেটা বাড়ির পেছন দিকে, বাঁশঝাড়ের দিকে খোলে। জানালার পাশে একটা চৌকি। চৌকির ওপর এলোমেলো কাঁথা।</p>
+<p>দেয়ালে পেরেকে ঝোলানো দুটো ঘুড়ি। একটা লাল-সাদা, একটা নীল। নীলটার লেজ এখনো লাগানো হয়নি। পাশে আঠার কৌটা খোলা পড়ে আছে। যেন কাজটা মাঝপথে রেখে তপু একটু উঠে গেছে, এখনই ফিরে আসবে।</p>
+<p>টেবিলে স্কুলের বই। একটা পুরোনো রেডিও, পেছনের ঢাকনা খোলা, ভেতর থেকে রঙিন তার বেরিয়ে আছে। আর একটা টর্চ।</p>
+<p>এই টেবিলেই মা বসে হিসাবের খাতা লিখত। এই চৌকিতেই মা শুয়ে থাকত শেষের দিনগুলোয়। জ্বরটা আর নামেনি। রুমকি ঢাকা থেকে ছুটে এসেছিল, কিন্তু ততক্ষণে...</p>
+<p>রুমকি জোর করে সেই চিন্তা সরিয়ে দিল।</p>
+<p>সে বইগুলো একটা একটা করে খুলে দেখতে লাগল। কী খুঁজছে, নিজেও জানে না। শুধু মনে হচ্ছিল, তপু কিছু একটা রেখে গেছে। কোনো একটা চিহ্ন।</p>
+<p>গণিত বইয়ের নিচে একটা খাতা পাওয়া গেল। সাধারণ রুলটানা খাতা। সামনের দিকে অঙ্ক কষা। কিন্তু পেছনের পাতা উল্টাতেই রুমকি থমকে গেল।</p>
+<p>পেছন থেকে কয়েকটা পাতায় তপুর হাতের লেখা। কাঁচা, বাঁকা অক্ষর। প্রতিটার ওপরে তারিখ দেওয়া।</p>
+<p>রুমকি জানালার কাছে গিয়ে আলোর দিকে খাতাটা মেলে ধরল।</p>
+
+<div class="diary">
+  <div class="entry"><span class="date">৮ কার্তিক</span>আজ রাইতে কে জানি ডাকল। মায়ের গলা। আমি ভাবছি স্বপ্ন।</div>
+  <div class="entry"><span class="date">১৪ কার্তিক</span>আবার ডাকছে। তিনবার। "তপু, ও তপু।" একদম মায়ের মতো। আমি সাড়া দেই নাই। নানি কইছিল, নিশির ডাকে সাড়া দিলে নিয়া যায়।</div>
+  <div class="entry"><span class="date">১৯ কার্তিক</span>আজ জানালার নিচে আইসা ডাকছে। আমি কাঁথার নিচে মুখ ঢাইকা ছিলাম। খুব ভয় লাগছে। চাচারে কই নাই। কইলে ভাববো পাগল হইছি।</div>
+  <div class="entry"><span class="date">২৬ কার্তিক</span>বুবুরে কইছি। বুবু হাসছে। বুবু বিশ্বাস করে নাই।</div>
+</div>
+
+<p>রুমকির চোখ জ্বালা করে উঠল। সে ঠোঁট কামড়ে ধরল।</p>
+<p>শেষ লেখাটা কাল রাতের তারিখের। অক্ষরগুলো অন্যগুলোর চেয়ে বেশি কাঁপা।</p>
+
+<div class="diary">
+  <div class="entry"><span class="date">২৮ কার্তিক</span><span class="shaky">আজকে ডাকটা অন্যরকম। মা কইল, "তপু, নীলকুঠিতে আয়। তোরে একটা জিনিস দেখামু।"<br>মা তো নাই।<br>তাইলে কে?</span>
+    <svg class="sketch" viewBox="0 0 150 90" aria-hidden="true">
+      <line x1="5" y1="84" x2="145" y2="84"/>
+      <rect x="30" y="34" width="90" height="50"/>
+      <path d="M26 36 L40 20 L62 28 L74 16 L98 26 L112 18 L124 36"/>
+      <rect x="42" y="44" width="14" height="14"/>
+      <rect x="94" y="44" width="14" height="14"/>
+      <rect x="68" y="62" width="14" height="22"/>
+      <circle cx="101" cy="51" r="4"/>
+    </svg>
+  </div>
+</div>
+
+<p>লেখার নিচে পেন্সিলে আঁকা একটা ছোট্ট ছবি। একটা দোতলা বাড়ি। ভাঙা ছাদ। আর ওপরের তলার একটা জানালায় গোল করে আঁকা একটা আলো।</p>
+<p>যেন কেউ সেখানে হারিকেন জ্বালিয়ে রেখেছে।</p>
+<p>রুমকি খাতাটা বুকের সঙ্গে চেপে ধরে অনেকক্ষণ জানালার পাশে দাঁড়িয়ে রইল। বাইরে বাঁশঝাড়ে বাতাস লাগছে। বাঁশে বাঁশে ঘষা লেগে একটা অদ্ভুত শব্দ হচ্ছে। ক্যাঁ...চ... ক্যাঁ...চ...</p>
+<p>বাঁশঝাড়ের ফাঁক দিয়ে, অনেক দূরে, মাঠের শেষে নীলকুঠির ভাঙা ছাদটা দেখা যাচ্ছিল। বিকেলের রোদে কালচে লাল ইট। জানালাগুলো ফাঁকা, অন্ধকার। চোখের কোটরের মতো।</p>
+<p>রুমকির হঠাৎ মনে হলো, ওই অন্ধকার জানালাগুলোর কোনো একটা থেকে কেউ তার দিকে তাকিয়ে আছে।</p>
+<p>সে তাড়াতাড়ি জানালা থেকে সরে এল।</p>
+
+<div class="sep">✦ ✦ ✦</div>
+
+<p>সূর্য ডোবার আগে আগে রুমকি পুকুরঘাটে গেল।</p>
+<p>বাঁশঝাড়ের ভেতর দিয়ে একটা সরু পায়ে-চলা পথ। দুই পাশে শুকনো বাঁশপাতা জমে আছে। পা ফেললেই মচমচ শব্দ হয়। ভেতরটা বাইরের চেয়ে অনেক বেশি অন্ধকার। যেন এখানে সন্ধ্যা একটু আগেই নামে।</p>
+<p>পেছনে আরেকটা ছোট্ট মচমচ শব্দ শুনে রুমকি চমকে ফিরল।</p>
+<p>মিনু। চাচির আঁচল ছেড়ে চুপিচুপি পিছু নিয়েছে।</p>
+<p class="dlg">"তুই এখানে কেন? বাড়ি যা।"</p>
+<p>মিনু গেল না। রুমকির ওড়নার কোনা শক্ত করে ধরে দাঁড়িয়ে রইল।</p>
+<p>পুকুরটা আগের চেয়ে অনেক ছোট হয়ে গেছে। পানি সবুজ, ঘন শ্যাওলায় ঢাকা। ঘাটের সিঁড়ির ইট ভেঙে ভেঙে পড়েছে। সবচেয়ে নিচের সিঁড়িটা আধা পানিতে ডোবা।</p>
+<p>রুমকি নিচু হয়ে কাদামাটির দিকে তাকাল। সকাল থেকে অনেক মানুষ এখানে হাঁটাহাঁটি করেছে। পায়ের ছাপে ছাপে মাটি ঘেঁটে গেছে। কিছু বোঝার উপায় নেই।</p>
+<p>তবু একটা জিনিস তার চোখে পড়ল।</p>
+<p>ঘাটের পাশে একটা কলাগাছের গোড়ায়, ঘাসের মধ্যে, একটা আধপোড়া দিয়াশলাইয়ের কাঠি। তার পাশে আরও দুটো। আর একটা চ্যাপ্টা হয়ে যাওয়া বিড়ির টুকরো।</p>
+<p>রুমকি কাঠিগুলো হাতে নিল। শুকনো। শিশিরে ভেজেনি। মানে কাল রাতের পরে, ভোরের দিকে বা আজ সকালে কেউ এখানে বসে বিড়ি ধরিয়েছে।</p>
+<p>হয়তো খুঁজতে আসা কোনো মানুষ। হয়তো।</p>
+<p class="dlg">"বুবু।"</p>
+<p>মিনু তার ওড়না ধরে টানল। খুব আস্তে, যেন কেউ শুনে ফেলবে।</p>
+<p class="dlg">"কী রে?"</p>
+<p class="dlg">"কাল রাইতে আমিও শুনছি। খালা ডাকতেছিল।"</p>
+<p>রুমকি হাঁটু গেড়ে মিনুর সামনে বসল। মিনু "খালা" বলে রুমকির মাকে। মা মিনুকে খুব আদর করত।</p>
+<p class="dlg">"তুই কী শুনেছিস, আমাকে বল। ভয় নেই।"</p>
+<p>মিনু একবার বাঁশঝাড়ের দিকে তাকাল। তারপর রুমকির কানের কাছে মুখ এনে বলল—</p>
+<p class="dlg">"খালা তপু ভাইয়ারে ডাকতেছিল। তারপর তপু ভাইয়া চইলা গেল। তারপর..." মিনু একটু থামল। "তারপর খালার গলায় কেউ হাসছিল, বুবু। খালা তো ওইরকম কইরা হাসে না। ওইটা একটা বেটা মানুষের হাসি।"</p>
+<p>রুমকির পিঠ দিয়ে একটা ঠান্ডা স্রোত নেমে গেল।</p>
+<p class="dlg">"আম্মারে কইছি," মিনু বলল। "আম্মা কয়, চুপ থাক। এইসব কইলে নিশি শুইনা ফেলবো।"</p>
+<p>ঠিক তখনই দূরে মসজিদ থেকে মাগরিবের আজান ভেসে এল। মিনু চমকে উঠে রুমকির হাত ছেড়ে দৌড় দিল বাড়ির দিকে।</p>
+<p>রুমকি একা দাঁড়িয়ে রইল পুকুরঘাটে। হাতের মুঠোয় তিনটে পোড়া কাঠি। সামনে কালো হয়ে আসা পানি। আর পানির ওপারে, মাঠের শেষে, নীলকুঠির অন্ধকার শরীর।</p>
+
+<div class="sep">✦ ✦ ✦</div>
+
+<p>মাগরিবের আজানের পরপরই পুরো গ্রাম চুপ হয়ে গেল।</p>
+<p>রুমকি আগে কখনো এমন দেখেনি। ছোটবেলায় সন্ধ্যার পরও গ্রাম জেগে থাকত। বাজারের দোকানে রেডিও বাজত। ছেলেরা রাস্তার মোড়ে আড্ডা দিত। এখন সব দরজা বন্ধ। কোনো বাড়ি থেকে টুঁ শব্দ আসছে না। শুধু দূরে কয়েকটা কুকুর থেকে থেকে ডাকছে।</p>
+<p>এশার একটু আগে একজন বুড়ি এলেন। পাশের বাড়ির আমেনা নানি। বয়স আশির ওপর। কোমর বাঁকা, হাতে একটা লাঠি। কিন্তু চোখ দুটো এখনো তীক্ষ্ণ।</p>
+<p>নানি এসে রুমকির পাশে চৌকিতে বসলেন। অনেকক্ষণ কিছু বললেন না। শুধু রুমকির মুখের দিকে তাকিয়ে রইলেন।</p>
+<p class="dlg">"তুই সালেহার মতোই দেখতে হইছস," অবশেষে বললেন।</p>
+<p>রুমকি একটু হাসার চেষ্টা করল।</p>
+<p>নানি গলা নামিয়ে বললেন, "শোন। তুই শহরে থাকস, লেখাপড়া জানস। এইসব হয়তো বিশ্বাস করবি না। তবু শুইনা রাখ।"</p>
+<p>রুমকি চুপ করে রইল।</p>
+<p class="dlg">"নিশি ডাকে আপন মানুষের গলায়। যারে তুই সবচাইতে বেশি ভালোবাসস, তার গলায়। আর যে মানুষ আর দুনিয়ায় নাই, তার গলায় ডাকলে সেইটা সবচাইতে বিপদের। কারণ মন তো চায় সাড়া দিতে।"</p>
+<p>নানি লাঠিতে ভর দিয়ে একটু সামনে ঝুঁকলেন।</p>
+<p class="dlg">"নিশি তিনবার ডাকে। একবার ডাকলে সাড়া দিবি না। দুইবার ডাকলেও না। সত্যিকারের মানুষ হইলে তিনবারের বেশি ডাকবো, দরজায় ধাক্কা দিবো, নিজের নাম কইয়া পরিচয় দিবো। নিশি তা পারে না। নিশি খালি ডাকতে পারে।"</p>
+<p class="dlg">"নানি," রুমকি নরম গলায় বলল, "তপু তো সাড়া দেয়নি। খাতায় লিখে গেছে। বারবার ডেকেছে, সে একবারও সাড়া দেয়নি।"</p>
+<p>নানি কিছুক্ষণ চুপ করে থাকলেন।</p>
+<p class="dlg">"তাইলে তো আরও খারাপ," তিনি বললেন। "যারে ডাইকা পাওয়া যায় না, তারে নিশি অন্যভাবে নেয়।"</p>
+<p>রুমকির গা শিরশির করে উঠল।</p>
+<p>যাওয়ার সময় নানি দরজার কাছে থেমে পেছন ফিরলেন।</p>
+<p class="dlg">"আইজ রাইতে কেউ ডাকলে সাড়া দিস না, বুঝলি? তোর মায়ের গলায় ডাকলেও না।"</p>
+<p>তারপর একটু থেমে এমন একটা কথা বললেন, যেটা রুমকি অনেক দিন ভুলতে পারবে না।</p>
+<p class="dlg">"তোর মায়ের গলা তুই খুব ভালো কইরা চিনস, তাই না? সেইটাই তো বিপদ।"</p>
+
+<div class="sep">✦ ✦ ✦</div>
+
+<p>রাত দশটায় কারেন্ট চলে গেল।</p>
+<p>চাচি একটা হারিকেন জ্বালিয়ে রুমকির ঘরে রেখে গেলেন। রুমকি জোর করে তপুর ঘরেই শুয়েছে। চাচি অনেক মানা করেছিলেন। কিন্তু রুমকি শোনেনি।</p>
+<p>"যদি সত্যি কেউ ডাকে," সে মনে মনে ভেবেছিল, "আমি নিজের কানে শুনতে চাই। নিজের চোখে দেখতে চাই, কে সে।"</p>
+<p>এখন হারিকেনের হলুদ আলোয় ঘরটা ছোট আর অচেনা লাগছে। দেয়ালে তার নিজের ছায়া লম্বা হয়ে কাঁপছে। ঘুড়ি দুটোর ছায়া ঝুলে আছে দুটো বাদুড়ের মতো।</p>
+<p>ফোনে চার্জ বাইশ পার্সেন্ট। নেটওয়ার্ক এক দাগ। রুমকি থানার নম্বরে একবার ফোন করার চেষ্টা করল। কেউ ধরল না।</p>
+<p>সে তপুর খাতাটা আবার খুলল। শেষ পাতার ছবিটা দেখল। নীলকুঠি। ওপরের জানালায় আলো।</p>
+<p>কাল সকালে সে ওখানে যাবে। দিনের আলোয়। কেউ সঙ্গে না গেলে একাই যাবে।</p>
+<p>রাত এগারোটা। সাড়ে এগারোটা। বারোটা।</p>
+<p>বাইরে ঝিঁঝিঁ পোকা ডাকছিল। হঠাৎ রুমকি খেয়াল করল, ডাকটা থেমে গেছে।</p>
+<p>একসঙ্গে। সব ঝিঁঝিঁ পোকা একসঙ্গে চুপ।</p>
+<p>বাঁশঝাড়ে বাতাসের শব্দও নেই। কুকুরগুলোও আর ডাকছে না। পৃথিবীটা যেন হঠাৎ দম আটকে কিছু একটার জন্য অপেক্ষা করছে।</p>
+<p>রুমকি উঠে বসল। ফোনে সময় দেখল। বারোটা চল্লিশ।</p>
+<p>তখনই শুনল।</p>
+<span class="call">"রু-ম-কি..."</span>
+<p>বাঁশঝাড়ের দিক থেকে। অনেক দূর থেকে। নরম, লম্বা, টেনে টেনে।</p>
+<span class="call">"ও রু-ম-কি..."</span>
+<p>রুমকির সারা শরীর জমে গেল। হাতের লোম খাড়া হয়ে উঠল।</p>
+<p>এটা মায়ের গলা।</p>
+<p>শুধু মায়ের মতো না। এটা মা-ই। এই গলা সে চব্বিশ বছর ধরে শুনেছে। শেষ অক্ষরে এসে একটু ভেঙে যাওয়া সুর। "কি"-টা একটু উঁচুতে তুলে আবার নামিয়ে আনা। পৃথিবীর আর কেউ এভাবে তার নাম ডাকে না। ডাকতে পারে না।</p>
+<p>রুমকির বুকের ভেতর থেকে একটা শব্দ উঠে আসতে চাইছিল। "মা!" ঠিক যেমন ছোটবেলায় মাঠ থেকে চিৎকার করে বলত—"আসতেছি মা!"</p>
+<p>সে দুই হাতে মুখ চেপে ধরল।</p>
+<p class="rule">সাড়া দিবি না। একবার ডাকলে না। দুইবার ডাকলেও না।</p>
+<p>চোখ দিয়ে পানি পড়ছিল। সে টেরও পেল না।</p>
+<p>এক মিনিট। দুই মিনিট। আর কিছু নেই।</p>
+<p>তারপর আবার।</p>
+<p>এবার অনেক কাছে। একদম জানালার নিচে। মাটির দেয়ালের ঠিক ওপাশে। এত কাছে যে রুমকি শুনতে পেল, কথার ফাঁকে কেউ শ্বাস নিচ্ছে।</p>
+<span class="call">"রুমকি, মা। দরজাটা খোল। বাইরে খুব ঠান্ডা।"</span>
+<p>রুমকি চৌকি থেকে নামল না। নড়ল না। নিঃশ্বাসও প্রায় বন্ধ করে রাখল। হারিকেনের শিখাটা একটু কেঁপে উঠল, যদিও ঘরে কোনো বাতাস নেই।</p>
+<p>জানালার কাঠের পাল্লা বন্ধ। খিল দেওয়া। কিন্তু পাল্লার নিচে একটা সরু ফাঁক আছে। সেই ফাঁক দিয়ে বাইরের অন্ধকার দেখা যায়।</p>
+<p>রুমকি দেখল, সেই ফাঁকের ওপাশে কিছু একটা নড়ল। একটা ছায়া। তারপর আর কিছু না।</p>
+<p>দুইবার হলো।</p>
+<p>রুমকি মনে মনে গুনল। একবার বাঁশঝাড় থেকে। একবার জানালার নিচে। আর একবার বাকি।</p>
+<p>সে কান পেতে রইল জানালার দিকে। শরীরের প্রতিটা রগ টানটান। বাইরে উঠানে কারো পায়ের শব্দ হয় কিনা। সদর দরজায় কেউ হাত রাখে কিনা।</p>
+<p>কিছু না। কোনো শব্দ না।</p>
+<p>পাঁচ মিনিট গেল। দশ মিনিট।</p>
+<p>রুমকির কাঁধ একটু ঢিলে হলো। হয়তো চলে গেছে। হয়তো আজ আর আসবে না। সে কাঁপা হাতে কপালের ঘাম মুছল।</p>
+<p>ঠিক তখন তৃতীয় ডাকটা এল।</p>
+<p>কিন্তু জানালার দিক থেকে না। উঠান থেকেও না।</p>
+<p>ডাকটা এল তার পেছন থেকে।</p>
+<p>ঘরের দরজার ঠিক ওপাশে। বাড়ির ভেতরের অন্ধকার বারান্দা থেকে। যে বাড়ির সব দরজায় সন্ধ্যার পরই খিল দেওয়া হয়েছে। যেখানে বাইরে থেকে কারো ঢোকার কোনো উপায় নেই।</p>
+<p>ফিসফিস করে, খুব কাছে, ঠিক কানের কাছে মুখ এনে বলার মতো করে—</p>
+<p class="final">"রুমকি...<br>আমি তো ভিতরেই আছি।"</p>
+    </div>
+
+    <div class="ch-end">
+      — প্রথম অধ্যায় শেষ —<br>
+      <a class="next go" href="#ch2">দ্বিতীয় অধ্যায় পড়ুন →</a>
+    </div>
+  </article>
+
+  <!-- ================= CHAPTER 2 ================= -->
+  <article class="chapter" id="ch2">
+    <div class="ch-head">
+      <div class="lantern" aria-hidden="true"></div>
+      <div class="label">অধ্যায় দুই</div>
+      <h2>দিনের আলোয় নীলকুঠি</h2>
+      <div class="ch-meta">
+        <span class="rt" data-for="ch2"></span>
+        <button class="copy-btn" data-copy="ch2">⧉ কপি করুন</button>
+      </div>
+    </div>
+
+    <div class="ch-body" id="ch2-body">
+<p>রুমকি নড়তে পারল না।</p>
+<p>ফিসফিস শব্দটা মিলিয়ে গেছে। কিন্তু মনে হচ্ছে, দরজার ওপাশে কেউ এখনো দাঁড়িয়ে আছে। কাঠের পাল্লার এপাশে সে। ওপাশে কেউ একজন। মাঝখানে শুধু এক আঙুল পুরু কাঠ।</p>
+<p>হারিকেনের আলো মেঝেতে গড়িয়ে দরজা পর্যন্ত গেছে। দরজার নিচে একটা সরু ফাঁক। সেই ফাঁক দিয়ে বারান্দার অন্ধকার দেখা যায়।</p>
+<p>রুমকি দেখল, ফাঁকের ওপাশে দুটো ছায়া। পাশাপাশি। দুটো পায়ের ছায়া।</p>
+<p>কেউ দাঁড়িয়ে আছে। ঠিক দরজার সামনে।</p>
+<p>রুমকির গলা শুকিয়ে কাঠ। সে টের পেল, তার হাত নিজে থেকেই হারিকেনের চাবির দিকে যাচ্ছে। আলোটা নিভিয়ে দেবে? নাকি আরও বাড়িয়ে দেবে?</p>
+<p>সে কিছুই করল না। শুধু তাকিয়ে রইল।</p>
+<p>ছায়া দুটো একটু নড়ল। একটা পা সরল। তারপর অন্যটা। খুব ধীরে, খুব সাবধানে, কেউ দরজার সামনে থেকে সরে যাচ্ছে।</p>
+<p>খালি পায়ে মাটির মেঝেতে হাঁটার নরম শব্দ। থপ। থপ। থপ।</p>
+<p>তারপর বাড়ির পেছন দিক থেকে একটা লম্বা ক্যাঁ...চ শব্দ।</p>
+<p>খিড়কি দরজা।</p>
+<p>রুমকি এই শব্দ চেনে। ছোটবেলা থেকে চেনে। খিড়কির কবজায় মরচে ধরা। খুললেই কেঁদে ওঠে। মা বলত, "এই দরজা দিয়া চোর আইলেও ধরা পড়বো।"</p>
+<p>তারপর সব চুপ।</p>
+<p>আর তার কয়েক সেকেন্ড পরে, যেন কেউ সুইচ টিপে দিল—বাইরে আবার ঝিঁঝিঁ পোকা ডাকতে শুরু করল। একসঙ্গে। সবগুলো।</p>
+
+<div class="sep">✦ ✦ ✦</div>
+
+<p>রুমকি কতক্ষণ বসে ছিল, জানে না। হয়তো এক মিনিট। হয়তো দশ মিনিট।</p>
+<p>তারপর হঠাৎ তার ভেতরে কিছু একটা জ্বলে উঠল। ভয় না। রাগ।</p>
+<p>এই বাড়িতে তার মা মারা গেছেন। এই বাড়ি থেকে তার ভাইকে কেউ নিয়ে গেছে। আর এখন কেউ মাঝরাতে এই বাড়ির ভেতরে ঢুকে তার মায়ের গলায় কথা বলছে।</p>
+<p>সে হারিকেনটা তুলে নিল। আরেক হাতে তপুর টর্চ। দরজার খিল খুলল।</p>
+<p>বারান্দা ফাঁকা।</p>
+<p>হারিকেনের আলো যতদূর যায়, কেউ নেই। লম্বা মাটির বারান্দা। এক মাথায় চাচা-চাচির ঘর। অন্য মাথায় রান্নাঘর আর খিড়কি দরজা।</p>
+<p>খিড়কি দরজাটা আধখোলা। বাইরের অন্ধকার থেকে ঠান্ডা বাতাস ঢুকছে।</p>
+<p>আর বাতাসে একটা গন্ধ।</p>
+<p>বিড়ির গন্ধ। কড়া, তেতো, পোড়া তামাকের গন্ধ। খুব কাছ থেকে কেউ বিড়ি খেয়ে গেলে যেমন গন্ধ থাকে।</p>
+<p>রুমকির মনে পড়ল পুকুরঘাটের পোড়া কাঠিগুলোর কথা। চ্যাপ্টা বিড়ির টুকরোটার কথা।</p>
+<p>নিশি কি বিড়ি খায়?</p>
+<p class="dlg">"চাচা!" সে চিৎকার করে উঠল। "চাচি! ওঠো!"</p>
+<p>চাচা-চাচির ঘরে খুটখাট শব্দ হলো। দরজা খুলে চাচি বেরিয়ে এলেন। চোখে ঘুম, মুখে ভয়। পেছনে মিনু, মায়ের শাড়ি আঁকড়ে ধরে।</p>
+<p class="dlg">"কী হইছে? কী হইছে রে?"</p>
+<p class="dlg">"কেউ ঘরে ঢুকেছিল। খিড়কি দিয়ে বেরিয়ে গেছে। চাচা কোথায়?"</p>
+<p>চাচি পেছন ফিরে ঘরের ভেতরে তাকালেন। তারপর আবার রুমকির দিকে। মুখটা সাদা হয়ে গেছে।</p>
+<p class="dlg">"তোর চাচা... বিছানায় নাই।"</p>
+<p>তিনজন একসঙ্গে খিড়কির দিকে তাকাল।</p>
+<p>ঠিক তখন বাইরে টর্চের আলো দুলে উঠল। পায়ের শব্দ। তারপর খিড়কি ঠেলে ঢুকলেন চাচা মজিদ। হাতে টর্চ। পায়ে প্লাস্টিকের স্যান্ডেল। লুঙ্গি হাঁটু পর্যন্ত শিশিরে ভেজা। জোরে জোরে শ্বাস নিচ্ছেন।</p>
+<p class="dlg">"তোমরা উঠছ ক্যান?"</p>
+<p class="dlg">"তুমি কোথায় গেছিলা?" চাচি প্রায় কেঁদে ফেললেন।</p>
+<p>চাচা টর্চটা নিভিয়ে খুঁটিতে হেলান দিলেন।</p>
+<p class="dlg">"একটা শব্দ শুইনা বাইর হইছিলাম। মনে হইল উঠানে কেউ হাঁটে। খিড়কি দিয়া বাইর হইয়া বাঁশঝাড় পর্যন্ত গেছি। কাউরে পাই নাই।"</p>
+<p class="dlg">"কতক্ষণ আগে?" রুমকি জিজ্ঞেস করল।</p>
+<p class="dlg">"এই... দশ-পনেরো মিনিট।"</p>
+<p>রুমকি কিছু বলল না। কিন্তু তার মাথার ভেতরে একটা হিসাব চলছিল।</p>
+<p>দশ-পনেরো মিনিট আগে ফিসফিস ডাকটা এসেছিল বাড়ির ভেতর থেকে। তারপর খিড়কির ক্যাঁচ শব্দ। একবার। শুধু একবার।</p>
+<p>চাচা যদি আগে বেরিয়ে থাকেন, তাহলে খিড়কি দুবার কাঁদার কথা। একবার চাচা বেরোনোর সময়। একবার ওই মানুষটা বেরোনোর সময়।</p>
+<p>সে শুনেছে একবার।</p>
+<p>হয়তো প্রথমবার সে খেয়াল করেনি। হয়তো তখন সে ঘুমিয়ে পড়েছিল এক মুহূর্তের জন্য। হয়তো।</p>
+<p>চাচি তখন নাক কুঁচকে বাতাস শুঁকছিলেন।</p>
+<p class="dlg">"বিড়ির গন্ধ ক্যান? তোর চাচা তো বিড়ি খায় না।"</p>
+<p>চাচা কোনো উত্তর দিলেন না। শুধু রুমকির দিকে একবার তাকালেন। চোখটা লাল, ক্লান্ত। তারপর খুব শান্ত, খুব শক্ত গলায় বললেন—</p>
+<p class="dlg">"এই বাড়িতে আর কেউ রাইতে একলা ঘুমাইবো না। আর তুই কাল সকালেই ঢাকা ফিরা যাবি।"</p>
+<p class="dlg">"তপুকে না নিয়ে আমি কোথাও যাব না, চাচা।"</p>
+<p>চাচা আর কিছু বললেন না। খিড়কি বন্ধ করে খিল তুলে দিলেন। তারপর নিজের ঘরে চলে গেলেন।</p>
+<p>সেই রাতে রুমকি আর ঘুমায়নি। চাচির ঘরে, চাচি আর মিনুর পাশে বসে সে ভোরের অপেক্ষা করল। মিনু ঘুমের মধ্যে একবার কেঁপে উঠে বলল, "খালা, যাইও না।"</p>
+
+<div class="sep">✦ ✦ ✦</div>
+
+<p>ফজরের আজানের সঙ্গে সঙ্গে রুমকি খিড়কি খুলে বাইরে এল।</p>
+<p>আকাশ তখনো পুরো ফর্সা হয়নি। চারপাশ ছাই রঙের। বাঁশঝাড়ের মাথায় কুয়াশা জমে আছে। মাটি শিশিরে ভেজা, নরম।</p>
+<p>আর সেই নরম মাটিতে পায়ের ছাপ।</p>
+<p>রুমকি নিচু হয়ে বসল।</p>
+<p>দুই রকম ছাপ। এক রকম ছাপে স্যান্ডেলের দাগ—চাচার প্লাস্টিকের স্যান্ডেল। খিড়কি থেকে বাঁশঝাড়ের দিকে গেছে, আবার ফিরে এসেছে।</p>
+<p>আর অন্য রকম ছাপগুলো খালি পায়ের। বড়, চওড়া। পুরুষ মানুষের পা। আঙুলগুলো ছড়ানো, যেন মানুষটা সারাজীবন খালি পায়েই হেঁটেছে। ছাপগুলো খিড়কি থেকে সোজা চলে গেছে বাঁশঝাড়ের ভেতর দিয়ে, পুকুরের দিকে।</p>
+<p>নিশির পায়ের ছাপ পড়ে? নানির গল্পে তো কোনোদিন শোনেনি।</p>
+<p>রুমকি ছাপ ধরে ধরে বাঁশঝাড়ে ঢুকল। কয়েক পা যেতেই চোখে পড়ল জিনিসটা।</p>
+<p>একটা নিচু বাঁশের কঞ্চিতে কী যেন জড়িয়ে আছে। চকচকে, বাদামি, ফিতার মতো সরু। বাতাসে তিরতির করে কাঁপছে।</p>
+<p>রুমকি কাছে গিয়ে সেটা আঙুলে তুলে নিল।</p>
+<p>ক্যাসেটের ফিতা।</p>
+<p>পুরোনো দিনের গান শোনার ক্যাসেটের ভেতরে যে পাতলা বাদামি ফিতা থাকে, সেটা। কয়েক হাত লম্বা। ছেঁড়া। কঞ্চিতে আটকে ছিঁড়ে গেছে।</p>
+<p>রুমকি অনেকক্ষণ ফিতাটার দিকে তাকিয়ে রইল। তারপর হঠাৎ, কেন জানে না, তার বুকের ভেতরটা ধক করে উঠল।</p>
+<p>সে দৌড়ে বাড়ির দিকে ফিরল।</p>
+
+<div class="sep">✦ ✦ ✦</div>
+
+<p>তপুর টেবিলের নিচে একটা পুরোনো টু-ইন-ওয়ান। রেডিও আর ক্যাসেট প্লেয়ার একসঙ্গে। বাবা কিনেছিলেন, রুমকি তখন ক্লাস এইটে পড়ে। কয়েক বছর আগে নষ্ট হয়ে পড়ে ছিল। তপু নিজে খুলে, তার জোড়া দিয়ে আবার চালু করেছে।</p>
+<p>পাশে একটা জুতার বাক্স। তার ভেতরে সারি সারি ক্যাসেট। পুরোনো গান, ওয়াজ, নাটক।</p>
+<p>রুমকি বাক্সটা টেনে বের করল। ক্যাসেটের প্লাস্টিকের খাপগুলো একটা একটা করে দেখতে লাগল।</p>
+<p>সে জানে কোনটা খুঁজছে।</p>
+<p>যে বছর টু-ইন-ওয়ানটা কেনা হলো, সেই বছর রুমকির মাথায় একটা খেয়াল চেপেছিল। সে একটা খালি ক্যাসেটে মায়ের গলা রেকর্ড করবে। মা প্রথমে খুব লজ্জা পেয়েছিল। "ধুর, আমার গলা রাইখা কী করবি?"</p>
+<p>তবু রুমকি ছাড়েনি। মা সেদিন একটা দোয়া পড়েছিল। একটা পুরোনো ঘুমপাড়ানি গান গেয়েছিল, মাঝখানে হেসে ফেলে থেমে গিয়েছিল। আর শেষে, রুমকির কথায়, উঠানে দাঁড়িয়ে সন্ধ্যাবেলার মতো করে হাঁক দিয়েছিল—</p>
+<p class="rule">"রু-ম-কি... ও রু-ম-কি... ত-পু... বাড়ি আয়..."</p>
+<p>তারপর দুজনে হাসতে হাসতে গড়িয়ে পড়েছিল।</p>
+<p>সেই ক্যাসেটের খাপে রুমকি নিজের হাতে লিখেছিল। গোটা গোটা অক্ষরে। সে খাপটা খুঁজে পেল। বাক্সের একেবারে নিচে।</p>
+<p class="rule">মায়ের গলা</p>
+<p>খাপটা হালকা। সে খুলল।</p>
+<p>ভেতরটা ফাঁকা।</p>
+<p>রুমকি মেঝেতে বসে পড়ল। হাতে খালি খাপ। আরেক হাতে বাঁশঝাড় থেকে আনা ছেঁড়া বাদামি ফিতা।</p>
+<p>কেউ তার মায়ের গলা চুরি করেছে।</p>
+<p>কেউ সেই গলা রাতের অন্ধকারে বাজিয়ে বাজিয়ে তপুকে ডেকেছে। কাল রাতে তাকে ডেকেছে। "রু-ম-কি... ও রু-ম-কি..." ঠিক সেই সুর, ঠিক সেই টান। কারণ সেটা সত্যিই মা। বারো বছর আগের মা।</p>
+<p>এক মুহূর্তের জন্য রুমকির বুক থেকে একটা ভার নেমে গেল। নিশি না। মানুষ। মানুষকে ধরা যায়।</p>
+<p>কিন্তু পরের মুহূর্তেই আবার সেই ঠান্ডা স্রোত।</p>
+<p>ক্যাসেটে মা কোনোদিন বলেনি, "রুমকি, মা। দরজাটা খোল। বাইরে খুব ঠান্ডা।"</p>
+<p>ক্যাসেটে মা কোনোদিন বলেনি, "আমি তো ভিতরেই আছি।"</p>
+<p>তাহলে ওই কথাগুলো কে বলল? কার গলায়?</p>
+
+<div class="sep">✦ ✦ ✦</div>
+
+<p>সকাল নয়টার দিকে একজন ছেলে এল।</p>
+<p>বয়স তেইশ-চব্বিশ। শ্যামলা, রোগা। চোখে চশমা। গায়ে একটা কোঁচকানো শার্ট। দেখে মনে হয়, অনেক রাত ঘুমায়নি।</p>
+<p class="dlg">"আমি সজীব। মাস্টার সাবের বড় পোলা। শফিকের ভাই।"</p>
+<p>রুমকি চিনতে পারল। ছোটবেলায় এক স্কুলে পড়ত। সজীব তখন খুব চুপচাপ ছিল। সবসময় বই নিয়ে বসে থাকত।</p>
+<p>উঠানের এক কোণে আমগাছের নিচে দুজন বসল। চাচি দুই গ্লাস পানি দিয়ে গেলেন।</p>
+<p class="dlg">"শুনলাম আপনি আসছেন," সজীব বলল। "তাই আসলাম। গ্রামের সবাই বলে নিশি। আমি বিশ্বাস করি না। আপনিও করেন না, তাই না?"</p>
+<p>রুমকি কোনো উত্তর না দিয়ে খালি ক্যাসেটের খাপটা আর ছেঁড়া ফিতাটা সজীবের সামনে রাখল। তারপর সব খুলে বলল। কাল রাতের ডাক। খিড়কির শব্দ। বিড়ির গন্ধ। খালি পায়ের ছাপ।</p>
+<p>শুধু শেষ ফিসফিস কথাটা বলল না। কেন বলল না, নিজেও জানে না।</p>
+<p>সজীব অনেকক্ষণ ফিতাটা হাতে নিয়ে ঘুরিয়ে ঘুরিয়ে দেখল।</p>
+<p class="dlg">"আমি জানতাম," সে আস্তে বলল। "আমি জানতাম এইটা মানুষের কাজ।"</p>
+<p class="dlg">"কেন জানতে?"</p>
+<p>সজীব চশমা খুলে শার্টে মুছল। তারপর বলতে শুরু করল।</p>
+<p>শফিক হারানোর মাসখানেক আগে থেকে বদলে গিয়েছিল। হঠাৎ হাতে টাকা আসতে শুরু করে। নতুন মোবাইলের কভার কেনে। নতুন জুতা। রাত করে বাড়ি ফেরে। সজীব জিজ্ঞেস করলে শুধু হাসত।</p>
+<p>একদিন রাতে শফিক নিজেই বলেছিল, "ভাই, নীলকুঠির দিকে একটা কাম পাইছি। ভালো টাকা দেয়। কাউরে কইস না।"</p>
+<p>কী কাজ, কে দেয়—কিছুই বলেনি।</p>
+<p class="dlg">"আর বাদল মাঝি?" রুমকি জিজ্ঞেস করল।</p>
+<p class="dlg">"বাদল চাচার বউরে আমি নিজে জিগাইছি। হারানোর আগে কয়েক রাত কেউ বাদল চাচার নৌকা ভাড়া নিত। রাইতে। নদীর ওপারে কী সব বস্তা পার করত। বাদল চাচা একদিন বউরে কইছিল, 'আর এই কাম করমু না। এইটা ভালো কাম না।' তার তিন দিন পরে বাদল চাচা গায়েব।"</p>
+<p>রুমকির গায়ে কাঁটা দিল।</p>
+<p class="dlg">"আরেকটা কথা আছে," সজীব বলল। গলাটা আরও নিচু করল। "নীলকুঠির চারপাশের মাঠ। আপনি জানেন ওই জমি কার কার?"</p>
+<p>রুমকি মাথা নাড়ল। জানে না।</p>
+<p class="dlg">"মাঠের পুবের অংশ ছিল বাদল চাচার। মাঝখানে আমাদের এক টুকরা। আর পশ্চিমের সবচাইতে বড় অংশ, পুকুরের পাড় থিকা কুঠির দেয়াল পর্যন্ত—ওইটা আপনার বাবার। মানে এখন আপনার আর তপুর।"</p>
+<p class="dlg">"তাতে কী?"</p>
+<p class="dlg">"বাদল চাচা হারানোর পরে তার বউ জমিটা বেইচা দিছে। ভয়ে। পানির দামে। শফিক হারানোর পরে আব্বাও আমাদের টুকরাটা বেচার কথা ভাবতেছে। আম্মা রাতে ঘুমাইতে পারে না, বলে ওই জমি অভিশাপের জমি। আর জমি কিনতেছে একজনই মানুষ।"</p>
+<p class="dlg">"কে?"</p>
+<p class="dlg">"রতন সরদার। চেয়ারম্যানের শালা। নীলকুঠির মাঠে ইটভাটা বানাইবো। নদী কাছে, মাটি ভালো। খালি একটা জমি বাকি।"</p>
+<p>রুমকির মুখ দিয়ে কথা বেরোল না।</p>
+<p class="dlg">"আপনাদেরটা," সজীব বলল।</p>
+<p>রুমকি ধীরে ধীরে বারান্দার দিকে তাকাল। চাচি সেখানে দাঁড়িয়ে চাল বাছছিলেন। কিন্তু হাত থেমে আছে। তিনি সব শুনছিলেন।</p>
+<p>রুমকি উঠে চাচির কাছে গেল।</p>
+<p class="dlg">"চাচি, রতন সরদার কি কখনো এই বাড়িতে এসেছিল?"</p>
+<p>চাচি চোখ নামিয়ে নিলেন। অনেকক্ষণ চুপ। তারপর ফিসফিস করে বললেন—</p>
+<p class="dlg">"দুইবার আইছিল। তোর চাচার লগে কথা কইছে। তোর চাচা কইছে, জমি তপু আর রুমকির, আমি বেচার কে।" চাচি একটু থামলেন। "শেষবার যাওয়ার সময় রতন কইয়া গেছে—'জমি তো মানুষের থাকে, মজিদ ভাই। মানুষই যদি না থাকে?'"</p>
+
+<div class="sep">✦ ✦ ✦</div>
+
+<p>সজীব চলে যাওয়ার পর রুমকি থানায় ফোন করল। এবার একজন ধরল। গলা শুনে মনে হলো, মাত্র ঘুম থেকে উঠেছে।</p>
+<p class="dlg">"জি, বেতকুড়ির কেস? হ্যাঁ, জিডি হইছে। আমরা দেখতেছি।"</p>
+<p class="dlg">"ভাই, আমার কাছে নতুন তথ্য আছে। কাল রাতে কেউ আমাদের বাড়িতে ঢুকেছিল। একটা ক্যাসেট চুরি গেছে। নীলকুঠির দিকে পায়ের ছাপ—"</p>
+<p class="dlg">"ক্যাসেট?" ওপাশের মানুষটা একটু হাসল। "আপা, একটা পোলা হারাইছে, আর আপনে ক্যাসেট নিয়া আছেন? শোনেন, এই বয়সের পোলাপান রাগ কইরা ঢাকা-চিটাগাং চইলা যায়। কয়দিন পরে নিজেই ফোন দিবো। আর নীলকুঠি তো পোড়োবাড়ি। ওইখানে মানুষ যায় না।"</p>
+<p class="dlg">"মানুষ যায়। আমি প্রমাণ দিতে পারব।"</p>
+<p class="dlg">"ঠিক আছে, ঠিক আছে। প্রমাণ পাইলে থানায় আইসা দেখা কইরেন।"</p>
+<p>লাইন কেটে গেল।</p>
+<p>রুমকি অনেকক্ষণ ফোনটার দিকে তাকিয়ে রইল। তারপর মনে মনে ঠিক করল, প্রমাণ সে আনবেই।</p>
+<p>বারান্দার এক কোণে মিনু বসে ছিল। হাঁটুর ওপর থুতনি রেখে। সকাল থেকে মেয়েটা একটা কথাও বলেনি। রুমকি গিয়ে পাশে বসতেই মিনু তার জামার পকেট থেকে একটা জিনিস বের করে রুমকির হাতে গুঁজে দিল।</p>
+<p>একটা টিনের বাঁশি। ছোট্ট, লাল রঙের। রং অনেক জায়গায় উঠে গেছে।</p>
+<p class="dlg">"এইটা কী রে?"</p>
+<p class="dlg">"তপু ভাইয়ার। মেলা থিকা কিনছিল। আমারে দিছিল।" মিনু ফিসফিস করে বলল। "ভাইয়া কইছিল, রাইতে ভয় পাইলে তিনবার বাজাবি। আমি যেইখানেই থাকি, শুইনা চইলা আসমু।"</p>
+<p>মিনুর ঠোঁট কাঁপছিল।</p>
+<p class="dlg">"কাল রাইতে আমি বাজাইছি, বুবু। কম্বলের নিচে, আস্তে আস্তে। ভাইয়া আসে নাই।"</p>
+<p>রুমকি মিনুকে বুকে টেনে নিল। ছোট্ট শরীরটা কাঁপছিল।</p>
+<p class="dlg">"ভাইয়া আসবে," রুমকি বলল। "আমি নিয়ে আসব। কথা দিলাম।"</p>
+<p>বাঁশিটা ফেরত দিতে চাইল। মিনু নিল না। মাথা নেড়ে রুমকির হাতের মুঠো বন্ধ করে দিল।</p>
+<p class="dlg">"তুমি রাখো। তুমি তো ভাইয়ারে আনতে যাইবা।"</p>
+<p>রুমকি বাঁশিটা ওড়নার কোনায় বেঁধে নিল।</p>
+
+<div class="sep">✦ ✦ ✦</div>
+
+<p>দুপুরের খাওয়ার পর রুমকি বলল, সে নীলকুঠিতে যাবে।</p>
+<p>চাচা খাওয়া থামিয়ে তাকালেন। "না।"</p>
+<p class="dlg">"চাচা, তপু ওখানে থাকতে পারে। ওর খাতায় লেখা—"</p>
+<p class="dlg">"আমি কইলাম না।" চাচা থালা ঠেলে উঠে দাঁড়ালেন। গলা কাঁপছে। রাগে, নাকি ভয়ে, বোঝা গেল না। "ওইদিকে যে যায়, সে আর ফিরে না। একজনরে হারাইছি। আরেকজনরে হারাইতে পারুম না।"</p>
+<p>তিনি বেরিয়ে গেলেন।</p>
+<p>আসরের আজানের একটু আগে, চাচা যখন বাজারে, রুমকি আর সজীব খিড়কি দিয়ে বেরিয়ে পড়ল।</p>
+<p>বাঁশঝাড়। পুকুরঘাট। তারপর খোলা মাঠ।</p>
+<p>মাঠটা অনেক বড়। কোথাও ধান কাটা হয়ে গেছে, শুধু নাড়া দাঁড়িয়ে আছে। কোথাও কাশবন, মানুষের মাথা ছাড়িয়ে উঁচু। বিকেলের রোদ তেরছা হয়ে পড়েছে। সেই রোদে কাশফুল রুপালি দেখাচ্ছে।</p>
+<p>হাঁটতে হাঁটতে রুমকি খেয়াল করল, মাঠের এদিকে একটাও পাখি নেই। একটাও ফড়িং নেই। বাতাসে কাশবন দুলছে, অথচ কোনো শব্দ নেই।</p>
+<p>এই মাঠে একবার বাবার হাত ধরে এসেছিল রুমকি। খুব ছোটবেলায়। বাবা আইলের ওপর দাঁড়িয়ে হাত তুলে দেখিয়েছিলেন, "এই যে পুকুরের পাড় থিকা ওই কুঠির দেয়াল পর্যন্ত, সব আমাগো। তুই বড় হইলে এইখানে সোনার ধান হইবো।"</p>
+<p>রুমকি তখন বুঝত না জমি কী জিনিস। শুধু মনে আছে, বাবার কাঁধে চড়ে সে অনেক দূর পর্যন্ত দেখতে পাচ্ছিল। আর নীলকুঠির দিকে তাকাতেই বাবা তাকে কাঁধ থেকে নামিয়ে উল্টো দিকে হাঁটা দিয়েছিলেন।</p>
+<p>এখন সেই জমির ওপর দিয়ে সে হাঁটছে। বাবা নেই। মা নেই। আর যে ভাইয়ের জন্য এই জমি, সেই ভাই হয়তো এই মাটির নিচেই কোথাও...</p>
+<p>না। রুমকি জোরে মাথা ঝাঁকাল। ওভাবে ভাববে না।</p>
+<p>নীলকুঠি যত কাছে আসছিল, ততই বড় হচ্ছিল।</p>
+<p>দূর থেকে মনে হয় একটা ভাঙা দোতলা বাড়ি। কাছে এলে বোঝা যায়, এটা একসময় বিশাল ছিল। লম্বা বারান্দা, মোটা মোটা থাম। থামের গায়ে বটের শিকড় সাপের মতো পেঁচিয়ে উঠেছে। ছাদের এক কোনা ধসে পড়েছে। জানালার কাঠ নেই, শুধু ফাঁকা ফোকর।</p>
+<p>সামনে একটা মরচে ধরা লোহার গেট। এক পাল্লা মাটিতে পড়ে আছে।</p>
+<p>রুমকি গেটের সামনে থামল। পেছন ফিরে তাকাল। অনেক দূরে, মাঠের ওপারে, তাদের বাঁশঝাড়টা ছোট্ট একটা সবুজ দাগের মতো দেখাচ্ছে।</p>
+<p class="dlg">"ভয় লাগে?" সজীব জিজ্ঞেস করল।</p>
+<p class="dlg">"লাগে," রুমকি সত্যি কথাই বলল। "চলো।"</p>
+
+<div class="sep">✦ ✦ ✦</div>
+
+<p>ভেতরটা ঠান্ডা। বাইরের রোদের পর হঠাৎ এই ঠান্ডা গায়ে লাগে ভেজা কাপড়ের মতো।</p>
+<p>মেঝেতে ধুলা, ভাঙা ইট, শুকনো পাতা। দেয়ালে শ্যাওলার সবুজ-কালো দাগ। মাথার ওপরে কড়িকাঠ থেকে উল্টো হয়ে ঝুলছে কয়েকটা বাদুড়। ওদের ঢোকার শব্দে দুই-একটা নড়েচড়ে উঠল।</p>
+<p>আর ধুলার ওপর পায়ের ছাপ।</p>
+<p>অনেক ছাপ। নতুন। জুতার ছাপ, স্যান্ডেলের ছাপ। আর খালি পায়ের ছাপ—বড়, চওড়া, আঙুল ছড়ানো।</p>
+<p>রুমকি সজীবের দিকে তাকাল। সজীব মাথা নাড়ল। সেও দেখেছে।</p>
+<p>ছাপগুলো ধরে ওরা বাড়ির পেছনের দিকে গেল। একটা অন্ধকার করিডোর। শেষ মাথায় নিচে নামার একটা সিঁড়ি। পাঁচ-ছয় ধাপ নামলেই একটা দরজা।</p>
+<p>পুরোনো দরজা। মোটা কাঠ, লোহার পাত বসানো। ইংরেজ আমলের।</p>
+<p>কিন্তু দরজার কড়ায় ঝুলছে একটা তালা।</p>
+<p>নতুন তালা। চকচকে। দোকান থেকে কেনার স্টিকারটা পর্যন্ত এখনো লেগে আছে।</p>
+<p class="dlg">"নিচের গুদামঘর," সজীব ফিসফিস করে বলল। "আব্বার কাছে শুনছি। নীলকরেরা এইখানে নীল রাখত। আর মানুষও আটকাইয়া রাখত।"</p>
+<p>রুমকি তালাটা ধরে টানল। শক্ত। সে দরজায় কান পাতল।</p>
+<p>কিছু শোনা গেল না। শুধু নিজের বুকের ধুকধুক।</p>
+<p class="dlg">"ওপরে চলো," সে বলল। "তপুর ছবির জানালাটা।"</p>
+
+<div class="sep">✦ ✦ ✦</div>
+
+<p>দোতলার সিঁড়ির অর্ধেক ধাপ ভাঙা। দেয়াল ধরে ধরে, একটা একটা করে পা ফেলে ওরা উঠল।</p>
+<p>ওপরে একটা লম্বা ঘর। ছাদের একপাশ ধসে আকাশ দেখা যাচ্ছে। সেই ফাঁক দিয়ে বিকেলের শেষ আলো তেরছা হয়ে নেমেছে। আলোর মধ্যে ধুলা ভাসছে, সোনালি গুঁড়ার মতো।</p>
+<p>ঘরের শেষ মাথায় একটা জানালা। মাঠের দিকে মুখ করা। ঠিক তপুর আঁকা ছবির মতো।</p>
+<p>জানালার নিচে মেঝেতে একটা হারিকেন।</p>
+<p>রুমকি দৌড়ে গিয়ে সেটা তুলল। কাচে কালি জমে আছে। সলতেটা পোড়া, কিন্তু নতুন পোড়া। ভেতরে এখনো কেরোসিন। গন্ধটা টাটকা।</p>
+<p>কেউ এখানে রাতে আলো জ্বালায়। আর সেই আলো দেখা যায় বেতকুড়ি গ্রাম থেকে। তপুর জানালা থেকে।</p>
+<p class="dlg">"রুমকি আপা।"</p>
+<p>সজীব দেয়ালের কাছে দাঁড়িয়ে ছিল। মোবাইলের টর্চ জ্বেলে দেয়ালের নিচের দিকে আলো ফেলেছে।</p>
+<p>রুমকি এগিয়ে গেল।</p>
+<p>দেয়ালের গায়ে, মেঝে থেকে এক হাত ওপরে, কাঠকয়লা দিয়ে লেখা। কাঁচা, বাঁকা অক্ষর। এই হাতের লেখা রুমকি চেনে। কাল সারা বিকেল এই লেখাই পড়েছে।</p>
+<div class="diary wall">
+  <div class="entry"><span class="shaky">আমি তপু।<br>২৯ কার্তিক।<br>বুবু আইবো।</span></div>
+</div>
+<p>রুমকির হাত থেকে হারিকেনটা প্রায় পড়ে যাচ্ছিল।</p>
+<p>উনত্রিশ কার্তিক। তপু হারিয়েছে আঠাশের রাতে। মানে তার পরের দিন সে এখানে ছিল। বেঁচে ছিল। নিজের হাতে লিখেছে।</p>
+<p>বুবু আইবো।</p>
+<p>সে জানত। সে জানত বুবু আসবে।</p>
+<p>রুমকি দেয়ালের লেখাটায় হাত রাখল। কাঠকয়লার গুঁড়া আঙুলে লেগে গেল। চোখ ঝাপসা হয়ে এল।</p>
+<p class="dlg">"আমি এসেছি, তপু," সে ফিসফিস করে বলল। "আমি এসেছি।"</p>
+
+<div class="sep">✦ ✦ ✦</div>
+
+<p>কখন যে সূর্য ডুবে গেছে, ওরা টেরই পায়নি।</p>
+<p>ছাদের ফাঁক দিয়ে আসা সোনালি আলো এখন ছাই রঙের। ঘরের কোণগুলো অন্ধকারে ডুবে যাচ্ছে। দূরে, অনেক দূরে, মাগরিবের আজান শেষ হয়ে গেছে।</p>
+<p class="dlg">"আপা, চলেন," সজীব বলল। গলায় অস্থিরতা। "অন্ধকার হইলে মাঠ পার হওয়া যাইবো না। কাল সকালে পুলিশ নিয়া আসমু। তালা ভাঙমু।"</p>
+<p>রুমকি মাথা নাড়ল। হারিকেনটা জায়গামতো রেখে দিল, যেন কেউ বুঝতে না পারে ওরা এসেছিল।</p>
+<p>ওরা সিঁড়ির দিকে পা বাড়াল।</p>
+<p>ঠিক তখন শব্দটা হলো।</p>
+<p class="rule">ঠক।</p>
+<p>নিচ থেকে। অনেক নিচ থেকে। মেঝে ভেদ করে উঠে আসা একটা ভোঁতা শব্দ।</p>
+<p class="rule">ঠক।</p>
+<p>রুমকি আর সজীব দুজনেই জমে গেল।</p>
+<p class="rule">ঠক।</p>
+<p>তিনবার।</p>
+<p>তারপর একটা গলা। খুব ক্ষীণ। খুব ভাঙা। মোটা কাঠের দরজা আর পুরোনো ইটের দেয়াল পেরিয়ে আসতে আসতে প্রায় মিলিয়ে যাওয়া একটা গলা।</p>
+<span class="call">"কেউ... আছেন?"</span>
+<p>একটু থেমে, কাশির শব্দ। তারপর আবার।</p>
+<span class="call">"বুবু?"</span>
+<p>রুমকির মাথার ভেতরে সব সাদা হয়ে গেল।</p>
+<p>এটা ক্যাসেট না। এটা বারো বছর আগের কোনো রেকর্ড না। এটা তপু। পনেরো বছরের তপু। ভাঙা গলার তপু। ফোনে যে গলায় বলেছিল, "আচ্ছা।"</p>
+<p>সজীব তার কবজি চেপে ধরল। "আপা—না। সাড়া দিয়েন না। আগে দেখি—"</p>
+<p>কিন্তু রুমকি আর কিছু শুনছিল না। নানির কথা, নিশির নিয়ম, তিনবারের হিসাব—সব কোথায় মিলিয়ে গেল।</p>
+<p>সে চিৎকার করে উঠল।</p>
+<p class="dlg">"তপু! তপু, আমি এখানে! আমি আসছি!"</p>
+<p>তার গলা ভাঙা দেয়ালে দেয়ালে ধাক্কা খেয়ে ফিরে এল। তপু... তপু... আসছি...</p>
+<p>তারপর, ঠিক কাল রাতের মতো—</p>
+<p>সব চুপ।</p>
+<p>নিচ থেকে আর কোনো শব্দ নেই। বাইরে ঝিঁঝিঁ পোকা থেমে গেছে। কড়িকাঠের বাদুড়গুলো পর্যন্ত নিথর।</p>
+<p>আর সিঁড়ির নিচ থেকে, অন্ধকার থেকে, একটা হলুদ আলো ধীরে ধীরে ওপরে উঠে আসছে। হারিকেনের আলো। দুলছে। এক ধাপ। আরেক ধাপ।</p>
+<p>আলোর পেছনে একটা মানুষের ছায়া দেয়ালে লম্বা হয়ে পড়ল।</p>
+<p>তারপর একটা গলা শোনা গেল। মায়ের গলা না। নিশির ফিসফিস না। খুব শান্ত, খুব স্বাভাবিক, একজন বয়স্ক পুরুষ মানুষের গলা। যেন উঠানে বসে গল্প করছে।</p>
+<p class="final">"সাড়া দিলি ক্যান, রুমকি?<br>তোরে তো তিনবার ডাকার কথা আছিল।"</p>
+    </div>
+
+    <div class="ch-end">
+      — দ্বিতীয় অধ্যায় শেষ —<br>
+      <a class="next go" href="#ch3">তৃতীয় অধ্যায় পড়ুন →</a>
+    </div>
+  </article>
+
+  <!-- ================= CHAPTER 3 ================= -->
+  <article class="chapter" id="ch3">
+    <div class="ch-head">
+      <div class="lantern" aria-hidden="true"></div>
+      <div class="label">অধ্যায় তিন</div>
+      <h2>কুঠির নিচে</h2>
+      <div class="ch-meta">
+        <span class="rt" data-for="ch3"></span>
+        <button class="copy-btn" data-copy="ch3">⧉ কপি করুন</button>
+      </div>
+    </div>
+
+    <div class="ch-body" id="ch3-body">
+<p>হারিকেনের আলো সিঁড়ির শেষ ধাপে এসে থামল।</p>
+<p>আলোর পেছনে একটা মুখ। প্রথমে শুধু থুতনি দেখা গেল। কাঁচাপাকা খোঁচা খোঁচা দাড়ি। তারপর নাক। তারপর চোখ।</p>
+<p>রুমকি মুখটা চিনল। আর চেনার সঙ্গে সঙ্গে তার পায়ের নিচের মাটি যেন সরে গেল।</p>
+<p>কালু মিয়া।</p>
+<p>কাল দুপুরে যে ভ্যানওয়ালা তাকে নদীর পাড় ধরে গ্রামে নিয়ে এসেছিল। যে পেছন না ফিরেই বলেছিল, "এইটা নিশির কাম, আপা।" যে বলেছিল, মাগরিবের পর কেউ নাম ধরে ডাকলেও সাড়া দেয় না।</p>
+<p>সেই কালু মিয়া এখন তার সামনে দাঁড়িয়ে হাসছে। কাল দুপুরের সেই আনন্দহীন হাসি।</p>
+<p class="dlg">"চিনছস তাইলে," কালু মিয়া বলল। "কাল আপনে-আপনে কইরা কথা কইছি। আইজ আর ওইসব ভদ্রতার দরকার নাই।"</p>
+<p>তার পেছনে আরও দুজন উঠে এল। একজন লম্বা, কালো, খালি গা। কাঁধে একটা গামছা। পা দুটো খালি—বড়, চওড়া, আঙুল ছড়ানো। ঠোঁটে একটা জ্বলন্ত বিড়ি।</p>
+<p>রুমকি সেই পায়ের দিকে তাকিয়ে রইল। খিড়কির বাইরে কাদায় এই পায়েরই ছাপ ছিল।</p>
+<p>অন্যজন কমবয়সী, রোগা। হাতে একটা মোটা বাঁশের লাঠি।</p>
+<p class="dlg">"ফজলু," কালু মিয়া লম্বা লোকটাকে বলল, "পোলাটারে ধর।"</p>
+<p>সজীব এক পা পিছিয়ে গেল। "খবরদার! আমরা থানায় জানাইয়া আসছি। আমরা না ফিরলে পুলিশ—"</p>
+<p>কালু মিয়া এবার শব্দ করে হাসল।</p>
+<p class="dlg">"থানার ওসিরে তুই আমারে চিনাস? সকালে এই মাইয়া থানায় ফোন দিছে না? ক্যাসেটের কথা কইছে না? ওসি সাব নিজে আমারে ফোন দিয়া কইছে।"</p>
+<p>রুমকির বুকটা হিম হয়ে গেল।</p>
+<p>ফজলু সজীবের দিকে এগোল। সজীব হাতের মোবাইলটা ছুড়ে মারল ফজলুর মুখে। ফজলু একটু টলে গেল। সেই সুযোগে সজীব রুমকির হাত ধরে টানল। "আপা, দৌড়ান!"</p>
+<p>কিন্তু কোথায় দৌড়াবে? সিঁড়ি একটাই। সেখানে কালু মিয়া দাঁড়িয়ে।</p>
+<p>রোগা ছেলেটা লাঠি ঘোরাল। একটা ভোঁতা শব্দ। সজীব হাঁটু ভেঙে মেঝেতে বসে পড়ল। কপাল থেকে রক্ত গড়িয়ে নামল চশমার কাচে।</p>
+<p class="dlg">"সজীব!" রুমকি তার পাশে বসে পড়ল।</p>
+<p class="dlg">"আর মারিস না," কালু মিয়া বিরক্ত গলায় বলল। "মরা মানুষ দিয়া কোনো কাম হয় না।"</p>
+
+<div class="sep">✦ ✦ ✦</div>
+
+<p>ওরা দুজনের মোবাইল কেড়ে নিল। রুমকির ওড়না ধরে টেনে দেখল, আর কিছু আছে কিনা। ওড়নার কোনায় বাঁধা ছোট্ট লাল বাঁশিটা ফজলুর হাতে ঠেকল। সে একবার তাকিয়ে নাক সিঁটকাল। খেলনা। ছেড়ে দিল।</p>
+<p>তারপর কালু মিয়া পকেট থেকে একটা জিনিস বের করে রুমকির চোখের সামনে দোলাল।</p>
+<p>একটা ছোট্ট কালো স্পিকার। হাতের তালুর সমান। আর একটা পুরোনো মোবাইল।</p>
+<p>সে মোবাইলের একটা বোতাম টিপল।</p>
+<span class="call">"রু-ম-কি... ও রু-ম-কি..."</span>
+<p>মায়ের গলা। ফাঁকা কুঠির দেয়ালে দেয়ালে বেজে উঠল। শব্দের নিচে ক্যাসেটের হালকা সোঁ সোঁ আওয়াজ। কাল রাতে ভয়ের মধ্যে এই সোঁ সোঁ শব্দটা রুমকি খেয়ালই করেনি।</p>
+<p>কালু মিয়া বন্ধ করল।</p>
+<p class="dlg">"তোর মায়ের গলাটা বড় মিষ্টি আছিল রে," সে বলল। "পুরা গ্রাম চিনত। কেউ সন্দেহ করে নাই। সবাই কয় নিশি।" সে কাঁধ ঝাঁকাল। "মানুষ যা বিশ্বাস করতে চায়, তারে সেইটাই দিতে হয়।"</p>
+<p class="dlg">"কেন?" রুমকির গলা কাঁপছিল। রাগে। "আমার ভাই তোমার কী ক্ষতি করেছে?"</p>
+<p class="dlg">"তোর ভাই কিছু করে নাই। তোর বাপ করছে। মরার আগে ওই জমিটা পোলামাইয়ার নামে লেইখা দিয়া গেছে।" কালু মিয়া জানালার দিকে হাত দেখাল। বাইরে অন্ধকার মাঠ। "ওই মাঠে ইটভাটা হইবো। রতন ভাই অনেক টাকা ঢালছে। সব জমি কেনা শেষ। খালি তোগো জমিটা বাকি।"</p>
+<p class="dlg">"আমরা বেচব না।"</p>
+<p class="dlg">"বেচবি না, জানি। তাই তো বেচার দরকার নাই।" কালু মিয়া আবার হাসল। "কাল রাইতে দলিলের মানুষ আসবো। তুই আর তোর ভাই দুইজনে টিপসই দিবি। কাগজে লেখা থাকবো, তোরা খুশি মনে বেচছস। তারপর..."</p>
+<p>সে কথাটা শেষ করল না। দরকারও ছিল না।</p>
+<p>ঠিক তখন কালু মিয়ার পকেটে আরেকটা মোবাইল বেজে উঠল। সে স্ক্রিনের দিকে একবার তাকিয়ে গলা নরম করে ধরল।</p>
+<p class="dlg">"জি রতন ভাই।... জি, দুইটাই পাইছি। মাইয়াটা নিজেই হাঁইটা আইছে।... না, কেউ দেখে নাই।... জি, কাল রাইতে। দলিলের লোক আর সাক্ষী দুইজন। সব রেডি।... আচ্ছা ভাই। আপনে চিন্তা কইরেন না।"</p>
+<p>ফোন রেখে সে আবার রুমকির দিকে ফিরল। মুখের নরম ভাবটা মুহূর্তে মুছে গেছে।</p>
+<p>রুমকি তার দিকে তাকিয়ে রইল। এই মানুষটাকে সে ছোটবেলা থেকে দেখেছে। হাটের দিন মা এই কালু মিয়ার ভ্যানেই বাজারে যেত। ফেরার পথে মা তাকে এক কাপ গুড়ের পায়েস খেতে দিত, কখনো দুটো কলা। কালু মিয়া হাত কচলে বলত, "খালা, আপনের মতো মানুষ হয় না।"</p>
+<p class="dlg">"তুমি আমার মাকে চিনতে," রুমকি বলল। "মা তোমাকে কত আদর করত। আর তুমি তার গলা দিয়ে তার ছেলেকে..."</p>
+<p>কালু মিয়ার চোখে এক মুহূর্তের জন্য কিছু একটা খেলে গেল। লজ্জা? নাকি শুধু বিরক্তি? বোঝা গেল না।</p>
+<p class="dlg">"খালা মইরা গেছে," সে শুকনো গলায় বলল। "মরা মানুষের আদরে পেট ভরে না।"</p>
+<p class="dlg">"ক্যাসেটটা তুমি পেলে কীভাবে? তুমি তো কোনোদিন আমাদের ঘরে ঢোকোনি।"</p>
+<p>কালু মিয়া এবার একটু চুপ করে থাকল। তারপর ঠোঁটের কোণে একটা বাঁকা হাসি ফুটল।</p>
+<p class="dlg">"সেইটা জাইনা তোর আর কী লাভ? ঘরের খবর বাইরে আসে ঘরের মানুষের হাত দিয়াই।"</p>
+<p>কথাটা রুমকির বুকে ছুরির মতো বিঁধল।</p>
+<p>রুমকির মনে পড়ল চাচির মুখে শোনা রতন সরদারের কথাটা।</p>
+<p class="rule">জমি তো মানুষের থাকে। মানুষই যদি না থাকে?</p>
+<p class="dlg">"তোরে তিনবার ডাকার কথা আছিল," কালু মিয়া বলল। "কাল রাইতে। একবার বাঁশঝাড়ে, একবার জানালার নিচে, তিনবারের বার খিড়কির সামনে। তুই সাড়া দিলেই বাইর হইতি, আর আমরা ধইরা নিয়া আসতাম। কিন্তু তুই দুইবারের পরে চুপ মাইরা গেলি। বুড়ি আমেনা তোরে শিখাইয়া দিছিল, না?"</p>
+<p>রুমকি কিছু বলল না। কিন্তু তার মাথার ভেতরে একটা প্রশ্ন ঘুরপাক খাচ্ছিল।</p>
+<p>তিনবারের বার খিড়কির সামনে?</p>
+<p>তৃতীয় ডাকটা তো খিড়কির সামনে থেকে আসেনি। এসেছিল তার দরজার ঠিক ওপাশ থেকে। ফিসফিস করে। "আমি তো ভিতরেই আছি।"</p>
+<p class="dlg">"তোমাদের কেউ কাল রাতে ঘরের ভেতরে ঢুকেছিল," রুমকি বলল। "আমার দরজার সামনে।"</p>
+<p>কালু মিয়া ফজলুর দিকে তাকাল। ফজলু বিড়িতে টান দিয়ে কাঁধ ঝাঁকাল।</p>
+<p class="dlg">"খিড়কি খোলা পাইছিলাম। বারান্দায় একটু উঁকি দিছি, এইটুকুই। দরজার সামনে খাড়াই ছিলাম। কিন্তু কিছু কই নাই। আমার গলা তো খালার মতো না।" সে বিশ্রীভাবে হাসল।</p>
+<p class="dlg">"তাহলে কে বলল?"</p>
+<p>কেউ উত্তর দিল না। এক মুহূর্তের জন্য ঘরটা অদ্ভুত চুপ হয়ে গেল। কালু মিয়ার হাতের হারিকেনের শিখাটা একবার কেঁপে উঠল।</p>
+<p>তারপর কালু মিয়া গলা খাঁকারি দিয়ে বলল, "বেশি কথা কইস না। নিচে নিয়া চল।"</p>
+
+<div class="sep">✦ ✦ ✦</div>
+
+<p>ওরা দুজনকে টেনে টেনে নিচে নামাল। অন্ধকার করিডোর। পাঁচ-ছয় ধাপ সিঁড়ি। সেই নতুন চকচকে তালা।</p>
+<p>রোগা ছেলেটা চাবি ঘোরাল। পুরোনো লোহার দরজা গোঙানির মতো একটা শব্দ করে খুলে গেল।</p>
+<p>ভেতর থেকে একটা ভ্যাপসা, ঠান্ডা গন্ধ বেরিয়ে এল। স্যাঁতসেঁতে মাটি। পচা পাতা। আর অনেক পুরোনো কোনো রঙের গন্ধ—তেতো, ধাতব। নীলের গন্ধ। দেড়শো বছর ধরে এই দেয়ালে জমে আছে।</p>
+<p>ফজলু রুমকিকে ধাক্কা দিল। সে হুমড়ি খেয়ে ভেতরের মেঝেতে পড়ল। পেছনে সজীবকেও ঠেলে দিল।</p>
+<p>দরজা বন্ধ হলো। তালার খট শব্দ।</p>
+<p>আর তারপর নিকষ কালো অন্ধকার।</p>
+<p>এমন অন্ধকার রুমকি জীবনে দেখেনি। চোখ খোলা আর বন্ধ রাখায় কোনো তফাত নেই। নিজের হাত মুখের সামনে আনলেও দেখা যায় না।</p>
+<p>সে হাঁটুর ওপর ভর দিয়ে উঠে বসল। হাত বাড়িয়ে সজীবকে খুঁজল। সজীবের কাঁধ পেল। ভেজা। রক্ত।</p>
+<p class="dlg">"সজীব? শুনতে পাচ্ছ?"</p>
+<p class="dlg">"হুঁ।" ক্ষীণ গলা। "মাথাটা ঘুরতেছে। ঠিক আছি।"</p>
+<p>রুমকি নিজের ওড়নার একটা অংশ ছিঁড়ে সজীবের কপালে চেপে ধরল। অন্ধকারে, হাতের আন্দাজে। নার্সিংয়ের ক্লাসে শিখেছিল—আগে রক্ত থামাও। তারপর অন্য চিন্তা।</p>
+<p>ঠিক তখন অন্ধকারের ভেতর থেকে একটা শব্দ এল।</p>
+<p>খুব কাছ থেকে। কেউ নড়ছে। মাটির ওপর দিয়ে কিছু একটা ঘষে ঘষে এগিয়ে আসছে।</p>
+<p>রুমকি স্থির হয়ে গেল।</p>
+<p>তারপর একটা গলা। ভাঙা, শুকনো, ফিসফিসে।</p>
+<span class="call">"বুবু?"</span>
+<p>রুমকি অন্ধকারে দুই হাত বাড়িয়ে দিল। হাতে লাগল একটা মাথা। এলোমেলো চুল। একটা রোগা কাঁধ। একটা শরীর, যেটা কাঁপছে।</p>
+<p>তারপর সেই শরীরটা তার বুকের ওপর ঝাঁপিয়ে পড়ল।</p>
+<p class="dlg">"বুবু! বুবু, তুমি আইছ! আমি জানতাম, আমি জানতাম তুমি আইবা!"</p>
+<p>রুমকি তপুকে জড়িয়ে ধরল। এত জোরে, যেন ছাড়লেই আবার হারিয়ে যাবে। তপুর গায়ে ধুলা, ঘাম, স্যাঁতসেঁতে মাটির গন্ধ। কিন্তু তপু। জ্যান্ত তপু। তার ভাই।</p>
+<p>দুজনেই কাঁদছিল। কেউ কোনো কথা বলতে পারছিল না।</p>
+<p>অনেকক্ষণ পর রুমকি তপুর মুখে হাত বুলিয়ে দিল। গাল দুটো বসে গেছে। ঠোঁট ফাটা।</p>
+<p class="dlg">"তুই ঠিক আছিস? কোথাও ব্যথা?"</p>
+<p class="dlg">"পায়ে। ডান পায়ে। ধরার সময় মচকাইয়া গেছে।"</p>
+<p>রুমকি অন্ধকারে তপুর পা খুঁজে পেল। গোড়ালিটা ফুলে শক্ত হয়ে আছে। গরম। সে আস্তে চাপ দিল। তপু ককিয়ে উঠল। ভাঙেনি, মচকেছে—রুমকির হাত বলল। তবু এই অবস্থায় দৌড়ানো যাবে না।</p>
+<p class="dlg">"খেতে দিয়েছে কিছু?"</p>
+<p class="dlg">"দিনে একবার। দুইটা রুটি আর এক বোতল পানি।"</p>
+<p>তারপর অন্ধকারের আরেক কোণ থেকে আরেকটা গলা ভেসে এল। দুর্বল, জ্বরে কাঁপা।</p>
+<p class="dlg">"ভাই? সজীব ভাই? তুমি?"</p>
+<p>সজীব ঝট করে মাথা তুলল। রুমকি টের পেল, তার পাশের শরীরটা শক্ত হয়ে গেছে।</p>
+<p class="dlg">"শফিক?"</p>
+
+<div class="sep">✦ ✦ ✦</div>
+
+<p>শফিক বেঁচে ছিল। কিন্তু অবস্থা ভালো না।</p>
+<p>রুমকি অন্ধকারে তার কপালে হাত রাখল। আগুনের মতো গরম। নিঃশ্বাস দ্রুত, ছোট ছোট। এক মাসের বেশি এই ভেজা অন্ধকারে আটকে আছে। বুকে ঠান্ডা বসে গেছে।</p>
+<p>সজীব ভাইয়ের মাথাটা কোলে নিয়ে বসে রইল। কোনো কথা বলল না। শুধু তার কাঁধ কাঁপছিল।</p>
+<p>একটু পরে শফিক নিজেই ভাঙা ভাঙা গলায় বলতে লাগল।</p>
+<p>কালু মিয়া তাকে কাজ দিয়েছিল। রাতে নৌকায় বস্তা তুলতে হবে। ভালো টাকা। প্রথমে শফিক জানত না বস্তায় কী। পরে একদিন একটা বস্তা ছিঁড়ে গেল। ভেতরে সাদা গুঁড়া ভরা ছোট ছোট প্যাকেট।</p>
+<p>নেশার জিনিস। নদীর ওপারে পাচার হয়। নীলকুঠি ওদের গুদাম। ইটভাটার জমি কেনা শুধু বাইরের পর্দা। মাঠটা পুরো ওদের হাতে এলে কুঠির ধারেকাছে আর কেউ আসবে না। কেউ প্রশ্ন করবে না।</p>
+<p class="dlg">"আমি কইছিলাম আর করমু না," শফিক বলল। "বাদল চাচাও কইছিল। বাদল চাচা কইছিল থানায় যাইবো।"</p>
+<p class="dlg">"বাদল চাচা কোথায়?" সজীব আস্তে জিজ্ঞেস করল।</p>
+<p>শফিক অনেকক্ষণ চুপ করে থাকল।</p>
+<p class="dlg">"আমি আসার পর কয়দিন বাদল চাচা এইখানে আছিল। তারপর এক রাইতে ওরা আইসা চাচারে নিয়া গেল। কইল, নৌকায় কাম আছে।" শফিকের গলা ভেঙে গেল। "চাচা আর ফিরে নাই।"</p>
+<p>অন্ধকারে কেউ আর কিছু বলল না।</p>
+<p>রুমকি তপুকে আরও কাছে টেনে নিল।</p>
+
+<div class="sep">✦ ✦ ✦</div>
+
+<p class="dlg">"তপু," রুমকি একসময় ফিসফিস করে বলল। "সে রাতে কী হয়েছিল? তুই তো সাড়া দিসনি। খাতায় লিখেছিস।"</p>
+<p>তপু একটু চুপ করে রইল। তারপর বলল।</p>
+<p class="dlg">"সাড়া দেই নাই, বুবু। কিন্তু সেই রাইতে ডাকটা শুইনা আমি একটা জিনিস বুঝছিলাম।"</p>
+<p class="dlg">"কী?"</p>
+<p class="dlg">"মা কইল, 'তপু, নীলকুঠিতে আয়।' তারপর... তারপর মা হাসল। আর কইল, 'বাড়ি আয়।'" তপুর গলায় একটা অদ্ভুত কষ্ট। "বুবু, ওই হাসিটা আমি চিনি। ক্যাসেটের হাসি। তুমি যখন মারে দিয়া রেকর্ড করছিলা, মা ঘুমপাড়ানি গান গাইতে গাইতে হাইসা ফেলছিল। ঠিক ওই হাসি। একই জায়গায় একই রকম কাশি দিয়া থামছে।"</p>
+<p>রুমকি চোখ বন্ধ করল। সেই দিনটা চোখের সামনে ভেসে উঠল। মায়ের লজ্জা পাওয়া হাসি। গানের মাঝখানে থেমে যাওয়া।</p>
+<p class="dlg">"আমি টু-ইন-ওয়ানটা নিজে ঠিক করছি, বুবু। ওই ক্যাসেট শতবার শুনছি। মা মরার পরে রাইতে ঘুম না আইলে শুনতাম।" তপুর গলা কেঁপে উঠল। "আমি দৌড়াইয়া জুতার বাক্স খুললাম। ক্যাসেট নাই। তখন আমার এত রাগ হইল! কেউ মায়ের গলা চুরি কইরা আমার সাথে মশকরা করতেছে।"</p>
+<p class="dlg">"তারপর?"</p>
+<p class="dlg">"টর্চ নিয়া বাইর হইলাম। চোর ধরমু। শব্দ ধইরা ধইরা পুকুরঘাট পর্যন্ত গেলাম। তারপর পিছন থিকা কেউ মুখ চাইপা ধরল। স্যান্ডেল খুইলা পইড়া গেল। পায়ে মোচড় খাইলাম। তারপর আর কিছু মনে নাই।"</p>
+<p>রুমকির মনে পড়ল পুকুরঘাটে পাওয়া নীল স্যান্ডেলটার কথা। সেলাই করা ফিতা।</p>
+<p class="dlg">"দেয়ালে লিখেছিলি। ওপরে। 'বুবু আইবো।'"</p>
+<p class="dlg">"প্রথম রাইতে ওপরে রাখছিল। হাত বাইন্ধা। ভোরের দিকে ওরা ঘুমাইয়া পড়ছিল। মেঝেতে কয়লা পইড়া আছিল। বান্ধা হাতেই লিখছি।" তপু একটু থামল। "যদি কেউ কোনোদিন খুঁজতে আসে। যদি তুমি আসো।"</p>
+<p>রুমকি তপুর মাথায় ঠোঁট ছোঁয়াল।</p>
+<p>তারপর সেই প্রশ্নটা করল। যে প্রশ্নটা কাল রাত থেকে তাকে খেয়ে ফেলছে।</p>
+<p class="dlg">"তপু, ওই ক্যাসেটে মা কি কোথাও বলেছিল, 'আমি তো ভিতরেই আছি'?"</p>
+<p>তপু হঠাৎ একদম স্থির হয়ে গেল। রুমকি টের পেল, তার বুকের সঙ্গে লেগে থাকা ছোট্ট শরীরটার সব লোম খাড়া হয়ে উঠেছে।</p>
+<p class="dlg">"না," তপু খুব আস্তে বলল। "ক্যাসেটে এই কথা নাই।"</p>
+<p>একটু চুপ। তারপর আরও আস্তে, প্রায় শোনা যায় না এমন গলায়—</p>
+<p class="dlg">"কিন্তু বুবু... কাল রাইতে এইখানে, এই অন্ধকারে, আমি একটা স্বপ্ন দেখছি। নাকি স্বপ্ন না, জানি না। মনে হইল কেউ আমার মাথার কাছে বসছে। কপালে হাত রাখছে। ঠান্ডা হাত। মায়ের হাতের মতো।"</p>
+<p>রুমকির নিঃশ্বাস আটকে গেল।</p>
+<p class="dlg">"আর কানের কাছে ফিসফিস কইরা কইল—'ভয় পাইস না। আমি তো ভিতরেই আছি। তোর বুবু আইতেছে।'"</p>
+<p>অন্ধকারে কেউ কোনো কথা বলল না।</p>
+<p>সজীব না। জ্বরে কাতরানো শফিকও না। শুধু ওপরের কোনো একটা ফাঁক দিয়ে এক টুকরো ঠান্ডা বাতাস নেমে এসে রুমকির গাল ছুঁয়ে গেল।</p>
+<p>ঠিক যেমন ছোটবেলায় জ্বর হলে মা আঁচল দিয়ে মুখ মুছিয়ে দিত।</p>
+
+<div class="sep">✦ ✦ ✦</div>
+
+<p>রাত বাড়ছিল। ঠান্ডা বাড়ছিল।</p>
+<p>রুমকি জোর করে নিজেকে শান্ত করল। কান্নার সময় পরে পাওয়া যাবে। এখন ভাবার সময়।</p>
+<p>সে প্রথমে শফিকের কাছে গেল। তপুর কাছে রাখা পানির বোতলে অল্প একটু পানি বাকি ছিল। ওড়নার আরেকটা টুকরো ছিঁড়ে ভিজিয়ে শফিকের কপালে রাখল। হাতের তালু আর পায়ের পাতা মুছে দিল। জ্বর নামানোর জন্য এর বেশি কিছু করার নেই। ওষুধ নেই। আলো নেই।</p>
+<p>সে শফিকের বুকে কান পাতল। ভেতরে ঘড়ঘড় শব্দ। নিউমোনিয়ার শুরু হতে পারে। হাসপাতালে এমন রোগী সে অনেক দেখেছে। ঠিক সময়ে ওষুধ পেলে বাঁচে। না পেলে...</p>
+<p class="dlg">"আর কতদিন ও এভাবে থাকতে পারবে?" সজীব অন্ধকার থেকে জিজ্ঞেস করল। গলা শুনেই বোঝা যায়, উত্তরটা সে শুনতে চায় না।</p>
+<p>রুমকি মিথ্যা বলল না।</p>
+<p class="dlg">"বেশিদিন না। দুই-তিন দিন। তার আগেই হাসপাতালে নিতে হবে।"</p>
+<p>সজীব কিছুক্ষণ চুপ করে রইল। তারপর ভাঙা গলায় বলল, "ও যখন টাকার কথা কইত, আমি বকছিলাম। কইছিলাম, যা খুশি কর, আমারে জিগাইস না। ও হারানোর পরে আমি খালি ভাবছি—আমি যদি আরেকটু জিগাইতাম।"</p>
+<p class="dlg">"আমিও তো ভেবেছি," রুমকি বলল। "তপু যখন বলল রাতে মায়ের গলা শোনে, আমি হেসেছিলাম। আমি যদি সেদিন একটু শুনতাম।"</p>
+<p>অন্ধকারে দুজন মানুষ চুপ করে বসে রইল। যে যার ভুলের ভার নিয়ে।</p>
+<p>তারপর রুমকি সোজা হয়ে বসল।</p>
+<p class="dlg">"যা গেছে, গেছে। এখন বলো, ওরা কখন আসে? তপু, তুই তো এখানে দুই দিন আছিস। কিছু খেয়াল করেছিস?"</p>
+<p>তপু ভাবল। তারপর বলল, "সকালে, আজানের পরে, একজন আসে। ওই রোগা পোলাটা। নাম মনে হয় রবি। একলা আসে। দরজা খুইলা রুটি আর পানি মাটিতে রাইখা যায়। তাড়াতাড়ি। এইখানে ঢুকতে ওর ভয় লাগে।"</p>
+<p class="dlg">"ভয়? কেন?"</p>
+<p class="dlg">"ওরা সবাই নিশির গল্প বানায়, কিন্তু নিজেরাই ভয় পায়।" তপু একটু হাসল। "ফজলু কইছিল, এই কুঠিতে রাইতে আজব আওয়াজ হয়। দোতলায় কেউ হাঁটে। ওরা কেউ রাইতে একলা থাকে না। আলো জ্বালাইয়া, দল বাইন্ধা থাকে।"</p>
+<p>রুমকি মাথার ভেতরে হিসাব কষতে লাগল।</p>
+<p>একজন। ভোরে। ভয়ে ভয়ে দরজা খোলে। তাড়াতাড়ি চলে যায়।</p>
+<p>সজীব আহত, কিন্তু দাঁড়াতে পারে। তপু দৌড়াতে পারবে না। শফিক উঠতেই পারবে না। আর সে নিজে।</p>
+<p>দরজার কাছে গিয়ে সে হাত বুলিয়ে দেখল। মোটা লোহার পাত। কবজাগুলো দেয়ালে গাঁথা। নড়ে না। দরজার নিচে এক আঙুল ফাঁক। ব্যস।</p>
+<p>কাল রাতে দলিলের মানুষ আসবে। তার আগে কিছু করতে না পারলে...</p>
+<p>আরেকটা কথাও তার মাথায় খচখচ করছিল।</p>
+<p>ফজলু বলেছে, খিড়কি খোলা পেয়েছিল। খিড়কি তো ভেতর থেকে খিল দেওয়া থাকে। সন্ধ্যায় চাচি নিজে খিল দিয়েছিলেন, রুমকি দেখেছে। তাহলে কে খুলল? বাড়ির ভেতরের কেউ?</p>
+<p>সেই রাতে চাচা বিছানায় ছিলেন না।</p>
+<p>রুমকি জোর করে চিন্তাটা সরাল। চাচা তপুকে নিজের ছেলের মতো দেখেছেন। দুই বছর ধরে খাইয়েছেন, পরিয়েছেন। আজ দুপুরে নীলকুঠির কথা শুনে তাঁর গলা কাঁপছিল।</p>
+<p>কিন্তু রাগে কাঁপছিল, নাকি ভয়ে—সেটা তো তখনো বুঝতে পারেনি।</p>
+
+<div class="sep">✦ ✦ ✦</div>
+
+<p>কতক্ষণ পর জানে না, রুমকি খেয়াল করল—অন্ধকারটা পুরো অন্ধকার না।</p>
+<p>ঘরের এক কোণে, ছাদের কাছে, একটা খুব হালকা ধূসর দাগ। চোখ সয়ে আসার পর বোঝা গেল, ওটা একটা ঘুলঘুলি। দেয়ালের অনেক ওপরে। ছোট, চৌকো। লোহার শিক বসানো। বাইরের রাতের আকাশের একটুখানি আভা সেখান দিয়ে ঢুকছে।</p>
+<p class="dlg">"ঘুলঘুলিটা কোন দিকে?" রুমকি জিজ্ঞেস করল।</p>
+<p class="dlg">"মাঠের দিকে," তপু বলল। "আমাগো বাড়ির দিকে। দিনের বেলা ওইখান দিয়া একটু রোদ আসে। আমি চিল্লাইছি, বুবু। অনেক চিল্লাইছি। কেউ শোনে নাই। মাঠ অনেক বড়।"</p>
+<p>রুমকি অনেকক্ষণ ঘুলঘুলিটার দিকে তাকিয়ে রইল।</p>
+<p>তারপর তার হাত আপনা থেকে ওড়নার কোনায় চলে গেল। গিঁট খুলল। ছোট্ট, ঠান্ডা, টিনের একটা জিনিস হাতে এল।</p>
+<p>মিনুর বাঁশি। তপুর বাঁশি।</p>
+<p class="dlg">"তপু, এটা চিনিস?"</p>
+<p>অন্ধকারে তপু হাত বাড়িয়ে বাঁশিটা ছুঁয়ে দেখল। তার আঙুল কেঁপে উঠল।</p>
+<p class="dlg">"এইটা তো... আমি মিনুরে দিছিলাম।"</p>
+<p class="dlg">"মিনু দিয়েছে। বলেছে, তুই নাকি বলেছিলি, তিনবার বাজালে তুই যেখানেই থাকিস, চলে আসবি।"</p>
+<p class="dlg">"হ্যাঁ।" তপুর গলায় একটু হাসির মতো কিছু। "রাইতে মাঠে মিনু ভয় পাইলে আমারে ডাকত। এই বাঁশির শব্দ অনেক দূর যায়, বুবু। মেলার বাঁশি, খুব চিকন শব্দ। আমাগো উঠান থিকা নদীর ঘাট পর্যন্ত শোনা যায়।"</p>
+<p>রুমকি উঠে দাঁড়াল। দেয়াল ধরে ধরে ঘুলঘুলির নিচে গেল। অনেক উঁচু। হাত বাড়িয়েও নাগাল পাওয়া যায় না।</p>
+<p class="dlg">"সজীব, আমাকে একটু তুলতে পারবে?"</p>
+<p>সজীব কপালে হাত চেপে উঠে দাঁড়াল। টলছিল। তবু দেয়ালে পিঠ দিয়ে দুই হাত জোড়া করে পেতে দিল। রুমকি তার হাতে পা রাখল, তারপর কাঁধে। আঙুল দিয়ে ঘুলঘুলির লোহার শিক আঁকড়ে ধরল।</p>
+<p>শিকের ফাঁক দিয়ে বাইরের ঠান্ডা বাতাস এসে মুখে লাগল। দূরে মাঠ। আরও দূরে, অন্ধকারের মধ্যে, একটা কালো দাগ। বাঁশঝাড়। তাদের বাড়ি।</p>
+<p>সে জানে না কে শুনবে। মিনু হয়তো ঘুমিয়ে পড়েছে। চাচি হয়তো দরজায় খিল দিয়ে কাঁথার নিচে বসে দোয়া পড়ছেন। আর চাচা... চাচার কথা সে ভাবতে চাইল না।</p>
+<p>হয়তো কেউ শুনবে না। হয়তো শুনলেও ভাববে, নিশি। রাতের মাঠে নিশি বাঁশি বাজায়। গ্রামের মানুষ আরও শক্ত করে দরজা বন্ধ করবে।</p>
+<p>তবু চেষ্টা না করে বসে থাকার চেয়ে এটা ভালো। কাল রাতে দলিলের মানুষ আসার আগে এটাই হয়তো তাদের একমাত্র সুযোগ।</p>
+<p>রুমকি একবার নিচের অন্ধকারের দিকে তাকাল। কিছু দেখা যায় না। তবু সে জানে, তপু মুখ তুলে তার দিকেই তাকিয়ে আছে।</p>
+<p>রুমকি বাঁশিটা ঠোঁটে তুলল।</p>
+<p>একবার।</p>
+<p>চিকন, তীক্ষ্ণ শব্দ রাতের মাঠের ওপর দিয়ে উড়ে গেল। যেন একটা সাদা সুতো কেউ অন্ধকারের মধ্যে ছুড়ে দিল।</p>
+<p>দুইবার।</p>
+<p>তিনবার।</p>
+<p>তারপর সব চুপ।</p>
+<p>রুমকি শিক আঁকড়ে ধরে কান পেতে রইল। এক মিনিট। দুই মিনিট। নিচে সজীবের কাঁধ কাঁপছিল তার ভারে।</p>
+<p>কিছু না।</p>
+<p>সে নামতে যাবে, ঠিক তখন—</p>
+<p>ঘুলঘুলির একেবারে নিচে, কুঠির দেয়ালের ঠিক বাইরে, শুকনো পাতায় পায়ের শব্দ। খুব সাবধানী পা। কেউ এসে দাঁড়াল।</p>
+<p>তারপর একটা চাপা, পরিচিত, পুরুষ মানুষের গলা। ঘুলঘুলির শিক বেয়ে উঠে এল।</p>
+<span class="call">"রুমকি? তুই ভিতরে আছস?"</span>
+<p>চাচার গলা।</p>
+<p>রুমকির বুকটা লাফিয়ে উঠল। চাচা! চাচা এসেছেন! বাঁশি শুনে—</p>
+<p>সে মুখ খুলল সাড়া দেওয়ার জন্য।</p>
+<p>কিন্তু তার আগেই নিচের অন্ধকার থেকে তপুর ফিসফিস ভেসে এল। তীক্ষ্ণ, ভয়ে কাঁপা।</p>
+<p class="final">"বুবু, সাড়া দিও না।<br>ওগো কাছে চাচার গলাও রেকর্ড করা আছে।<br>আমি নিজের কানে শুনছি।"</p>
+    </div>
+
+    <div class="ch-end">
+      — তৃতীয় অধ্যায় শেষ —<br>
+      <a class="next go" href="#ch4">চতুর্থ অধ্যায় পড়ুন →</a>
+    </div>
+  </article>
+
+  <!-- ================= CHAPTER 4 ================= -->
+  <article class="chapter" id="ch4">
+    <div class="ch-head">
+      <div class="lantern" aria-hidden="true"></div>
+      <div class="label">অধ্যায় চার</div>
+      <h2>তিনটা টোকা</h2>
+      <div class="ch-meta">
+        <span class="rt" data-for="ch4"></span>
+        <button class="copy-btn" data-copy="ch4">⧉ কপি করুন</button>
+      </div>
+    </div>
+
+    <div class="ch-body" id="ch4-body">
+<p>রুমকি মুখ বন্ধ করল।</p>
+<p>কথাটা তার গলা পর্যন্ত উঠে এসেছিল। "চাচা!" এখন সেটা আবার গিলে ফেলল। গলার ভেতরটা জ্বালা করতে লাগল।</p>
+<p>সে ঘুলঘুলির শিক আঁকড়ে ধরে স্থির হয়ে রইল। নিচে সজীবের কাঁধ কাঁপছে তার ভারে। অন্ধকারে তপুর দ্রুত নিঃশ্বাসের শব্দ।</p>
+<p>বাইরে, দেয়ালের ওপাশে, শুকনো পাতায় আবার পায়ের শব্দ। কেউ একটু সরে দাঁড়াল।</p>
+<span class="call">"রুমকি? মা, শুনতেছস?"</span>
+<p>দ্বিতীয়বার।</p>
+<p>একদম চাচার গলা। একটু ভাঙা, একটু খসখসে। দুই বছর ধরে ফোনে এই গলা শুনেছে রুমকি। "তপু ভালো আছে। টাকা পাইছি। চিন্তা করিস না।"</p>
+<p>কিন্তু কাল রাতে মায়ের গলাও তো একদম মায়ের গলা ছিল।</p>
+<p>নানির কথা মনে পড়ল। "সত্যিকারের মানুষ হইলে তিনবারের বেশি ডাকবো। দরজায় ধাক্কা দিবো। নিজের নাম কইয়া পরিচয় দিবো। নিশি তা পারে না। নিশি খালি ডাকতে পারে।"</p>
+<p>নিশি খালি ডাকতে পারে।</p>
+<p>রেকর্ডও খালি ডাকতে পারে।</p>
+<p>রুমকির মাথার ভেতরে হঠাৎ একটা আলো জ্বলে উঠল। একটা রেকর্ড কথা বলতে পারে। কিন্তু উত্তর দিতে পারে না। প্রশ্ন শুনে বদলাতে পারে না। রেকর্ড শুধু যা বলা আছে, তাই বলে।</p>
+<p>কিন্তু সে কথা বলতে পারবে না। ওপরে কালু মিয়ারা আছে। জোরে কথা বললে শুনে ফেলবে। আর বাইরে যদি সত্যিই ওদের কেউ রেকর্ড বাজায়, তাহলে তার গলা শুনেই বুঝে যাবে, সে কোথায়, কী করছে।</p>
+<p>তাহলে কথা না বলে কীভাবে জিজ্ঞেস করা যায়?</p>
+<p>তার হাতে মিনুর টিনের বাঁশি।</p>
+<p>রুমকি বাঁশিটা উল্টো করে ধরল। তারপর বাঁশির মাথা দিয়ে লোহার শিকে টোকা দিল। আস্তে, কিন্তু স্পষ্ট।</p>
+<p class="rule">টুং। টুং। টুং।</p>
+<p>তিনটা টোকা।</p>
+<p>তারপর অপেক্ষা।</p>
+<p>এক সেকেন্ড। দুই সেকেন্ড। পাঁচ সেকেন্ড। বাইরে কোনো শব্দ নেই। রুমকির বুক ধুকধুক করছে। যদি রেকর্ড হয়, তাহলে এখন আবার সেই একই কথা বাজবে। "রুমকি? তুই ভিতরে আছস?" যেন কিছুই হয়নি।</p>
+<p>তারপর দেয়ালের গায়ে, ঘুলঘুলির ঠিক নিচে, একটা শব্দ হলো।</p>
+<p class="rule">ঠক। ঠক। ঠক।</p>
+<p>কেউ একটা ইটের টুকরো দিয়ে দেয়ালে টোকা দিচ্ছে। তিনবার।</p>
+<p>আর তারপর গলাটা এল। এবার খুব নিচু। খুব কাছে। ফিসফিস করে।</p>
+<p class="dlg">"তিনটা টোকা দিলি। আমি বুঝছি। কথা কইস না মা। ওরা উপরে আছে। আমি শুনতেছি ওগো গলা।"</p>
+<p>রুমকির চোখ দিয়ে পানি গড়িয়ে পড়ল।</p>
+<p>এটা রেকর্ড না। রেকর্ড টোকার উত্তর দেয় না। রেকর্ড জানে না ওপরে কারা আছে।</p>
+<p>এটা চাচা। সত্যিকারের চাচা।</p>
+
+<div class="sep">✦ ✦ ✦</div>
+
+<p>রুমকি নিচে নামল। সজীবের কাঁধ থেকে পা সরিয়ে দেয়ালে পিঠ দিয়ে বসে পড়ল। হাঁটু কাঁপছিল।</p>
+<p class="dlg">"চাচা," সে তপুর কানে ফিসফিস করে বলল। "সত্যি চাচা। রেকর্ড না।"</p>
+<p>তপু কোনো কথা বলল না। শুধু রুমকির হাতটা শক্ত করে চেপে ধরল।</p>
+<p>সজীব আবার হাত পাতল। এবার রুমকি উঠে শিকের কাছে মুখ নিয়ে খুব আস্তে ফিসফিস করল। এত আস্তে যে নিজের কানেও প্রায় শোনা যায় না।</p>
+<p class="dlg">"চাচা। তপু এখানে। বেঁচে আছে। শফিকও আছে। সজীবও।"</p>
+<p>বাইরে একটা চাপা শব্দ। কান্না চেপে রাখার শব্দ। একজন বুড়ো মানুষের।</p>
+<p class="dlg">"আল্লাহ... আল্লাহ তুমি রহম করছ।"</p>
+<p>তারপর চাচা দ্রুত, ফিসফিস করে কথা বলতে লাগলেন। যেন অনেক দিনের জমানো কথা।</p>
+<p class="dlg">"মা, আমারে মাফ কইরা দিস। আমি সব জানতাম না। কিন্তু কিছু জানতাম।"</p>
+<p>রুমকি চুপ করে শুনল।</p>
+<p class="dlg">"তপু হারানোর পরের দিন একটা নম্বর থিকা ফোন আইছিল। একটা বেটা মানুষ। নাম কয় নাই। কইল, পোলারে জ্যান্ত চাইলে পুলিশের কাছে কিছু কইবা না। আর ঢাকার মাইয়ারে গ্রামে আনবা। জমির কাগজ নিয়া। তাইলে পোলা ফেরত পাইবা।"</p>
+<p>চাচা থামলেন। শ্বাস নিলেন।</p>
+<p class="dlg">"আমি বুঝছি এইটা রতনের লোক। আমি ডরাইছিলাম, মা। তোরে ফোন দিয়া আনলাম। কিন্তু তুই আসার পরে আমার মনে হইল, আমি তো তোরেও বাঘের মুখে ঠেলতেছি। তাই কইছি ঢাকা ফিরা যা। তাই নীলকুঠিতে যাইতে মানা করছি।"</p>
+<p>রুমকি দেয়ালে কপাল ঠেকাল। দুপুরে চাচার কাঁপা গলা। "একজনরে হারাইছি। আরেকজনরে হারাইতে পারুম না।" সেটা রাগ ছিল না। ভয় ছিল। সে ভুল বুঝেছিল।</p>
+<p class="dlg">"আর কাল রাতে? তুমি বিছানায় ছিলে না।"</p>
+<p class="dlg">"তপু যাওয়ার পর থিকা আমি রাইতে ঘুমাই না, মা। চুপি চুপি উঠানে বইসা পাহারা দেই। তোর চাচিরে কই নাই, ডরাইবো। কাল রাইতে বাঁশঝাড়ে শব্দ পাইয়া বাইর হইছিলাম। ঘুইরা আইসা দেখি খিড়কি খোলা।"</p>
+<p class="dlg">"খিড়কি কে খুলেছিল?"</p>
+<p>বাইরে অনেকক্ষণ কোনো উত্তর এল না। তারপর চাচার গলা আরও ভারী হয়ে গেল।</p>
+<p class="dlg">"মিনু।"</p>
+
+<div class="sep">✦ ✦ ✦</div>
+
+<p>চাচা বললেন।</p>
+<p>আজ রাতে বাঁশির শব্দ প্রথম শুনেছে মিনু। মাঠের ওপার থেকে, খুব আস্তে, তিনবার। মিনু ঘুম থেকে লাফিয়ে উঠে চিৎকার করেছে, "ভাইয়া! ভাইয়ার বাঁশি!"</p>
+<p>তারপর কাঁদতে কাঁদতে সব বলে দিয়েছে।</p>
+<p>মা মারা যাওয়ার পর মিনু খালাকে খুব মনে করত। তপু রাতে ক্যাসেটটা শুনত, মিনু দেখেছে। একদিন তপু স্কুলে গেলে মিনু চুপি চুপি ক্যাসেটটা নিয়ে গিয়েছিল। খালার গলা শুনবে বলে।</p>
+<p>মিনুকে প্রতিদিন স্কুলে নিয়ে যায় কালু মিয়ার ভ্যান। কালু মিয়ার ভ্যানে একটা পুরোনো ক্যাসেট প্লেয়ার আছে। রাস্তায় গান বাজায়।</p>
+<p>মিনু বলেছিল, "কালু চাচা, খালার গান বাজাও।"</p>
+<p>কালু মিয়া বাজিয়েছিল। চুপ করে পুরোটা শুনেছিল। শেষে মায়ের সেই সন্ধ্যার ডাক—"রু-ম-কি... ত-পু... বাড়ি আয়..."—শুনে অনেকক্ষণ কিছু বলেনি।</p>
+<p>তারপর বলেছিল, "ক্যাসেট আটকাইয়া গেছে রে মা। কাল ঠিক কইরা দিমু।"</p>
+<p>কাল আর আসেনি।</p>
+<p>মিনু ভয়ে কাউকে বলেনি। তপু ক্যাসেট খুঁজবে, বকবে—এই ভয়ে।</p>
+<p>আর কাল রাতে, রুমকি যখন তপুর ঘরে, মিনু ঘুমের মধ্যে শুনেছে খালা ডাকছে। খিড়কির দিক থেকে। মিনু ভেবেছে, খালা ফিরে এসেছে। খালা হয়তো ভাইয়াকে নিয়ে এসেছে। সে চুপি চুপি উঠে খিড়কির খিল খুলে উঁকি দিয়েছিল।</p>
+<p>বাইরে অন্ধকারে একটা লম্বা লোক দাঁড়িয়ে ছিল। বিড়ি হাতে।</p>
+<p>মিনু দৌড়ে এসে মায়ের কাঁথার নিচে ঢুকে গিয়েছিল। খিল দিতে ভুলে গিয়েছিল।</p>
+<p class="dlg">"আট বছরের মাইয়া, মা," চাচা বললেন। "খালারে দেখতে চাইছিল।"</p>
+<p>রুমকির চোখ জ্বালা করছিল। কিন্তু এবার রাগে না। এক অদ্ভুত কষ্টে।</p>
+<p>কালু মিয়া বলেছিল, "ঘরের খবর বাইরে আসে ঘরের মানুষের হাত দিয়াই।" কথাটা সত্যি। কিন্তু সেই হাত ছিল একটা ছোট্ট মেয়ের হাত। যে শুধু তার খালার গলা আরেকবার শুনতে চেয়েছিল।</p>
+<p>আর একটা খারাপ মানুষ সেই ভালোবাসাকে অস্ত্র বানিয়েছে।</p>
+
+<div class="sep">✦ ✦ ✦</div>
+
+<p class="dlg">"চাচা, শোনো," রুমকি ফিসফিস করে বলল। "সময় নেই। কাল রাতে ওরা দলিলের লোক আনবে। টিপসই নেবে। তারপর আমাদের কাউকে বাঁচিয়ে রাখবে না। শফিকের জ্বর অনেক। দুই দিনও টিকবে কিনা জানি না।"</p>
+<p class="dlg">"আমি দাও নিয়া আইছি। দরজা ভাইঙা—"</p>
+<p class="dlg">"না! ওরা তিনজন। ওদের হাতে লাঠি আছে। আর কী আছে জানি না। তুমি একা পারবে না।"</p>
+<p class="dlg">"তাইলে গ্রামের মানুষ ডাকি। মাস্টার সাবরে কই—"</p>
+<p class="dlg">"থানায় না, চাচা। থানার ওসি ওদের লোক। কালু মিয়া নিজে বলেছে।"</p>
+<p>বাইরে চাচা চুপ।</p>
+<p>রুমকি দ্রুত ভাবল। হাসপাতালে একবার এক মারধরের রোগী এসেছিল। স্থানীয় থানা কেস নিচ্ছিল না। তখন সিনিয়র আপা বলেছিলেন—</p>
+<p class="dlg">"নাইন-নাইন-নাইন। চাচা, তোমার মোবাইল থেকে ৯৯৯-এ ফোন দাও। জাতীয় জরুরি নম্বর। ওরা সরাসরি ওপরের অফিসে খবর দেয়। থানার ওসিকে পাশ কাটিয়ে।"</p>
+<p class="dlg">"নয় নয় নয়। ঠিক আছে।"</p>
+<p class="dlg">"বলবে, তিনজন মানুষকে আটকে রাখা হয়েছে। একজন মুমূর্ষু। অপহরণ। নেশার জিনিস পাচার। বলবে, স্থানীয় থানা জড়িত। জায়গা—বেতকুড়ি গ্রাম, নীলকুঠি। রতন সরদারের নাম বলবে।"</p>
+<p>চাচা বিড়বিড় করে কথাগুলো আওড়ালেন। একবার। দুইবার।</p>
+<p class="dlg">"এইখান থিকা ফোন দিও না, চাচা। ওরা শুনে ফেলবে। মাঠ পার হয়ে বাড়ি গিয়ে দাও। তারপর সজীবদের বাড়িতে খবর দাও। মাস্টার সাবকে। আর আমেনা নানির নাতিদের।"</p>
+<p class="dlg">"তুই?"</p>
+<p class="dlg">"আমরা এখানে আছি। কোথাও যাচ্ছি না। যাও, চাচা।"</p>
+<p>একটু চুপ। তারপর দেয়ালের ওপাশে আবার তিনটা টোকা।</p>
+<p class="rule">ঠক। ঠক। ঠক।</p>
+<p>তারপর শুকনো পাতায় পায়ের শব্দ। দূরে সরে যাচ্ছে। দূরে। আরও দূরে।</p>
+<p>তারপর আর কিছু না।</p>
+
+<div class="sep">✦ ✦ ✦</div>
+
+<p>বাকি রাতটা যেন শেষই হচ্ছিল না।</p>
+<p>রুমকি তপুর মাথা কোলে নিয়ে দেয়ালে হেলান দিয়ে বসে রইল। মাঝে মাঝে উঠে শফিকের কপালে ভেজা কাপড় বদলে দিল। পানি শেষ হয়ে গেছে। শুকনো কাপড়ই চেপে ধরল।</p>
+<p>অনেকক্ষণ পর তপু ফিসফিস করে বলল, "বুবু, ঢাকায় তোমার হোস্টেলের ঘরটা কেমন?"</p>
+<p>রুমকি একটু অবাক হলো। এই অন্ধকারে, এই বিপদে, এমন প্রশ্ন।</p>
+<p class="dlg">"ছোট। খুব ছোট। একটা খাট, একটা টেবিল। জানালা দিয়ে পাশের বিল্ডিংয়ের দেয়াল দেখা যায়। আকাশ দেখা যায় না।"</p>
+<p class="dlg">"আকাশ দেখা যায় না?" তপু যেন বিশ্বাস করতে পারল না। "তাইলে ঘুড়ি উড়াও কেমনে?"</p>
+<p>রুমকি এই প্রথম একটু হাসল। অন্ধকারে, চোখে পানি নিয়ে।</p>
+<p class="dlg">"ঢাকায় কেউ ঘুড়ি ওড়ায় না রে। পুরান ঢাকায় পৌষ মাসে একটা উৎসব হয়, সাকরাইন। সেদিন সারা আকাশ ঘুড়িতে ভরে যায়। ছাদে ছাদে মানুষ। আমি একবার দেখতে গিয়েছিলাম। তোর কথা মনে পড়ছিল।"</p>
+<p class="dlg">"আমারে নিয়া যাইবা?"</p>
+<p>রুমকি তপুর মাথাটা বুকে চেপে ধরল।</p>
+<p class="dlg">"নিয়ে যাব। এবার সত্যি নিয়ে যাব। আর একটু গুছিয়ে নেওয়ার জন্য অপেক্ষা করব না। একটা বাসা ভাড়া নেব। ছোট হলেও ছাদ থাকবে। তুই ঘুড়ি ওড়াবি।"</p>
+<p class="dlg">"নীলটার লেজ লাগানো হয় নাই এখনো।"</p>
+<p class="dlg">"দুজনে মিলে লাগাব।"</p>
+<p>তপু কিছুক্ষণ চুপ করে রইল। তারপর খুব আস্তে বলল, "বুবু, মা যখন অসুখে আছিল, শেষের দিকে, তোমার কথা খুব কইত। কইত, রুমকি একলা একলা শহরে কেমনে থাকে। ঠিকমতো খায় কিনা।"</p>
+<p>রুমকির গলায় কিছু একটা আটকে গেল।</p>
+<p class="dlg">"আর কইছিল," তপু বলল, "আমি না থাকলে তুই বুবুরে দেখিস। বুবু শক্ত মানুষ, কিন্তু ভিতরে নরম।"</p>
+<p class="dlg">"মা এটা বলেছিল?"</p>
+<p class="dlg">"হুঁ। আমি কইছিলাম, আমি তো ছোট, আমি কেমনে দেখমু। মা হাসছিল। কইছিল, ছোটরাই তো সবচাইতে ভালো দেখে।"</p>
+<p>রুমকি কিছু বলতে পারল না। শুধু অন্ধকারে ছোট ভাইটার কপালে মুখ চেপে বসে রইল। দুই বছর ধরে সে ভেবেছে, সে তপুকে দেখে রাখছে। টাকা পাঠিয়ে, ফোন করে। অথচ এই ছেলেটা চুপচাপ মায়ের কথা রেখেছে। একটা খাতায় সব লিখে রেখেছে, যেন বুবু এসে পড়ে। দেয়ালে কয়লা দিয়ে লিখেছে, বুবু আইবো।</p>
+<p>অন্য কোণ থেকে শফিকের গলা শোনা গেল। জ্বরের ঘোরে, ভাঙা ভাঙা।</p>
+<p class="dlg">"ভাই... আম্মারে কইস... আমি টাকাগুলা খাটের তলে রাখছি... আম্মার চশমার জন্য..."</p>
+<p>সজীব ভাইয়ের হাত চেপে ধরল। "তুই নিজে কইবি। তুই নিজে আম্মারে চশমা কিনা দিবি। শুনছস? তুই নিজে।"</p>
+<p>শফিক আর কিছু বলল না। তার নিঃশ্বাস ঘড়ঘড় করে চলতে লাগল। ধীরে। খুব ধীরে।</p>
+<p>রুমকি অন্ধকারে শফিকের কবজিতে আঙুল রাখল। নাড়ি দ্রুত, দুর্বল। সে মনে মনে গুনল। তারপর চোখ বন্ধ করে প্রার্থনা করল, চাচা যেন সময়মতো পৌঁছান।</p>
+<p>ওপর থেকে মাঝে মাঝে শব্দ আসছিল। কালু মিয়াদের গলা। হাসি। একবার কেউ জোরে কাশল। একবার কাচ ভাঙার শব্দ।</p>
+<p>আর একবার, অনেক রাতে, খুব আজব একটা শব্দ।</p>
+<p>দোতলায়, ভাঙা ছাদের নিচে, কেউ হাঁটছে। ধীরে। থেমে থেমে। ভারী পায়ে না, হালকা পায়ে। শাড়ির আঁচল মেঝেতে ঘষা খেলে যেমন শব্দ হয়।</p>
+<p>তারপর ফজলুর ভয়ার্ত গলা—"কে? কে ওইখানে?"</p>
+<p>উত্তর নেই। হাঁটার শব্দও থেমে গেল।</p>
+<p>কালু মিয়ার ধমক শোনা গেল। "বাদুড়। চুপ কইরা ঘুমা।"</p>
+<p>তপু অন্ধকারে মাথা তুলল। "শুনছ বুবু? এইটা আগেও হইছে। প্রতি রাইতে।"</p>
+<p>রুমকি কিছু বলল না। শুধু তপুর চুলে হাত বুলিয়ে দিল।</p>
+<p>একটু পরে সিঁড়িতে পায়ের শব্দ হলো। কেউ নেমে এসে দরজার ওপাশে দাঁড়াল। দরজার নিচের ফাঁক দিয়ে হারিকেনের এক চিলতে হলুদ আলো ঢুকল।</p>
+<p class="dlg">"ঘুমাইছস, রুমকি?" কালু মিয়ার গলা। জড়ানো, ক্লান্ত।</p>
+<p>রুমকি উত্তর দিল না।</p>
+<p class="dlg">"ঘুমাস নাই, জানি।" কালু মিয়া দরজায় হেলান দিল। কাঠে পিঠ ঘষার শব্দ। "একটা কথা কই। তোর মায় আমারে আদর করত, ঠিক। আমার পোলাটা যখন জ্বরে পড়ল, তোর মায় নিজের হাতে বার্লি রাইন্ধা দিয়া আইছিল।"</p>
+<p>একটু চুপ।</p>
+<p class="dlg">"পোলাটা বাঁচে নাই। জেলা শহরের হাসপাতালে নিতে টাকা লাগত। আমার কাছে আছিল না। গ্রামের কেউ দেয় নাই। তোর মায়ের কাছেও আছিল না।" কালু মিয়ার গলা কর্কশ হয়ে উঠল। "রতন ভাই দিছিল। দেরিতে দিছিল, কিন্তু দিছিল। সেই দিন থিকা আমি রতন ভাইয়ের মানুষ।"</p>
+<p>রুমকি অন্ধকারে চোখ বন্ধ করল। মানুষ কীভাবে এমন হয়ে যায়, সে হাসপাতালে অনেক দেখেছে। কষ্ট কাউকে নরম করে, কাউকে পাথর বানায়।</p>
+<p class="dlg">"তোমার ছেলে বাঁচেনি," সে দরজার দিকে মুখ করে আস্তে বলল। "আর এখন তুমি আরেকজনের ছেলেকে মারতে চাও। শফিকও কারো ছেলে। তপুও।"</p>
+<p>দরজার ওপাশে অনেকক্ষণ কোনো শব্দ নেই।</p>
+<p>তারপর কালু মিয়া হঠাৎ পকেট থেকে মোবাইল বের করল। রুমকি শুনতে পেল বোতাম টেপার শব্দ। হয়তো ভয় দেখাতে চায়। হয়তো মায়ের ডাক বাজিয়ে তাকে কাঁদাতে চায়।</p>
+<p>কিন্তু যা বাজল, তা সন্ধ্যার ডাক না। ক্যাসেটের মাঝখানের অংশ। মায়ের গলায় সেই পুরোনো ঘুমপাড়ানি গান। খুব নিচু, খুব নরম সুরে।</p>
+<p>আর গানের মাঝখানে, যেখানে মা হেসে ফেলে থেমে গিয়েছিল, ঠিক সেখানে কালু মিয়া মোবাইলটা বন্ধ করে দিল। যেন বাকিটা শোনার সাহস তার নেই।</p>
+<p>পায়ের শব্দ সিঁড়ি বেয়ে ওপরে উঠে গেল। দ্রুত।</p>
+<p>অন্ধকারে তপু ফিসফিস করে বলল, "ও ডরাইছে, বুবু।"</p>
+<p class="dlg">"কাকে?"</p>
+<p class="dlg">"জানি না। মারে, মনে হয়।"</p>
+<p>সজীব দরজার পাশে বসে ছিল। হাতে একটা ভাঙা ইটের টুকরো। অনেক খুঁজে মেঝে থেকে বের করেছে।</p>
+<p class="dlg">"ভোরে রবি আসবে," সে ফিসফিস করে বলল। "চাচা ঠিক সময়ে লোক আনতে না পারলে?"</p>
+<p class="dlg">"তাহলে আমাদের নিজেদেরই বের হতে হবে," রুমকি বলল।</p>
+<p>ওরা পরিকল্পনা করল। খুব সহজ পরিকল্পনা। কারণ জটিল কিছু করার মতো অবস্থা কারো নেই।</p>
+<p>রবি দরজা খুলে রুটি রেখেই চলে যেতে চায়। ভেতরে ঢুকতে ভয় পায়। তাই তাকে ভেতরে আনতে হবে। আর ভেতরে আনার একটাই উপায়—ভয়ের চেয়ে বড় কিছু।</p>
+<p>রবিরা শফিককে মরতে দিতে চায় না। অন্তত কালকের দলিলের আগে না। কালু মিয়া নিজেই বলেছে, "মরা মানুষ দিয়া কোনো কাম হয় না।"</p>
+<p class="dlg">"আমি চিৎকার করব," রুমকি বলল। "বলব, শফিক মরে যাচ্ছে। শ্বাস নিচ্ছে না। আমি নার্স, আমার কথা বিশ্বাস করবে। রবি ভয় পেয়ে দেখতে ঢুকবে। তখন তুমি—"</p>
+<p>সজীব হাতের ইটের টুকরোটা একবার ঘুরিয়ে দেখল।</p>
+<p class="dlg">"আমি পারমু।"</p>
+
+<div class="sep">✦ ✦ ✦</div>
+
+<p>ভোরের আজান ভেসে এল অনেক দূর থেকে। ঘুলঘুলির ধূসর দাগটা একটু একটু করে সাদা হতে লাগল।</p>
+<p>চাচার কোনো খবর নেই। বাইরে কোনো গাড়ির শব্দ নেই। কোনো মানুষের হইচই নেই।</p>
+<p>রুমকির মনে নানা ভয় উঁকি দিতে লাগল। চাচা কি মাঠ পার হতে পেরেছেন? অন্ধকারে কেউ কি তাঁকে দেখে ফেলেছে? ৯৯৯-এ ফোন কি ঢুকেছে? গ্রামের নেটওয়ার্ক তো এক দাগ। নাকি ফোন ধরে কেউ বলেছে, স্থানীয় থানায় যোগাযোগ করুন?</p>
+<p>সে জোর করে ভয়গুলো সরাল। চাচা আসবেন কি আসবেন না, সেটা তার হাতে নেই। যা তার হাতে আছে, সেটাই করতে হবে।</p>
+<p>তারপর করিডোরে পায়ের শব্দ। একজোড়া পা। হালকা, দ্রুত। চাবির গোছার টুংটাং।</p>
+<p>রবি।</p>
+<p>রুমকি সজীবের দিকে তাকাল। আবছা আলোয় সজীবের মুখ দেখা যাচ্ছে। কপালে শুকনো রক্ত। চোখে চশমা নেই, ভেঙে গেছে। সে মাথা নাড়ল।</p>
+<p>তালায় চাবি ঢোকার শব্দ।</p>
+<p>রুমকি শফিকের বুকের ওপর ঝাঁপিয়ে পড়ল। আর গলা ফাটিয়ে চিৎকার করল।</p>
+<p class="dlg">"শফিক! শফিক! আল্লাহ গো, শ্বাস নিচ্ছে না! কেউ আসো! ও মরে যাচ্ছে! ও মরে যাচ্ছে!"</p>
+<p>দরজার ওপাশে চাবি থেমে গেল। এক মুহূর্ত। তারপর দ্রুত ঘুরল। লোহার দরজা গোঙাতে গোঙাতে খুলে গেল।</p>
+<p>ভোরের ধূসর আলো ঢুকল ভেতরে। আলোর মধ্যে রবির রোগা শরীর। এক হাতে রুটির পোঁটলা। আরেক হাতে লাঠি। চোখে ভয়।</p>
+<p class="dlg">"কী হইছে? কী হইছে ওর?"</p>
+<p class="dlg">"দেখো! নাড়ি পাচ্ছি না! তোমাদের কালু মিয়া বলেছে না, মরা মানুষ দিয়ে কাজ হয় না? দেখো!"</p>
+<p>রবি দ্বিধা করল। একবার পেছনে তাকাল। তারপর এক পা ভেতরে দিল। আরেক পা। শফিকের দিকে ঝুঁকল।</p>
+<p>দরজার পাশের অন্ধকার থেকে সজীব বেরিয়ে এল।</p>
+<p>ভোঁতা শব্দ। রবির হাত থেকে লাঠি পড়ে গেল। সে টলে উঠে মেঝেতে বসে পড়ল। মাথা ধরে গোঙাতে লাগল।</p>
+<p>রুমকি লাফিয়ে উঠে রবির কোমর থেকে চাবির গোছা ছিনিয়ে নিল।</p>
+<p>রবি মেঝেতে বসে রুমকির দিকে তাকাল। মাথা থেকে রক্ত পড়ছে। আর এই প্রথম রুমকি তার মুখটা ভালো করে দেখল।</p>
+<p>সতেরো-আঠারো বছরের ছেলে। গোঁফের রেখা মাত্র উঠছে। চোখে ভয়। ঠিক তপুর মতো ভয়।</p>
+<p class="dlg">"আপা," রবি কাঁপা গলায় বলল। "আমারে মাইরেন না। আমারে কালু চাচা কামে আনছে। আমার বাপ নাই। মায় অসুখে। আমি জানতাম না এইরকম হইবো।"</p>
+<p>রুমকি এক মুহূর্ত থমকে দাঁড়াল। এই ছেলেটাই কাল সজীবের মাথায় লাঠি মেরেছে। আবার এই ছেলেটাই প্রতিদিন ভোরে ভয়ে ভয়ে এসে তপুকে রুটি আর পানি দিয়ে গেছে।</p>
+<p class="dlg">"তোমাকে কেউ মারবে না," রুমকি বলল। "কিন্তু এখানে থাকতে হবে। পুলিশ এলে সত্যি কথা বলবে। সব। বুঝেছ?"</p>
+<p>রবি মাথা নাড়ল। ফুঁপিয়ে কাঁদতে লাগল।</p>
+<p class="dlg">"তপু, ওঠ! আমার কাঁধে ভর দে!"</p>
+<p>সজীব শফিককে পিঠে তুলে নিল। শফিকের মাথা ঝুলে পড়ল তার কাঁধে। সজীবের নিজের পা কাঁপছে। তবু সে দাঁড়িয়ে রইল।</p>
+<p>ওরা চারজন দরজা দিয়ে বেরোল। রুমকি পেছন ফিরে দরজা টেনে দিল। কাঁপা হাতে তালা লাগাল। খট।</p>
+<p>ভেতরে রবি চিৎকার করে উঠল। "কালু ভাই! ফজলু ভাই! পলাইতেছে! পলাইতেছে!"</p>
+<p>ওপরের তলায় হুড়মুড় শব্দ। কেউ লাফিয়ে উঠল। কেউ গালি দিল। সিঁড়িতে ভারী পায়ের দুপদাপ।</p>
+<p class="dlg">"পেছনের দিকে!" সজীব হাঁপাতে হাঁপাতে বলল। "পেছনে একটা ভাঙা দেয়াল আছে। কাশবনের দিকে।"</p>
+<p>ওরা করিডোর ধরে উল্টো দিকে ছুটল। তপু এক পায়ে লাফাচ্ছে। প্রতিটা লাফে ব্যথায় দাঁত চেপে ধরছে। রুমকি তাকে প্রায় টেনে নিয়ে যাচ্ছে।</p>
+<p>সামনে দেয়ালের একটা ভাঙা অংশ। ইট খসে খসে একটা ফোকর তৈরি হয়েছে। ফোকরের ওপারে সাদা।</p>
+<p>কুয়াশা।</p>
+<p>ভোরের ঘন কুয়াশা পুরো মাঠ ঢেকে রেখেছে। এক হাত দূরের জিনিসও দেখা যায় না। দুধের মতো সাদা, ঠান্ডা, ভেজা।</p>
+<p>ওরা ফোকর গলে কুয়াশার মধ্যে ঢুকে পড়ল।</p>
+<p>পেছনে কালু মিয়ার গলা। "কুয়াশায় ঢুকছে! ফজলু, ডাইনে যা! আমি বামে যাই! বেশিদূর যাইতে পারবো না, পোলাটা খোঁড়া!"</p>
+<p>রুমকি তপুকে নিয়ে কাশবনের ভেতর দিয়ে এগোচ্ছিল। কাশের ধারালো পাতা মুখে-হাতে আঁচড় কাটছে। পায়ের নিচে ভেজা মাটি। কোন দিকে বাড়ি, কোন দিকে নদী, কিছুই বোঝা যাচ্ছে না। চারপাশে শুধু সাদা।</p>
+<p>সজীব কোথায়? একটু আগেও পাশে ছিল। এখন দেখা যাচ্ছে না।</p>
+<p>রুমকি কান পাতল। কোথাও দূরে পানির শব্দ। নদী? নাকি পুকুর? মাঠের কোন দিকে নদী, কোন দিকে বাঁশঝাড়—ছোটবেলায় চোখ বন্ধ করে বলে দিতে পারত। আজ এই সাদা দেয়ালের মধ্যে সব গুলিয়ে গেছে।</p>
+<p class="dlg">"বুবু, আর পারতেছি না," তপু হাঁপাতে হাঁপাতে বলল। তার মুখ ব্যথায় সাদা হয়ে গেছে। মচকানো পা কাদায় ডুবে যাচ্ছে বারবার।</p>
+<p class="dlg">"পারবি। আর একটু। আর একটু।"</p>
+<p>কথাটা বলেই রুমকির মনে পড়ল, এই "আর একটু" বলেই সে দুই বছর কাটিয়ে দিয়েছে। আজ আর না। আজ এই "আর একটু" সত্যি হতেই হবে।</p>
+<p>পেছনে ভারী পায়ের শব্দ। কাশবন দুমড়ে কেউ এগিয়ে আসছে। খুব কাছে।</p>
+<p>রুমকি থামল। তপুকে নিচু করে কাশের মধ্যে বসিয়ে দিল। নিজেও বসল। দম বন্ধ করে।</p>
+<p>পায়ের শব্দ থামল। কয়েক হাত দূরে। কুয়াশার ভেতরে একটা আবছা ছায়া। কালু মিয়া। মাথা ঘুরিয়ে চারপাশ দেখছে। হাতে কিছু একটা চকচক করছে।</p>
+<p>দা।</p>
+<p>রুমকি তপুর মুখ হাত দিয়ে চেপে ধরল।</p>
+<p>ঠিক তখন, কুয়াশার ভেতর থেকে, অন্য দিক থেকে, একটা গলা ভেসে এল।</p>
+<span class="call">"কা-লু... ও কা-লু..."</span>
+<p>মায়ের গলা।</p>
+<p>লম্বা, টেনে টেনে। ঠিক যেভাবে মা সন্ধ্যাবেলা উঠানে দাঁড়িয়ে ডাকত।</p>
+<p>রুমকির সারা শরীর বরফ হয়ে গেল।</p>
+<p>কালু মিয়ার ছায়াটাও জমে গেছে। সে ধীরে ধীরে মাথা ঘোরাল ডাকের দিকে। তারপর কাঁপা হাতে নিজের পকেটে হাত দিল। পকেট থেকে বের করল সেই পুরোনো মোবাইলটা। সেই ছোট্ট কালো স্পিকার।</p>
+<p>দুটোই বন্ধ। স্ক্রিন কালো।</p>
+<p>সে কিছু বাজাচ্ছে না।</p>
+<p>আর ক্যাসেটে মা কোনোদিন "কালু" নাম ধরে ডাকেনি।</p>
+<p class="final">"কা-লু...<br>বাড়ি আয়..."</p>
+    </div>
+
+    <div class="ch-end">
+      — চতুর্থ অধ্যায় শেষ —<br>
+      <a class="next go" href="#ch5">শেষ অধ্যায় পড়ুন →</a>
+    </div>
+  </article>
+
+  <!-- ================= CHAPTER 5 ================= -->
+  <article class="chapter" id="ch5">
+    <div class="ch-head">
+      <div class="lantern" aria-hidden="true"></div>
+      <div class="label">শেষ অধ্যায়</div>
+      <h2>নিশি ডাকেনি</h2>
+      <div class="ch-meta">
+        <span class="rt" data-for="ch5"></span>
+        <button class="copy-btn" data-copy="ch5">⧉ কপি করুন</button>
+      </div>
+    </div>
+
+    <div class="ch-body" id="ch5-body">
+<p>কালু মিয়া নড়ল না।</p>
+<p>কুয়াশার ভেতরে তার আবছা শরীরটা পাথরের মতো দাঁড়িয়ে রইল। এক হাতে দা। আরেক হাতে বন্ধ মোবাইল। রুমকি কাশবনের আড়াল থেকে দেখল, দায়ের ফলাটা কাঁপছে।</p>
+<p>তারপর ডাকটা আবার এল। এবার অন্য দিক থেকে। বাঁ দিক থেকে।</p>
+<span class="call">"কা-লু..."</span>
+<p>কালু মিয়া চমকে সেদিকে ঘুরল।</p>
+<p class="dlg">"কে?" তার গলা ভেঙে গেল। "কে ওইখানে? ফজলু! ফজলু, তুই মশকরা করস?"</p>
+<p>অনেক দূর থেকে, ডান দিক থেকে, ফজলুর গলা ভেসে এল। কুয়াশায় চাপা, ভয়ে চড়া।</p>
+<p class="dlg">"আমি না, কালু ভাই! আমিও শুনতেছি! খালার গলা! খালা ডাকতেছে!"</p>
+<p>কালু মিয়া এক পা পিছিয়ে গেল। তারপর আরেক পা।</p>
+<p>রুমকি তপুকে আরও শক্ত করে ধরে রইল। তপুর শরীর কাঁপছে। তার নিজের শরীরও। কিন্তু এই কাঁপুনি শুধু ভয়ের না। অন্য কিছু। এক অদ্ভুত, ঠান্ডা, গভীর কিছু।</p>
+<p>সে এই গলা চেনে। চব্বিশ বছর ধরে চেনে। আর এই গলা এখন যে নাম ডাকছে, ক্যাসেটে সেই নাম নেই। কোনো মোবাইলে সেই নাম নেই।</p>
+<span class="call">"কা-লু... বাড়ি আয়..."</span>
+<p>এবার পেছন থেকে। একদম কালু মিয়ার ঘাড়ের কাছ থেকে। যেন কেউ তার পিঠের ঠিক পেছনে দাঁড়িয়ে, নিচু হয়ে, কানের কাছে মুখ এনে ডাকল।</p>
+<p>কালু মিয়া চিৎকার করে উঠল। একটা পশুর মতো চিৎকার। দা-টা সে পেছনে ঘুরিয়ে কুয়াশায় কোপ মারল। কিছুই লাগল না। শুধু সাদা ধোঁয়া কেটে গেল, আবার জোড়া লেগে গেল।</p>
+<p class="dlg">"খালা! খালা, মাফ কইরা দেন! আমি চাই নাই! রতন ভাই কইছে! খালা!"</p>
+<p>সে উল্টো দিকে দৌড় দিল। কাশবন দুমড়ে-মুচড়ে। অন্ধের মতো। কোথায় যাচ্ছে, না দেখে।</p>
+<p>কুঠির পেছন দিকে, কাশবনের আড়ালে, ইংরেজ আমলের পুরোনো নীলের চৌবাচ্চাগুলো আছে। বিশাল, চারকোনা, ইট-বাঁধানো গর্ত। একসময় সেখানে নীলগাছ পচিয়ে রং বের করা হতো। এখন বর্ষার পানি আর দেড়শো বছরের কাদায় ভরা। ওপরে কচুরিপানা আর আগাছা। দেখে বোঝার উপায় নেই, নিচে গর্ত।</p>
+<p>রুমকি শুনল, ঝপাং করে একটা ভারী শব্দ। তারপর কাদায় হাত-পা ছোড়ার শব্দ। তারপর কালু মিয়ার গোঙানি।</p>
+<p class="dlg">"বাঁচাও! কেউ বাঁচাও! পা আটকাইয়া গেছে!"</p>
+<p>রুমকি নড়ল না। তপুর মুখ থেকে হাত সরাল না।</p>
+<p>দূরে ফজলুর পায়ের শব্দ। থেমে গেল। তারপর উল্টো দিকে দৌড়ানোর শব্দ। নদীর দিকে। পালাচ্ছে। কালু মিয়াকে ফেলে।</p>
+
+<div class="sep">✦ ✦ ✦</div>
+
+<p>কতক্ষণ পর জানে না, রুমকি উঠে দাঁড়াল। তপুকে কাঁধে ভর দিয়ে তুলল।</p>
+<p>চারপাশে শুধু সাদা। কোন দিকে বাড়ি, এখনো বোঝা যাচ্ছে না। কালু মিয়ার গোঙানি পেছনে কোথাও, ক্ষীণ হয়ে আসছে। সে কাদায় আটকে আছে, কিন্তু মাথা পানির ওপরে। মরবে না। শুধু বের হতে পারবে না।</p>
+<p class="dlg">"বুবু, কোন দিকে যামু?" তপু ফিসফিস করল।</p>
+<p>রুমকি জানে না। সে সত্যিই জানে না।</p>
+<p>তখনই, খুব কাছে, খুব নরম, একটা গলা।</p>
+<span class="call">"রু-ম-কি..."</span>
+<p>রুমকির শরীরের প্রতিটা রোম খাড়া হয়ে উঠল।</p>
+<p>এবার কোনো ভয় নেই গলায়। কোনো টান নেই, কোনো ফাঁদ নেই। শুধু সেই চেনা সুর। সন্ধ্যার উঠানের সুর। ধানের গন্ধ, ধোঁয়ার গন্ধ আর মায়ের আঁচলের গন্ধে মেশানো সুর।</p>
+<span class="call">"এইদিকে... বাড়ি আয়..."</span>
+<p>নানির কথা কানে বাজল। সাড়া দিবি না। একবার ডাকলে না। দুইবার ডাকলেও না।</p>
+<p>রুমকি সাড়া দিল না।</p>
+<p>কিন্তু সে ডাকের দিকে পা বাড়াল।</p>
+<p class="dlg">"বুবু!" তপু ভয়ে তার হাত খামচে ধরল। "তুমি না কইলা—"</p>
+<p class="dlg">"আমি সাড়া দিচ্ছি না, তপু," রুমকি আস্তে বলল। "শুধু হাঁটছি।"</p>
+<p>সে জানে না কেন এই ভরসা। হয়তো পাগল হয়ে গেছে। হয়তো ভয়ে, ক্লান্তিতে, না-ঘুমানো রাতে তার মাথা কাজ করছে না। কিন্তু তার বুকের ভেতর থেকে কেউ বলছিল—যে ডাক কালু মিয়াকে কাদায় পাঠিয়েছে, সেই ডাক তার ভাইকে কোথাও পাঠাবে না।</p>
+<p>ওরা হাঁটল। কুয়াশার ভেতর দিয়ে। কাশবনের ভেতর দিয়ে।</p>
+<p>মাঝে মাঝে ডাকটা থেমে যেত। রুমকি দাঁড়িয়ে পড়ত। তারপর আবার, একটু সামনে থেকে, একটু বাঁ দিক থেকে—</p>
+<span class="call">"এইদিকে, মা..."</span>
+<p>একসময় পায়ের নিচে কাশবন শেষ হলো। নরম ঘাস। তারপর পিচ্ছিল মাটি। তারপর ভাঙা ইট।</p>
+<p>রুমকি নিচে তাকাল।</p>
+<p>পুকুরঘাটের সিঁড়ি।</p>
+<p>তাদের পুকুর। তাদের বাঁশঝাড়ের পেছনের সেই শ্যাওলা-ধরা পুকুর। সামনে কুয়াশা একটু পাতলা হয়ে এসেছে। তার ভেতর দিয়ে বাঁশঝাড়ের কালো ছায়া দেখা যাচ্ছে।</p>
+<p>বাড়ি।</p>
+<p>রুমকি ঘাটের সবচেয়ে ওপরের সিঁড়িতে বসে পড়ল। পা আর চলছিল না। তপু তার পাশে ধপ করে বসল।</p>
+<p>আর তখন রুমকি একটা গন্ধ পেল।</p>
+<p>নারকেল তেলের গন্ধ। হালকা, মিষ্টি। মা প্রতি শুক্রবার চুলে যে তেল দিত, সেই গন্ধ। রুমকি ছোটবেলায় মায়ের কোলে মাথা রেখে এই গন্ধে ঘুমিয়ে পড়ত।</p>
+<p>গন্ধটা এক মুহূর্ত রইল। ঠিক তার কাঁধের পাশে। তারপর ভোরের বাতাসে মিলিয়ে গেল।</p>
+<p>রুমকি কিছু বলল না। তপুও না।</p>
+<p>শুধু দুই ভাইবোন একে অপরের হাত ধরে বসে রইল। কুয়াশা আস্তে আস্তে উঠে যাচ্ছিল। পুকুরের পানিতে প্রথম রোদ এসে পড়ছিল।</p>
+<p>অনেকক্ষণ পর তপু খুব আস্তে জিজ্ঞেস করল, "বুবু, মা আছিল, না?"</p>
+<p>রুমকি উত্তর দিল না। কী উত্তর দেবে, জানে না। সে একজন নার্স। সে বিজ্ঞান পড়েছে। মানুষ মরে গেলে কী হয়, বইয়ে লেখা আছে। কোনো বইয়ে লেখা নেই, মরে যাওয়া মা কুয়াশার ভেতর দিয়ে সন্তানকে বাড়ির পথ দেখান।</p>
+<p>তবু সে তপুর হাতটা আরও শক্ত করে ধরল।</p>
+<p class="dlg">"আমি জানি না রে," সে বলল। "কিন্তু আমরা বাড়ি ফিরেছি। এটুকু জানি।"</p>
+<p>তপু মাথা নাড়ল। তারপর রুমকির কাঁধে মাথা রাখল। দুই রাত পর এই প্রথম তার চোখ দুটো ভারী হয়ে এল। ঘুমিয়ে পড়ার ঠিক আগে সে বিড়বিড় করে বলল, "মায় কইছিল, বুবু আইতেছে। মায় মিছা কয় নাই।"</p>
+
+<div class="sep">✦ ✦ ✦</div>
+
+<p>তারপর সব একসঙ্গে ঘটতে লাগল।</p>
+<p>নদীর দিকের রাস্তায় গাড়ির শব্দ। একটা, দুটো, তিনটা। সাইরেন। নীল-লাল আলো কুয়াশার ভেতরে ঘুরছে।</p>
+<p>বাঁশঝাড়ের ভেতর দিয়ে টর্চের আলো, মানুষের গলা। অনেক মানুষ।</p>
+<p class="dlg">"রুমকি! তপু! রুমকি রে!"</p>
+<p>চাচার গলা। এবার কোনো রেকর্ড না। কোনো দেয়ালের ওপাশ না। একদম সামনে।</p>
+<p>চাচা বাঁশঝাড় থেকে ছুটে বেরিয়ে এলেন। পেছনে মাস্টার সাব, সজীবের বাবা। আমেনা নানির দুই নাতি, হাতে লাঠি আর টর্চ। আরও অনেকে। গ্রামের সেই মানুষেরা, যারা মাগরিবের পর দরজায় খিল দিয়ে বসে থাকত। আজ কেউ দরজা বন্ধ করে বসে নেই।</p>
+<p>চাচা দৌড়ে এসে তপুকে বুকে জড়িয়ে ধরলেন। কিছু বললেন না। শুধু কাঁদতে লাগলেন। শব্দ করে, শিশুর মতো।</p>
+<p>রুমকি উঠে দাঁড়াল।</p>
+<p class="dlg">"সজীব? শফিক?"</p>
+<p class="dlg">"পাইছি," মাস্টার সাব বললেন। তাঁর গলা কাঁপছিল। "মাঠের পুব মাথায়। সজীব শফিকরে পিঠে নিয়া আধা মাইল হাঁটছে। তারপর পইড়া গেছে। দুইজনরেই গাড়িতে তুলছে। হাসপাতালে যাইতেছে।"</p>
+<p>পুলিশের পোশাক পরা একজন মহিলা অফিসার এগিয়ে এলেন। জেলা শহর থেকে এসেছেন। কাঁধে তারকা।</p>
+<p class="dlg">"আপনি রুমকি? ৯৯৯-এ আপনার চাচা ফোন করেছিলেন। আমরা রাত তিনটায় খবর পাই। সরাসরি এসপি স্যারের অফিস থেকে নির্দেশ এসেছে।" তিনি একটু থামলেন। "স্থানীয় থানাকে জানানো হয়নি। আপনার চাচা বলেছিলেন, থানা জড়িত।"</p>
+<p class="dlg">"কুঠির নিচের ঘরে একটা ছেলে তালাবন্ধ আছে," রুমকি বলল। "রবি। ও সব বলবে। আর কুঠির পেছনে, নীলের চৌবাচ্চায়—"</p>
+<p class="dlg">"কালু মিয়া?" অফিসার ভুরু তুললেন। "আমরা তার চিৎকার শুনেই খুঁজে পেয়েছি। কোমর পর্যন্ত কাদায় আটকে ছিল। তুলে আনতে চারজন লেগেছে।"</p>
+<p>তিনি একটু অদ্ভুতভাবে রুমকির দিকে তাকালেন।</p>
+<p class="dlg">"লোকটা একটা কথাই বারবার বলছে। 'খালা ডাকছিল। খালা আমারে ডাকছিল।' আপনি জানেন খালা কে?"</p>
+<p>রুমকি পুকুরের দিকে তাকাল। সেখানে কুয়াশা পুরোপুরি উঠে গেছে। পানিতে নীল আকাশ।</p>
+<p class="dlg">"জানি," সে বলল। আর কিছু বলল না।</p>
+<p>অফিসার আর কিছু জিজ্ঞেস করলেন না। শুধু বললেন, "আপনারও হাসপাতালে যাওয়া দরকার। আপনার ভাইয়েরও।"</p>
+<p class="dlg">"আমি শফিকের সঙ্গে যাব," রুমকি বলল। "আমি নার্স। পথে ওর দেখাশোনা দরকার।"</p>
+<p>গাড়ির পেছনে শফিককে শোয়ানো হয়েছিল। মাস্টার সাবের চাদরে জড়ানো। তার ঠোঁট নীলচে। নিঃশ্বাস দ্রুত, অগভীর। সজীব পাশে বসে ভাইয়ের হাত ধরে আছে। নিজের কপালের ক্ষত থেকে আবার রক্ত চুইয়ে পড়ছে, সে খেয়ালও করছে না।</p>
+<p>রুমকি উঠে বসল। গাড়ি চলতে শুরু করল। এবড়োখেবড়ো রাস্তা, প্রতিটা ঝাঁকুনিতে শফিক কাতরে ওঠে।</p>
+<p>রুমকি শফিকের মাথাটা একটু উঁচু করে নিজের কোলে তুলে নিল। এভাবে শ্বাস নিতে সহজ হয়। গাড়িতে রাখা ফার্স্ট এইড বাক্স থেকে পানি নিয়ে ঠোঁট ভিজিয়ে দিল। প্রতি পাঁচ মিনিট পরপর নাড়ি গুনল। মোবাইলে টর্চ জ্বেলে চোখের মণি দেখল।</p>
+<p>এই কাজ সে হাজারবার করেছে। হাসপাতালের ট্রলিতে, অ্যাম্বুলেন্সে, রাতের ওয়ার্ডে। কিন্তু আজ প্রথমবার তার মনে হলো, এতদিন ধরে সে আসলে এই একটা সকালের জন্যই শিখছিল।</p>
+<p class="dlg">"আপা," সজীব ভাঙা গলায় বলল, "ও বাঁচবো?"</p>
+<p>রুমকি শফিকের কপালে হাত রাখল। আগুনের মতো গরম। কিন্তু নাড়ি এখনো চলছে। শক্ত করে ধরে আছে জীবনটাকে।</p>
+<p class="dlg">"ও এক মাস অন্ধকারে টিকে ছিল, সজীব। আর এক ঘণ্টা টিকবে। আমি ওকে টিকিয়ে রাখব।"</p>
+
+<div class="sep">✦ ✦ ✦</div>
+
+<p>পরের দিনগুলো কাটল ঝড়ের মতো।</p>
+<p>নীলকুঠির নিচের গুদামঘরের আরেকটা কামরা থেকে পুলিশ পেল বস্তা বস্তা নেশার ট্যাবলেট। নদীর ওপারে পাঠানোর জন্য গুছিয়ে রাখা। আর পেল একটা খাতা। কবে কোন নৌকায় কত বস্তা গেছে, তার হিসাব। কালু মিয়ার হাতের লেখা।</p>
+<p>ফজলু ধরা পড়ল সেদিন দুপুরেই। নদীর পাড়ে, এক জেলের নৌকায় লুকিয়ে ছিল। ধরার সময় নাকি কাঁপছিল আর বলছিল, "আমারে কুয়াশায় নিয়েন না। আমারে কুয়াশায় নিয়েন না।"</p>
+<p>রবি সব বলে দিল। কাঁদতে কাঁদতে। কে কবে কী করেছে। কে টাকা দিত। থানার ওসি মাসে কত পেত।</p>
+<p>তিন দিন পর জেলা শহরের এক হোটেল থেকে রতন সরদার গ্রেপ্তার হলো। চেয়ারম্যান সাহেব টিভিতে বললেন, তিনি তাঁর শালার এসব কাজের কিছুই জানতেন না। স্থানীয় থানার ওসিকে প্রত্যাহার করা হলো। তদন্ত শুরু হলো।</p>
+<p>আর কালু মিয়া।</p>
+<p>জেরার তৃতীয় দিনে কালু মিয়া নিজে থেকে পুলিশকে একটা জায়গা দেখাতে চাইল। নদীর ভাটিতে একটা চর। কাশবনে ঢাকা।</p>
+<p>সেখানে বাদল মাঝিকে পাওয়া গেল। আষাঢ় মাস থেকে সেখানেই ছিলেন। একা। কেউ জানত না।</p>
+<p>বাদল মাঝির বউ সেদিন অনেকক্ষণ নদীর পাড়ে বসে ছিলেন। গ্রামের মহিলারা পাশে বসে ছিল। কেউ কোনো কথা বলেনি। চার মাস ধরে তিনি জানতেন না, স্বামী বেঁচে আছেন নাকি নেই। এখন অন্তত জানেন। জানাজা পড়ানো যাবে। কবর দেওয়া যাবে। একটা জায়গা থাকবে, যেখানে গিয়ে দাঁড়ানো যায়।</p>
+<p>রুমকি দূর থেকে দেখল। তারপর মাথা নিচু করে চলে এল।</p>
+<p>সেই সপ্তাহের শেষে থানা থেকে খবর এল। কালু মিয়া রুমকির সঙ্গে একবার দেখা করতে চায়।</p>
+<p>রুমকি প্রথমে যেতে চায়নি। তারপর গেল।</p>
+<p>লোহার শিকের ওপাশে কালু মিয়াকে চেনা যাচ্ছিল না। এক সপ্তাহে যেন দশ বছর বয়স বেড়ে গেছে। চোখ গর্তে বসা। হাত কাঁপছে। পুলিশ বলেছে, রাতে সে ঘুমায় না। আলো নেভাতে দেয় না।</p>
+<p class="dlg">"খালা আমারে ডাকছিল," কালু মিয়া ফিসফিস করে বলল। রুমকির দিকে না তাকিয়ে। "কুয়াশায়। আমি জানি তুই বিশ্বাস করবি না।"</p>
+<p class="dlg">"আমি বিশ্বাস করি," রুমকি বলল।</p>
+<p>কালু মিয়া চমকে মুখ তুলল।</p>
+<p class="dlg">"খালা আরেকটা কথা কইছিল। চৌবাচ্চায় পড়ার পরে। কাদায় আটকাইয়া যখন চিল্লাইতেছিলাম। খুব কাছে আইসা কইছিল—'তোর পোলার লাইগা আমি বার্লি রানছিলাম, কালু। আমার পোলার লাইগা তুই কী রানলি?'"</p>
+<p>কালু মিয়া দুই হাতে মুখ ঢেকে কাঁদতে লাগল।</p>
+<p class="dlg">"আমারে মাফ কইরা দিস, রুমকি।"</p>
+<p>রুমকি অনেকক্ষণ তার দিকে তাকিয়ে রইল। তারপর উঠে দাঁড়াল।</p>
+<p class="dlg">"মাফ আমার কাছে চেয়ো না। বাদল চাচার বউয়ের কাছে চাও। শফিকের মায়ের কাছে চাও। আর রবির মতো ছেলেদের কাছে চাও, যাদের তুমি নিজের পথে টেনেছ।"</p>
+<p>সে বেরিয়ে এল। পেছনে কালু মিয়ার কান্না শোনা যাচ্ছিল।</p>
+<p>রবির ব্যাপারে রুমকি নিজে গিয়ে তদন্ত কর্মকর্তার সঙ্গে কথা বলেছিল। ছেলেটার বয়স সতেরো। সে রাজসাক্ষী হয়েছে। সব সত্যি বলেছে। আর তিন দিন ধরে অন্ধকার ঘরে একটা আহত ছেলেকে রুটি আর পানি দিয়ে গেছে, সেটাও রুমকি লিখিতভাবে জানিয়ে এসেছে। এর বেশি কিছু তার হাতে নেই।</p>
+
+<div class="sep">✦ ✦ ✦</div>
+
+<p>শফিক জেলা হাসপাতালে নয় দিন ছিল। নিউমোনিয়া। প্রথম দুই রাত ডাক্তাররাও নিশ্চিত ছিলেন না। রুমকি ছুটির দরখাস্ত পাঠিয়ে সেই নয় দিন হাসপাতালেই রইল। নার্সদের সঙ্গে পালা করে শফিকের পাশে বসল।</p>
+<p>দশম দিনে শফিক বিছানায় উঠে বসল। প্রথম যে কথাটা বলল, তা হলো—</p>
+<p class="dlg">"ভাই, আম্মার চশমা।"</p>
+<p>সজীব মাথায় ব্যান্ডেজ নিয়ে পাশে বসে ছিল। সে হেসে ফেলল। তারপর কেঁদে ফেলল। তারপর বলল, "তুই নিজে কিনবি। কইছিলাম না?"</p>
+<p>দুই সপ্তাহ পরে দুই ভাই মিলে জেলা শহরের এক দোকান থেকে মায়ের জন্য চশমা কিনল। সজীব পরে রুমকিকে ফোন করে বলেছিল, আম্মা চশমা পরে প্রথমে দুই ছেলের মুখের দিকে অনেকক্ষণ তাকিয়ে ছিলেন। বলেছিলেন, "এতদিনে পরিষ্কার দেখলাম।"</p>
+<p>তপুর পায়ে প্লাস্টার হলো। মচকানো না, গোড়ালির একটা ছোট্ট হাড়ে চিড় ধরেছিল। এক মাস প্লাস্টার।</p>
+<p>প্লাস্টারের ওপর মিনু রং-পেন্সিল দিয়ে একটা ঘুড়ি এঁকে দিল। নীল রঙের। লেজসহ।</p>
+
+<div class="sep">✦ ✦ ✦</div>
+
+<p>মিনু কয়েক দিন রুমকির সামনে আসত না।</p>
+<p>দূর থেকে তাকিয়ে থাকত। রুমকি তাকালেই দৌড়ে চাচির আঁচলের পেছনে লুকাত।</p>
+<p>এক বিকেলে রুমকি তাকে উঠানের আমগাছের নিচে একা পেল। মিনু মাটিতে কাঠি দিয়ে দাগ কাটছিল। রুমকি পাশে গিয়ে বসল।</p>
+<p class="dlg">"আমার ওপর রাগ করেছিস?"</p>
+<p>মিনু মাথা নাড়ল। না। তারপর হঠাৎ রুমকির গলা জড়িয়ে ধরে কাঁদতে লাগল।</p>
+<p class="dlg">"আমি ক্যাসেটটা নিছিলাম, বুবু। আমার জন্য তপু ভাইয়ারে নিয়া গেছে। আমি খিড়কি খুলছিলাম। আমি খারাপ।"</p>
+<p>রুমকি মিনুকে কোলে টেনে নিল।</p>
+<p class="dlg">"শোন, মিনু। তুই খালার গলা শুনতে চেয়েছিলি। কারণ তুই খালাকে ভালোবাসতি। ভালোবাসা খারাপ না। যে মানুষ সেই ভালোবাসা চুরি করে খারাপ কাজে লাগিয়েছে, খারাপ সে।"</p>
+<p>মিনু চোখ মুছল। "সত্যি?"</p>
+<p class="dlg">"সত্যি। আর তোর বাঁশি না থাকলে চাচা কোনোদিন জানতেন না আমরা কোথায়। তপু ভাইয়াকে কে বাঁচিয়েছে জানিস? তুই।"</p>
+<p>মিনু অনেকক্ষণ রুমকির মুখের দিকে তাকিয়ে রইল। তারপর এই প্রথম, অনেক দিন পর, একটু হাসল।</p>
+
+<div class="sep">✦ ✦ ✦</div>
+
+<p>ক্যাসেটটা পাওয়া গিয়েছিল কালু মিয়ার ভ্যানের সিটের নিচে। একটা পলিথিনে মোড়ানো। পুলিশ প্রমাণ হিসেবে নিয়ে গিয়েছিল। মামলার কাগজপত্র শেষ হলে, এক মাস পরে, ফেরত দিল।</p>
+<p>ক্যাসেটের ফিতা জায়গায় জায়গায় ছেঁড়া। কালু মিয়া নিজের মোবাইলে রেকর্ড করার সময় বারবার চালিয়ে, থামিয়ে, টেনে নষ্ট করেছে।</p>
+<p>তপু প্লাস্টার-বাঁধা পা নিয়ে টেবিলে বসল। একটা ব্লেড, এক টুকরো স্বচ্ছ টেপ আর অসীম ধৈর্য নিয়ে। রুমকি পাশে বসে দেখল, ভাইটা কীভাবে চুলের মতো সরু ফিতার ছেঁড়া মাথা দুটো মিলিয়ে, টেপ দিয়ে জোড়া দিচ্ছে। একটা একটা করে। সারা বিকেল ধরে।</p>
+<p>সন্ধ্যায় ক্যাসেটটা টু-ইন-ওয়ানে ঢোকানো হলো। চাচা, চাচি, মিনু, রুমকি, তপু—সবাই তপুর ঘরে। চৌকিতে, মেঝেতে, দরজার কাছে।</p>
+<p>তপু বোতাম টিপল।</p>
+<p>প্রথমে শুধু সোঁ সোঁ শব্দ। তারপর একটা খুটখাট। তারপর বারো বছর আগের রুমকির গলা, কিশোরী, উত্তেজিত—"মা, বলো! কিছু বলো!"</p>
+<p>তারপর মায়ের লাজুক হাসি। "ধুর, কী কমু?"</p>
+<p>ঘরের সবাই হেসে উঠল। চাচি আঁচলে মুখ চাপলেন।</p>
+<p>মা দোয়া পড়লেন। তারপর ঘুমপাড়ানি গান। মাঝখানে হেসে ফেলে থেমে গেলেন। তারপর—</p>
+<p class="rule">"রু-ম-কি... ও রু-ম-কি... ত-পু... বাড়ি আয়..."</p>
+<p>তারপর দুজনের হাসি। মায়ের আর রুমকির। মিলেমিশে। তারপর আবার সোঁ সোঁ শব্দ।</p>
+<p>ক্যাসেট শেষ হলো। কেউ অনেকক্ষণ কিছু বলল না।</p>
+<p>রুমকি মনে মনে খেয়াল করল—ক্যাসেটে মা কোথাও বলেননি, "আমি তো ভিতরেই আছি।" কোথাও বলেননি, "কালু, বাড়ি আয়।" কোথাও বলেননি, "এইদিকে, মা।"</p>
+<p>সে কাউকে কিছু বলল না।</p>
+
+<div class="sep">✦ ✦ ✦</div>
+
+<p>ঢাকা ফেরার আগের দিন রুমকি আমেনা নানির বাড়িতে গেল।</p>
+<p>নানি বারান্দায় পিঁড়িতে বসে পান সাজাচ্ছিলেন। রুমকিকে দেখে হাতের ইশারায় পাশে বসতে বললেন।</p>
+<p>রুমকি অনেকক্ষণ চুপ করে বসে রইল। তারপর সব বলল। কুয়াশার ডাক। কালু মিয়ার নাম ধরে ডাকা। পুকুরঘাট পর্যন্ত পথ দেখিয়ে আনা। নারকেল তেলের গন্ধ। আর সেই প্রথম রাতের ফিসফিস। "আমি তো ভিতরেই আছি।"</p>
+<p>নানি চুপ করে শুনলেন। পান মুখে দিলেন। অনেকক্ষণ চিবালেন।</p>
+<p class="dlg">"নানি," রুমকি শেষে জিজ্ঞেস করল, "ওটা কী ছিল? নিশি?"</p>
+<p>নানি মাথা নাড়লেন। ধীরে।</p>
+<p class="dlg">"নিশি খালি নিয়া যায়, বুবু। ঘর থিকা টাইনা বাইর কইরা নিয়া যায়। আর ফিরাইয়া দেয় না।" তিনি রুমকির হাতটা নিজের শুকনো, কোঁচকানো হাতে নিলেন। "যে ডাক তোরে আর তোর ভাইরে ঘরে ফিরাইয়া আনছে, সেইটা নিশি না।"</p>
+<p>রুমকির চোখ ভিজে এল।</p>
+<p class="dlg">"তাহলে?"</p>
+<p>নানি একটু হাসলেন। ফোকলা দাঁতের, নরম হাসি।</p>
+<p class="dlg">"মায়েরা মরলে কই যায়, তুই জানস? আমি জানি না। কেউ জানে না। কিন্তু সন্তান বিপদে পড়লে মায়েরা ঘরে বইসা থাকে না রে, বুবু। কোনোদিন থাকে নাই।"</p>
+<p>সেদিন বিকেলে রুমকি মায়ের কবরের পাশে অনেকক্ষণ বসে রইল। কোনো কথা বলল না। শুধু ঘাসের ওপর হাত রেখে বসে রইল।</p>
+<p>গ্রামের সবাই বলেছিল, নিশি ডেকেছে।</p>
+<p>নিশি ডাকেনি।</p>
+<p>মানুষ ডেকেছিল। লোভী মানুষ, চুরি করা গলায়।</p>
+<p>আর তারপর, যখন আর কেউ ছিল না, মা ডেকেছিলেন।</p>
+
+<div class="sep">✦ ✦ ✦</div>
+
+<p>পৌষ মাসের শেষ দিন। পুরান ঢাকা।</p>
+<p>রুমকি একটা ছোট বাসা ভাড়া নিয়েছে। দুই কামরা। সিঁড়ি বেয়ে উঠলে একটা ছাদ। ছাদ থেকে আকাশ দেখা যায়।</p>
+<p>তপু নতুন স্কুলে ভর্তি হয়েছে। পায়ের প্লাস্টার খোলা হয়েছে। এখনো একটু খুঁড়িয়ে হাঁটে, কিন্তু দৌড়াতে পারে। মিনু চাচা-চাচির সঙ্গে বেড়াতে এসেছে সাকরাইন দেখতে।</p>
+<p>রুমকি এখন রাতের ডিউটি একটু কম নেয়। সন্ধ্যায় বাসায় ফিরে দেখে, তপু টেবিলে বসে কারো পুরোনো রেডিও খুলে বসে আছে। পাড়ার দোকানদার চাচা দিয়ে গেছেন, ঠিক করে দিলে বিশ টাকা দেবেন। রুমকি রান্না করে, তপু পড়ে। রাতে দুজনে ছাদে বসে চা খায় আর বেতকুড়ির গল্প করে।</p>
+<p>মাঝে মাঝে তপু ঘুমের মধ্যে কেঁপে ওঠে। রুমকি তখন উঠে গিয়ে তার মাথার কাছে বসে। কপালে হাত রাখে। যেমন কেউ একজন অন্ধকার গুদামঘরে তপুর কপালে হাত রেখেছিল।</p>
+<p>আর আজ সারা আকাশ ঘুড়িতে ভরা।</p>
+<p>লাল, সবুজ, হলুদ, বেগুনি। হাজার হাজার ঘুড়ি। ছাদে ছাদে মানুষ। গান বাজছে। কেউ চিৎকার করছে "ভোকাট্টা!" বাতাসে ঘুড়ির সুতোর মাঞ্জার গন্ধ আর পিঠার গন্ধ।</p>
+<p>তপুর হাতে নীল ঘুড়িটা। সেই ঘুড়ি, যেটার লেজ লাগানো বাকি ছিল। গতকাল রাতে দুই ভাইবোন মিলে লেজ লাগিয়েছে। কাগজ কেটে, আঠা দিয়ে, যত্ন করে।</p>
+<p>ঘুড়িটা উঠছে। উঠছে। পুরান ঢাকার পুরোনো দালানগুলোর মাথা ছাড়িয়ে। অন্য সব ঘুড়ির ভিড় ঠেলে। আকাশের অনেক উঁচুতে, একটা ছোট্ট নীল বিন্দু হয়ে।</p>
+<p>মিনু লাফাচ্ছে। চাচা হাসছেন। চাচি মাথায় ঘোমটা টেনে মুগ্ধ চোখে আকাশ দেখছেন। বেতকুড়ি থেকে খবর এসেছে, এবার অগ্রহায়ণে চাচা নীলকুঠির মাঠে ধান বুনেছিলেন। রুমকি আর তপুর জমিতে। ধান পেকে সোনার মতো হয়েছে।</p>
+<p>বাবা বলেছিলেন, "তুই বড় হইলে এইখানে সোনার ধান হইবো।"</p>
+<p>হয়েছে।</p>
+<p>সন্ধ্যা নামছে। আকাশে আগুনের ফানুস উড়ছে, একটা দুটো করে। ছাদে ছাদে আলো জ্বলে উঠছে।</p>
+<p>রুমকি ছাদের রেলিংয়ে হাত রেখে দাঁড়িয়ে ছিল। তপু সুতো গোটাচ্ছে। মিনু তার পাশে।</p>
+<p>ঠিক তখন, এই সব হইচই, গান আর চিৎকারের মাঝখানে, রুমকির মনে হলো সে কিছু একটা শুনল।</p>
+<p>অনেক দূর থেকে। হয়তো বাতাসে। হয়তো তার নিজের বুকের ভেতর থেকে।</p>
+<span class="call">"রু-ম-কি... ত-পু... বাড়ি আয়..."</span>
+<p>লম্বা, টেনে টেনে। সন্ধ্যার উঠানের সুর।</p>
+<p>রুমকি চোখ বন্ধ করল। এবার কোনো ভয় নেই। কোনো নিয়ম নেই। একবার, দুইবার, তিনবারের কোনো হিসাব নেই।</p>
+<p>সে হাসল। চোখের কোণে পানি নিয়ে।</p>
+<p>তারপর, ছোটবেলায় মাঠ থেকে যেমন চিৎকার করে বলত, ঠিক তেমন করে, কিন্তু খুব আস্তে, শুধু বাতাসকে শুনিয়ে—</p>
+<p>এই প্রথম, সে সাড়া দিল।</p>
+<p class="final">"আসতেছি, মা।"</p>
+    </div>
+
+    <div class="ch-end">
+      — সমাপ্ত —<br>
+      <span class="next">নিশি ডাকেনি · নুরজাহান আঁখি</span>
+    </div>
+  </article>
+
+  <h2 class="section-title">লেখক পরিচিতি</h2>
+  <div class="author-card">
+    <h3>নুরজাহান আঁখি</h3>
+    <p>চট্টগ্রামের মেয়ে। কবিতা, ছোটগল্প, উপন্যাস, ভূতের গল্প আর গান লেখেন। তাঁর সব লেখা এক জায়গায় রাখা আছে নিজের সাহিত্যভুবন <b>আঁখির লেখালয়</b>-এ।</p>
+    <p style="margin-top:.8rem;color:var(--ink-soft);font-style:italic">আমার শব্দ, আমার গল্প, আমার পৃথিবী।</p>
+  </div>
+
+</main>
+
+<footer>
+  © নুরজাহান আঁখি · <a href="https://akhisliterary-haven.github.io/akhis-lekhaghor/">আঁখির লেখালয়</a>
+</footer>
+
+<a href="#" class="to-top" id="toTop" aria-label="ওপরে যান">↑</a>
+<div class="toast" id="toast">কপি হয়েছে</div>
+
+<script>
+(function(){
+  var bn = ['০','১','২','৩','৪','৫','৬','৭','৮','৯'];
+  function toBn(n){ return String(n).replace(/\d/g,function(d){return bn[d];}); }
+
+  /* reading time (প্রায় ১৫০ শব্দ / মিনিট) */
+  document.querySelectorAll('.chapter').forEach(function(ch){
+    var body = document.getElementById(ch.id + '-body');
+    if(!body) return;
+    var words = body.innerText.trim().split(/\s+/).length;
+    var mins = Math.max(1, Math.round(words / 150));
+    document.querySelectorAll('.rt[data-for="'+ch.id+'"]').forEach(function(el){
+      el.textContent = 'পড়তে সময় লাগবে প্রায় ' + toBn(mins) + ' মিনিট';
+    });
+  });
+
+  /* font size */
+  var root = document.documentElement;
+  var base = parseFloat(getComputedStyle(root).getPropertyValue('--fs')) || 19;
+  var size = base;
+  try{ var s = localStorage.getItem('nishi-fs'); if(s) size = parseFloat(s); }catch(e){}
+  function apply(){ root.style.setProperty('--fs', size + 'px'); try{ localStorage.setItem('nishi-fs', size); }catch(e){} }
+  apply();
+  document.getElementById('fsUp').onclick = function(){ size = Math.min(28, size + 1); apply(); };
+  document.getElementById('fsDown').onclick = function(){ size = Math.max(14, size - 1); apply(); };
+  document.getElementById('fsReset').onclick = function(){ size = base; apply(); };
+
+  /* theme */
+  var themeBtn = document.getElementById('theme');
+  try{ if(localStorage.getItem('nishi-theme') === 'paper'){ document.body.classList.add('paper'); } }catch(e){}
+  function syncTheme(){ themeBtn.textContent = document.body.classList.contains('paper') ? '☀' : '☾'; }
+  syncTheme();
+  themeBtn.onclick = function(){
+    document.body.classList.toggle('paper'); syncTheme();
+    try{ localStorage.setItem('nishi-theme', document.body.classList.contains('paper') ? 'paper' : 'night'); }catch(e){}
+  };
+
+  /* copy */
+  var toast = document.getElementById('toast');
+  function showToast(t){ toast.textContent = t; toast.classList.add('show'); setTimeout(function(){ toast.classList.remove('show'); }, 1800); }
+  function fallbackCopy(text){
+    var ta = document.createElement('textarea'); ta.value = text; ta.style.position='fixed'; ta.style.opacity='0';
+    document.body.appendChild(ta); ta.select();
+    try{ document.execCommand('copy'); showToast('কপি হয়েছে'); }catch(e){ showToast('কপি করা গেল না'); }
+    document.body.removeChild(ta);
+  }
+  document.querySelectorAll('.copy-btn').forEach(function(btn){
+    btn.onclick = function(){
+      var id = btn.getAttribute('data-copy');
+      var ch = document.getElementById(id);
+      var title = ch.querySelector('.ch-head .label').innerText + ' — ' + ch.querySelector('.ch-head h2').innerText;
+      var text = 'নিশি ডাকেনি\nনুরজাহান আঁখি\n\n' + title + '\n\n' + document.getElementById(id + '-body').innerText.trim();
+      if(navigator.clipboard && window.isSecureContext){
+        navigator.clipboard.writeText(text).then(function(){ showToast('কপি হয়েছে'); }, function(){ fallbackCopy(text); });
+      } else { fallbackCopy(text); }
+    };
+  });
+
+  /* progress + to top */
+  var bar = document.getElementById('progress'), top = document.getElementById('toTop');
+  window.addEventListener('scroll', function(){
+    var h = document.documentElement.scrollHeight - innerHeight;
+    bar.style.width = (h > 0 ? (scrollY / h) * 100 : 0) + '%';
+    top.classList.toggle('on', scrollY > 900);
+  }, {passive:true});
+})();
+</script>
+<script>
+(function(){
+  var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var root = document.documentElement;
+  if(reduce || !('IntersectionObserver' in window)){ root.classList.remove('js'); return; }
+
+  /* split into word spans, keeping <br> and spaces */
+  function splitWords(el){
+    Array.prototype.slice.call(el.childNodes).forEach(function(n){
+      if(n.nodeType !== 3) return;
+      var frag = document.createDocumentFragment();
+      n.textContent.split(/(\s+)/).forEach(function(part){
+        if(!part) return;
+        if(/^\s+$/.test(part)){ frag.appendChild(document.createTextNode(part)); return; }
+        var s = document.createElement('span'); s.className = 'w'; s.textContent = part; frag.appendChild(s);
+      });
+      n.parentNode.replaceChild(frag, n);
+    });
+    el.querySelectorAll('.w').forEach(function(w,i){ w.style.animationDelay = (i*0.32)+'s'; });
+  }
+  document.querySelectorAll('.call,.final').forEach(splitWords);
+
+  /* cover title words */
+  var h1 = document.querySelector('.cover h1');
+  if(h1){ h1.innerHTML = '<span class="w">নিশি</span> <span class="w">ডাকে<span class="no">নি</span></span>'; }
+  window.addEventListener('load', function(){ document.body.classList.add('loaded'); });
+  setTimeout(function(){ document.body.classList.add('loaded'); }, 2500);
+
+  /* falling leaves */
+  var cover = document.querySelector('.cover');
+  for(var i=0;i<11;i++){
+    var l = document.createElement('span'); l.className = 'leaf';
+    l.style.left = (Math.random()*100)+'%';
+    l.style.animationDuration = (11+Math.random()*12)+'s';
+    l.style.animationDelay = (-Math.random()*20)+'s';
+    l.style.transform = 'scale('+(0.6+Math.random()*0.7)+')';
+    cover.appendChild(l);
+  }
+  ['c1','c2'].forEach(function(c){ var d=document.createElement('div'); d.className='cloud '+c; cover.insertBefore(d, cover.firstChild.nextSibling); });
+
+  /* scroll reveal */
+  var targets = document.querySelectorAll('.ch-body > p, .ch-body > .sep, .ch-body > .diary, .ch-body > .call, .intro, .author-card, .toc li, .ch-head');
+  targets.forEach(function(t){ if(!t.classList.contains('diary') && !t.classList.contains('call') && !(t.tagName==='LI')) t.classList.add('reveal'); });
+  var hushTimer;
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){
+      if(!e.isIntersecting) return;
+      e.target.classList.add('in');
+      if(e.target.classList.contains('final') && !e.target.closest('#ch5')){
+        document.body.classList.add('hush');
+        clearTimeout(hushTimer);
+        hushTimer = setTimeout(function(){ document.body.classList.remove('hush'); }, 5200);
+      }
+      io.unobserve(e.target);
+    });
+  }, {threshold:.15, rootMargin:'0px 0px -6% 0px'});
+  targets.forEach(function(t){ io.observe(t); });
+
+  /* fireflies */
+  var cv = document.createElement('canvas'); cv.id = 'fireflies'; document.body.appendChild(cv);
+  var vg = document.createElement('div'); vg.className = 'vignette'; document.body.appendChild(vg);
+  var ctx = cv.getContext('2d'), W, H, dpr = Math.min(2, window.devicePixelRatio||1), flies = [];
+  function size(){ W = innerWidth; H = innerHeight; cv.width = W*dpr; cv.height = H*dpr; ctx.setTransform(dpr,0,0,dpr,0,0); }
+  size(); addEventListener('resize', size);
+  var N = W < 600 ? 22 : 38;
+  for(var k=0;k<N;k++){
+    flies.push({x:Math.random()*W, y:Math.random()*H, a:Math.random()*6.28, sp:.15+Math.random()*.35,
+      r:1+Math.random()*1.6, ph:Math.random()*6.28, bl:.6+Math.random()*1.4});
+  }
+  var t0 = performance.now();
+  function frame(t){
+    var dt = (t - t0)/1000; t0 = t;
+    ctx.clearRect(0,0,W,H);
+    var paper = document.body.classList.contains('paper');
+    flies.forEach(function(f){
+      f.a += (Math.random()-.5)*.25;
+      f.x += Math.cos(f.a)*f.sp; f.y += Math.sin(f.a)*f.sp - .05;
+      if(f.x<-10) f.x=W+10; if(f.x>W+10) f.x=-10; if(f.y<-10) f.y=H+10; if(f.y>H+10) f.y=-10;
+      f.ph += dt*f.bl;
+      var glow = Math.max(0, Math.sin(f.ph));
+      glow = glow*glow;
+      if(glow < .02) return;
+      var R = f.r*7;
+      var g = ctx.createRadialGradient(f.x,f.y,0,f.x,f.y,R);
+      var c = paper ? '165,98,27' : '214,240,140';
+      g.addColorStop(0,'rgba('+c+','+(0.85*glow)+')');
+      g.addColorStop(.25,'rgba('+c+','+(0.35*glow)+')');
+      g.addColorStop(1,'rgba('+c+',0)');
+      ctx.fillStyle = g; ctx.beginPath(); ctx.arc(f.x,f.y,R,0,6.283); ctx.fill();
+    });
+    requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>
