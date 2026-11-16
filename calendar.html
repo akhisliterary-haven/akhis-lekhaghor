@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#100914">
+<title>ক্যালেন্ডার ও ছুটির তালিকা | আঁখির লেখালয়</title>
+<meta name="description" content="ইংরেজি, বাংলা ও হিজরি তারিখ একসাথে—বাংলাদেশের সরকারি ও ঐচ্ছিক ছুটির তালিকাসহ। আঁখির লেখালয়।">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="আঁখির লেখালয়">
+<meta property="og:title" content="ক্যালেন্ডার ও ছুটির তালিকা | আঁখির লেখালয়">
+<meta property="og:description" content="ইংরেজি, বাংলা ও হিজরি তারিখ একসাথে—বাংলাদেশের সরকারি ও ঐচ্ছিক ছুটির তালিকাসহ।">
+<meta property="og:url" content="https://akhisliterary-haven.github.io/akhis-lekhaghor/calendar.html">
+<meta property="og:image" content="https://akhisliterary-haven.github.io/akhis-lekhaghor/assets/share.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="bn_BD">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23100914'/%3E%3Crect x='3' y='3' width='58' height='58' rx='11' fill='none' stroke='%23e8b85d' stroke-opacity='.55' stroke-width='2'/%3E%3Ctext x='32' y='45' text-anchor='middle' font-size='38' font-family='Noto Serif Bengali%2Cserif' fill='%23ffda8a'%3E%E0%A6%86%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Bengali:wght@400;600;700&family=Hind+Siliguri:wght@400;500;600&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#100914; --bg2:#170e1d; --panel:rgba(30,19,37,.82); --panel2:#1d1324;
+  --text:#fff5eb; --muted:#c5b7c7; --soft:#8f8296;
+  --gold:#e8b85d; --gold2:#ffda8a; --line:rgba(232,184,93,.28); --line2:rgba(255,255,255,.07);
+  --rose:#ff7a85; --rose-bg:rgba(214,58,74,.22);
+  --amber:#ffc46b; --amber-bg:rgba(232,160,60,.18);
+  --teal:#7fd6c2; --violet:#c7a6ff;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  min-height:100vh;color:var(--text);font-family:'Hind Siliguri','Noto Serif Bengali',sans-serif;line-height:1.7;
+  background:
+    radial-gradient(ellipse at 15% -10%,rgba(126,58,140,.32),transparent 45%),
+    radial-gradient(ellipse at 95% 5%,rgba(232,184,93,.12),transparent 40%),
+    radial-gradient(ellipse at 50% 120%,rgba(70,40,110,.35),transparent 55%),
+    var(--bg);
+  background-attachment:fixed;
+}
+a{color:inherit;text-decoration:none}
+.wrap{width:min(1080px,92%);margin:auto}
+.serif{font-family:'Noto Serif Bengali',serif}
+
+/* stars */
+.stars{position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.55}
+.stars i{position:absolute;width:2px;height:2px;border-radius:50%;background:#fff;animation:tw 4s ease-in-out infinite}
+@keyframes tw{0%,100%{opacity:.15}50%{opacity:.9}}
+main,header,footer{position:relative;z-index:1}
+
+/* top bar */
+.topbar{position:sticky;top:0;z-index:20;background:rgba(15,9,20,.86);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid rgba(232,184,93,.18)}
+.nav{min-height:68px;display:flex;align-items:center;justify-content:space-between;gap:14px}
+.brand{font-family:'Noto Serif Bengali',serif;color:var(--gold2);font-size:clamp(19px,3vw,24px);line-height:1.2}
+.brand small{display:block;font:9px Georgia,serif;letter-spacing:3px;color:#d9c9b7;margin-top:4px}
+.home-link{color:var(--gold2);border:1px solid var(--line);border-radius:99px;padding:6px 14px;font-size:13px;transition:.25s;white-space:nowrap}
+.home-link:hover{background:rgba(232,184,93,.12)}
+
+/* hero */
+.hero{text-align:center;padding:46px 0 18px}
+.eyebrow{color:var(--gold);font:11px Georgia,serif;letter-spacing:5px}
+h1{font-family:'Noto Serif Bengali',serif;font-weight:600;font-size:clamp(34px,7vw,54px);line-height:1.25;margin:10px 0 6px;
+  background:linear-gradient(120deg,#fff3d6 10%,var(--gold2) 45%,#e0a64b 80%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p{color:var(--muted);font-size:15px}
+
+/* today card */
+.today{
+  position:relative;margin:26px auto 0;padding:clamp(20px,4vw,34px);border-radius:22px;overflow:hidden;
+  background:linear-gradient(150deg,rgba(54,30,62,.92),rgba(22,13,29,.94) 60%);
+  border:1px solid rgba(232,184,93,.38);box-shadow:0 24px 60px rgba(0,0,0,.45),inset 0 1px 0 rgba(255,255,255,.06);
+}
+.today::before{content:"";position:absolute;inset:-1px;border-radius:22px;pointer-events:none;
+  background:conic-gradient(from 180deg at 50% 50%,transparent 0 70%,rgba(255,218,138,.35) 80%,transparent 90%);
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;padding:1px;
+  animation:spin 9s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.today .moon{position:absolute;right:-30px;top:-30px;width:150px;height:150px;border-radius:50%;
+  background:radial-gradient(circle at 38% 38%,rgba(255,240,205,.32),rgba(255,218,138,.08) 60%,transparent 70%);filter:blur(1px)}
+.t-top{display:flex;align-items:flex-end;gap:18px;flex-wrap:wrap}
+.t-day{font-family:'Noto Serif Bengali',serif;font-size:clamp(64px,14vw,104px);line-height:.95;color:var(--gold2);text-shadow:0 0 34px rgba(255,218,138,.28)}
+.t-meta .wd{font-size:clamp(20px,4vw,26px);font-weight:600}
+.t-meta .en{color:var(--muted);font-size:15px}
+.t-label{display:inline-block;font-size:11px;letter-spacing:2px;color:var(--gold);border:1px solid var(--line);border-radius:99px;padding:1px 10px;margin-bottom:6px}
+.t-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:22px}
+.t-box{padding:14px 16px;border-radius:14px;background:rgba(255,255,255,.04);border:1px solid var(--line2)}
+.t-box .k{font-size:12px;color:var(--soft);letter-spacing:.5px}
+.t-box .v{font-family:'Noto Serif Bengali',serif;font-size:clamp(17px,2.4vw,20px);color:var(--text);margin-top:2px;line-height:1.45}
+.t-box .s{font-size:13px;color:var(--muted)}
+.t-box .arb{font-family:'Amiri',serif;font-size:18px;color:var(--gold2);direction:rtl;display:block;margin-top:2px}
+.t-box.bn .v{color:#ffe2b0}.t-box.hj .v{color:#d7f2e9}
+.next{margin-top:16px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding:12px 16px;border-radius:14px;
+  background:linear-gradient(90deg,rgba(214,58,74,.18),rgba(214,58,74,.04));border:1px solid rgba(255,122,133,.25)}
+.next .cnt{font-family:'Noto Serif Bengali',serif;font-size:26px;color:var(--rose);line-height:1}
+.next .cnt small{font-size:13px;color:var(--muted);font-family:'Hind Siliguri',sans-serif}
+.next .nm{flex:1;min-width:180px;font-size:14px;color:var(--muted)}
+.next .nm b{color:var(--text);font-weight:600;font-size:16px}
+
+/* calendar */
+.sec-title{display:flex;align-items:baseline;justify-content:space-between;gap:10px;margin:44px 0 16px;flex-wrap:wrap}
+.sec-title h2{font-family:'Noto Serif Bengali',serif;font-weight:600;font-size:clamp(24px,4vw,30px);color:var(--gold2)}
+.cal{border-radius:22px;padding:clamp(14px,3vw,24px);background:var(--panel);border:1px solid var(--line);box-shadow:0 18px 50px rgba(0,0,0,.35)}
+.cal-head{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+.cal-title{flex:1;text-align:center;min-width:0}
+.cal-title .m{font-family:'Noto Serif Bengali',serif;font-size:clamp(22px,4vw,30px);color:var(--text);line-height:1.3}
+.cal-title .sub{font-size:13px;color:var(--muted);line-height:1.6}
+.cal-title .sub .b{color:#ffcf8a}.cal-title .sub .h{color:#9fe0cf}
+.navbtn{flex:none;width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:rgba(255,255,255,.03);color:var(--gold2);font-size:20px;cursor:pointer;transition:.25s}
+.navbtn:hover,.navbtn:focus-visible{background:rgba(232,184,93,.14);outline:none;transform:scale(1.05)}
+.todaybtn{display:block;margin:-4px auto 14px;font:inherit;font-size:12px;color:var(--gold);background:none;border:1px dashed var(--line);border-radius:99px;padding:3px 14px;cursor:pointer}
+.todaybtn[hidden]{display:none}
+.grid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:6px}
+.wdh{text-align:center;font-size:12px;color:var(--soft);padding:4px 0}
+.wdh.we{color:var(--rose)}
+.cell{position:relative;min-height:88px;border-radius:12px;padding:7px 8px;cursor:pointer;text-align:left;font:inherit;color:inherit;
+  background:rgba(255,255,255,.025);border:1px solid var(--line2);transition:background .2s,border-color .2s,transform .2s;display:flex;flex-direction:column}
+.cell:hover{background:rgba(255,255,255,.06);transform:translateY(-1px)}
+.cell:focus-visible{outline:2px solid var(--gold2);outline-offset:1px}
+.cell.empty{background:none;border-color:transparent;cursor:default}
+.cell.we{background:rgba(214,58,74,.06)}
+.cell .en{font-family:'Noto Serif Bengali',serif;font-size:21px;line-height:1.1;color:var(--text)}
+.cell.we .en{color:#ffb3b9}
+.cell .sm{margin-top:auto;font-size:11px;line-height:1.35;color:var(--muted)}
+.cell .sm .b{color:#ffcf8a;display:block}.cell .sm .h{color:#9fe0cf;display:block}
+.cell .sm em{font-style:normal;font-size:10px;opacity:.85}
+.cell.hol-g{background:var(--rose-bg);border-color:rgba(255,122,133,.45)}
+.cell.hol-g .en{color:#ffd0d4}
+.cell.hol-e{background:var(--amber-bg);border-color:rgba(255,196,107,.4)}
+.cell .dots{position:absolute;top:8px;right:8px;display:flex;gap:3px}
+.cell .dots i{width:6px;height:6px;border-radius:50%}
+.dot-g{background:var(--rose)}.dot-e{background:var(--amber)}.dot-o{background:var(--violet)}
+.cell.is-today{border-color:var(--gold2);box-shadow:0 0 0 1px var(--gold2),0 0 22px rgba(255,218,138,.35)}
+.cell.is-today .en::after{content:"আজ";margin-left:6px;font:11px 'Hind Siliguri',sans-serif;color:#251526;background:var(--gold2);border-radius:99px;padding:0 6px;vertical-align:middle}
+.cell.sel{background:rgba(232,184,93,.16);border-color:var(--gold)}
+.legend{display:flex;flex-wrap:wrap;gap:8px 16px;margin-top:14px;font-size:12px;color:var(--muted)}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.legend i{width:10px;height:10px;border-radius:3px;display:inline-block}
+
+/* day detail */
+.detail{margin-top:14px;padding:16px 18px;border-radius:16px;background:rgba(255,255,255,.035);border:1px solid var(--line2);animation:rise .35s ease}
+@keyframes rise{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.detail .dh{font-family:'Noto Serif Bengali',serif;font-size:19px;color:var(--gold2)}
+.detail .dl{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:14px;color:var(--muted);margin-top:4px}
+.detail .dl b{color:var(--text);font-weight:500}
+.detail ul{list-style:none;margin-top:10px;display:grid;gap:6px}
+
+/* holiday list */
+.tabs{display:flex;gap:6px;flex-wrap:wrap}
+.tab{font:inherit;font-size:13px;padding:6px 14px;border-radius:99px;border:1px solid var(--line);background:none;color:var(--muted);cursor:pointer;transition:.2s}
+.tab[aria-pressed="true"]{background:linear-gradient(135deg,#ffdc8d,#d89d49);color:#251526;border-color:transparent}
+.yearsel{display:flex;gap:6px}
+.hlist{display:grid;gap:18px}
+.hmonth{border-radius:18px;padding:16px clamp(14px,3vw,22px);background:var(--panel);border:1px solid var(--line2)}
+.hmonth h3{font-family:'Noto Serif Bengali',serif;font-weight:600;font-size:18px;color:var(--gold2);margin-bottom:8px;display:flex;align-items:center;gap:10px}
+.hmonth h3::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,var(--line),transparent)}
+.hrow{display:grid;grid-template-columns:62px 1fr;gap:12px;align-items:center;padding:9px 0;border-top:1px solid var(--line2);cursor:pointer}
+.hrow:first-of-type{border-top:0}
+.hrow:hover .hn{color:var(--gold2)}
+.hdate{text-align:center;border-radius:12px;padding:6px 0;background:rgba(255,255,255,.04);border:1px solid var(--line2);line-height:1.15}
+.hdate .d{font-family:'Noto Serif Bengali',serif;font-size:22px}
+.hdate .w{font-size:11px;color:var(--soft)}
+.hrow.g .hdate{border-color:rgba(255,122,133,.4)}.hrow.g .hdate .d{color:var(--rose)}
+.hrow.e .hdate{border-color:rgba(255,196,107,.35)}.hrow.e .hdate .d{color:var(--amber)}
+.hrow.o .hdate .d{color:var(--violet)}
+.hrow.past{opacity:.5}
+.hn{font-size:16px;color:var(--text);transition:color .2s;line-height:1.45}
+.tags{display:flex;flex-wrap:wrap;gap:5px;margin-top:3px}
+.tag{font-size:11px;border-radius:99px;padding:1px 8px;border:1px solid var(--line2);color:var(--muted)}
+.tag.g{color:var(--rose);border-color:rgba(255,122,133,.35)}
+.tag.e{color:var(--amber);border-color:rgba(255,196,107,.35)}
+.tag.o{color:var(--violet);border-color:rgba(199,166,255,.35)}
+.tag.moon{color:#cfe8ff;border-color:rgba(160,200,255,.3)}
+.empty-note{color:var(--muted);text-align:center;padding:26px;border:1px dashed var(--line);border-radius:16px}
+.summary{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:16px}
+.pill{padding:8px 14px;border-radius:14px;background:rgba(255,255,255,.04);border:1px solid var(--line2);font-size:13px;color:var(--muted)}
+.pill b{font-family:'Noto Serif Bengali',serif;font-size:20px;color:var(--text);margin-right:4px}
+
+.note{margin:34px 0 0;padding:16px 18px;border-radius:16px;font-size:13px;color:var(--muted);background:rgba(255,255,255,.03);border:1px solid var(--line2);line-height:1.8}
+.note b{color:var(--gold2);font-weight:500}
+footer{text-align:center;padding:40px 12px 34px;color:var(--muted);font-size:12px}
+footer span{color:var(--gold2)}
+
+@media(max-width:720px){
+  .t-grid{grid-template-columns:1fr}
+  .grid{gap:4px}
+  .cell{min-height:66px;padding:5px 5px;border-radius:9px}
+  .cell .en{font-size:17px}
+  .cell .sm{font-size:9.5px}
+  .cell .sm em{display:none}
+  .cell.is-today .en::after{display:none}
+  .cell .dots{top:5px;right:5px}
+  .cell .dots i{width:5px;height:5px}
+  .wdh{font-size:11px}
+}
+@media(max-width:380px){.cell .sm .h{display:none}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="stars" id="stars" aria-hidden="true"></div>
+
+<header class="topbar">
+  <div class="wrap nav">
+    <a class="brand" href="index.html">আঁখির লেখালয়<small>AKHI'S LITERARY HAVEN</small></a>
+    <a class="home-link" href="index.html">← হোমপেজ</a>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="hero">
+    <div class="eyebrow">CALENDAR · ছুটির তালিকা</div>
+    <h1>ক্যালেন্ডার</h1>
+    <p>ইংরেজি, বাংলা ও হিজরি—তিন তারিখ এক পাতায়</p>
+  </section>
+
+  <section class="today" aria-label="আজকের তারিখ">
+    <div class="moon" aria-hidden="true"></div>
+    <div class="t-top">
+      <div class="t-day" id="tDay"></div>
+      <div class="t-meta">
+        <span class="t-label">আজ</span>
+        <div class="wd" id="tWd"></div>
+        <div class="en" id="tEn"></div>
+      </div>
+    </div>
+    <div class="t-grid">
+      <div class="t-box"><div class="k">ইংরেজি</div><div class="v" id="tE"></div><div class="s" id="tEs"></div></div>
+      <div class="t-box bn"><div class="k">বাংলা (বঙ্গাব্দ)</div><div class="v" id="tB"></div><div class="s" id="tBs"></div></div>
+      <div class="t-box hj"><div class="k">হিজরি</div><div class="v" id="tH"></div><span class="arb" id="tHa"></span></div>
+    </div>
+    <div class="next" id="next" hidden></div>
+  </section>
+
+  <div class="sec-title"><h2>মাসের ক্যালেন্ডার</h2></div>
+  <section class="cal" aria-label="মাসের ক্যালেন্ডার">
+    <div class="cal-head">
+      <button class="navbtn" id="prev" aria-label="আগের মাস">‹</button>
+      <div class="cal-title" aria-live="polite">
+        <div class="m" id="calM"></div>
+        <div class="sub"><span class="b" id="calB"></span><br><span class="h" id="calH"></span></div>
+      </div>
+      <button class="navbtn" id="nextM" aria-label="পরের মাস">›</button>
+    </div>
+    <button class="todaybtn" id="goToday" hidden>আজকের মাসে ফিরুন</button>
+    <div class="grid" id="grid" role="grid"></div>
+    <div class="legend">
+      <span><i style="background:var(--rose)"></i>সাধারণ ছুটি</span>
+      <span><i style="background:var(--amber)"></i>নির্বাহী আদেশে ছুটি</span>
+      <span><i style="background:var(--violet)"></i>ঐচ্ছিক ছুটি</span>
+      <span><i style="background:rgba(214,58,74,.35)"></i>শুক্র–শনি</span>
+    </div>
+    <div class="detail" id="detail"></div>
+  </section>
+
+  <div class="sec-title" id="holidays">
+    <h2>ছুটির তালিকা <span id="hYear" class="serif"></span></h2>
+    <div class="yearsel" id="yearsel"></div>
+  </div>
+  <div class="tabs" id="tabs" style="margin-bottom:14px">
+    <button class="tab" data-f="pub" aria-pressed="true">সরকারি ছুটি</button>
+    <button class="tab" data-f="o" aria-pressed="false">ঐচ্ছিক ছুটি</button>
+  </div>
+  <div class="hlist" id="hlist"></div>
+
+  <div class="note">
+    <b>বাংলা তারিখ:</b> বাংলা একাডেমির সংশোধিত বঙ্গাব্দ অনুযায়ী (১ বৈশাখ = ১৪ এপ্রিল)।<br>
+    <b>হিজরি তারিখ:</b> বাংলাদেশে চাঁদ দেখার ওপর মাস শুরু হয়, তাই কখনো এক দিন আগে-পিছে হতে পারে।<br>
+    <b>ছুটি:</b> জনপ্রশাসন মন্ত্রণালয়ের প্রজ্ঞাপন অনুযায়ী। "চাঁদ দেখা সাপেক্ষে" লেখা ছুটির তারিখ বদলাতে পারে। ঐচ্ছিক ছুটি কর্মচারীরা নিজ ধর্ম অনুযায়ী বছরে সর্বোচ্চ তিন দিন নিতে পারেন।
+  </div>
+</main>
+
+<footer>
+  © ২০২৬ নুরজাহান আঁখি · আঁখির লেখালয়<br>
+  <span>আমার শব্দ, আমার গল্প, আমার পৃথিবী।</span>
+</footer>
+
+<script src="assets/bdcal.js"></script>
+<script>
+(function(){
+  var C = window.BDCal, bn = C.bn, $ = function(id){return document.getElementById(id);};
+  var T = C.today();
+  var view = { y: T.y, m: T.m };
+  var sel = { y: T.y, m: T.m, d: T.d };
+  var hYear = C.YEARS_WITH_DATA.indexOf(T.y) >= 0 ? T.y : C.YEARS_WITH_DATA[0];
+  var hFilter = 'pub';
+  var TYPE = { g: 'সাধারণ ছুটি', e: 'নির্বাহী আদেশে ছুটি', o: 'ঐচ্ছিক ছুটি' };
+  var todayKey = C.key(T.y, T.m, T.d);
+
+  /* stars */
+  (function(){ var s = $('stars'), r = 11; function R(){ r = (r * 9301 + 49297) % 233280; return r / 233280; }
+    for (var i = 0; i < 60; i++){ var e = document.createElement('i'); e.style.left = R()*100 + '%'; e.style.top = R()*100 + '%';
+      e.style.animationDelay = (R()*4).toFixed(2) + 's'; e.style.opacity = .3; s.appendChild(e); } })();
+
+  /* today card */
+  var f = C.fullDate(T.y, T.m, T.d);
+  $('tDay').textContent = bn(T.d);
+  $('tWd').textContent = f.weekday;
+  $('tEn').textContent = C.EN_MONTHS[T.m] + ' ' + bn(T.y);
+  $('tE').textContent = f.en;
+  $('tEs').textContent = f.weekday;
+  $('tB').textContent = bn(f.b.d) + ' ' + f.b.month + ' ' + bn(f.b.y);
+  $('tBs').textContent = f.b.season + 'কাল';
+  if (f.h) { $('tH').textContent = bn(f.h.d) + ' ' + f.h.month + ' ' + bn(f.h.y) + ' হিজরি';
+             $('tHa').textContent = C.ar(f.h.d) + ' ' + f.h.monthAr + ' ' + C.ar(f.h.y) + ' هـ'; }
+  else { $('tH').textContent = 'এই ব্রাউজারে দেখানো যাচ্ছে না'; }
+
+  var nh = C.nextHoliday(T);
+  if (nh) {
+    var n = $('next'); n.hidden = false;
+    var when = nh.days === 0 ? '<div class="cnt">আজ</div>' : '<div class="cnt">' + bn(nh.days) + ' <small>দিন বাকি</small></div>';
+    n.innerHTML = when + '<div class="nm">পরের সরকারি ছুটি<br><b>' + nh.h.name + '</b> — ' + bn(nh.d) + ' ' + C.EN_MONTHS[nh.m] + ', ' + C.WEEKDAYS[C.weekdayOf(nh.y, nh.m, nh.d)] + (nh.h.moon ? ' <span class="tag moon">চাঁদ দেখা সাপেক্ষে</span>' : '') + '</div>';
+    n.style.cursor = 'pointer';
+    n.onclick = function(){ view = { y: nh.y, m: nh.m }; sel = { y: nh.y, m: nh.m, d: nh.d }; renderCal(); document.querySelector('.cal').scrollIntoView({ behavior: 'smooth', block: 'start' }); };
+  }
+
+  /* month calendar */
+  function rangeLabel(a, b, names, yA, yB, suffix) {
+    var s = names[a] + (a !== b ? ' – ' + names[b] : '');
+    return s + ' ' + bn(yA) + (yB !== yA ? '–' + bn(yB) : '') + (suffix || '');
+  }
+  function renderCal() {
+    var y = view.y, m = view.m, dim = C.daysInMonth(y, m), first = C.weekdayOf(y, m, 1);
+    $('calM').textContent = C.EN_MONTHS[m] + ' ' + bn(y);
+    var b1 = C.bangla(y, m, 1), b2 = C.bangla(y, m, dim), h1 = C.hijri(y, m, 1), h2 = C.hijri(y, m, dim);
+    $('calB').textContent = rangeLabel(b1.m, b2.m, C.BN_MONTHS, b1.y, b2.y, ' বঙ্গাব্দ');
+    $('calH').textContent = h1 ? rangeLabel(h1.m, h2.m, C.HJ_MONTHS, h1.y, h2.y, ' হিজরি') : '';
+    $('goToday').hidden = (y === T.y && m === T.m);
+
+    var g = $('grid'); g.innerHTML = '';
+    C.WEEKDAYS_SHORT.forEach(function (w, i) { var e = document.createElement('div'); e.className = 'wdh' + (i >= 5 ? ' we' : ''); e.textContent = w; g.appendChild(e); });
+    for (var i = 0; i < first; i++) { var e = document.createElement('div'); e.className = 'cell empty'; g.appendChild(e); }
+    for (var d = 1; d <= dim; d++) {
+      var wd = (first + d - 1) % 7, b = C.bangla(y, m, d), h = C.hijri(y, m, d), hs = C.holidaysOn(y, m, d);
+      var c = document.createElement('button'); c.type = 'button';
+      var cls = 'cell';
+      if (wd >= 5) cls += ' we';
+      if (hs.some(function (x) { return x.type === 'g'; })) cls += ' hol-g';
+      else if (hs.some(function (x) { return x.type === 'e'; })) cls += ' hol-e';
+      if (C.key(y, m, d) === todayKey) cls += ' is-today';
+      if (sel.y === y && sel.m === m && sel.d === d) cls += ' sel';
+      c.className = cls;
+      var dots = '';
+      ['g', 'e', 'o'].forEach(function (t) { if (hs.some(function (x) { return x.type === t; })) dots += '<i class="dot-' + t + '"></i>'; });
+      c.innerHTML = '<span class="en">' + bn(d) + '</span>' + (dots ? '<span class="dots">' + dots + '</span>' : '') +
+        '<span class="sm"><span class="b">' + bn(b.d) + (b.d === 1 || d === 1 ? ' <em>' + b.month + '</em>' : '') + '</span>' +
+        (h ? '<span class="h">' + bn(h.d) + (h.d === 1 || d === 1 ? ' <em>' + h.month + '</em>' : '') + '</span>' : '') + '</span>';
+      c.setAttribute('aria-label', C.fullDate(y, m, d).en + (hs.length ? ', ' + hs.map(function (x) { return x.name; }).join(', ') : ''));
+      (function (dd) { c.onclick = function () { sel = { y: y, m: m, d: dd }; renderCal(); }; })(d);
+      g.appendChild(c);
+    }
+    renderDetail();
+  }
+  function renderDetail() {
+    var el = $('detail');
+    if (sel.y !== view.y || sel.m !== view.m) { el.hidden = true; return; }
+    el.hidden = false;
+    var fd = C.fullDate(sel.y, sel.m, sel.d), hs = C.holidaysOn(sel.y, sel.m, sel.d);
+    var hasData = C.YEARS_WITH_DATA.indexOf(sel.y) >= 0;
+    var html = '<div class="dh">' + fd.en + ', ' + fd.weekday + '</div>' +
+      '<div class="dl"><span>বাংলা: <b>' + bn(fd.b.d) + ' ' + fd.b.month + ' ' + bn(fd.b.y) + '</b></span>' +
+      (fd.h ? '<span>হিজরি: <b>' + bn(fd.h.d) + ' ' + fd.h.month + ' ' + bn(fd.h.y) + '</b></span>' : '') + '</div>';
+    if (hs.length) html += '<ul>' + hs.map(tagLine).join('') + '</ul>';
+    else if (!hasData) html += '<div class="dl" style="margin-top:8px">এই বছরের ছুটির তালিকা এখনও যোগ করা হয়নি।</div>';
+    el.innerHTML = html;
+    el.style.animation = 'none'; el.offsetHeight; el.style.animation = '';
+  }
+  function tagLine(x) {
+    return '<li><span class="hn">' + x.name + '</span><div class="tags"><span class="tag ' + x.type + '">' + TYPE[x.type] + '</span>' +
+      (x.r ? '<span class="tag">' + x.r + '</span>' : '') + (x.moon ? '<span class="tag moon">চাঁদ দেখা সাপেক্ষে</span>' : '') +
+      (x.note ? '<span class="tag">' + x.note + '</span>' : '') + '</div></li>';
+  }
+  $('prev').onclick = function () { view.m--; if (view.m < 0) { view.m = 11; view.y--; } renderCal(); };
+  $('nextM').onclick = function () { view.m++; if (view.m > 11) { view.m = 0; view.y++; } renderCal(); };
+  $('goToday').onclick = function () { view = { y: T.y, m: T.m }; sel = { y: T.y, m: T.m, d: T.d }; renderCal(); };
+  /* swipe on phones */
+  (function(){ var sx = null, g = $('grid');
+    g.addEventListener('touchstart', function (e) { sx = e.touches[0].clientX; }, { passive: true });
+    g.addEventListener('touchend', function (e) { if (sx === null) return; var dx = e.changedTouches[0].clientX - sx; sx = null;
+      if (Math.abs(dx) > 60) (dx < 0 ? $('nextM') : $('prev')).click(); }, { passive: true }); })();
+
+  /* holiday list */
+  function renderYears() {
+    var ys = $('yearsel'); ys.innerHTML = '';
+    C.YEARS_WITH_DATA.forEach(function (y) {
+      var b = document.createElement('button'); b.className = 'tab'; b.textContent = bn(y);
+      b.setAttribute('aria-pressed', y === hYear ? 'true' : 'false');
+      b.onclick = function () { hYear = y; renderYears(); renderList(); };
+      ys.appendChild(b);
+    });
+    $('hYear').textContent = bn(hYear);
+  }
+  [].forEach.call(document.querySelectorAll('#tabs .tab'), function (b) {
+    b.onclick = function () { hFilter = b.dataset.f;
+      [].forEach.call(document.querySelectorAll('#tabs .tab'), function (x) { x.setAttribute('aria-pressed', x === b ? 'true' : 'false'); });
+      renderList(); };
+  });
+  function renderList() {
+    var list = C.HOLIDAYS.filter(function (h) { return h.date.slice(0, 4) == hYear && (hFilter === 'o' ? h.type === 'o' : h.type !== 'o'); })
+      .sort(function (a, b) { return a.date < b.date ? -1 : a.date > b.date ? 1 : (a.type === 'g' ? -1 : 1); });
+    var box = $('hlist'); box.innerHTML = '';
+    if (!list.length) { box.innerHTML = '<div class="empty-note">' + bn(hYear) + ' সালের ঐচ্ছিক ছুটির তালিকা এখানে যোগ করা হয়নি।</div>'; return; }
+    var byM = {};
+    list.forEach(function (h) { var m = +h.date.slice(5, 7) - 1; (byM[m] = byM[m] || []).push(h); });
+    Object.keys(byM).sort(function (a, b) { return a - b; }).forEach(function (m) {
+      var sec = document.createElement('div'); sec.className = 'hmonth';
+      sec.innerHTML = '<h3>' + C.EN_MONTHS[m] + '</h3>';
+      byM[m].forEach(function (h) {
+        var p = h.date.split('-').map(Number), wd = C.weekdayOf(p[0], p[1] - 1, p[2]), b = C.bangla(p[0], p[1] - 1, p[2]);
+        var r = document.createElement('div'); r.className = 'hrow ' + h.type + (h.date < todayKey ? ' past' : '');
+        r.innerHTML = '<div class="hdate"><div class="d">' + bn(p[2]) + '</div><div class="w">' + C.WEEKDAYS_SHORT[wd] + '</div></div>' +
+          '<div><div class="hn">' + h.name + '</div><div class="tags"><span class="tag ' + h.type + '">' + TYPE[h.type] + '</span>' +
+          (h.r ? '<span class="tag">' + h.r + '</span>' : '') + '<span class="tag">' + bn(b.d) + ' ' + b.month + '</span>' +
+          (h.moon && h.date >= todayKey ? '<span class="tag moon">চাঁদ দেখা সাপেক্ষে</span>' : '') + (h.note ? '<span class="tag">' + h.note + '</span>' : '') + '</div></div>';
+        r.onclick = function () { view = { y: p[0], m: p[1] - 1 }; sel = { y: p[0], m: p[1] - 1, d: p[2] }; renderCal(); document.querySelector('.cal').scrollIntoView({ behavior: 'smooth', block: 'start' }); };
+        sec.appendChild(r);
+      });
+      box.appendChild(sec);
+    });
+  }
+
+  renderCal(); renderYears(); renderList();
+})();
+</script>
+</body>
+</html>
