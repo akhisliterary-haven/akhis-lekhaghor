@@ -423,6 +423,17 @@ a{color:inherit;text-decoration:none}
   transform:translateY(-3px)
 }
 
+.author-room-btn{
+  display:inline-flex;flex-direction:column;align-items:center;gap:2px;
+  margin-top:30px;padding:16px 42px;border-radius:12px;
+  background:linear-gradient(135deg,#ffdc8d,#d89d49);color:#251526;
+  box-shadow:0 10px 30px rgba(232,184,93,.28);transition:.3s
+}
+.author-room-btn .arb-kicker{font:10px Georgia,serif;letter-spacing:3px;opacity:.75}
+.author-room-btn .arb-main{font-size:21px;line-height:1.5}
+.author-room-btn:hover{transform:translateY(-3px);box-shadow:0 16px 38px rgba(232,184,93,.4)}
+@media(max-width:430px){.author-room-btn{width:100%;padding:16px 20px}}
+
 footer{
   text-align:center;
   padding:24px;
@@ -959,19 +970,10 @@ section[id],footer[id]{scroll-margin-top:84px}
       MY WORDS, MY STORIES, MY WORLD.
     </p>
 
-    <a
-      class="author-instagram"
-      href="https://www.instagram.com/nurjahan.akhi/"
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label="Visit Nurjahan Akhi on Instagram">
-
-      Instagram ↗
-
+    <a class="author-room-btn" href="lekhoker-ghor.html">
+      <span class="arb-kicker">THE AUTHOR'S ROOM</span>
+      <span class="arb-main">লেখকের ঘরে আসুন →</span>
     </a>
-
-    <br>
-    <a class="author-instagram" href="lekhoker-ghor.html">লেখকের ঘরে আসুন →</a>
 
   </div>
 
