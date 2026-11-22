@@ -5,12 +5,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#100b16">
-  <meta name="description" content="আঁখির লেখালয়ের ফ্যানফিকশন বিভাগ। প্রবেশ কোডের মাধ্যমে নির্বাচিত গল্প পড়ুন।">
-  <title>ফ্যানফিকশন | আঁখির লেখালয়</title>
+  <meta name="description" content="আঁখির লেখালয়ের ফ্যানফিকশন বিভাগ। প্রবেশ কোডের মাধ্যমে নির্বাচিত গল্প পড়ুন।">
+  <title>ফ্যানফিকশন | আঁখির লেখালয়</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Noto+Serif+Bengali:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Noto+Serif+Bengali:wght@400;500;600;700&family=Galada&display=swap" rel="stylesheet">
 
   <style>
     :root {
@@ -24,299 +24,230 @@
       --gold: #f6d9a8;
       --line: rgba(255,255,255,.13);
     }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
     body {
       margin: 0;
       color: var(--text);
       background:
-        radial-gradient(ellipse at top, rgba(118,66,119,.25), transparent 48%),
+        radial-gradient(ellipse 70% 40% at 15% 0%, rgba(196,92,150,.22), transparent 70%),
+        radial-gradient(ellipse 60% 40% at 90% 10%, rgba(95,143,214,.16), transparent 70%),
+        radial-gradient(ellipse at 50% 100%, rgba(118,66,119,.18), transparent 60%),
         var(--bg);
       font-family: "Hind Siliguri", sans-serif;
       line-height: 1.8;
       min-height: 100vh;
+      overflow-x: hidden;
     }
-
-    a {
-      color: inherit;
+    body::before {
+      content: ""; position: fixed; inset: 0; pointer-events: none; z-index: 0;
+      background-image:
+        radial-gradient(1.5px 1.5px at 12% 18%, rgba(255,255,255,.7), transparent),
+        radial-gradient(1px 1px at 78% 12%, rgba(255,255,255,.6), transparent),
+        radial-gradient(1.5px 1.5px at 64% 32%, rgba(246,217,168,.7), transparent),
+        radial-gradient(1px 1px at 30% 44%, rgba(255,255,255,.5), transparent),
+        radial-gradient(1px 1px at 88% 58%, rgba(255,255,255,.5), transparent),
+        radial-gradient(1.5px 1.5px at 8% 72%, rgba(231,185,215,.6), transparent),
+        radial-gradient(1px 1px at 46% 86%, rgba(255,255,255,.45), transparent);
+      animation: twinkle 6s ease-in-out infinite alternate;
     }
+    @keyframes twinkle { from { opacity: .45; } to { opacity: 1; } }
+    a { color: inherit; }
+    .wrap { position: relative; z-index: 1; width: min(980px, calc(100% - 32px)); margin: 0 auto; }
 
-    .wrap {
-      width: min(920px, calc(100% - 32px));
-      margin: 0 auto;
-    }
+    .top { padding: 22px 0 10px; display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+    .brand { text-decoration: none; font-weight: 700; color: var(--gold); font-size: 1.05rem; }
+    .back { color: var(--muted); text-decoration: none; font-size: .92rem; }
+    .back:hover, .brand:hover { color: white; }
 
-    .top {
-      padding: 22px 0 10px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .brand {
-      text-decoration: none;
-      font-weight: 700;
-      color: var(--gold);
-      font-size: 1.05rem;
-    }
-
-    .back {
-      color: var(--muted);
-      text-decoration: none;
-      font-size: .92rem;
-    }
-
-    .back:hover,
-    .brand:hover {
-      color: white;
-    }
-
-    .hero {
-      text-align: center;
-      padding: 48px 0 26px;
-    }
-
-    .eyebrow {
-      color: var(--gold);
-      letter-spacing: .12em;
-      font-size: .82rem;
-    }
-
+    /* ---------- hero ---------- */
+    .hero { text-align: center; padding: 40px 0 10px; }
+    .eyebrow { color: var(--gold); letter-spacing: .14em; font-size: .82rem; }
     h1 {
-      font-family: "Noto Serif Bengali", serif;
-      font-size: clamp(2rem, 7vw, 3rem);
-      line-height: 1.4;
-      margin: 8px 0 12px;
+      font-family: "Galada", "Noto Serif Bengali", serif; font-weight: 400;
+      font-size: clamp(3rem, 11vw, 4.6rem); line-height: 1.25; margin: 6px 0 8px;
+      background: linear-gradient(100deg, #f6d9a8, #e7b9d7 45%, #b9a6ff);
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+      filter: drop-shadow(0 4px 22px rgba(231,185,215,.25));
     }
+    .intro { color: var(--muted); max-width: 600px; margin: 0 auto; }
 
-    .intro {
-      color: var(--muted);
-      max-width: 640px;
-      margin: 0 auto;
+    /* closed books stack */
+    .stack { position: relative; height: 210px; margin: 34px auto 6px; width: 320px; }
+    .stack i {
+      position: absolute; bottom: 0; left: 50%; width: 120px; height: 180px; border-radius: 6px 12px 12px 6px;
+      box-shadow: 0 14px 30px rgba(0,0,0,.45), inset 6px 0 0 rgba(0,0,0,.25), inset 0 0 0 1px rgba(255,255,255,.12);
+      transform-origin: bottom center; transition: transform .5s;
     }
+    .stack i::after {
+      content: ""; position: absolute; left: 18px; right: 14px; top: 26px; height: 3px; border-radius: 3px;
+      background: rgba(255,255,255,.35); box-shadow: 0 12px 0 rgba(255,255,255,.2), 0 24px 0 rgba(255,255,255,.12);
+    }
+    .stack i:nth-child(1) { background: linear-gradient(160deg,#4a0b17,#1a0509); transform: translateX(-150%) rotate(-14deg); }
+    .stack i:nth-child(2) { background: linear-gradient(160deg,#f2c77a,#e98f45); transform: translateX(-110%) rotate(-7deg); }
+    .stack i:nth-child(3) { background: linear-gradient(160deg,#2c2063,#c58fc0); transform: translateX(-50%); z-index: 2; height: 196px; }
+    .stack i:nth-child(4) { background: linear-gradient(160deg,#0b1a3a,#3d5a8c); transform: translateX(10%) rotate(7deg); }
+    .stack i:nth-child(5) { background: linear-gradient(160deg,#5a1d3e,#f1b6a6); transform: translateX(50%) rotate(14deg); }
+    .stack:hover i:nth-child(1) { transform: translateX(-165%) rotate(-18deg); }
+    .stack:hover i:nth-child(2) { transform: translateX(-120%) rotate(-9deg); }
+    .stack:hover i:nth-child(4) { transform: translateX(20%) rotate(9deg); }
+    .stack:hover i:nth-child(5) { transform: translateX(65%) rotate(18deg); }
+    .stack .padlock {
+      position: absolute; z-index: 3; left: 50%; bottom: 52px; transform: translateX(-50%);
+      width: 66px; height: 66px; border-radius: 50%; display: grid; place-items: center; font-size: 1.8rem;
+      background: rgba(16,11,22,.78); border: 1px solid rgba(246,217,168,.5);
+      box-shadow: 0 0 0 8px rgba(246,217,168,.08), 0 10px 30px rgba(0,0,0,.5);
+      backdrop-filter: blur(4px);
+    }
+    .is-open .stack, .is-open .notice { display: none; }
 
     .notice {
-      margin: 24px auto 30px;
-      max-width: 740px;
-      padding: 16px 19px;
-      border: 1px solid rgba(246,217,168,.35);
-      border-radius: 16px;
-      background: rgba(246,217,168,.07);
-      color: var(--muted);
+      margin: 18px auto 24px; max-width: 640px; padding: 14px 18px; text-align: center;
+      border: 1px dashed rgba(246,217,168,.35); border-radius: 16px;
+      background: rgba(246,217,168,.05); color: var(--muted); font-size: .95rem;
     }
+    .notice strong { color: var(--gold); }
 
-    .notice strong {
-      color: var(--gold);
-      font-size: 1.08rem;
-    }
-
-    .books {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 18px;
-      margin: 26px 0 36px;
-    }
-
-    .book {
-      background: linear-gradient(145deg, var(--panel2), var(--panel));
-      border: 1px solid var(--line);
-      border-radius: 20px;
-      padding: 25px;
-      box-shadow: 0 12px 32px rgba(0,0,0,.16);
-      transition: transform .2s, border-color .2s;
-    }
-
-    .book:hover {
-      transform: translateY(-4px);
-      border-color: rgba(231,185,215,.55);
-    }
-
-    .number {
-      display: inline-block;
-      color: var(--gold);
-      border: 1px solid rgba(246,217,168,.35);
-      border-radius: 999px;
-      padding: 2px 12px;
-      font-size: .82rem;
-      margin-bottom: 12px;
-    }
-
-    h2 {
-      font-family: "Noto Serif Bengali", serif;
-      font-size: 1.4rem;
-      margin: 0 0 10px;
-      line-height: 1.55;
-    }
-
-    .desc {
-      color: var(--muted);
-      margin: 0 0 20px;
-      min-height: 82px;
-    }
-
-    .read {
-      display: inline-block;
-      text-decoration: none;
-      color: #241529;
-      background: var(--accent);
-      padding: 9px 19px;
-      border-radius: 999px;
-      font-weight: 700;
-      transition: transform .2s, filter .2s;
-    }
-
-    .read:hover {
-      transform: translateY(-2px);
-      filter: brightness(1.08);
-    }
-
-    .contact {
-      text-align: center;
-      padding: 28px 18px 32px;
-      border-top: 1px solid var(--line);
-    }
-
-    .contact h2 {
-      font-size: 1.35rem;
-    }
-
-    .contact p {
-      color: var(--muted);
-      margin: 6px auto 18px;
-      max-width: 620px;
-    }
-
-    .socials {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 10px;
-    }
-
-    .socials a {
-      display: inline-block;
-      padding: 8px 17px;
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      text-decoration: none;
-      background: rgba(255,255,255,.04);
-      transition: background .2s, border-color .2s;
-    }
-
-    .socials a:hover {
-      border-color: var(--accent);
-      background: rgba(231,185,215,.1);
-    }
-
-    footer {
-      text-align: center;
-      color: #a99bad;
-      padding: 22px 0 30px;
-      font-size: .9rem;
-      border-top: 1px solid rgba(255,255,255,.06);
-    }
-
-    footer .tagline {
-      color: var(--accent);
-    }
-
-    @media (max-width: 650px) {
-      .books {
-        grid-template-columns: 1fr;
-      }
-
-      .hero {
-        padding-top: 34px;
-      }
-
-      .book {
-        padding: 22px;
-      }
-
-      .desc {
-        min-height: 0;
-      }
-
-      .top {
-        align-items: flex-start;
-      }
-    }
-
+    /* ---------- lock ---------- */
     .lock {
-      max-width: 520px;
-      margin: 10px auto 36px;
-      padding: 26px 22px;
-      text-align: center;
-      border: 1px solid rgba(246,217,168,.35);
-      border-radius: 20px;
+      max-width: 500px; margin: 6px auto 36px; padding: 26px 22px; text-align: center;
+      border: 1px solid rgba(246,217,168,.35); border-radius: 22px;
       background: linear-gradient(145deg, var(--panel2), var(--panel));
-      box-shadow: 0 12px 32px rgba(0,0,0,.2);
+      box-shadow: 0 18px 44px rgba(0,0,0,.32);
     }
-    .lock-icon { font-size: 2rem; line-height: 1; margin-bottom: 8px; }
-    .lock h2 { margin-bottom: 6px; }
+    .lock h2 { font-family: "Noto Serif Bengali", serif; font-size: 1.3rem; margin: 0 0 6px; }
     .lock p { color: var(--muted); margin: 0 0 16px; }
     .lock form { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; }
     .lock input {
-      flex: 1 1 200px; min-width: 0;
-      padding: 11px 14px; border-radius: 999px;
-      border: 1px solid rgba(246,217,168,.35);
-      background: rgba(0,0,0,.25); color: var(--text);
+      flex: 1 1 200px; min-width: 0; padding: 11px 14px; border-radius: 999px;
+      border: 1px solid rgba(246,217,168,.35); background: rgba(0,0,0,.25); color: var(--text);
       font: inherit; text-align: center; letter-spacing: .08em;
     }
-    .lock input:focus { outline: none; border-color: var(--accent); }
+    .lock input:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 4px rgba(231,185,215,.15); }
     .lock button {
-      padding: 10px 22px; border: 0; border-radius: 999px;
-      background: var(--accent); color: #241529;
-      font: inherit; font-weight: 700; cursor: pointer;
+      padding: 10px 24px; border: 0; border-radius: 999px; background: linear-gradient(90deg, var(--gold), var(--accent));
+      color: #241529; font: inherit; font-weight: 700; cursor: pointer;
     }
     .lock button:disabled { opacity: .6; cursor: wait; }
     .msg { min-height: 1.6em; margin-top: 10px; color: var(--gold); font-size: .92rem; }
+    .shake { animation: shake .4s; }
+    @keyframes shake { 20%,60% { transform: translateX(-8px); } 40%,80% { transform: translateX(8px); } }
+
+    /* ---------- shelf (unlocked) ---------- */
+    .shelf-head { text-align: center; margin: 10px 0 22px; }
+    .shelf-head h2 { font-family: "Noto Serif Bengali", serif; font-size: 1.5rem; margin: 2px 0 2px; }
+    .shelf-head p { color: var(--muted); margin: 0; }
+    .books { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; margin: 0 0 30px; }
+    .book {
+      --tone: var(--accent);
+      display: grid; grid-template-columns: 150px 1fr; gap: 18px; align-items: start;
+      padding: 18px; border-radius: 22px; position: relative; overflow: hidden;
+      background: linear-gradient(145deg, var(--panel2), var(--panel));
+      border: 1px solid var(--line); box-shadow: 0 12px 32px rgba(0,0,0,.2);
+      transition: transform .25s, border-color .25s, box-shadow .25s;
+      animation: rise .6s both;
+    }
+    .book::before {
+      content: ""; position: absolute; inset: 0; pointer-events: none;
+      background: radial-gradient(ellipse at 0% 0%, color-mix(in srgb, var(--tone) 22%, transparent), transparent 60%);
+    }
+    .book:hover { transform: translateY(-4px); border-color: color-mix(in srgb, var(--tone) 60%, transparent); box-shadow: 0 18px 40px rgba(0,0,0,.35); }
+    .book:nth-child(2) { animation-delay: .08s; } .book:nth-child(3) { animation-delay: .16s; }
+    .book:nth-child(4) { animation-delay: .24s; } .book:nth-child(5) { animation-delay: .32s; }
+    @keyframes rise { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
+
+    .cover {
+      position: relative; display: block; aspect-ratio: 2 / 3; border-radius: 4px 10px 10px 4px; overflow: hidden;
+      box-shadow: 0 12px 24px rgba(0,0,0,.45), -4px 0 0 rgba(0,0,0,.25);
+      transform: perspective(700px) rotateY(0deg); transition: transform .35s;
+    }
+    .cover::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(0,0,0,.28), transparent 9%, rgba(255,255,255,.08) 11%, transparent 16%); }
+    .book:hover .cover { transform: perspective(700px) rotateY(-10deg); }
+    .cover img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .badge.new {
+      position: absolute; z-index: 2; bottom: 10px; left: -2px; padding: 1px 10px 1px 8px; font-size: .75rem; font-weight: 700;
+      background: var(--gold); color: #241529; border-radius: 0 999px 999px 0;
+    }
+    .info { position: relative; min-width: 0; display: flex; flex-direction: column; }
+    .number {
+      align-self: flex-start; display: inline-block; color: var(--gold); border: 1px solid rgba(246,217,168,.35);
+      border-radius: 999px; padding: 0 11px; font-size: .78rem; margin: 0 6px 8px 0;
+    }
+    .info > .number + .number { position: absolute; top: 0; left: 76px; }
+    .number.adult { color: #ffb3c3; border-color: rgba(255,120,150,.5); }
+    .book h3 { font-family: "Noto Serif Bengali", serif; font-size: 1.32rem; line-height: 1.5; margin: 0; }
+    .en { color: color-mix(in srgb, var(--tone) 55%, #fff); font-size: .82rem; letter-spacing: .06em; font-style: italic; margin-bottom: 8px; }
+    .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 8px; }
+    .tags span { font-size: .74rem; padding: 0 9px; border-radius: 999px; background: rgba(255,255,255,.06); border: 1px solid var(--line); color: var(--muted); }
+    .desc { color: var(--muted); margin: 0 0 14px; font-size: .95rem; }
+    .read {
+      align-self: flex-start; margin-top: auto; text-decoration: none; color: #241529; background: var(--accent);
+      background: linear-gradient(90deg, var(--gold), color-mix(in srgb, var(--tone) 45%, var(--accent)));
+      padding: 7px 18px; border-radius: 999px; font-weight: 700; font-size: .92rem; transition: transform .2s, filter .2s;
+    }
+    .read:hover { transform: translateY(-2px); filter: brightness(1.08); }
+
     .relock {
-      display: block; margin: -18px auto 30px; padding: 6px 16px;
-      border: 1px solid var(--line); border-radius: 999px;
-      background: transparent; color: var(--muted);
-      font: inherit; font-size: .85rem; cursor: pointer;
+      display: block; margin: 0 auto 30px; padding: 6px 16px; border: 1px solid var(--line); border-radius: 999px;
+      background: transparent; color: var(--muted); font: inherit; font-size: .85rem; cursor: pointer;
     }
     .relock:hover { color: var(--text); border-color: var(--accent); }
+
+    /* ---------- contact & footer ---------- */
+    .contact { text-align: center; padding: 28px 18px 32px; border-top: 1px solid var(--line); }
+    .contact h2 { font-family: "Noto Serif Bengali", serif; font-size: 1.3rem; margin: 0 0 4px; }
+    .contact p { color: var(--muted); margin: 6px auto 18px; max-width: 620px; }
+    .socials { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+    .socials a {
+      display: inline-block; padding: 8px 17px; border: 1px solid var(--line); border-radius: 999px;
+      text-decoration: none; background: rgba(255,255,255,.04); transition: background .2s, border-color .2s;
+    }
+    .socials a:hover { border-color: var(--accent); background: rgba(231,185,215,.1); }
+    footer { text-align: center; color: #a99bad; padding: 22px 0 30px; font-size: .9rem; border-top: 1px solid rgba(255,255,255,.06); }
+    footer .tagline { color: var(--accent); }
+
+    @media (max-width: 760px) {
+      .books { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 480px) {
+      .hero { padding-top: 26px; }
+      .stack { transform: scale(.85); margin-top: 20px; }
+      .book { grid-template-columns: 108px 1fr; gap: 14px; padding: 14px; }
+      .book h3 { font-size: 1.15rem; }
+      .desc { font-size: .9rem; display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; }
+      .top { align-items: flex-start; }
+    }
+    @media (prefers-reduced-motion: reduce) { *, *::before { animation: none !important; transition: none !important; } }
     [hidden] { display: none !important; }
   </style>
 </head>
 
 <body>
-  <div class="wrap">
+  <div class="wrap" id="page">
 
     <nav class="top" aria-label="প্রধান নেভিগেশন">
-      <a class="brand" href="./index.html">আঁখির লেখালয়</a>
-      <a class="back" href="./index.html">← মূল পাতায় ফিরুন</a>
+      <a class="brand" href="./index.html">আঁখির লেখালয়</a>
+      <a class="back" href="./index.html">← মূল পাতায় ফিরুন</a>
     </nav>
 
     <header class="hero">
-      <div class="eyebrow">A PRIVATE READING CORNER</div>
+      <div class="eyebrow">✦ A PRIVATE READING CORNER ✦</div>
       <h1>ফ্যানফিকশন</h1>
       <p class="intro">
-        কিছু গল্পের দরজা খুলতে হয় বিশ্বাস আর অনুমতির ছোট্ট একটি চাবি দিয়ে।
-        নির্বাচিত গল্প পড়তে প্রয়োজন হবে প্রবেশ কোড।
+        কিছু গল্পের দরজা খুলতে হয় বিশ্বাস আর অনুমতির ছোট্ট একটি চাবি দিয়ে।
+        নির্বাচিত গল্প পড়তে প্রয়োজন হবে প্রবেশ কোড।
       </p>
+      <div class="stack" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><span class="padlock">🔒</span></div>
     </header>
 
     <section class="notice" aria-label="প্রবেশ কোড সংক্রান্ত তথ্য">
-      <strong>প্রবেশ কোড প্রয়োজন</strong><br>
+      <strong>প্রবেশ কোড প্রয়োজন।</strong>
       এই বিভাগের সব গল্প তালাবন্ধ। একটি কোডেই পুরো বিভাগ আর সব গল্প খুলবে।
-      কোড না থাকলে নিচের Facebook অথবা Instagram লিংকে যোগাযোগ করে অনুরোধ জানান।
     </section>
 
     <main id="ffMain">
       <section class="lock" id="lockBox" aria-labelledby="lock-title">
-        <div class="lock-icon" aria-hidden="true">🔒</div>
-        <h2 id="lock-title">গল্পের তালিকা দেখতে কোড দিন</h2>
+        <h2 id="lock-title">গল্পের তাক খুলতে কোড দিন</h2>
         <p>কোড দিলে এই বিভাগের সব গল্প খুলে যাবে।</p>
         <form id="ffForm">
           <input id="ffCode" type="password" autocomplete="current-password"
@@ -335,26 +266,16 @@
         কোডের জন্য লেখকের সঙ্গে যোগাযোগ করুন।
         ব্যক্তিগত বার্তায় জানান যে ফ্যানফিকশন বিভাগের কোড চান।
       </p>
-
       <div class="socials">
-        <a
-          href="https://www.facebook.com/share/16JoFmGg3eC/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >Facebook-এ যোগাযোগ</a>
-
-        <a
-          href="https://www.instagram.com/nurjahan.akhi?dlrf=MWl3dnR2ZHc2bDg3cg=="
-          target="_blank"
-          rel="noopener noreferrer"
-        >Instagram-এ যোগাযোগ</a>
+        <a href="https://www.facebook.com/share/16JoFmGg3eC/" target="_blank" rel="noopener noreferrer">Facebook-এ যোগাযোগ</a>
+        <a href="https://www.instagram.com/nurjahan.akhi?dlrf=MWl3dnR2ZHc2bDg3cg==" target="_blank" rel="noopener noreferrer">Instagram-এ যোগাযোগ</a>
       </div>
     </section>
 
     <footer>
       <div>নুরজাহান আঁখির নিজস্ব সাহিত্যভুবন</div>
       <div class="tagline">আমার শব্দ, আমার গল্প, আমার পৃথিবী।</div>
-      <div style="margin-top:8px">© আঁখির লেখালয়</div>
+      <div style="margin-top:8px">© আঁখির লেখালয়</div>
     </footer>
 
   </div>
@@ -363,11 +284,12 @@
   "use strict";
   var KEY = "akhi-ff";
   var u = function (s) { return Uint8Array.from(atob(s), function (c) { return c.charCodeAt(0); }); };
-  var salt = u("B7QV6I9WljxnwpXoLFmC/Q=="), iv = u("bJfWnDqIQtsVfRHS"), data = u("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");
+  var salt = u("3Y1Wc4T5d7Fo4WRph+tyrQ=="), iv = u("d11GvthXQRO31qoi"), data = u("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");
   var form = document.getElementById("ffForm"), input = document.getElementById("ffCode");
   var btn = document.getElementById("ffBtn"), msg = document.getElementById("ffMsg");
   var box = document.getElementById("lockBox"), list = document.getElementById("ffList");
   var relock = document.getElementById("ffRelock");
+  var page = document.getElementById("page");
 
   async function open(code, quiet) {
     if (!window.crypto || !crypto.subtle) {
@@ -384,9 +306,11 @@
       list.innerHTML = new TextDecoder().decode(plain);
       box.hidden = true;
       relock.hidden = false;
+      page.classList.add("is-open");
       try { sessionStorage.setItem(KEY, code); } catch (e) {}
       return true;
     } catch (err) {
+      if (!quiet) { box.classList.remove("shake"); void box.offsetWidth; box.classList.add("shake"); }
       if (!quiet) msg.textContent = "কোডটি সঠিক নয়। আবার চেষ্টা করুন অথবা লেখিকার সঙ্গে যোগাযোগ করুন।";
       try { sessionStorage.removeItem(KEY); } catch (e) {}
       return false;
@@ -407,6 +331,7 @@
     msg.textContent = "";
     relock.hidden = true;
     box.hidden = false;
+    page.classList.remove("is-open");
   });
 
   var saved = null;
