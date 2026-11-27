@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>কাল দেখা হবে — নুরজাহান আঁখি</title>
+<meta name="description" content="নুরজাহান আঁখির রহস্য-থ্রিলার কাল দেখা হবে — মৃত এক মেয়ের অ্যাকাউন্ট থেকে প্রতি রাতে লাইভ আসে, আর পরদিন সকালে একজন মানুষ মারা যায়।">
+<meta property="og:type" content="book">
+<meta property="og:site_name" content="আঁখির লেখালয়">
+<meta property="og:title" content="কাল দেখা হবে — নুরজাহান আঁখি">
+<meta property="og:description" content="মৃত এক মেয়ের অ্যাকাউন্ট আবার লাইভে এসেছে। আর যাকে দেখায়, সে পরদিন সকালে আর জাগে না।">
+<meta property="og:url" content="https://akhisliterary-haven.github.io/akhis-lekhaghor/kal-dekha-hobe.html">
+<meta property="og:image" content="https://akhisliterary-haven.github.io/akhis-lekhaghor/assets/share/kal-dekha-hobe.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="bn_BD">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="কাল দেখা হবে — নুরজাহান আঁখি">
+<meta name="twitter:description" content="মৃত এক মেয়ের অ্যাকাউন্ট আবার লাইভে এসেছে। আর যাকে দেখায়, সে পরদিন সকালে আর জাগে না।">
+<meta name="twitter:image" content="https://akhisliterary-haven.github.io/akhis-lekhaghor/assets/share/kal-dekha-hobe.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tiro+Bangla:ital@0;1&family=Baloo+Da+2:wght@500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --fs:19px;
+    --bg:#0b0a0d; --bg-2:#141217; --card:#17141b;
+    --ink:#ece7ea; --ink-soft:#bdb4ba; --ink-faint:#857d84;
+    --accent:#ff3b47; --accent-2:#ff8a80; --cyan:#7fd8e6;
+    --line:rgba(255,59,71,.2);
+    --shadow:0 6px 28px rgba(0,0,0,.45);
+  }
+  body.paper{
+    --bg:#f4f1ee; --bg-2:#ebe6e2; --card:#fffdfb;
+    --ink:#221d20; --ink-soft:#51474c; --ink-faint:#877c81;
+    --accent:#c8202c; --accent-2:#a33a3a; --cyan:#1f6f7c;
+    --line:#e3d6d6; --shadow:0 4px 20px rgba(60,20,20,.10);
+  }
+  *,*::before,*::after{box-sizing:border-box}
+  html{scroll-behavior:smooth; scroll-padding-top:70px}
+  body{
+    margin:0; background:var(--bg); color:var(--ink);
+    font-family:'Tiro Bangla','Noto Serif Bengali',serif;
+    font-size:var(--fs); line-height:2.05; -webkit-text-size-adjust:100%;
+    transition:background .4s,color .4s;
+  }
+  a{color:inherit}
+
+  /* ---------- top bar (controls on top) ---------- */
+  .topbar{
+    position:sticky; top:0; z-index:30;
+    display:flex; align-items:center; gap:8px; flex-wrap:wrap;
+    padding:calc(env(safe-area-inset-top,0px) + 8px) 14px 8px;
+    background:color-mix(in srgb,var(--bg) 86%,transparent);
+    backdrop-filter:blur(10px) saturate(1.2); -webkit-backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+    font-family:'Baloo Da 2',sans-serif;
+  }
+  .topbar .home{text-decoration:none; font-weight:600; font-size:14px; color:var(--ink-soft); flex:1; white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+  .controls{display:flex; align-items:center; gap:6px}
+  .controls .lbl{font-size:12px; color:var(--ink-faint); margin-right:2px}
+  .controls button{
+    font-family:'Baloo Da 2',sans-serif; font-weight:700; font-size:14px;
+    min-width:38px; height:34px; border-radius:10px; cursor:pointer;
+    border:1px solid var(--line); background:var(--card); color:var(--ink);
+  }
+  .controls button:active{transform:translateY(1px)}
+  .progress{position:absolute; left:0; bottom:-1px; height:2px; width:0; background:var(--accent); box-shadow:0 0 10px var(--accent)}
+
+  /* ---------- cover ---------- */
+  .cover{
+    position:relative; overflow:hidden; min-height:94vh;
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    text-align:center; padding:50px 20px 70px;
+    background:
+      radial-gradient(520px 420px at 50% 40%, rgba(255,40,55,.20), transparent 70%),
+      linear-gradient(180deg,#070609 0%, #120a0e 60%, #07060a 100%);
+    color:#f2ecef;
+  }
+  body.paper .cover{
+    background:
+      radial-gradient(520px 420px at 50% 40%, rgba(255,60,70,.16), transparent 70%),
+      linear-gradient(180deg,#ece6e3 0%, #e2d6d3 100%);
+    color:#221d20;
+  }
+  .cover::after{ /* scanlines */
+    content:""; position:absolute; inset:0; pointer-events:none;
+    background:repeating-linear-gradient(0deg, rgba(255,255,255,.035) 0 1px, transparent 1px 4px);
+  }
+  body.paper .cover::after{background:repeating-linear-gradient(0deg, rgba(0,0,0,.035) 0 1px, transparent 1px 4px)}
+  .city{position:absolute; left:0; right:0; bottom:0; width:100%; height:38%; opacity:.9}
+  .city .b{fill:#050407} body.paper .city .b{fill:#3a3034}
+  .city .w{fill:#f5b866} .city .w.r{fill:#ff4651}
+  .city .w{animation:win 7s infinite} .city .w:nth-child(3n){animation-delay:-2s} .city .w:nth-child(4n){animation-delay:-4.5s}
+  @keyframes win{0%,86%,100%{opacity:.85}90%{opacity:.15}}
+  .drop{position:absolute; top:-40px; width:1px; height:34px; background:linear-gradient(transparent,rgba(200,210,235,.55)); pointer-events:none; animation:rain linear infinite}
+  body.paper .drop{background:linear-gradient(transparent,rgba(60,60,90,.35))}
+  @keyframes rain{to{transform:translate(-40px,110vh)}}
+
+  .phone{
+    
+    position:relative; z-index:2; width:min(190px,44vw); max-height:40vh; aspect-ratio:9/16; margin:0 auto 22px;
+    border-radius:30px; padding:10px; background:#0d0b10; border:2px solid #3a3138;
+    box-shadow:0 0 0 1px #000, 0 0 70px rgba(255,40,55,.35), 0 30px 60px rgba(0,0,0,.6);
+  }
+  .screen-in{position:relative; height:100%; border-radius:22px; overflow:hidden; background:linear-gradient(180deg,#1b1820,#0f0d12)}
+  .live{position:absolute; top:12px; left:12px; display:flex; gap:6px; align-items:center; font-family:'JetBrains Mono',monospace; font-weight:700; font-size:11px; letter-spacing:1px}
+  .live b{background:#e11d2a; color:#fff; padding:2px 8px; border-radius:4px; animation:blink 1.4s infinite}
+  .live span{color:#e9e1e6; background:rgba(0,0,0,.45); padding:2px 7px; border-radius:4px}
+  @keyframes blink{50%{opacity:.35}}
+  .handle{position:absolute; top:42px; left:12px; font-family:'JetBrains Mono',monospace; font-size:11px; color:#bcb2b8}
+  .bed{position:absolute; left:12%; right:12%; bottom:26%; height:16%; border-radius:12px; background:#2b2733}
+  .head{position:absolute; left:20%; bottom:34%; width:22%; aspect-ratio:1; border-radius:50%; background:#3a3544}
+  .breath{position:absolute; left:12%; right:12%; bottom:26%; height:16%; border-radius:12px; animation:breath 4s ease-in-out infinite; background:rgba(255,255,255,.04)}
+  @keyframes breath{50%{transform:scaleY(1.06)}}
+  .msg{position:absolute; left:10px; right:10px; bottom:12px; font-family:'JetBrains Mono',monospace; font-size:10.5px; color:#fff; text-align:left; line-height:1.5; min-height:32px}
+  .msg::after{content:"▍"; animation:blink 1s infinite}
+
+  .cover .genre{position:relative; z-index:2; font-family:'Baloo Da 2',sans-serif; font-size:14px; letter-spacing:.5px; color:var(--accent-2); margin:0 0 6px}
+  .cover h1{
+    position:relative; z-index:2; margin:0; font-family:'Baloo Da 2',sans-serif; font-weight:800;
+    font-size:clamp(44px,12vw,74px); line-height:1.2; letter-spacing:.5px;
+    text-shadow:0 0 28px rgba(255,40,55,.35);
+  }
+  .cover h1 .g{position:relative; display:inline-block}
+  .cover h1 .g::before,.cover h1 .g::after{content:attr(data-t); position:absolute; inset:0; opacity:0}
+  .cover h1 .g::before{color:#ff2b3a; animation:glitch 5s infinite}
+  .cover h1 .g::after{color:#4fe3f0; animation:glitch 5s infinite reverse}
+  @keyframes glitch{
+    0%,90%,100%{opacity:0; transform:none}
+    91%{opacity:.8; transform:translate(-3px,1px); clip-path:inset(10% 0 55% 0)}
+    93%{opacity:.8; transform:translate(3px,-1px); clip-path:inset(55% 0 12% 0)}
+    95%{opacity:.6; transform:translate(-2px,0); clip-path:inset(30% 0 40% 0)}
+  }
+  .cover .line{position:relative; z-index:2; width:90px; height:2px; margin:20px auto; background:linear-gradient(90deg,transparent,var(--accent),transparent)}
+  .cover .whisper{position:relative; z-index:2; font-style:italic; font-size:17px; opacity:.88; margin:0 0 16px; max-width:420px}
+  .cover .author{position:relative; z-index:2; font-family:'Baloo Da 2',sans-serif; font-weight:600; font-size:19px}
+  .scroll-hint{position:relative; z-index:2; margin-top:24px; font-family:'Baloo Da 2',sans-serif; font-size:14px; text-decoration:none; padding:7px 18px; border-radius:999px; border:1px solid rgba(255,59,71,.5); color:inherit}
+
+  /* ---------- body ---------- */
+  .wrap{max-width:720px; margin:0 auto; padding:0 20px 90px}
+  .intro{
+    margin:46px 0 10px; padding:22px; border-radius:16px;
+    background:var(--card); border:1px solid var(--line); box-shadow:var(--shadow);
+    font-size:.95em; color:var(--ink-soft); line-height:2; border-left:3px solid var(--accent);
+  }
+  .section-title{font-family:'Baloo Da 2',sans-serif; font-weight:700; font-size:26px; margin:54px 0 18px; color:var(--ink)}
+  .section-title::after{content:""; display:block; width:46px; height:3px; border-radius:3px; margin-top:6px; background:var(--accent); box-shadow:0 0 10px var(--accent)}
+  .toc{list-style:none; margin:0; padding:0}
+  .toc li{margin:0 0 10px}
+  .toc a,.toc .soon{
+    display:flex; align-items:center; gap:14px; text-decoration:none;
+    background:var(--card); border:1px solid var(--line); border-radius:14px;
+    padding:12px 16px; box-shadow:var(--shadow); color:var(--ink);
+  }
+  .toc a:hover{border-color:var(--accent)}
+  .toc .soon{opacity:.5; box-shadow:none}
+  .toc .num{font-family:'Baloo Da 2',sans-serif; font-weight:800; font-size:18px; color:var(--accent); min-width:24px; text-align:center}
+  .toc .t{flex:1; display:flex; flex-direction:column; line-height:1.55}
+  .toc .t b{font-weight:normal; font-size:17.5px}
+  .toc .t small{font-family:'Baloo Da 2',sans-serif; font-size:12.5px; color:var(--ink-faint)}
+
+  .chapter{margin-top:70px}
+  .ch-head{text-align:center; margin-bottom:34px}
+  .rec{display:inline-flex; align-items:center; gap:6px; font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:700; letter-spacing:2px; color:var(--accent); margin-bottom:8px}
+  .rec i{width:9px; height:9px; border-radius:50%; background:var(--accent); box-shadow:0 0 8px var(--accent); animation:blink 1.4s infinite}
+  .ch-head .label{font-family:'Baloo Da 2',sans-serif; font-size:15px; letter-spacing:.5px; color:var(--accent-2)}
+  .ch-head h2{font-family:'Baloo Da 2',sans-serif; font-weight:800; font-size:clamp(28px,7vw,38px); margin:4px 0 14px; line-height:1.35}
+  .ch-meta{display:flex; justify-content:center; align-items:center; gap:10px; flex-wrap:wrap}
+  .ch-meta .rt{font-family:'Baloo Da 2',sans-serif; font-size:13px; color:var(--ink-faint); background:var(--bg-2); border:1px solid var(--line); border-radius:999px; padding:4px 13px}
+  .copy-btn{font-family:'Baloo Da 2',sans-serif; font-weight:600; font-size:13px; cursor:pointer; border-radius:999px; padding:5px 14px; border:1px solid var(--accent); background:transparent; color:var(--accent)}
+  .ch-body p{margin:0 0 1.05em; text-align:justify; text-justify:inter-word}
+  .ch-body p.dlg{margin-bottom:.8em; text-align:left}
+  .ch-body > p:first-child::first-letter{font-family:'Baloo Da 2',sans-serif; font-weight:800; font-size:2.3em; color:var(--accent); float:left; line-height:1; margin:.12em .12em 0 0}
+  .ch-body p.screen{
+    font-family:'JetBrains Mono',monospace; font-size:.82em; letter-spacing:.5px; text-align:center; line-height:1.7;
+    background:#000; color:#f4f4f4; border:1px solid #2a2a2e; border-radius:10px; padding:12px 16px; margin:1.3em auto; max-width:520px;
+    box-shadow:0 0 24px rgba(255,40,55,.12);
+  }
+  body.paper .ch-body p.screen{background:#141215; color:#fafafa}
+  .ch-body p.reveal-words{font-size:1.05em; padding:22px 16px; letter-spacing:1px}
+  .ch-body p.reveal-words span{display:inline-block; margin:0 .25em; opacity:0; transition:opacity .9s}
+  .ch-body p.reveal-words.in span{opacity:1}
+  .ch-body p.reveal-words.in span:nth-child(2){transition-delay:.6s}
+  .ch-body p.reveal-words.in span:nth-child(3){transition-delay:1.2s}
+  .ch-body p.reveal-words.in span:nth-child(4){transition-delay:1.8s}
+  .ch-body p.reveal-words.in span:nth-child(5){transition-delay:2.4s}
+  .sep{text-align:center; color:var(--accent); letter-spacing:12px; font-size:9px; margin:34px 0; opacity:.8}
+  .ch-end{text-align:center; margin-top:40px; font-family:'Baloo Da 2',sans-serif; font-size:14px}
+  .ch-end a{text-decoration:none; color:var(--accent-2)}
+
+  .reveal{opacity:0; transform:translateY(14px); transition:opacity .8s ease, transform .8s ease}
+  .reveal.in{opacity:1; transform:none}
+
+  .author-card{background:var(--card); border:1px solid var(--line); border-radius:16px; padding:22px; box-shadow:var(--shadow)}
+  .author-card h3{font-family:'Baloo Da 2',sans-serif; margin:0 0 8px; font-size:21px}
+  .author-card p{margin:0; color:var(--ink-soft); font-size:.95em}
+
+  footer{text-align:center; padding:30px 16px 50px; font-family:'Baloo Da 2',sans-serif; font-size:13.5px; color:var(--ink-faint); border-top:1px solid var(--line)}
+  footer a{color:var(--accent-2); text-decoration:none}
+  .to-top{position:fixed; right:16px; bottom:calc(env(safe-area-inset-bottom,0px) + 18px); width:44px; height:44px; border-radius:50%; display:grid; place-items:center; text-decoration:none; font-size:20px; background:var(--card); border:1px solid var(--line); color:var(--ink); box-shadow:var(--shadow); opacity:0; pointer-events:none; transition:opacity .3s; z-index:25}
+  .to-top.on{opacity:1; pointer-events:auto}
+  .toast{position:fixed; left:50%; bottom:80px; transform:translateX(-50%) translateY(20px); background:var(--accent); color:#fff; font-family:'Baloo Da 2',sans-serif; font-size:14px; padding:9px 20px; border-radius:999px; opacity:0; transition:.3s; z-index:40}
+  .toast.show{opacity:1; transform:translateX(-50%)}
+  @media (max-width:420px){ .wrap{padding:0 16px 80px} .controls .lbl{display:none} }
+  @media (prefers-reduced-motion:reduce){
+    .drop,.live b,.rec i,.breath,.city .w,.cover h1 .g::before,.cover h1 .g::after,.msg::after{animation:none}
+    .reveal{opacity:1; transform:none} .ch-body p.reveal-words span{opacity:1}
+  }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <a class="home" href="rohosso-thriller.html">← রহস্য ও থ্রিলার</a>
+  <div class="controls">
+    <span class="lbl">লেখার আকার</span>
+    <button id="fsDown" aria-label="লেখা ছোট করুন">অ−</button>
+    <button id="fsReset" aria-label="লেখা আগের মাপে">অ</button>
+    <button id="fsUp" aria-label="লেখা বড় করুন">অ+</button>
+    <button id="theme" aria-label="রং বদলান">☾</button>
+  </div>
+  <div class="progress" id="progress"></div>
+</header>
+
+<section class="cover">
+  <svg class="city" viewBox="0 0 1200 300" preserveAspectRatio="none" aria-hidden="true">
+    <path class="b" d="M0 300 V170 H60 V120 H120 V190 H170 V90 H230 V150 H280 V60 H300 V40 H310 V60 H340 V140 H400 V100 H470 V180 H520 V70 H590 V130 H640 V160 H700 V80 H760 V40 H780 V80 H820 V150 H880 V110 H940 V170 H990 V95 H1060 V140 H1110 V120 H1200 V300 Z"/>
+    <g>
+      <rect class="w" x="75" y="135" width="8" height="10"/><rect class="w" x="95" y="160" width="8" height="10"/>
+      <rect class="w r" x="185" y="110" width="8" height="10"/><rect class="w" x="205" y="140" width="8" height="10"/>
+      <rect class="w" x="290" y="85" width="8" height="10"/><rect class="w" x="320" y="120" width="8" height="10"/>
+      <rect class="w" x="420" y="120" width="8" height="10"/><rect class="w r" x="445" y="150" width="8" height="10"/>
+      <rect class="w" x="535" y="95" width="8" height="10"/><rect class="w" x="565" y="125" width="8" height="10"/>
+      <rect class="w" x="715" y="105" width="8" height="10"/><rect class="w r" x="770" y="60" width="6" height="8"/>
+      <rect class="w" x="835" y="170" width="8" height="10"/><rect class="w" x="900" y="130" width="8" height="10"/>
+      <rect class="w" x="1005" y="115" width="8" height="10"/><rect class="w r" x="1030" y="150" width="8" height="10"/>
+      <rect class="w" x="1130" y="140" width="8" height="10"/><rect class="w" x="1160" y="170" width="8" height="10"/>
+    </g>
+  </svg>
+
+  <div class="phone" aria-hidden="true">
+    <div class="screen-in">
+      <div class="live"><b>● LIVE</b><span id="viewers">👁 ৫০,০০০</span></div>
+      <div class="handle">@siennabrooks</div>
+      <div class="bed"></div><div class="breath"></div><div class="head"></div>
+      <div class="msg" id="msg"></div>
+    </div>
+  </div>
+
+  <div class="genre">রহস্য · থ্রিলার</div>
+  <h1><span class="g" data-t="কাল দেখা হবে">কাল দেখা হবে</span></h1>
+  <div class="line"></div>
+  <p class="whisper">মৃত মেয়েটার অ্যাকাউন্ট আবার লাইভে এসেছে। আর যাকে দেখায়, সে পরদিন সকালে আর জাগে না।</p>
+  <div class="author">নুরজাহান আঁখি</div>
+  <a class="scroll-hint" href="#toc">↓ সূচিপত্র</a>
+</section>
+
+<main class="wrap">
+
+  <div class="intro">
+    সিয়েনা ব্রুকস মারা গেল পঞ্চাশ হাজার মানুষের চোখের সামনে, নিজের লাইভ চলার সময়। পুলিশ বলল, আত্মহত্যা। কেস বন্ধ।
+    চব্বিশ ঘণ্টা পর তার অ্যাকাউন্টে আবার লাল বাতি জ্বলল। এবার পর্দায় সিয়েনা নেই। আছে এক অচেনা মানুষ, নিজের ঘরে একা ঘুমিয়ে।
+    আর মাঝরাতে পর্দায় ভেসে উঠল পাঁচটা শব্দ।
+    একসময়ের নামকরা সাংবাদিক কোল ডনোভান সত্যিটা খুঁজতে নামে। কিন্তু প্রতিটা উত্তর তাকে নিয়ে যায় আরেকটা অসম্ভব প্রশ্নের দিকে। আর নয় বছর আগে চাপা পড়া এক রাতের দিকে।
+  </div>
+
+  <h2 class="section-title" id="toc">সূচিপত্র</h2>
+  <ul class="toc">
+    <li><a href="#ch1"><span class="num">১</span><span class="t"><b>পঞ্চাশ হাজার চোখ</b><small class="rt" data-for="ch1"></small></span><span>→</span></a></li>
+    <li><span class="soon"><span class="num">২</span><span class="t"><b>মৃতের অ্যাকাউন্ট</b><small>শীঘ্রই আসছে</small></span><span>⏳</span></span></li>
+    <li><span class="soon"><span class="num">৩</span><span class="t"><b>ঘুমন্ত মানুষটা</b><small>শীঘ্রই আসছে</small></span><span>⏳</span></span></li>
+    <li><span class="soon"><span class="num">৪</span><span class="t"><b>সিয়েনার শেষ সপ্তাহ</b><small>শীঘ্রই আসছে</small></span><span>⏳</span></span></li>
+    <li><span class="soon"><span class="num">৫</span><span class="t"><b>তৃতীয় স্ট্রিম</b><small>শীঘ্রই আসছে</small></span><span>⏳</span></span></li>
+    <li><span class="soon"><span class="num">৬</span><span class="t"><b>হ্রদের ধারের ছবি</b><small>শীঘ্রই আসছে</small></span><span>⏳</span></span></li>
+    <li><span class="soon"><span class="num">৭</span><span class="t"><b>যে মেয়েটা ফেরেনি</b><small>শীঘ্রই আসছে</small></span><span>⏳</span></span></li>
+    <li><span class="soon"><span class="num">৮</span><span class="t"><b>ডিজিটাল পায়ের ছাপ</b><small>শীঘ্রই আসছে</small></span><span>⏳</span></span></li>
+    <li><span class="soon"><span class="num">৯</span><span class="t"><b>সিয়েনা আত্মহত্যা করেনি</b><small>শীঘ্রই আসছে</small></span><span>⏳</span></span></li>
+    <li><span class="soon"><span class="num">১০</span><span class="t"><b>শেষ বেঁচে থাকা জন</b><small>শীঘ্রই আসছে</small></span><span>⏳</span></span></li>
+    <li><span class="soon"><span class="num">১১</span><span class="t"><b>নিজের লেখা খবর</b><small>শীঘ্রই আসছে</small></span><span>⏳</span></span></li>
+    <li><span class="soon"><span class="num">১২</span><span class="t"><b>কাল দেখা হবে</b><small>শীঘ্রই আসছে</small></span><span>⏳</span></span></li>
+    <li><span class="soon"><span class="num">১৩</span><span class="t"><b>ক্যামেরার পেছনে</b><small>শীঘ্রই আসছে</small></span><span>⏳</span></span></li>
+    <li><span class="soon"><span class="num">১৪</span><span class="t"><b>শেষ সম্প্রচার</b><small>শীঘ্রই আসছে</small></span><span>⏳</span></span></li>
+  </ul>
+
+  <article class="chapter" id="ch1">
+    <div class="ch-head">
+      <div class="rec"><i></i> REC</div>
+      <div class="label">অধ্যায় এক</div>
+      <h2>পঞ্চাশ হাজার চোখ</h2>
+      <div class="ch-meta">
+        <span class="rt" data-for="ch1"></span>
+        <button class="copy-btn" data-copy="ch1">⧉ কপি করুন</button>
+      </div>
+    </div>
+    <div class="ch-body" id="ch1-body">
+<p>সিয়াটলে অক্টোবরের রাত মানেই বৃষ্টি।</p>
+<p>জোরে না। ঝমঝম করেও না। খুব মিহি, খুব একটানা একটা বৃষ্টি। সারারাত ধরে পড়ে। শহরের সব আলো সেই বৃষ্টিতে ভিজে ঝাপসা হয়ে যায়।</p>
+<p>শুক্রবার। রাত তখন এগারোটা বাজতে পাঁচ মিনিট বাকি।</p>
+<p>ওহাইওর এক ছোট শহরে, নিজের ঘরে কম্বলের নিচে শুয়ে আছে মায়া। বয়স সতেরো। পরদিন সকালে ক্লাস নেই। হাতে ফোন। ফোনের আলোয় তার মুখটা নীল দেখাচ্ছে।</p>
+<p>সে অপেক্ষা করছে।</p>
+<p>শুধু মায়া না। ঠিক এই মুহূর্তে পৃথিবীর নানা জায়গায় হাজার হাজার মানুষ একই কাজ করছে। কেউ অফিস থেকে ফেরার বাসে বসে। কেউ রান্নাঘরে। কেউ মায়ার মতো বিছানায় শুয়ে।</p>
+<p>সবাই অপেক্ষা করছে একটা লাল বিন্দুর জন্য।</p>
+<p>এগারোটা বাজল।</p>
+<p>ফোনের পর্দায় ভেসে উঠল একটা নোটিফিকেশন।</p>
+<p class="screen">siennabrooks is LIVE</p>
+<p>মায়া প্রায় লাফিয়ে উঠে বসল।</p>
+<div class="sep">● ● ●</div>
+<p>সিয়েনা ব্রুকস।</p>
+<p>বয়স ছাব্বিশ। অনলাইনে তার ফলোয়ার তেইশ লাখ। সে গান গায় না, নাচে না, কোনো সিনেমাতেও নেই। তবু মানুষ তাকে ভালোবাসে।</p>
+<p>কারণ সিয়েনা কথা বলে।</p>
+<p>প্রতি শুক্রবার রাত এগারোটায় সে লাইভে আসে। অনুষ্ঠানের নাম "মিডনাইট উইথ সিয়েনা"। এক ঘণ্টা ধরে সে শুধু গল্প করে। নিজের দিনের কথা বলে। দর্শকদের প্রশ্নের উত্তর দেয়। কেউ মন খারাপের কথা লিখলে সে থেমে যায়, নাম ধরে ডাকে, বলে, "আমি শুনছি। তুমি একা না।"</p>
+<p>অনেকের কাছে এই এক ঘণ্টাই সপ্তাহের সবচেয়ে ভালো সময়।</p>
+<p>মায়ার কাছেও।</p>
+<p>পর্দায় ছবি এল। সেই চেনা ঘর।</p>
+<p>সিয়াটলের মাঝখানে একটা উঁচু ভবন। একত্রিশ তলায় সিয়েনার অ্যাপার্টমেন্ট। বসার ঘরের একপাশের পুরো দেয়ালটাই কাচের। কাচের ওপাশে ছোট একটা বারান্দা, আর বারান্দার ওপারে রাতের শহর। বৃষ্টিতে ভেজা লাল, হলুদ, সাদা আলো।</p>
+<p>ঘরের মাঝখানে একটা ধূসর সোফা। সোফার পাশে একটা লম্বা ল্যাম্প। ল্যাম্পের হলুদ আলো। পেছনের দেয়ালে একটা বড় ফ্রেমে বাঁধানো ছবি, সমুদ্রের।</p>
+<p>সবকিছু আগের মতো।</p>
+<p>শুধু সিয়েনা আগের মতো না।</p>
+<div class="sep">● ● ●</div>
+<p>মায়া প্রথমে বুঝতে পারল না, কী আলাদা লাগছে।</p>
+<p>সিয়েনা সোফায় বসে আছে। পরনে একটা ঢোলা সাদা সোয়েটার। চুল খোলা। মুখে সেই চেনা হাসি।</p>
+<p>কিন্তু হাসিটা চোখ পর্যন্ত পৌঁছাচ্ছে না।</p>
+<p>চোখের নিচে কালি। মনে হচ্ছে কয়েক রাত ঘুমায়নি। একটু পরপর সে পাশে রাখা নিজের দ্বিতীয় ফোনটার দিকে তাকাচ্ছে। তারপর জোর করে আবার ক্যামেরার দিকে ফিরছে।</p>
+<p class="dlg">"হাই, সবাই," সে বলল। গলাটা একটু ভাঙা। "শুক্রবারের রাতে আবার দেখা।"</p>
+<p>কমেন্টের ঘরে লেখা উঠতে লাগল। এত দ্রুত যে পড়াই যায় না।</p>
+<p class="dlg">"হাই সিয়েনা!!"</p>
+<p class="dlg">"ব্রাজিল থেকে ভালোবাসা ❤️"</p>
+<p class="dlg">"তোমাকে ক্লান্ত লাগছে"</p>
+<p class="dlg">"তুমি ঠিক আছ?"</p>
+<p>সিয়েনা শেষ কমেন্টটা পড়ল। একটু চুপ করে থাকল।</p>
+<p class="dlg">"আমি ঠিক আছি," সে বলল। তারপর নিজেই হেসে ফেলল। ছোট্ট, শুকনো একটা হাসি। "না। সত্যি বলতে, ঠিক নেই।"</p>
+<p>কমেন্টের ঘরটা এক মুহূর্তের জন্য যেন থেমে গেল।</p>
+<p>তারপর আরও দ্রুত চলতে লাগল।</p>
+<p>পর্দার কোণে দর্শকের সংখ্যা। বারো হাজার। পনেরো হাজার। বিশ হাজার।</p>
+<div class="sep">● ● ●</div>
+<p class="dlg">"আজ আমি অন্যরকম একটা কথা বলতে চাই," সিয়েনা বলল।</p>
+<p>সে দুই হাত কোলের ওপর রাখল। আঙুলগুলো একটা আরেকটার সঙ্গে জড়িয়ে ধরল। মায়া খেয়াল করল, হাত দুটো কাঁপছে।</p>
+<p class="dlg">"তোমরা সবাই আমাকে চেনো। মানে, ভাবো যে চেনো। প্রতি সপ্তাহে আমি এখানে বসে তোমাদের বলি, সৎ থাকো। নিজের ভুল মেনে নাও। ভেতরে কিছু চেপে রেখো না।"</p>
+<p>সে থামল।</p>
+<p class="dlg">"কিন্তু আমি নিজেই একটা জিনিস চেপে রেখেছি। অনেক বছর ধরে।"</p>
+<p>দর্শক এখন তিরিশ হাজার।</p>
+<p class="dlg">"নয় বছর," সিয়েনা বলল। খুব আস্তে। প্রায় নিজের মনে। "নয় বছর আগে একটা রাতে একটা ঘটনা ঘটেছিল। আমি সেখানে ছিলাম। আর আমি চুপ করে ছিলাম। আমরা সবাই চুপ করে ছিলাম।"</p>
+<p class="dlg">"কী ঘটেছিল?" কেউ লিখল।</p>
+<p class="dlg">"কারা ছিল?"</p>
+<p class="dlg">"সিয়েনা, কী বলছ তুমি?"</p>
+<p>সিয়েনা আবার পাশের ফোনটার দিকে তাকাল। এবার অনেকক্ষণ। তার মুখটা ফ্যাকাশে হয়ে গেল।</p>
+<p class="dlg">"গত দুই সপ্তাহ ধরে কেউ আমাকে মেসেজ পাঠাচ্ছে," সে বলল। "রোজ রাতে। ঠিক বারোটায়। সবসময় একটা নতুন নম্বর থেকে। মেসেজে কোনো কথা থাকে না। শুধু একটা ছবি।"</p>
+<p class="dlg">"কীসের ছবি?" মায়া নিজের অজান্তেই ফিসফিস করে বলল। খালি ঘরে।</p>
+<p>সিয়েনা যেন প্রশ্নটা শুনতে পেল।</p>
+<p class="dlg">"একটা হ্রদের ছবি," সে বলল। "রাতের বেলার। পানির ওপর চাঁদ। আর পাড়ে একটা কাঠের কেবিন।"</p>
+<p>তার গলা আটকে গেল।</p>
+<p class="dlg">"আমি ওই কেবিনটা চিনি।"</p>
+<div class="sep">● ● ●</div>
+<p>দর্শক তখন চল্লিশ হাজার।</p>
+<p>কমেন্টের ঘরে এখন আর "হাই" কেউ লিখছে না। সবাই প্রশ্ন করছে। কেউ লিখছে, "পুলিশে খবর দাও।" কেউ লিখছে, "এটা কি কোনো প্র্যাংক?" কেউ শুধু লিখছে, "ভয় লাগছে।"</p>
+<p>সিয়েনা চোখ মুছল।</p>
+<p class="dlg">"আমি আজ সব বলব," সে বলল। এবার গলাটা একটু শক্ত। যেন অনেক কষ্টে সাহস জোগাড় করেছে। "সব। নামগুলোও। আমার আর লুকানোর কিছু নেই। ওর নাম ছিল..."</p>
+<p>ঠিক তখনই একটা শব্দ হলো।</p>
+<p>টুং।</p>
+<p>খুব ছোট একটা শব্দ। দরজার ঘণ্টার মতো না। ফোনের নোটিফিকেশনের মতো।</p>
+<p>সিয়েনার পাশের ফোনটার পর্দা জ্বলে উঠল।</p>
+<p>সিয়েনা ফোনটার দিকে তাকাল। তারপর জমে গেল।</p>
+<p>মায়া জীবনে কোনো মানুষের মুখে এত ভয় দেখেনি। সিয়েনার ঠোঁট দুটো একটু ফাঁক হয়ে গেল। চোখ বড় বড়। সে যেন নিঃশ্বাস নিতেও ভুলে গেছে।</p>
+<p class="dlg">"না," সে বলল। প্রায় শোনা যায় না এমন গলায়। "না, না, এটা হতে পারে না।"</p>
+<p class="dlg">"কী হয়েছে?"</p>
+<p class="dlg">"সিয়েনা??"</p>
+<p class="dlg">"ফোনে কী দেখলে?"</p>
+<p>সিয়েনা ক্যামেরার দিকে তাকাল। এক মুহূর্তের জন্য মায়ার মনে হলো, সিয়েনা সরাসরি তার দিকেই তাকিয়ে আছে।</p>
+<p class="dlg">"এক মিনিট," সিয়েনা বলল। "আমি... এক মিনিট আসছি।"</p>
+<p>সে উঠে দাঁড়াল। ফোনটা হাতে নিল। তারপর ক্যামেরার ফ্রেম থেকে বেরিয়ে গেল, বাঁ দিকে।</p>
+<p>সোফাটা খালি পড়ে থাকল।</p>
+<div class="sep">● ● ●</div>
+<p>এক মিনিট গেল।</p>
+<p>দুই মিনিট।</p>
+<p>পর্দায় শুধু খালি সোফা, হলুদ ল্যাম্প আর কাচের দেয়াল। কাচের ওপাশে বৃষ্টি।</p>
+<p>দর্শক পঞ্চাশ হাজার ছাড়িয়ে গেল। খবরটা ছড়িয়ে পড়েছে। লোকজন অন্যদের ডেকে আনছে। "সিয়েনার লাইভে অদ্ভুত কিছু হচ্ছে, এখনই দেখো।"</p>
+<p>তিন মিনিটের মাথায় একটা শব্দ এল। ফ্রেমের বাইরে থেকে।</p>
+<p>কাচের দরজা খোলার শব্দ। ভারী, সরে যাওয়া দরজা। সঙ্গে সঙ্গে বৃষ্টির শব্দ জোরে শোনা গেল। ঠান্ডা বাতাস ঢুকল ঘরে। মায়া দেখল, ল্যাম্পের পাশে রাখা একটা কাগজ বাতাসে উড়ে মেঝেতে পড়ল।</p>
+<p>তারপর কাচের দেয়ালের ওপাশে, বারান্দায়, একটা ছায়া দেখা গেল।</p>
+<p>সিয়েনা।</p>
+<p>সাদা সোয়েটার। বৃষ্টিতে ভিজছে। পিঠ ক্যামেরার দিকে। এক হাতে ফোন কানে ধরা। যেন কারো সঙ্গে কথা বলছে।</p>
+<p>কথাগুলো শোনা যাচ্ছিল না। শুধু বৃষ্টির শব্দ।</p>
+<p>সিয়েনা মাথা নাড়ছিল। একবার, দুবার। জোরে জোরে। যেন বলছে, না।</p>
+<p>তারপর সে ফোনটা কান থেকে নামাল।</p>
+<p>আর ঘুরে দাঁড়াল। ঘরের দিকে। ক্যামেরার দিকে।</p>
+<p>এত দূর থেকে, বৃষ্টি আর কাচের ভেতর দিয়ে, তার মুখটা পরিষ্কার দেখা যাচ্ছিল না। কিন্তু পরে হাজার হাজার মানুষ এই মুহূর্তটা বারবার দেখবে। জুম করে দেখবে। থামিয়ে থামিয়ে দেখবে। আর অনেকেই বলবে, সিয়েনার ঠোঁট নড়ছিল। সে কিছু একটা বলছিল।</p>
+<p>কী বলছিল, কেউ নিশ্চিত হতে পারবে না।</p>
+<p>ঠিক তখন ল্যাম্পটা নিভে গেল।</p>
+<p>পুরো ঘর অন্ধকার।</p>
+<p>শুধু কাচের ওপাশে শহরের আলো। আর সেই আলোর সামনে একটা সাদা ছায়া।</p>
+<p>মায়া চোখের পলক ফেলল।</p>
+<p>পলক খুলে দেখল, বারান্দাটা খালি।</p>
+<div class="sep">● ● ●</div>
+<p>প্রথম কয়েক সেকেন্ড কেউ কিছু লিখল না।</p>
+<p>তারপর কমেন্টের ঘরে যেন বিস্ফোরণ হলো।</p>
+<p class="dlg">"কোথায় গেল???"</p>
+<p class="dlg">"ও কি পড়ে গেল?"</p>
+<p class="dlg">"৯১১ এ কল করো কেউ!!!"</p>
+<p class="dlg">"আমি কল করছি"</p>
+<p class="dlg">"এটা অভিনয়, শান্ত হও সবাই"</p>
+<p class="dlg">"না এটা অভিনয় না"</p>
+<p class="dlg">"ওহ ঈশ্বর"</p>
+<p>মায়ার হাত থেকে ফোনটা প্রায় পড়ে যাচ্ছিল। সে বুঝতে পারছিল, তার বুকের ভেতর হৃৎপিণ্ডটা জোরে জোরে লাফাচ্ছে। সে মাকে ডাকতে চাইল। গলা দিয়ে শব্দ বের হলো না।</p>
+<p>পর্দায় তখনো সেই অন্ধকার ঘর। খোলা কাচের দরজা দিয়ে বৃষ্টির ছাট ঢুকছে। বাতাসে পর্দা উড়ছে।</p>
+<p>কেউ আসছে না। কেউ যাচ্ছে না।</p>
+<p>লাইভ চলছেই।</p>
+<p>এক মিনিট। পাঁচ মিনিট। দশ মিনিট।</p>
+<p>দর্শক এখন ষাট হাজার। সত্তর হাজার। কেউ বেরিয়ে যাচ্ছে না। সবাই তাকিয়ে আছে একটা অন্ধকার, খালি ঘরের দিকে। যেন তাকিয়ে থাকলেই সিয়েনা আবার ফ্রেমে ফিরে আসবে। হেসে বলবে, "মজা করলাম।"</p>
+<p>সিয়েনা ফিরল না।</p>
+<p>রাত এগারোটা সাতচল্লিশ মিনিটে, হঠাৎ, লাইভটা বন্ধ হয়ে গেল।</p>
+<p>পর্দায় শুধু একটা লেখা।</p>
+<p class="screen">This live has ended.</p>
+<p>মায়া অনেকক্ষণ সেই লেখাটার দিকে তাকিয়ে থাকল। তারপর কম্বলটা মাথা পর্যন্ত টেনে দিল।</p>
+<p>সে রাতে সে আর ঘুমাতে পারেনি।</p>
+<div class="sep">● ● ●</div>
+<p>সিয়াটল পুলিশ সিয়েনার ভবনে পৌঁছায় রাত এগারোটা আটান্ন মিনিটে।</p>
+<p>নিচে, রাস্তায়, তখন ভিড় জমে গেছে। নীল-লাল বাতি ঘুরছে। বৃষ্টির মধ্যে হলুদ ফিতা দিয়ে একটা জায়গা ঘিরে রাখা হয়েছে। সেখানে কী আছে, সেটা ক্যামেরাওয়ালাদের দেখতে দেওয়া হচ্ছে না।</p>
+<p>পরদিন সকালে খবরে বলা হলো, জনপ্রিয় অনলাইন তারকা সিয়েনা ব্রুকস নিজের অ্যাপার্টমেন্টের বারান্দা থেকে পড়ে মারা গেছেন। ঘটনাটা ঘটেছে তাঁর নিজের লাইভ চলার সময়।</p>
+<p>বিকেলে পুলিশ একটা সংবাদ সম্মেলন করল।</p>
+<p>ডিটেকটিভ রে হলোওয়ে। বয়স পঞ্চাশের কাছাকাছি। চওড়া কাঁধ, ধূসর চুল, ক্লান্ত চোখ। তিনি একটা কাগজ হাতে নিয়ে মাইকের সামনে দাঁড়ালেন। প্রশ্ন নেওয়ার আগেই সব বলে দিলেন। যেন তাড়াতাড়ি শেষ করতে চান।</p>
+<p>অ্যাপার্টমেন্টের মূল দরজা ভেতর থেকে তালা দেওয়া ছিল।</p>
+<p>ভবনের করিডোরের ক্যামেরায় দেখা গেছে, সন্ধ্যা সাতটার পর থেকে কেউ সিয়েনার দরজার কাছে যায়নি।</p>
+<p>সিয়েনার ল্যাপটপে একটা ছোট লেখা পাওয়া গেছে। লেখা হয়েছে রাত এগারোটা একচল্লিশ মিনিটে। ঠিক যখন সে ফ্রেমের বাইরে ছিল।</p>
+<p>লেখাটায় মাত্র দুটো লাইন।</p>
+<p class="screen">I'm sorry. I can't carry it anymore.</p>
+<p>আমি দুঃখিত। এই বোঝা আর বইতে পারছি না।</p>
+<p class="dlg">"সব প্রমাণ একটা দিকেই ইঙ্গিত করছে," ডিটেকটিভ হলোওয়ে বললেন। "মিস ব্রুকস নিজেই নিজের জীবন শেষ করেছেন। এখানে অন্য কারো জড়িত থাকার কোনো চিহ্ন আমরা পাইনি। আমরা পরিবারের প্রতি সমবেদনা জানাই, আর সবাইকে অনুরোধ করি, ভিডিওটা ছড়াবেন না।"</p>
+<p>একজন সাংবাদিক হাত তুলল। "কিন্তু সেই মেসেজগুলো? যেগুলোর কথা মিস ব্রুকস লাইভে বলছিলেন?"</p>
+<p class="dlg">"আমরা তাঁর ফোন পরীক্ষা করেছি। সন্দেহজনক কিছু পাইনি।"</p>
+<p class="dlg">"আর হ্রদের ছবি? কেবিন?"</p>
+<p>ডিটেকটিভ হলোওয়ে এক মুহূর্ত চুপ করে থাকলেন।</p>
+<p class="dlg">"মিস ব্রুকস মানসিকভাবে খুব কষ্টের মধ্যে ছিলেন," তিনি বললেন। "আমরা সেটাকে সম্মান করতে চাই। আর কোনো প্রশ্ন নয়, ধন্যবাদ।"</p>
+<p>তিনি কাগজটা ভাঁজ করলেন। আর চলে গেলেন।</p>
+<p>সন্ধ্যার মধ্যে পুলিশের ওয়েবসাইটে কেসটার পাশে একটা শব্দ বসে গেল।</p>
+<p class="screen">Closed.</p>
+<p>বন্ধ।</p>
+<div class="sep">● ● ●</div>
+<p>শহরের আরেক মাথায়, একটা পুরোনো ডাইনারের কোণের টেবিলে বসে সংবাদ সম্মেলনটা দেখছিল কোল ডনোভান।</p>
+<p>বয়স আটত্রিশ। লম্বা, একটু কুঁজো হয়ে বসার অভ্যাস। দাড়ি কয়েক দিন কামানো হয়নি। গায়ে একটা পুরোনো ধূসর কোট, কনুইয়ের কাছে সুতো উঠে গেছে। সামনে তৃতীয় কাপ কফি। ঠান্ডা হয়ে গেছে, সে খেয়ালও করেনি।</p>
+<p>একসময় কোল ডনোভানের নাম শহরের সবাই জানত।</p>
+<p class="dlg">"সিয়াটল হেরাল্ড" পত্রিকার সবচেয়ে নামকরা অনুসন্ধানী সাংবাদিক ছিল সে। সিটি হলের ঘুষের খবর সে-ই প্রথম বের করেছিল। একটা হাসপাতালের লুকোনো মৃত্যুর হিসাবও। বড় বড় মানুষ তার ফোন পেলে ভয় পেত।</p>
+<p>তারপর একদিন সব বদলে গেল।</p>
+<p>একটা খবর ভুল প্রমাণিত হলো। কোলের নাম নিয়ে ছাপা একটা খবর। মামলা হলো। পত্রিকা ক্ষমা চাইল। কোলকে চলে যেতে হলো।</p>
+<p>এখন সে লেখে "দ্য সাউন্ড লেজার" নামের ছোট একটা অনলাইন পত্রিকায়। অফিস বলতে একটা ভাড়া করা ঘর, চারজন কর্মী। সেখানে সে লেখে ট্রাফিক জ্যামের খবর, নতুন রেস্তোরাঁর খবর, কোন পার্কে কুকুর হারিয়েছে তার খবর।</p>
+<p>আর রাতে একা একা ঘুমাতে পারে না।</p>
+<p>সংবাদ সম্মেলন শেষ হলো। কোল ফোনটা নামিয়ে রাখল না। বরং সে ভিডিওটা খুঁজে বের করল। সিয়েনার শেষ লাইভ।</p>
+<p>পুলিশ অনুরোধ করেছে ছড়াবেন না। কিন্তু ইন্টারনেট কারো অনুরোধ শোনে না। ভিডিওটা ততক্ষণে লাখো জায়গায় ছড়িয়ে গেছে।</p>
+<p>কোল শুরু থেকে দেখল।</p>
+<p>তারপর আবার দেখল।</p>
+<p>তারপর তৃতীয়বার। এবার আওয়াজ পুরো বাড়িয়ে, ফোনটা কানের কাছে ধরে।</p>
+<div class="sep">● ● ●</div>
+<p class="dlg">"আবার ওটা দেখছ?"</p>
+<p>কোল মুখ তুলল। টেবিলের সামনে দাঁড়িয়ে মার্থা ক্লাইন। "দ্য সাউন্ড লেজার"-এর সম্পাদক। ষাট বছরের এক ছোটখাটো মহিলা। চুল একদম সাদা, ছোট করে কাটা। চোখে মোটা ফ্রেমের চশমা। তিরিশ বছর বড় পত্রিকায় কাজ করে এখন নিজের ছোট্ট পত্রিকা চালান।</p>
+<p>কোলকে যখন কেউ কাজ দিচ্ছিল না, তখন মার্থাই দিয়েছিলেন।</p>
+<p>তিনি উল্টো দিকের চেয়ারে বসলেন। ওয়েট্রেসকে ইশারায় এক কাপ চা দিতে বললেন।</p>
+<p class="dlg">"পাঁচশো শব্দ," মার্থা বললেন। "সিয়েনা ব্রুকসের ওপর। কে ছিল, কেন মানুষ তাকে ভালোবাসত, অনলাইনের চাপ মানুষকে কোথায় নিয়ে যায়। কাল সকালের মধ্যে।"</p>
+<p class="dlg">"পুলিশ বলছে আত্মহত্যা।"</p>
+<p class="dlg">"হ্যাঁ। আর আমি সেটাই লিখতে বলছি।"</p>
+<p>কোল ফোনটা টেবিলের ওপর রাখল। মার্থার দিকে ঘুরিয়ে দিল।</p>
+<p class="dlg">"একটা জিনিস দেখুন।"</p>
+<p>মার্থা দীর্ঘশ্বাস ফেললেন। "কোল।"</p>
+<p class="dlg">"শুধু এক মিনিট।"</p>
+<p>কোল ভিডিওটা শেষের দিকে টেনে নিল। অন্ধকার ঘর। খোলা কাচের দরজা। উড়ন্ত পর্দা।</p>
+<p class="dlg">"লাইভ বন্ধ হয়েছে এগারোটা সাতচল্লিশে," কোল বলল। "নিচের ঘড়িটা দেখুন। এগারোটা সাতচল্লিশ।"</p>
+<p class="dlg">"তো?"</p>
+<p class="dlg">"পুলিশ পৌঁছেছে এগারোটা আটান্নতে। ওদের নিজেদের হিসাবে।"</p>
+<p>মার্থা চুপ করে রইলেন।</p>
+<p class="dlg">"এগারো মিনিট," কোল বলল। আস্তে। "সিয়েনা তখন আর বেঁচে নেই। ঘরের দরজা ভেতর থেকে বন্ধ। করিডোরের ক্যামেরায় কেউ ঢোকেনি। তাহলে লাইভটা বন্ধ করল কে?"</p>
+<p>মার্থা ভিডিওর দিকে তাকিয়ে থাকলেন। তারপর কাঁধ ঝাঁকালেন।</p>
+<p class="dlg">"হয়তো ফোনের চার্জ শেষ হয়ে গিয়েছিল। হয়তো ইন্টারনেট চলে গিয়েছিল। হয়তো অ্যাপের কোনো নিয়ম আছে। মালিক না থাকলে নিজে থেকে বন্ধ হয়ে যায়।"</p>
+<p class="dlg">"হয়তো," কোল বলল।</p>
+<p class="dlg">"আর ল্যাপটপের সেই লেখা?"</p>
+<p class="dlg">"লেখা হয়েছে এগারোটা একচল্লিশে। যখন ও ফ্রেমের বাইরে। কিন্তু মার্থা, ও যখন ফ্রেম থেকে বেরিয়ে গেল, ওর হাতে ছিল ফোন। ল্যাপটপ না। আর ও গিয়েছিল বাঁ দিকে। ভিডিওর শুরুতে ল্যাপটপটা দেখা যায়, দেখুন..." কোল আবার টেনে শুরুতে নিল। "ওই যে, ডান দিকের টেবিলে। খোলা। ও কখনো ওদিকে যায়নি।"</p>
+<p>মার্থা এবার অনেকক্ষণ চুপ করে থাকলেন।</p>
+<p>ওয়েট্রেস চা দিয়ে গেল। মার্থা কাপটা ছুঁলেন না।</p>
+<p class="dlg">"কোল," তিনি অবশেষে বললেন। খুব নরম গলায়। "তুমি আমার সবচেয়ে ভালো লেখক। তুমি জানো আমি সেটা বিশ্বাস করি। কিন্তু তুমি এটাও জানো, শেষবার যখন তুমি একটা খবরের পেছনে সবার কথা না শুনে দৌড়েছিলে, তখন কী হয়েছিল।"</p>
+<p>কোলের চোয়াল শক্ত হয়ে গেল।</p>
+<p class="dlg">"একটা মেয়ে মারা গেছে," মার্থা বললেন। "পঞ্চাশ হাজার মানুষের সামনে। ওর পরিবার এখন যে কষ্টের মধ্যে আছে, আমরা তা কল্পনাও করতে পারব না। আমি চাই না আমার পত্রিকা ওদের কষ্টকে একটা রহস্যের গল্প বানিয়ে বিক্রি করুক।"</p>
+<p>তিনি উঠে দাঁড়ালেন।</p>
+<p class="dlg">"পাঁচশো শব্দ। ভদ্র, সম্মানজনক। কাল সকালে।"</p>
+<p>তিনি চলে গেলেন। চায়ের কাপ পড়ে রইল।</p>
+<p>কোল অনেকক্ষণ জানালার বাইরে তাকিয়ে রইল। বৃষ্টি পড়ছে। রাস্তার ওপারে একটা নিয়ন সাইন জ্বলছে-নিভছে।</p>
+<p>তারপর সে আবার ফোনটা তুলে নিল।</p>
+<p>সিয়েনার মুখটা পর্দায় থেমে আছে। বারান্দায় দাঁড়িয়ে, ক্যামেরার দিকে ফিরে। ঝাপসা। ঠোঁট দুটো একটু খোলা।</p>
+<p>কী বলছিল মেয়েটা?</p>
+<p>কোল ছবিটা যতটা সম্ভব বড় করল। চোখ কুঁচকে তাকাল। কিছুই বোঝা যায় না। শুধু একটা সাদা মুখ, আর তার পেছনে অন্ধকার।</p>
+<p>নয় বছর আগে একটা রাতে একটা ঘটনা ঘটেছিল।</p>
+<p>আমি সেখানে ছিলাম।</p>
+<p>আমরা সবাই চুপ করে ছিলাম।</p>
+<p class="dlg">"আমরা কারা, সিয়েনা?" কোল ফিসফিস করে বলল।</p>
+<div class="sep">● ● ●</div>
+<p>সে রাতে কোল পাঁচশো শব্দ লিখল।</p>
+<p>ভদ্র, সম্মানজনক পাঁচশো শব্দ। সিয়েনা কোন শহরে জন্মেছিল, কীভাবে মাত্র তিন বছরে এত মানুষের প্রিয় হয়ে উঠেছিল, অনলাইনে সবসময় হাসিমুখে থাকার চাপ কতটা ভারী হতে পারে। শেষে একটা হেল্পলাইনের নম্বর।</p>
+<p>লেখাটা পাঠিয়ে দিয়ে সে ল্যাপটপ বন্ধ করল।</p>
+<p>তার অ্যাপার্টমেন্টটা ছোট। এক ঘরের। একপাশে বিছানা, একপাশে রান্নার জায়গা। দেয়ালে কোনো ছবি নেই। টেবিলে পুরোনো পত্রিকার স্তূপ। বই। খালি কফির কাপ।</p>
+<p>জানালার পাশে একটা চেয়ার। কোল সেখানে বসল। বাইরে তাকাল।</p>
+<p>তার মাথার ভেতর একটা ছোট্ট শব্দ বারবার ফিরে আসছিল। ফোনের সেই নোটিফিকেশন। টুং।</p>
+<p>সিয়েনা ফোনে কী দেখেছিল? কোন জিনিস একটা মানুষকে এক সেকেন্ডে এতটা ভয় পাইয়ে দিতে পারে?</p>
+<p>আর পুলিশ বলছে, ফোনে সন্দেহজনক কিছু নেই।</p>
+<p>তাহলে হয় পুলিশ মিথ্যা বলছে। নয়তো কেউ ফোন থেকে সেই জিনিসটা মুছে দিয়েছে।</p>
+<p>দুটোর কোনোটাই কোলের ভালো লাগল না।</p>
+<p>সে ঘড়ির দিকে তাকাল। রাত দুইটা।</p>
+<p>সে নিজেকে বলল, এটা তোমার খবর না। তোমার কাজ ট্রাফিক জ্যাম আর হারানো কুকুর। ঘুমাতে যাও।</p>
+<p>সে ঘুমাতে গেল না।</p>
+<div class="sep">● ● ●</div>
+<p>পরের দিনটা কাটল অদ্ভুতভাবে।</p>
+<p>সারা পৃথিবী সিয়েনা ব্রুকসকে নিয়ে কথা বলছিল। টেলিভিশনে, রেডিওতে, অনলাইনে। কেউ কাঁদছিল। কেউ রাগ করছিল। কেউ বলছিল, এত মানুষ দেখছিল, কেউ কিছু করতে পারল না? কেউ বলছিল, পুরোটাই সাজানো, সিয়েনা আসলে কোথাও লুকিয়ে আছে, নিজের ফলোয়ার বাড়ানোর জন্য।</p>
+<p>সিয়েনার ভবনের নিচে মানুষ ফুল রেখে যাচ্ছিল। মোমবাতি জ্বালাচ্ছিল। বৃষ্টিতে মোমবাতিগুলো বারবার নিভে যাচ্ছিল, আর কেউ না কেউ আবার জ্বালিয়ে দিচ্ছিল।</p>
+<p>কোল সেখানে গিয়েছিল দুপুরে।</p>
+<p>ভবনটা কাচ আর স্টিলের। লবিতে একজন নিরাপত্তারক্ষী। মাঝবয়সী, গম্ভীর। কোল সাংবাদিক পরিচয় দিতেই সে হাত তুলে থামিয়ে দিল। "কোনো কথা হবে না, স্যার। ওপর থেকে নিষেধ।"</p>
+<p class="dlg">"শুধু একটা প্রশ্ন। কাল রাতে আপনি ডিউটিতে ছিলেন?"</p>
+<p>লোকটা এক মুহূর্ত দ্বিধা করল। তারপর মাথা নাড়ল। হ্যাঁ।</p>
+<p class="dlg">"পুলিশ আসার আগে কেউ কি ওপরে গিয়েছিল? যেকোনো কেউ?"</p>
+<p>লোকটা কোলের দিকে তাকাল। অনেকক্ষণ। তার চোখে কিছু একটা ছিল। ভয়? নাকি অস্বস্তি?</p>
+<p class="dlg">"কেউ যায়নি," সে বলল। "আমি পুলিশকে সব বলেছি।"</p>
+<p>তারপর সে অন্য দিকে ঘুরে গেল।</p>
+<p>কোল বেরিয়ে এল। রাস্তায় দাঁড়িয়ে ওপরের দিকে তাকাল। একত্রিশ তলা। এত ওপরে যে বৃষ্টির মধ্যে বারান্দাটা আলাদা করে চেনাই যায় না।</p>
+<p>সে ফোন বের করে একটা নোট লিখল।</p>
+<p>নিরাপত্তারক্ষী। নাম জানতে হবে। কিছু একটা লুকাচ্ছে।</p>
+<div class="sep">● ● ●</div>
+<p>শনিবার। রাত দশটা পঞ্চান্ন।</p>
+<p>কোল নিজের ঘরে, জানালার পাশের সেই চেয়ারে। ল্যাপটপ কোলের ওপর খোলা। পর্দায় সিয়েনা ব্রুকসের পুরোনো ভিডিওর তালিকা। সে সারা সন্ধ্যা ধরে সেগুলো দেখছে। খুঁজছে। কোনো হ্রদ, কোনো কেবিন, কোনো পুরোনো বন্ধুর নাম।</p>
+<p>এখন পর্যন্ত কিছু পায়নি।</p>
+<p>সিয়েনা নিজের অতীত নিয়ে খুব কম কথা বলত। শুধু বলত, সে ওরেগনের এক ছোট শহরে বড় হয়েছে। কলেজে পড়তে সিয়াটলে এসেছিল। তার আগের জীবন নিয়ে প্রশ্ন করলে হেসে এড়িয়ে যেত।</p>
+<p>কোল চোখ ঘষল। চোখ জ্বলছে। শরীরটা ভারী লাগছে।</p>
+<p>ল্যাপটপ বন্ধ করতে যাবে, ঠিক তখন টেবিলের ওপর রাখা ফোনটা কেঁপে উঠল।</p>
+<p>একবার।</p>
+<p>তারপর আবার।</p>
+<p>তারপর থামলই না। একটার পর একটা নোটিফিকেশন। খবরের অ্যাপ। সোশ্যাল মিডিয়া। পুরোনো এক সহকর্মীর মেসেজ। মার্থার মেসেজ।</p>
+<p>কোল ফোনটা তুলে নিল।</p>
+<p>মার্থার মেসেজে মাত্র তিনটা শব্দ।</p>
+<p class="dlg">"এখনই দেখো। সিয়েনা।"</p>
+<p>তার নিচে একটা লিংক।</p>
+<p>কোল লিংকে চাপ দিল। অ্যাপটা খুলল।</p>
+<p>পর্দার ওপরে সেই চেনা নাম, সেই চেনা ছবি। সিয়েনার হাসিমুখ, সাদা সোয়েটারে।</p>
+<p>আর নামের পাশে একটা লাল বিন্দু। জ্বলছে, নিভছে। জ্বলছে, নিভছে।</p>
+<p class="screen">siennabrooks is LIVE</p>
+<div class="sep">● ● ●</div>
+<p>কোলের প্রথম চিন্তা ছিল, এটা কোনো নিষ্ঠুর রসিকতা। কেউ সিয়েনার অ্যাকাউন্ট হ্যাক করেছে। পুরোনো কোনো ভিডিও চালাচ্ছে।</p>
+<p>কিন্তু পর্দায় পুরোনো কোনো ভিডিও ছিল না।</p>
+<p>সিয়েনার অ্যাপার্টমেন্টও না।</p>
+<p>পর্দায় একটা অন্ধকার শোবার ঘর। ক্যামেরা রাখা আছে কোনো উঁচু জায়গায়, সম্ভবত একটা আলমারির ওপর। ওপর থেকে নিচের দিকে তাকিয়ে আছে। ছবিটা সবুজাভ-ধূসর, রাতের ক্যামেরার মতো।</p>
+<p>ঘরে একটা বিছানা।</p>
+<p>বিছানায় একজন মানুষ ঘুমাচ্ছে।</p>
+<p>পুরুষ। বয়স তিরিশের মতো। চিত হয়ে শুয়ে আছে, একটা হাত বুকের ওপর। খালি গা। কম্বলটা কোমর পর্যন্ত। মুখটা একপাশে একটু কাত হয়ে আছে, কিন্তু পরিষ্কার দেখা যাচ্ছে। ছোট করে ছাঁটা চুল। চোয়ালের কাছে একটা পুরোনো কাটা দাগ।</p>
+<p>বিছানার পাশে একটা ছোট টেবিল। টেবিলে একটা পানির গ্লাস, একটা ঘড়ি, একটা ফোন উপুড় করে রাখা।</p>
+<p>লোকটা ঘুমাচ্ছে। গভীর, শান্ত ঘুম। বুকটা ওঠানামা করছে, ধীরে ধীরে।</p>
+<p>আর কিছু না।</p>
+<p>কেউ কথা বলছে না। কোনো শব্দ নেই, শুধু খুব হালকা একটা গুঞ্জন, যেমন ফ্রিজ বা এসির শব্দ হয়।</p>
+<p>কোনো লেখা নেই। কোনো ব্যাখ্যা নেই।</p>
+<p>শুধু একজন অচেনা মানুষ, যে জানে না যে এই মুহূর্তে তাকে লাখো মানুষ দেখছে।</p>
+<div class="sep">● ● ●</div>
+<p>দর্শকের সংখ্যা বাড়ছিল ভয়ংকর গতিতে।</p>
+<p>দশ হাজার। পঞ্চাশ হাজার। এক লাখ। দুই লাখ।</p>
+<p>সিয়েনার মৃত্যুর রাতের চেয়ে অনেক বেশি।</p>
+<p>কমেন্টের ঘর পাগলের মতো চলছিল।</p>
+<p class="dlg">"এটা কে???"</p>
+<p class="dlg">"কেউ চেনে এই লোকটাকে?"</p>
+<p class="dlg">"অ্যাকাউন্ট হ্যাক হয়েছে, রিপোর্ট করো সবাই"</p>
+<p class="dlg">"রিপোর্ট করেছি, কিছু হচ্ছে না"</p>
+<p class="dlg">"এটা অসুস্থ"</p>
+<p class="dlg">"ওকে কেউ জাগাও!!!"</p>
+<p class="dlg">"ওর ঠিকানা কেউ জানো?"</p>
+<p class="dlg">"পুলিশকে জানাও"</p>
+<p>কোল নিজেই অ্যাপের রিপোর্ট বোতামে চাপ দিল। একটা লেখা এল: "আপনার রিপোর্ট পাওয়া গেছে। আমরা দেখছি।"</p>
+<p>লাইভ চলতেই থাকল।</p>
+<p>কোল পর্দার দিকে ঝুঁকে এল। ঘরটা দেখার চেষ্টা করল। যেকোনো কিছু। একটা জানালা, একটা ছবি, একটা চিহ্ন। যা দিয়ে বোঝা যায় এটা কোথায়।</p>
+<p>জানালায় ভারী পর্দা টানা। দেয়াল ফাঁকা। দরজার পাশে একটা হুকে একটা জ্যাকেট ঝুলছে। কালো, চামড়ার। জ্যাকেটের হাতায় একটা গোল ব্যাজের মতো কিছু। এই আলোতে পড়া যায় না।</p>
+<p>বিছানার পাশের ঘড়িটায় সময় দেখা যাচ্ছিল। ডিজিটাল, ছোট লাল সংখ্যা।</p>
+<p class="screen">11:21.</p>
+<p>কোল নিজের ঘড়ির দিকে তাকাল। এগারোটা একুশ।</p>
+<p>মানে এটা রেকর্ড করা পুরোনো ভিডিও না।</p>
+<p>এটা এখন হচ্ছে। এই মুহূর্তে। কোথাও একজন মানুষ ঘুমাচ্ছে, আর কেউ তাকে দেখাচ্ছে সারা পৃথিবীকে।</p>
+<div class="sep">● ● ●</div>
+<p>কোলের ফোন বাজল। মার্থা।</p>
+<p class="dlg">"দেখছ?" মার্থার গলা শুকনো।</p>
+<p class="dlg">"দেখছি।"</p>
+<p class="dlg">"পুলিশকে ফোন করেছি। ওরা বলছে, অ্যাপ কোম্পানির সঙ্গে যোগাযোগ করছে। অ্যাকাউন্ট বন্ধ করে দেবে।"</p>
+<p class="dlg">"বন্ধ করেনি এখনো।"</p>
+<p class="dlg">"জানি।" মার্থা একটু থামলেন। "কোল, এটা কী হচ্ছে?"</p>
+<p>কোল উত্তর দিল না। সে পর্দার দিকে তাকিয়ে ছিল। লোকটা ঘুমের মধ্যে একবার নড়ল। হাতটা বুক থেকে নেমে বিছানার ওপর পড়ল। তারপর আবার স্থির।</p>
+<p class="dlg">"আমি জানি না," কোল বলল অবশেষে। "কিন্তু যে এটা চালাচ্ছে, সে সিয়েনার অ্যাকাউন্ট বেছে নিয়েছে ইচ্ছা করে। যাতে সবাই দেখে।"</p>
+<p class="dlg">"কেন?"</p>
+<p class="dlg">"কারণ সে কিছু একটা বলতে চায়।"</p>
+<p>লাইন দুই পাশেই চুপ।</p>
+<p class="dlg">"তুমি কাল সকালে অফিসে এসো," মার্থা বললেন। তারপর আরও আস্তে, প্রায় নিজের মনে, "আর কোল, আমি দুঃখিত। কাল তোমার কথা আমার শোনা উচিত ছিল।"</p>
+<p>ফোন কেটে গেল।</p>
+<div class="sep">● ● ●</div>
+<p>ঘণ্টাখানেক এভাবেই গেল।</p>
+<p>কোল একবারও চোখ সরায়নি। এক কাপ কফি বানাতেও ওঠেনি। সে পর্দার প্রতিটা কোণ মুখস্থ করে ফেলেছে। জ্যাকেটের ভাঁজ। পানির গ্লাসে কতটুকু পানি। বিছানার চাদরে একটা ছোট দাগ।</p>
+<p>লোকটা ঘুমাচ্ছিল। শান্তভাবে। নিশ্চিন্তে।</p>
+<p>অ্যাপ কোম্পানি লাইভ বন্ধ করেনি। পরে জানা যাবে, তারা চেষ্টা করেছিল। তিনবার। প্রতিবার অ্যাকাউন্টটা বন্ধ করার কয়েক সেকেন্ডের মধ্যে আবার চালু হয়ে গিয়েছিল, নিজে নিজে। যেন কেউ তাদের সিস্টেমের ভেতরে বসে আছে।</p>
+<p>কিন্তু সেটা পরের কথা।</p>
+<p>এখন বিছানার পাশের লাল ঘড়িতে সময় 11:59.</p>
+<p>কমেন্টের ঘরটা হঠাৎ ধীর হয়ে গেল। যেন সবাই একসঙ্গে টের পেয়েছে, কিছু একটা হতে যাচ্ছে।</p>
+<p>কোল নিঃশ্বাস বন্ধ করে বসে ছিল।</p>
+<p>ঘড়ির শেষ সংখ্যাটা বদলাল।</p>
+<p class="screen">12:00.</p>
+<p>ঠিক সেই মুহূর্তে পর্দাটা কালো হয়ে গেল।</p>
+<p>পুরোপুরি কালো। কোনো ঘর নেই, কোনো বিছানা নেই, কোনো মানুষ নেই।</p>
+<p>তারপর, সেই কালোর মাঝখানে, একটা একটা করে অক্ষর ভেসে উঠল। সাদা। ধীরে। যেন কেউ খুব যত্ন করে টাইপ করছে।</p>
+<p class="screen reveal-words"><span>Tomorrow,</span> <span>he</span> <span>won&#x27;t</span> <span>wake</span> <span>up.</span></p>
+<p>পাঁচটা শব্দ।</p>
+<p>কাল, ও আর ঘুম থেকে জাগবে না।</p>
+<p>লেখাটা কয়েক সেকেন্ড পর্দায় থাকল।</p>
+<p>তারপর সব মুছে গেল।</p>
+<p class="screen">This live has ended.</p>
+<div class="sep">● ● ●</div>
+<p>কোল ডনোভান অনেকক্ষণ নড়ল না।</p>
+<p>তার ঘরে কোনো শব্দ নেই। শুধু জানালার কাচে বৃষ্টির টুপটাপ। দূরে কোথাও একটা গাড়ির হর্ন।</p>
+<p>তার মাথায় একটাই ছবি ঘুরছিল। একজন অচেনা মানুষ। চোয়ালে একটা কাটা দাগ। বুকের ওপর একটা হাত। এই শহরে, কিংবা অন্য কোনো শহরে, এই মুহূর্তে সে ঘুমাচ্ছে। শান্তভাবে। নিশ্চিন্তে।</p>
+<p>সে জানে না, লাখো মানুষ এইমাত্র তার মৃত্যুর ঘোষণা শুনেছে।</p>
+<p>কোল ল্যাপটপটা টেনে নিল। আঙুল কাঁপছিল, তবু সে লাইভের শেষ কয়েক মিনিট যতটুকু মনে আছে লিখে ফেলল। জ্যাকেট। ব্যাজ। ঘড়ি। কাটা দাগ। তারপর সে ইন্টারনেটে ঢুকল। খুঁজতে শুরু করল।</p>
+<p>হাজার হাজার মানুষ ততক্ষণে একই কাজ করছে। লোকটার মুখের ছবি কেটে ছড়িয়ে দিচ্ছে। লিখছে, "কেউ চেনো? প্লিজ, ওকে সাবধান করো।"</p>
+<p>কেউ চিনল না।</p>
+<p>রাত তিনটার দিকে কোল চেয়ারেই ঘুমিয়ে পড়ল। ল্যাপটপ কোলে, ফোন হাতে।</p>
+<p>তার ঘুম ভাঙল ভোর সাতটায়। ফোনের শব্দে।</p>
+<p>মার্থা।</p>
+<p>কোল ফোন ধরল। কিছু বলার আগেই ওপাশ থেকে মার্থার গলা এল। খুব শান্ত। অস্বাভাবিক রকম শান্ত।</p>
+<p class="dlg">"ওরা ওকে খুঁজে পেয়েছে, কোল।"</p>
+<p>কোল সোজা হয়ে বসল।</p>
+<p class="dlg">"কোথায়? ও ঠিক আছে?"</p>
+<p>ওপাশে অনেকক্ষণ কোনো শব্দ নেই।</p>
+<p>তারপর মার্থা বললেন, "না।"</p>
+<p>বাইরে তখনো বৃষ্টি পড়ছিল। মিহি, একটানা, থামার কোনো লক্ষণ নেই।</p>
+    </div>
+    <div class="ch-end"><a href="#toc">↑ সূচিপত্রে ফিরে যান</a></div>
+  </article>
+
+  <h2 class="section-title">লেখক পরিচিতি</h2>
+  <div class="author-card">
+    <h3>নুরজাহান আঁখি</h3>
+    <p>চট্টগ্রামের মেয়ে। কবিতা, ছোটগল্প, উপন্যাস, ভূতের গল্প, রহস্য আর গান লেখেন। তাঁর সব লেখা এক জায়গায় রাখা আছে নিজের সাহিত্যভুবন <b>আঁখির লেখালয়</b>-এ।</p>
+    <p style="margin-top:.8rem;font-style:italic">আমার শব্দ, আমার গল্প, আমার পৃথিবী।</p>
+  </div>
+
+</main>
+
+<footer>
+  © নুরজাহান আঁখি · <a href="index.html">আঁখির লেখালয়</a> · <a href="rohosso-thriller.html">রহস্য ও থ্রিলার</a>
+</footer>
+
+<a href="#" class="to-top" id="toTop" aria-label="ওপরে যান">↑</a>
+<div class="toast" id="toast">কপি হয়েছে</div>
+
+<script>
+(function(){
+  var bn=['০','১','২','৩','৪','৫','৬','৭','৮','৯'];
+  function toBn(n){return String(n).replace(/\d/g,function(d){return bn[d];});}
+
+  /* reading time (প্রায় ১৫০ শব্দ / মিনিট) */
+  document.querySelectorAll('.chapter').forEach(function(ch){
+    var body=document.getElementById(ch.id+'-body'); if(!body) return;
+    var words=body.textContent.trim().split(/\s+/).length;
+    var mins=Math.max(1,Math.round(words/150));
+    document.querySelectorAll('.rt[data-for="'+ch.id+'"]').forEach(function(el){
+      el.textContent='পড়তে সময় লাগবে প্রায় '+toBn(mins)+' মিনিট';
+    });
+  });
+
+  /* text size */
+  var root=document.documentElement, base=19, size=base;
+  try{var s=localStorage.getItem('kal-fs'); if(s) size=parseFloat(s);}catch(e){}
+  function apply(){root.style.setProperty('--fs',size+'px'); try{localStorage.setItem('kal-fs',size);}catch(e){}}
+  apply();
+  document.getElementById('fsUp').onclick=function(){size=Math.min(28,size+1);apply();};
+  document.getElementById('fsDown').onclick=function(){size=Math.max(14,size-1);apply();};
+  document.getElementById('fsReset').onclick=function(){size=base;apply();};
+
+  /* theme */
+  var tb=document.getElementById('theme');
+  try{if(localStorage.getItem('kal-theme')==='paper') document.body.classList.add('paper');}catch(e){}
+  function sync(){tb.textContent=document.body.classList.contains('paper')?'☀':'☾';}
+  sync();
+  tb.onclick=function(){document.body.classList.toggle('paper'); sync(); try{localStorage.setItem('kal-theme',document.body.classList.contains('paper')?'paper':'night');}catch(e){}};
+
+  /* copy */
+  var toast=document.getElementById('toast');
+  function show(t){toast.textContent=t; toast.classList.add('show'); setTimeout(function(){toast.classList.remove('show');},1800);}
+  function fallback(text){var ta=document.createElement('textarea'); ta.value=text; ta.style.position='fixed'; ta.style.opacity='0'; document.body.appendChild(ta); ta.select(); try{document.execCommand('copy'); show('কপি হয়েছে');}catch(e){show('কপি করা গেল না');} document.body.removeChild(ta);}
+  document.querySelectorAll('.copy-btn').forEach(function(btn){
+    btn.onclick=function(){
+      var id=btn.getAttribute('data-copy'), ch=document.getElementById(id);
+      var title=ch.querySelector('.label').innerText+' — '+ch.querySelector('h2').innerText;
+      var body=Array.prototype.map.call(document.getElementById(id+'-body').children,function(el){return el.textContent.replace(/\s+/g,' ').trim();}).join('\n\n');
+      var text='কাল দেখা হবে\nনুরজাহান আঁখি\n\n'+title+'\n\n'+body;
+      if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(text).then(function(){show('কপি হয়েছে');},function(){fallback(text);});}else{fallback(text);}
+    };
+  });
+
+  /* progress + top */
+  var bar=document.getElementById('progress'), top=document.getElementById('toTop');
+  addEventListener('scroll',function(){var h=document.documentElement.scrollHeight-innerHeight; bar.style.width=(h>0?scrollY/h*100:0)+'%'; top.classList.toggle('on',scrollY>900);},{passive:true});
+
+  var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var msg=document.getElementById('msg');
+  if(reduce){ msg.textContent='Tomorrow, he won\'t wake up.'; return; }
+
+  /* viewer count ticking up */
+  var v=50000, ve=document.getElementById('viewers');
+  setInterval(function(){v+=Math.floor(Math.random()*90)+10; ve.textContent='👁 '+toBn(v.toLocaleString('en-US'));},900);
+
+  /* typed message on the phone */
+  var full="Tomorrow, he won't wake up.", k=0;
+  function type(){ if(k<=full.length){msg.textContent=full.slice(0,k++); setTimeout(type,110);} else setTimeout(function(){k=0; type();},4200); }
+  setTimeout(type,1800);
+
+  /* rain on the cover */
+  var cover=document.querySelector('.cover');
+  for(var i=0;i<46;i++){
+    var d=document.createElement('span'); d.className='drop';
+    d.style.left=(Math.random()*110)+'%';
+    d.style.animationDuration=(.7+Math.random()*.7)+'s';
+    d.style.animationDelay=(-Math.random()*2)+'s';
+    d.style.opacity=(.3+Math.random()*.6);
+    cover.appendChild(d);
+  }
+
+  /* gentle reveal */
+  if('IntersectionObserver' in window){
+    var els=document.querySelectorAll('.ch-head,.ch-body > p,.sep,.intro,.author-card');
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in'); io.unobserve(e.target);}});},{threshold:.12});
+    els.forEach(function(el){ if(!el.classList.contains('reveal-words')) el.classList.add('reveal'); io.observe(el);});
+  }
+})();
+</script>
+</body>
+</html>
