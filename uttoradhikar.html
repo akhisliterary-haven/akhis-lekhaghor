@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>উত্তরাধিকার — নুরজাহান আঁখি</title>
+<meta name="description" content="নুরজাহান আঁখির ডার্ক অ্যাকাডেমিয়া থ্রিলার উত্তরাধিকার — চৌদ্দজন ধনী ছেলের পুরোনো বাড়িতে থাকতে আসে বৃত্তির ছাত্রী র‍্যামোনা। আর পনেরো নম্বর ঘরটা আগে যার ছিল, সে আর বেঁচে নেই।">
+<meta property="og:type" content="book">
+<meta property="og:site_name" content="আঁখির লেখালয়">
+<meta property="og:title" content="উত্তরাধিকার — নুরজাহান আঁখি">
+<meta property="og:description" content="চৌদ্দটা জানালায় আলো জ্বলে। একটা জানালা কখনো খোলে না। একটি ডার্ক অ্যাকাডেমিয়া থ্রিলার।">
+<meta property="og:url" content="https://akhisliterary-haven.github.io/akhis-lekhaghor/uttoradhikar.html">
+<meta property="og:image" content="https://akhisliterary-haven.github.io/akhis-lekhaghor/assets/share/uttoradhikar.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="bn_BD">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="উত্তরাধিকার — নুরজাহান আঁখি">
+<meta name="twitter:description" content="চৌদ্দটা জানালায় আলো জ্বলে। একটা জানালা কখনো খোলে না। একটি ডার্ক অ্যাকাডেমিয়া থ্রিলার।">
+<meta name="twitter:image" content="https://akhisliterary-haven.github.io/akhis-lekhaghor/assets/share/uttoradhikar.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tiro+Bangla:ital@0;1&family=Noto+Serif+Bengali:wght@600;700;800&family=EB+Garamond:ital,wght@0,500;1,500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --fs:19px;
+    --bg:#0b100f; --bg-2:#111917; --card:#141d1b;
+    --ink:#ece4d3; --ink-soft:#bfb6a3; --ink-faint:#857d6e;
+    --gold:#c9a25c; --gold-2:#e3c48a; --blood:#a8232e;
+    --line:rgba(201,162,92,.22);
+    --shadow:0 6px 28px rgba(0,0,0,.45);
+  }
+  body.paper{
+    --bg:#f3ecdd; --bg-2:#eae1cd; --card:#fbf6ea;
+    --ink:#2a2219; --ink-soft:#5a4d3d; --ink-faint:#8b7d68;
+    --gold:#8e6a26; --gold-2:#7a5517; --blood:#8e1c25;
+    --line:#ddcfb2; --shadow:0 4px 20px rgba(70,50,20,.10);
+  }
+  *,*::before,*::after{box-sizing:border-box}
+  html{scroll-behavior:smooth; scroll-padding-top:70px}
+  body{
+    margin:0; background:var(--bg); color:var(--ink);
+    font-family:'Tiro Bangla','Noto Serif Bengali',serif;
+    font-size:var(--fs); line-height:2.05; -webkit-text-size-adjust:100%;
+    transition:background .4s,color .4s;
+  }
+  a{color:inherit}
+
+  /* ---------- top bar ---------- */
+  .topbar{
+    position:sticky; top:0; z-index:30;
+    display:flex; align-items:center; gap:8px; flex-wrap:wrap;
+    padding:calc(env(safe-area-inset-top,0px) + 8px) 14px 8px;
+    background:color-mix(in srgb,var(--bg) 88%,transparent);
+    backdrop-filter:blur(10px) saturate(1.2); -webkit-backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+    font-family:'Noto Serif Bengali',serif;
+  }
+  .topbar .home{text-decoration:none; font-weight:600; font-size:14px; color:var(--ink-soft); flex:1; white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+  .controls{display:flex; align-items:center; gap:6px}
+  .controls .lbl{font-size:12px; color:var(--ink-faint); margin-right:2px}
+  .controls button{
+    font-family:'Noto Serif Bengali',serif; font-weight:700; font-size:14px;
+    min-width:38px; height:34px; border-radius:8px; cursor:pointer;
+    border:1px solid var(--line); background:var(--card); color:var(--ink);
+  }
+  .controls button:active{transform:translateY(1px)}
+  .progress{position:absolute; left:0; bottom:-1px; height:2px; width:0; background:var(--gold)}
+
+  /* ---------- cover ---------- */
+  .cover{
+    position:relative; overflow:hidden; min-height:96vh;
+    display:flex; flex-direction:column; align-items:center; justify-content:flex-start;
+    text-align:center; padding:46px 20px 0;
+    background:
+      radial-gradient(480px 340px at 50% 78%, rgba(242,183,92,.18), transparent 70%),
+      radial-gradient(640px 460px at 50% 12%, rgba(70,110,95,.22), transparent 70%),
+      linear-gradient(180deg,#0c1513 0%,#0d1a17 45%,#070a09 100%);
+    color:#ece4d3;
+  }
+  .cover .frame{position:absolute; inset:14px; border:1px solid rgba(201,162,92,.55); pointer-events:none; z-index:3}
+  .cover .frame::before{content:""; position:absolute; inset:6px; border:1px solid rgba(201,162,92,.25)}
+  .seal{
+    position:relative; z-index:2; width:68px; height:68px; border-radius:50%; margin:0 auto 14px;
+    background:radial-gradient(circle at 35% 30%,#b3323a,#6e1018 70%,#4a0a10);
+    box-shadow:0 6px 18px rgba(0,0,0,.6), inset 0 0 0 5px rgba(0,0,0,.18);
+    display:grid; place-items:center; color:#e8c9a0; font-family:'EB Garamond',serif; font-style:italic; font-size:38px; line-height:1;
+    animation:sealIn 1.2s cubic-bezier(.2,1.4,.4,1) both .2s;
+  }
+  @keyframes sealIn{from{transform:scale(1.8) rotate(-25deg); opacity:0} to{transform:none; opacity:1}}
+  .cover .genre{position:relative; z-index:2; font-family:'Noto Serif Bengali',serif; font-weight:600; font-size:15px; letter-spacing:1.5px; color:#c9a25c; margin:0 0 2px}
+  .cover h1{
+    position:relative; z-index:2; margin:0; font-family:'Noto Serif Bengali',serif; font-weight:800;
+    font-size:clamp(50px,14vw,96px); line-height:1.3; color:#ead9b4;
+    text-shadow:0 2px 0 #3b2a12, 0 0 34px rgba(201,162,92,.35);
+  }
+  .cover h1 span{display:inline-block; opacity:0; filter:blur(8px); animation:ink 1.6s ease forwards}
+  @keyframes ink{to{opacity:1; filter:none}}
+  .cover .en{position:relative; z-index:2; font-family:'EB Garamond',serif; font-size:clamp(14px,3.6vw,19px); letter-spacing:.55em; color:#b9c4bd; margin:2px 0 10px; padding-left:.55em}
+  .cover .rule{position:relative; z-index:2; width:200px; height:12px; margin:0 auto 10px; background:linear-gradient(90deg,transparent,#c9a25c 30%,#c9a25c 70%,transparent) center/100% 1px no-repeat}
+  .cover .rule::after{content:""; position:absolute; left:50%; top:50%; width:8px; height:8px; background:#c9a25c; transform:translate(-50%,-50%) rotate(45deg)}
+  .cover .whisper{position:relative; z-index:2; font-size:17px; opacity:.9; margin:0 0 4px; max-width:440px; line-height:1.8}
+  .count{position:relative; z-index:2; font-family:'EB Garamond',serif; font-size:13px; letter-spacing:3px; color:#9aa59f; margin:6px 0 0}
+  .count b{color:#f2b75c; font-weight:500}
+  .manor{position:relative; z-index:1; width:min(620px,108vw); height:auto; margin:auto auto -4px; padding-top:10px; display:block}
+  .manor .b{fill:#07090a}
+  .manor .trim{fill:none;stroke:#2b3331;stroke-width:2}
+  .manor .mull{stroke:#0b0d0c;stroke-width:3;fill:none}
+  .manor .lit{fill:#f2b75c; filter:url(#u-glow); opacity:.06; animation:lightOn .9s ease forwards; animation-delay:calc(1.2s + var(--i) * .22s)}
+  @keyframes lightOn{0%{opacity:.06} 40%{opacity:.9} 55%{opacity:.35} 100%{opacity:1}}
+  .manor .dark{fill:#141a19}
+  .manor .red{fill:#c5232f; filter:url(#u-rglow); animation:redPulse 4.5s ease-in-out infinite 5s; opacity:.15}
+  @keyframes redPulse{0%,100%{opacity:.45} 50%{opacity:1}}
+  .manor .door{fill:#0f0b08}
+  .manor .doorlight{fill:#7a4a1c;opacity:.75}
+  .manor .path{fill:url(#u-pathg)}
+  .manor .tree path{fill:none;stroke:#050606;stroke-width:7;stroke-linecap:round}
+  .manor .fence{fill:#040505;stroke:#040505;stroke-width:4}
+  .manor .fig{fill:#020202;stroke:#020202}
+  .cover .author{position:relative; z-index:2; font-family:'Noto Serif Bengali',serif; font-weight:600; font-size:20px; color:#e3c48a; margin:8px 0 0}
+  .scroll-hint{position:absolute; z-index:4; left:50%; transform:translateX(-50%); bottom:28px; font-family:'Noto Serif Bengali',serif; font-size:14px; text-decoration:none; padding:6px 18px; border-radius:999px; border:1px solid rgba(201,162,92,.55); color:#e3c48a; background:rgba(7,10,9,.55)}
+  .fog{position:absolute; left:0; right:0; bottom:0; height:170px; z-index:2; pointer-events:none; background:linear-gradient(180deg,transparent,rgba(7,10,9,.85) 60%,#070a09)}
+  .leaf{position:absolute; top:-30px; z-index:2; pointer-events:none; width:14px; height:9px; border-radius:0 80% 0 80%; animation:fall linear infinite}
+  @keyframes fall{
+    0%{transform:translate(0,0) rotate(0)}
+    25%{transform:translate(30px,26vh) rotate(120deg)}
+    50%{transform:translate(-20px,52vh) rotate(220deg)}
+    75%{transform:translate(26px,78vh) rotate(320deg)}
+    100%{transform:translate(-10px,104vh) rotate(420deg)}
+  }
+
+  /* ---------- body ---------- */
+  .wrap{max-width:720px; margin:0 auto; padding:0 20px 90px}
+  .intro{
+    margin:46px 0 14px; padding:22px; border-radius:6px;
+    background:var(--card); border:1px solid var(--line); box-shadow:var(--shadow);
+    font-size:.95em; color:var(--ink-soft); line-height:2; border-left:3px solid var(--gold);
+  }
+  .intro p{margin:0 0 .7em} .intro p:last-child{margin:0}
+  .cw{margin:0 0 10px; border:1px solid rgba(168,35,46,.45); border-radius:6px; background:color-mix(in srgb,var(--blood) 8%,var(--card)); font-size:.88em}
+  .cw summary{cursor:pointer; list-style:none; padding:12px 16px; font-family:'Noto Serif Bengali',serif; font-weight:700; color:var(--blood); display:flex; align-items:center; gap:8px}
+  body:not(.paper) .cw summary{color:#e0636c}
+  .cw summary::-webkit-details-marker{display:none}
+  .cw summary::after{content:"＋"; margin-left:auto; font-weight:400}
+  .cw[open] summary::after{content:"－"}
+  .cw div{padding:0 16px 14px; color:var(--ink-soft); line-height:1.9}
+  .section-title{font-family:'Noto Serif Bengali',serif; font-weight:700; font-size:25px; margin:54px 0 18px; color:var(--ink); text-align:center}
+  .section-title::after{content:"❦"; display:block; font-size:16px; color:var(--gold); margin-top:2px}
+  .toc{list-style:none; margin:0; padding:0; counter-reset:t}
+  .toc li{margin:0 0 9px}
+  .toc a,.toc .soon{
+    display:flex; align-items:center; gap:14px; text-decoration:none;
+    background:var(--card); border:1px solid var(--line); border-radius:6px;
+    padding:11px 16px; box-shadow:var(--shadow); color:var(--ink);
+  }
+  .toc a:hover{border-color:var(--gold)}
+  .toc .soon{opacity:.48; box-shadow:none; background:transparent}
+  .toc .num{font-family:'Noto Serif Bengali',serif; font-weight:800; font-size:18px; color:var(--gold); min-width:26px; text-align:center}
+  .toc .t{flex:1; display:flex; flex-direction:column; line-height:1.55}
+  .toc .t b{font-weight:normal; font-size:17.5px}
+  .toc .t small{font-family:'Noto Serif Bengali',serif; font-size:12.5px; color:var(--ink-faint)}
+  .toc .arr{color:var(--gold)}
+
+  .chapter{margin-top:76px}
+  .ch-head{text-align:center; margin-bottom:34px}
+  .ch-head .orn{font-size:26px; color:var(--gold); line-height:1}
+  .ch-head .label{font-family:'Noto Serif Bengali',serif; font-size:14px; letter-spacing:2px; color:var(--gold-2); margin-top:6px}
+  .ch-head h2{font-family:'Noto Serif Bengali',serif; font-weight:800; font-size:clamp(28px,7vw,38px); margin:2px 0 14px; line-height:1.35}
+  .ch-meta{display:flex; justify-content:center; align-items:center; gap:10px; flex-wrap:wrap}
+  .ch-meta .rt{font-family:'Noto Serif Bengali',serif; font-size:13px; color:var(--ink-faint); background:var(--bg-2); border:1px solid var(--line); border-radius:999px; padding:4px 13px}
+  .copy-btn{font-family:'Noto Serif Bengali',serif; font-weight:600; font-size:13px; cursor:pointer; border-radius:999px; padding:5px 14px; border:1px solid var(--gold); background:transparent; color:var(--gold-2)}
+  .ch-body p{margin:0 0 1.05em; text-align:left}
+  .ch-body p.dlg{margin-bottom:.8em; text-align:left}
+  .ch-body > p:first-child::first-letter{font-family:'Noto Serif Bengali',serif; font-weight:800; font-size:2.4em; color:var(--gold); float:left; line-height:1; margin:.1em .12em 0 0}
+  .ch-body p.note{
+    font-family:'Tiro Bangla',serif; font-style:italic; text-align:center; line-height:1.75;
+    background:#f1e6cc; color:#2b2215; border:1px solid #c9a25c; border-radius:3px;
+    padding:16px 20px; margin:1.4em auto; max-width:460px;
+    box-shadow:0 0 0 4px #f1e6cc, 0 0 0 5px rgba(201,162,92,.6), 0 10px 26px rgba(0,0,0,.35);
+  }
+  body.paper .ch-body p.note{background:#fffaf0}
+  .sep{text-align:center; color:var(--gold); font-size:20px; margin:30px 0; opacity:.85}
+  .ch-end{text-align:center; margin-top:40px; font-family:'Noto Serif Bengali',serif; font-size:14px; color:var(--ink-faint); line-height:2}
+  .ch-end a{text-decoration:none; color:var(--gold-2)}
+  .coming{margin:60px 0 0; text-align:center; padding:22px; border:1px dashed var(--line); border-radius:6px; color:var(--ink-faint); font-size:.9em}
+
+  .reveal{opacity:0; transform:translateY(14px); transition:opacity .8s ease, transform .8s ease}
+  .reveal.in{opacity:1; transform:none}
+
+  .author-card{background:var(--card); border:1px solid var(--line); border-radius:6px; padding:22px; box-shadow:var(--shadow)}
+  .author-card h3{font-family:'Noto Serif Bengali',serif; margin:0 0 8px; font-size:21px}
+  .author-card p{margin:0; color:var(--ink-soft); font-size:.95em}
+
+  footer{text-align:center; padding:30px 16px 50px; font-family:'Noto Serif Bengali',serif; font-size:13.5px; color:var(--ink-faint); border-top:1px solid var(--line)}
+  footer a{color:var(--gold-2); text-decoration:none}
+  .to-top{position:fixed; right:16px; bottom:calc(env(safe-area-inset-bottom,0px) + 18px); width:44px; height:44px; border-radius:50%; display:grid; place-items:center; text-decoration:none; font-size:20px; background:var(--card); border:1px solid var(--line); color:var(--ink); box-shadow:var(--shadow); opacity:0; pointer-events:none; transition:opacity .3s; z-index:25}
+  .to-top.on{opacity:1; pointer-events:auto}
+  .toast{position:fixed; left:50%; bottom:80px; transform:translateX(-50%) translateY(20px); background:var(--gold); color:#1a140a; font-family:'Noto Serif Bengali',serif; font-size:14px; padding:9px 20px; border-radius:999px; opacity:0; transition:.3s; z-index:40}
+  .toast.show{opacity:1; transform:translateX(-50%)}
+  @media (max-width:420px){ .wrap{padding:0 16px 80px} .controls .lbl{display:none} }
+  @media (prefers-reduced-motion:reduce){
+    .seal,.cover h1 span,.manor .lit,.manor .red,.leaf{animation:none!important; opacity:1!important; filter:none}
+    .leaf{display:none}
+    .reveal{opacity:1; transform:none}
+  }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <a class="home" href="rohosso-thriller.html">← রহস্য ও থ্রিলার</a>
+  <div class="controls">
+    <span class="lbl">লেখার আকার</span>
+    <button id="fsDown" aria-label="লেখা ছোট করুন">অ−</button>
+    <button id="fsReset" aria-label="লেখা আগের মাপে">অ</button>
+    <button id="fsUp" aria-label="লেখা বড় করুন">অ+</button>
+    <button id="theme" aria-label="রং বদলান">☾</button>
+  </div>
+  <div class="progress" id="progress"></div>
+</header>
+
+<section class="cover">
+  <div class="frame"></div>
+  <div class="seal" aria-hidden="true">L</div>
+  <div class="genre">ডার্ক অ্যাকাডেমিয়া থ্রিলার</div>
+  <h1 id="title" aria-label="উত্তরাধিকার">উত্তরাধিকার</h1>
+  <div class="en">THE INHERITANCE</div>
+  <div class="rule"></div>
+  <p class="whisper">চৌদ্দটা জানালায় আলো জ্বলে।<br>একটা জানালা কখনো খোলে না।</p>
+  <div class="author">নুরজাহান আঁখি</div>
+  <div class="count" aria-hidden="true">LIGHTS · <b id="lightCount">০</b> / ১৪</div>
+  <svg class="manor" aria-hidden="true" viewBox="0 0 1024 900" xmlns="http://www.w3.org/2000/svg">
+<defs>
+ <filter id="u-glow" x="-80%" y="-80%" width="260%" height="260%"><feGaussianBlur stdDeviation="9" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+ <filter id="u-rglow" x="-150%" y="-150%" width="400%" height="400%"><feGaussianBlur stdDeviation="14" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+ <linearGradient id="u-pathg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6b4a2a" stop-opacity=".55"/><stop offset="1" stop-color="#2a1d12" stop-opacity=".2"/></linearGradient>
+</defs>
+<g class="tree"><path d="M40 900 C60 700 50 560 20 420 M48 640 C90 560 130 520 190 480 M44 560 C10 500 -20 470 -40 450 M60 740 C110 690 150 670 210 660 M120 530 C140 470 170 430 220 400 M150 670 C170 620 200 600 250 590"/><path d="M990 900 C970 720 985 560 1010 430 M982 650 C940 580 900 540 840 500 M986 560 C1015 500 1040 470 1060 450 M975 760 C930 710 880 690 820 680 M905 545 C890 490 860 450 810 420"/></g>
+<g><path class="b" d="M92 760 V430 L177 330 L262 430 V760 Z"/><path class="b" d="M762 760 V430 L847 330 L932 430 V760 Z"/><path class="b" d="M262 760 V330 L242 330 L512 160 L782 330 L762 330 V760 Z"/><rect class="b" x="330" y="200" width="30" height="110"/><rect class="b" x="322" y="194" width="46" height="12"/><rect class="b" x="610" y="215" width="26" height="90"/><rect class="b" x="603" y="209" width="40" height="11"/><path class="b" d="M690 760 V240 H770 V760 Z"/><path class="b" d="M682 244 L730 70 L778 244 Z"/><rect class="b" x="728" y="40" width="4" height="36"/><path class="trim" d="M242 330 L512 160 L782 330 M92 430 L177 330 L262 430 M762 430 L847 330 L932 430"/><path class="trim" d="M92 620 H932 M262 480 H690"/></g>
+<path class="path" d="M478 760 L546 760 L640 900 L384 900 Z"/>
+<g><path class="dark" d="M300 448 V390.0 A20.0 20.0 0 0 1 340 390.0 V448 Z"/><path class="mull" d="M320.0 372 V448 M300 415.24 H340"/><path class="dark" d="M390 448 V390.0 A20.0 20.0 0 0 1 430 390.0 V448 Z"/><path class="mull" d="M410.0 372 V448 M390 415.24 H430"/><path class="red" d="M480 448 V390.0 A20.0 20.0 0 0 1 520 390.0 V448 Z"/><path class="mull" d="M500.0 372 V448 M480 415.24 H520"/><path class="dark" d="M570 448 V390.0 A20.0 20.0 0 0 1 610 390.0 V448 Z"/><path class="mull" d="M590.0 372 V448 M570 415.24 H610"/><path class="lit" style="--i:1" d="M290 592 V522.0 A22.0 22.0 0 0 1 334 522.0 V592 Z"/><path class="mull" d="M312.0 502 V592 M290 553.36 H334"/><path class="lit" style="--i:2" d="M370 592 V522.0 A22.0 22.0 0 0 1 414 522.0 V592 Z"/><path class="mull" d="M392.0 502 V592 M370 553.36 H414"/><path class="lit" style="--i:3" d="M450 592 V522.0 A22.0 22.0 0 0 1 494 522.0 V592 Z"/><path class="mull" d="M472.0 502 V592 M450 553.36 H494"/><path class="lit" style="--i:4" d="M530 592 V522.0 A22.0 22.0 0 0 1 574 522.0 V592 Z"/><path class="mull" d="M552.0 502 V592 M530 553.36 H574"/><path class="lit" style="--i:5" d="M610 592 V522.0 A22.0 22.0 0 0 1 654 522.0 V592 Z"/><path class="mull" d="M632.0 502 V592 M610 553.36 H654"/><path class="lit" style="--i:6" d="M290 732 V662.0 A22.0 22.0 0 0 1 334 662.0 V732 Z"/><path class="mull" d="M312.0 642 V732 M290 693.36 H334"/><path class="lit" style="--i:7" d="M370 732 V662.0 A22.0 22.0 0 0 1 414 662.0 V732 Z"/><path class="mull" d="M392.0 642 V732 M370 693.36 H414"/><path class="lit" style="--i:8" d="M575 732 V662.0 A22.0 22.0 0 0 1 619 662.0 V732 Z"/><path class="mull" d="M597.0 642 V732 M575 693.36 H619"/><path class="lit" style="--i:9" d="M640 732 V662.0 A22.0 22.0 0 0 1 684 662.0 V732 Z"/><path class="mull" d="M662.0 642 V732 M640 693.36 H684"/><path class="door" d="M478 760 V690 A34 34 0 0 1 546 690 V760 Z"/><path class="doorlight" d="M486 760 V692 A26 26 0 0 1 538 692 V760 Z"/><path class="trim" d="M462 760 V676 A50 50 0 0 1 562 676 V760"/><path class="lit" style="--i:10" d="M155 592 V522.0 A22.0 22.0 0 0 1 199 522.0 V592 Z"/><path class="mull" d="M177.0 502 V592 M155 553.36 H199"/><path class="lit" style="--i:11" d="M155 732 V662.0 A22.0 22.0 0 0 1 199 662.0 V732 Z"/><path class="mull" d="M177.0 642 V732 M155 693.36 H199"/><path class="lit" style="--i:12" d="M825 592 V522.0 A22.0 22.0 0 0 1 869 522.0 V592 Z"/><path class="mull" d="M847.0 502 V592 M825 553.36 H869"/><path class="lit" style="--i:13" d="M825 732 V662.0 A22.0 22.0 0 0 1 869 662.0 V732 Z"/><path class="mull" d="M847.0 642 V732 M825 693.36 H869"/><path class="lit" style="--i:14" d="M711 380 V319.0 A19.0 19.0 0 0 1 749 319.0 V380 Z"/><path class="mull" d="M730.0 302 V380 M711 346.4 H749"/><path class="dark" d="M716 500 V454.0 A14.0 14.0 0 0 1 744 454.0 V500 Z"/><path class="mull" d="M730.0 442 V500 M716 474.8 H744"/></g>
+<g class="fence"><path d="M0 800 H400 M624 800 H1024 M0 840 H400 M624 840 H1024"/><path d="M10 860 V780 l-5 10 M10 780 l5 10"/><path d="M36 860 V780 l-5 10 M36 780 l5 10"/><path d="M62 860 V780 l-5 10 M62 780 l5 10"/><path d="M88 860 V780 l-5 10 M88 780 l5 10"/><path d="M114 860 V780 l-5 10 M114 780 l5 10"/><path d="M140 860 V780 l-5 10 M140 780 l5 10"/><path d="M166 860 V780 l-5 10 M166 780 l5 10"/><path d="M192 860 V780 l-5 10 M192 780 l5 10"/><path d="M218 860 V780 l-5 10 M218 780 l5 10"/><path d="M244 860 V780 l-5 10 M244 780 l5 10"/><path d="M270 860 V780 l-5 10 M270 780 l5 10"/><path d="M296 860 V780 l-5 10 M296 780 l5 10"/><path d="M322 860 V780 l-5 10 M322 780 l5 10"/><path d="M348 860 V780 l-5 10 M348 780 l5 10"/><path d="M374 860 V780 l-5 10 M374 780 l5 10"/><path d="M634 860 V780 l-5 10 M634 780 l5 10"/><path d="M660 860 V780 l-5 10 M660 780 l5 10"/><path d="M686 860 V780 l-5 10 M686 780 l5 10"/><path d="M712 860 V780 l-5 10 M712 780 l5 10"/><path d="M738 860 V780 l-5 10 M738 780 l5 10"/><path d="M764 860 V780 l-5 10 M764 780 l5 10"/><path d="M790 860 V780 l-5 10 M790 780 l5 10"/><path d="M816 860 V780 l-5 10 M816 780 l5 10"/><path d="M842 860 V780 l-5 10 M842 780 l5 10"/><path d="M868 860 V780 l-5 10 M868 780 l5 10"/><path d="M894 860 V780 l-5 10 M894 780 l5 10"/><path d="M920 860 V780 l-5 10 M920 780 l5 10"/><path d="M946 860 V780 l-5 10 M946 780 l5 10"/><path d="M972 860 V780 l-5 10 M972 780 l5 10"/><path d="M998 860 V780 l-5 10 M998 780 l5 10"/><rect x="390" y="740" width="16" height="125"/><rect x="618" y="740" width="16" height="125"/><circle cx="398" cy="734" r="10"/><circle cx="626" cy="734" r="10"/></g>
+<g class="fig" transform="translate(512 878)">
+ <circle cx="0" cy="-74" r="9"/>
+ <path d="M-9 -78 C-12 -60 -10 -52 -6 -48 L6 -48 C10 -52 12 -60 9 -78 Z"/>
+ <path d="M-12 -62 L12 -62 L17 -12 L-17 -12 Z"/>
+ <rect x="-8" y="-13" width="5" height="14"/><rect x="3" y="-13" width="5" height="14"/>
+ <path d="M14 -50 L24 -26" stroke-width="4" stroke-linecap="round" fill="none"/>
+ <rect x="20" y="-28" width="20" height="26" rx="2"/>
+ <path d="M26 -28 V-33 H34 V-28" stroke-width="2" fill="none"/>
+</g>
+</svg>
+  <div class="fog"></div>
+  <a class="scroll-hint" href="#toc">↓ সূচিপত্র</a>
+</section>
+
+<main class="wrap">
+
+  <div class="intro">
+    <p>হোস্টেলের ঘরটা হঠাৎ অন্য একজনকে দিয়ে দেওয়া হলো। ক্লাস শুরু তিন দিন পর। হাতে টাকা নেই। ঠিক তখন বিভাগের নোটিশ বোর্ডে র‍্যামোনা হেল দেখল একটা ক্রিম রঙের কার্ড: <i>ঘর খালি আছে। ভাড়া নামমাত্র।</i></p>
+    <p>লিনডেন হাউস। নদীর ধারে একটা পুরোনো পাথরের বাড়ি। সেখানে থাকে চৌদ্দজন ছেলে। পুরোনো টাকার মানুষ, পুরোনো ক্ষমতার মানুষ। এরা জীবনে কখনো ভাবেনি, যা চায় তা না পেলে কী হয়।</p>
+    <p>বাড়ির নিয়মগুলো কেউ মুখে বলে না। কিছু ঘরে ঢোকা নিষেধ। সে ঘরে ঢুকলে কথা থেমে যায়। আর পনেরো নম্বর ঘরটা আগে যার ছিল, সেই ছেলেটা আর বেঁচে নেই।</p>
+    <p>র‍্যামোনা এসেছিল শুধু থাকার একটা জায়গা খুঁজতে। কিন্তু কিছু কিছু বাড়িতে ঢোকা সহজ। বেরোনো না।</p>
+  </div>
+
+  <details class="cw">
+    <summary>⚠ পড়ার আগে জেনে নিন (প্রাপ্তবয়স্ক পাঠকের জন্য)</summary>
+    <div>এই বইয়ে আছে মানসিক চাপ আর নিয়ন্ত্রণ, শ্রেণি ও লিঙ্গের ক্ষমতার খেলা, র‍্যাগিং, হিংসা, ধূমপান, মদ ও মাদক, যৌন নিপীড়নের উল্লেখ, এবং আত্মহত্যা ও আত্মহত্যার চিন্তা নিয়ে আলোচনা। এসব কিছুই গ্রাফিকভাবে বর্ণনা করা হয়নি, এবং কোনোটিকেই ভালো বলে দেখানো হয়নি। তবু এসব বিষয় যদি আপনাকে কষ্ট দেয়, নিজের যত্ন নিয়ে পড়ুন। মন খারাপ লাগলে কাছের কারও সঙ্গে কথা বলুন।</div>
+  </details>
+
+  <h2 class="section-title" id="toc">সূচিপত্র</h2>
+  <ul class="toc">
+    <li><a href="#ch1"><span class="num">১</span><span class="t"><b>বাতিল চিঠি</b><small class="rt" data-for="ch1"></small></span><span class="arr">→</span></a></li>
+    <li><span class="soon"><span class="num">২</span><span class="t"><b>চৌদ্দটা দরজা</b><small>শীঘ্রই আসছে</small></span></span></li>
+    <li><span class="soon"><span class="num">৩</span><span class="t"><b>বৃহস্পতিবারের নৈশভোজ</b><small>শীঘ্রই আসছে</small></span></span></li>
+    <li><span class="soon"><span class="num">৪</span><span class="t"><b>পুরোনো ঘরের দাগ</b><small>শীঘ্রই আসছে</small></span></span></li>
+    <li><span class="soon"><span class="num">৫</span><span class="t"><b>সেমিনার</b><small>শীঘ্রই আসছে</small></span></span></li>
+    <li><span class="soon"><span class="num">৬</span><span class="t"><b>যে কথা থেমে যায়</b><small>শীঘ্রই আসছে</small></span></span></li>
+    <li><span class="soon"><span class="num">৭</span><span class="t"><b>দীক্ষা</b><small>শীঘ্রই আসছে</small></span></span></li>
+    <li><span class="soon"><span class="num">৮</span><span class="t"><b>এলিয়টের খাতা</b><small>শীঘ্রই আসছে</small></span></span></li>
+    <li><span class="soon"><span class="num">৯</span><span class="t"><b>শরতের বল</b><small>শীঘ্রই আসছে</small></span></span></li>
+    <li><span class="soon"><span class="num">১০</span><span class="t"><b>সুযোগ</b><small>শীঘ্রই আসছে</small></span></span></li>
+    <li><span class="soon"><span class="num">১১</span><span class="t"><b>তিনতলা</b><small>শীঘ্রই আসছে</small></span></span></li>
+    <li><span class="soon"><span class="num">১২</span><span class="t"><b>ফাটল</b><small>শীঘ্রই আসছে</small></span></span></li>
+    <li><span class="soon"><span class="num">১৩</span><span class="t"><b>শীতের রাত</b><small>শীঘ্রই আসছে</small></span></span></li>
+    <li><span class="soon"><span class="num">১৪</span><span class="t"><b>দাম</b><small>শীঘ্রই আসছে</small></span></span></li>
+    <li><span class="soon"><span class="num">১৫</span><span class="t"><b>যে বাড়ি ছাড়া যায় না</b><small>শীঘ্রই আসছে</small></span></span></li>
+  </ul>
+
+  <article class="chapter" id="ch1">
+    <div class="ch-head">
+      <div class="orn">❦</div>
+      <div class="label">অধ্যায় এক</div>
+      <h2>বাতিল চিঠি</h2>
+      <div class="ch-meta">
+        <span class="rt" data-for="ch1"></span>
+        <button class="copy-btn" data-copy="ch1">⧉ কপি করুন</button>
+      </div>
+    </div>
+    <div class="ch-body" id="ch1-body">
+<p>চিঠিটা এল ট্রেনে বসে থাকতে থাকতে।</p>
+<p>সেপ্টেম্বরের শেষ সপ্তাহ। জানালার বাইরে ইংল্যান্ডের মাঠ দৌড়ে পেছনে চলে যাচ্ছে। সবুজ মাঠ, ধূসর আকাশ, মাঝে মাঝে কয়েকটা ভেজা ভেড়া। র‍্যামোনা হেলের কোলে একটা পুরোনো ব্যাগ। পায়ের কাছে একটা বড় স্যুটকেস। স্যুটকেসের একটা চাকা ভাঙা। স্টেশনে টেনে আনতে গিয়ে সে টের পেয়েছে, চাকাটা এখন আর ঘোরে না, শুধু ঘষটে চলে।</p>
+<p>ফোনটা কাঁপল।</p>
+<p>সে ভেবেছিল মা। মা এই সময় রাতের শিফট শেষ করে বাড়ি ফেরে। হাসপাতালের মেঝে মোছার কাজ। বাড়ি ফিরে প্রথমে চা বানায়, তারপর মেয়েকে একটা মেসেজ পাঠায়। প্রতিদিন একই কথা। "ঠিকমতো খেয়েছিস?"</p>
+<p>কিন্তু মেসেজটা মায়ের না। ইমেইল। বিশ্ববিদ্যালয়ের আবাসন দপ্তর থেকে।</p>
+<p class="note">প্রিয় মিস হেল,<br>দুঃখের সঙ্গে জানাচ্ছি যে সেন্ট অসওয়াল্ড'স হলে আপনার নামে বরাদ্দ করা ঘরটি একটি প্রশাসনিক ভুলের কারণে অন্য একজন শিক্ষার্থীকে দেওয়া হয়েছে। এই মুহূর্তে কোনো খালি ঘর নেই। আপনার নাম অপেক্ষার তালিকায় রাখা হলো।<br>অসুবিধার জন্য আমরা আন্তরিকভাবে দুঃখিত।</p>
+<p>র‍্যামোনা ইমেইলটা একবার পড়ল। তারপর আবার পড়ল।</p>
+<p>তৃতীয়বার পড়ার সময় তার মনে হলো, অক্ষরগুলো যেন নড়ছে।</p>
+<p>অপেক্ষার তালিকা। আন্তরিকভাবে দুঃখিত।</p>
+<p>ট্রেন তখন অ্যাশকম শহরের কাছাকাছি। আর বিশ মিনিট। বিশ মিনিট পর সে এমন একটা শহরে নামবে, যেখানে তার মাথার ওপর কোনো ছাদ নেই।</p>
+<div class="sep">❧</div>
+<p>অ্যাশকম ছোট শহর। কিন্তু পুরোনো। খুব পুরোনো।</p>
+<p>এখানকার বিশ্ববিদ্যালয়ের বয়স সাতশো বছরের বেশি। শহরের মাঝখান দিয়ে বয়ে গেছে একটা সরু, কালচে নদী। নাম হ্যালো। নদীর দুই পাশে পাথরের দেয়াল। দেয়ালের ওপারে কলেজের পর কলেজ। প্রতিটা কলেজের নিজস্ব গির্জা, নিজস্ব বাগান, নিজস্ব লোহার গেট। গেটের ওপর পাথরে খোদাই করা পুরোনো ল্যাটিন কথা। সেগুলো কেউ আর পড়ে না, কিন্তু সবাই সেগুলোর নিচ দিয়ে হাঁটে।</p>
+<p>র‍্যামোনা প্রথম এই শহর দেখেছিল আট মাস আগে। ভর্তির সাক্ষাৎকার দিতে এসে। সেদিন বরফ পড়ছিল। সে দাঁড়িয়ে দাঁড়িয়ে দেখছিল, ছেলেমেয়েরা লম্বা কালো গাউন পরে বই বুকে চেপে পাথরের সিঁড়ি বেয়ে উঠছে। তার মনে হয়েছিল, সে একটা ছবির ভেতরে ঢুকে পড়েছে। এমন একটা ছবি, যেটা অন্য কারও জন্য আঁকা।</p>
+<p>সাক্ষাৎকারে একজন বয়স্ক অধ্যাপক তাকে জিজ্ঞেস করেছিলেন, "তুমি গ্রিক ট্র্যাজেডি পড়তে চাও কেন?"</p>
+<p>সে বলেছিল, "কারণ ওগুলোতে সবাই জানে কী ঘটতে যাচ্ছে। তবু কেউ থামাতে পারে না।"</p>
+<p>অধ্যাপক কিছুক্ষণ চুপ করে তার দিকে তাকিয়ে ছিলেন। তারপর লিখেছিলেন কিছু একটা।</p>
+<p>দুই মাস পর চিঠি এসেছিল। ভর্তি। সঙ্গে পুরো বৃত্তি। হার্টওয়েল বৃত্তি। বছরে মাত্র তিনজন পায়। পড়ার খরচ, বইয়ের খরচ, সব দেবে বিশ্ববিদ্যালয়। শুধু থাকা-খাওয়ার টাকাটা নিজের।</p>
+<p>সেই টাকা জোগাতে মা দুটো শিফট করছে এখন।</p>
+<p>ট্রেন থামল। র‍্যামোনা স্যুটকেসটা টেনে নামাল। প্ল্যাটফর্মে ভিড়। তার বয়সী অনেক ছেলেমেয়ে। তাদের বাবা-মা পেছনে পেছনে দামি গাড়ির চাবি হাতে হাঁটছে। একটা মেয়ের তিনটা স্যুটকেস, তিনটাই এক রঙের, এক মাপের, চামড়ার। মেয়েটার বাবা একজন কুলিকে ডেকে বলছেন, "সাবধানে। ভেতরে কাচের জিনিস আছে।"</p>
+<p>র‍্যামোনা নিজের ভাঙা চাকার স্যুটকেসের দিকে তাকাল।</p>
+<p>তারপর টানতে শুরু করল।</p>
+<div class="sep">❧</div>
+<p>আবাসন দপ্তরটা একটা পুরোনো পাথরের বাড়ির একতলায়। ভেতরে ঢুকলেই কাঠের মেঝে ক্যাঁচক্যাঁচ করে। দেয়ালে বিশ্ববিদ্যালয়ের পুরোনো উপাচার্যদের ছবি। সবাই পুরুষ। সবাই গম্ভীর। সবাই যেন ফ্রেমের ভেতর থেকে জানতে চাইছেন, তুমি এখানে কী করছ।</p>
+<p>লাইনে তার সামনে আরও সাতজন। সবাই কোনো না কোনো সমস্যা নিয়ে এসেছে। ঘরের জানালা বন্ধ হয় না। পাশের ঘরে রাত দুটো পর্যন্ত গান বাজে। রুমমেট পছন্দ না।</p>
+<p>এক ঘণ্টা দশ মিনিট পর র‍্যামোনার পালা এল।</p>
+<p>ডেস্কের ওপাশে একজন মাঝবয়সী মহিলা। চোখে সরু চশমা। চশমার ওপর দিয়ে তাকান। নাম লেখা ব্যাজে, মিসেস ক্যালো।</p>
+<p class="dlg">"নাম?"</p>
+<p class="dlg">"র‍্যামোনা হেল। আমি একটা ইমেইল পেয়েছি। আমার ঘরটা নাকি—"</p>
+<p class="dlg">"হ্যাঁ, হ্যাঁ।" মিসেস ক্যালো কম্পিউটারে কয়েকটা বোতাম চাপলেন। "ভুলটা আমাদের দিকেই হয়েছে। একজন ছাত্রের বাবা শেষ মুহূর্তে অনুরোধ করেছিলেন। সিস্টেমে কিছু একটা গোলমাল হয়ে আপনার ঘরটা—"</p>
+<p class="dlg">"একজন ছাত্রের বাবা অনুরোধ করেছিলেন," র‍্যামোনা ধীরে ধীরে বলল, "আর আমার ঘরটা তাকে দিয়ে দেওয়া হলো।"</p>
+<p>মিসেস ক্যালো চশমার ওপর দিয়ে তাকালেন। দৃষ্টিতে এক মুহূর্তের জন্য অস্বস্তি। তারপর সেটা মুছে গেল। ফিরে এল সেই অফিসের মুখ। যে মুখ সারাদিন দুঃখিত বলে, কিন্তু কখনো দুঃখিত হয় না।</p>
+<p class="dlg">"আমি বলছি না সেভাবে হয়েছে। আমি বলছি সিস্টেমে একটা ভুল হয়েছে।"</p>
+<p class="dlg">"ক্লাস শুরু তিন দিন পর।"</p>
+<p class="dlg">"আমি জানি।"</p>
+<p class="dlg">"আমি কোথায় থাকব?"</p>
+<p>মিসেস ক্যালো একটা কাগজ বের করলেন। শহরের কয়েকটা হোস্টেল আর বাড়িভাড়ার এজেন্সির ঠিকানা। "আপাতত এগুলো দেখতে পারেন। আর অপেক্ষার তালিকায় আপনি চার নম্বরে আছেন। কেউ পড়া ছেড়ে দিলে, বা—"</p>
+<p class="dlg">"বা?"</p>
+<p class="dlg">"বা অন্য কোনো কারণে ঘর খালি হলে।" মিসেস ক্যালো কাগজটা এগিয়ে দিলেন। "শুভকামনা রইল, মিস হেল।"</p>
+<p>র‍্যামোনা কাগজটা নিল। বাইরে বেরিয়ে এল।</p>
+<p>সিঁড়িতে দাঁড়িয়ে সে বুঝল, তার হাত কাঁপছে। রাগে, না ভয়ে, সে নিজেই জানে না।</p>
+<div class="sep">❧</div>
+<p>সেদিন বিকেল পর্যন্ত সে শহর ঘুরল।</p>
+<p>প্রথম এজেন্সি বলল, এই সময়ে শহরে কোনো ঘর খালি থাকে না। সব জুলাইয়েই ভাড়া হয়ে যায়। দ্বিতীয় এজেন্সিতে একটা ঘর ছিল। শহর থেকে চল্লিশ মিনিট দূরে, বাসে। মাসে সাড়ে আটশো পাউন্ড। মা একমাসে যা আয় করে, প্রায় তার সমান।</p>
+<p>হোস্টেলটা ছিল রেলস্টেশনের পেছনে। একটা ঘরে আটটা খাট। রাতপ্রতি বাইশ পাউন্ড। রিসেপশনে একটা ছেলে বসে ফোনে খেলছিল। মুখ না তুলেই বলল, "তিন রাতের বেশি থাকা যায় না।"</p>
+<p>র‍্যামোনা তিন রাতের টাকা দিল না। সে হিসাব করল। ব্যাংকে আছে তিনশো বারো পাউন্ড। এটা দিয়ে পুরো টার্মের বই, খাতা, বাসভাড়া, খাবার চালাতে হবে।</p>
+<p>বিকেল চারটায় সে একটা ছোট ক্যাফেতে ঢুকল। সবচেয়ে সস্তা জিনিসটা অর্ডার করল। এক কাপ কালো কফি। জানালার পাশে বসে কফিটা ঠান্ডা হতে দিল।</p>
+<p>মাকে ফোন করবে কি না, ভাবল।</p>
+<p>মা শুনলেই বলবে, "চলে আয়। এমন জায়গায় থাকার দরকার নেই, যেখানে তোকে কেউ চায় না।" তারপর রাতে একা বসে কাঁদবে। র‍্যামোনা জানে। পাতলা দেয়ালের বাড়িতে বড় হলে, মায়ের কান্না কেমন শোনায় সেটা জানা হয়ে যায়।</p>
+<p>সে ফোন করল না।</p>
+<p>তার বদলে সে ঠিক করল, বিভাগে যাবে। ক্লাসিকস বিভাগ। কাল তার টিউটরের সঙ্গে দেখা করার কথা ছিল। আজই যাবে। হয়তো কেউ কিছু জানে। হয়তো কোনো নোটিশ বোর্ডে কিছু আছে।</p>
+<p>হয়তো।</p>
+<div class="sep">❧</div>
+<p>ক্লাসিকস বিভাগ একটা লম্বা, সরু বাড়িতে। বাড়ির সামনে দুটো পাথরের থাম। থামের গায়ে শ্যাওলা। ভেতরে আলো কম, বাতাসে পুরোনো কাগজ আর মোমের গন্ধ।</p>
+<p>করিডরের দেয়ালে একটা বড় কর্কবোর্ড। তাতে পিন দিয়ে আঁটা অনেক কাগজ। কবিতা পাঠের আসর। ল্যাটিন শেখার গ্রুপ। পুরোনো বই বিক্রি। একটা হারানো বিড়ালের ছবি।</p>
+<p>আর এক কোণে একটা কার্ড।</p>
+<p>বাকি কাগজগুলোর মতো না। মোটা, ক্রিম রঙের কার্ড। দামি কাগজ। কিনারাগুলো সোনালি। হাতে লেখা, কালো কালিতে। ঝরনা কলমের লেখা। অক্ষরগুলো হেলানো, সুন্দর, যেন একশো বছর আগের কোনো চিঠি।</p>
+<p class="note">ঘর খালি আছে।<br>লিনডেন হাউস, ৯ মার্সার'স রো।<br>ভেতরে এসে খোঁজ নিন।<br>ভাড়া নামমাত্র।</p>
+<p>ব্যস। আর কিছু না। ফোন নম্বর নেই। ইমেইল নেই। কার ঘর, কেমন ঘর, কিছুই লেখা নেই।</p>
+<p>র‍্যামোনা কার্ডটার দিকে তাকিয়ে থাকল।</p>
+<p>"ভাড়া নামমাত্র।" এই দুটো শব্দ তার বুকের ভেতর কোথাও একটা ছোট্ট আলো জ্বেলে দিল। আবার একই সঙ্গে একটা ঠান্ডা কিছু ছড়িয়ে দিল। কারণ সে জানে, পৃথিবীতে কোনো কিছুই নামমাত্র দামে পাওয়া যায় না। দাম সবসময় থাকে। শুধু কখনো কখনো সেটা পরে দিতে হয়।</p>
+<p class="dlg">"ওটার দিকে তাকিয়ো না।"</p>
+<p>র‍্যামোনা চমকে ফিরল।</p>
+<p>তার পেছনে দাঁড়িয়ে একটা মেয়ে। বয়স তারই মতো। ছোট করে কাটা কালো চুল। গায়ে একটা বড় সবুজ সোয়েটার, কনুইয়ের কাছে ছেঁড়া। হাতে এক গাদা বই।</p>
+<p class="dlg">"মানে?" র‍্যামোনা জিজ্ঞেস করল।</p>
+<p class="dlg">"মানে, ওটা প্রতি বছর এই সময় লাগানো হয়।" মেয়েটা কার্ডের দিকে মাথা নাড়ল। "আর প্রতি বছর কেউ না কেউ যায়।"</p>
+<p class="dlg">"তুমি চেনো জায়গাটা?"</p>
+<p class="dlg">"অ্যাশকমে সবাই চেনে।" মেয়েটা একটু হাসল। কিন্তু হাসিতে আনন্দ নেই। "লিনডেন হাউসে চৌদ্দজন ছেলে থাকে। সবসময় চৌদ্দজন। একশো বছরের বেশি সময় ধরে। কারা থাকে, সেটা আগে থেকেই ঠিক করা থাকে। তাদের বাবারা থেকেছে। দাদারা থেকেছে। দেয়ালে নাকি সবার নাম লেখা আছে।"</p>
+<p class="dlg">"তাহলে ঘর খালি কেন?"</p>
+<p class="dlg">"কারণ পনেরো নম্বর ঘরটা ওদের কারও জন্য না।"</p>
+<p>মেয়েটা এক মুহূর্ত চুপ করে থাকল। যেন ঠিক করছে আর কিছু বলবে কি না।</p>
+<p class="dlg">"ওই ঘরটা সবসময় বাইরের কাউকে দেওয়া হয়। বৃত্তির ছাত্রদের। আমাদের মতো লোকদের।" সে বইগুলো এক হাত থেকে আরেক হাতে নিল। "গত বছর যে ছিল, তার নাম ছিল এলিয়ট।"</p>
+<p class="dlg">"এখন সে কোথায়?"</p>
+<p>মেয়েটা উত্তর দিল না। শুধু র‍্যামোনার দিকে তাকাল। দৃষ্টিটা অদ্ভুত। করুণা না। সতর্কবাণীও না ঠিক। যেন দুটোর মাঝামাঝি কিছু।</p>
+<p class="dlg">"আমি নোরা," সে বলল। "আমি ইংরেজিতে পড়ি। লাইব্রেরির পেছনের ক্যাফেতে প্রায়ই থাকি।" তারপর হাঁটতে শুরু করল। যেতে যেতে ফিরে বলল, "যদি যাও, তিনতলায় উঠো না।"</p>
+<p>সে করিডরের মোড়ে হারিয়ে গেল।</p>
+<p>র‍্যামোনা আবার কার্ডটার দিকে তাকাল।</p>
+<p>তারপর পিনটা খুলে কার্ডটা নিজের ব্যাগে রেখে দিল।</p>
+<div class="sep">❧</div>
+<p>মার্সার'স রো শহরের একেবারে শেষ মাথায়। নদীর বাঁকের কাছে।</p>
+<p>সেখানে পৌঁছাতে পৌঁছাতে সন্ধ্যা নেমে এল। রাস্তার দুই পাশে বড় বড় লাইম গাছ। গাছের পাতা হলুদ হতে শুরু করেছে। বাতাস দিলে কয়েকটা পাতা খসে পড়ে, ঘুরে ঘুরে নামে, তারপর ভেজা পাথরের ওপর চুপ করে শুয়ে থাকে। রাস্তার বাতিগুলো পুরোনো ধাঁচের। কালো লোহার খুঁটির মাথায় হলদে কাচ।</p>
+<p>স্যুটকেসের ভাঙা চাকাটা পাথরে ঘষা খেয়ে একটা বিশ্রী শব্দ করছিল। নির্জন রাস্তায় শব্দটা অনেক দূর পর্যন্ত যাচ্ছিল। র‍্যামোনার মনে হচ্ছিল, পুরো রাস্তা জানালা খুলে তাকে দেখছে।</p>
+<p>রাস্তার শেষে একটা উঁচু লোহার গেট।</p>
+<p>গেটের ওপারে বাড়িটা।</p>
+<p>সে থেমে গেল।</p>
+<p>বাড়িটা বিশাল। তিনতলা। ধূসর পাথরের। ছাদ খাড়া আর তীক্ষ্ণ, যেন আকাশ কেটে উঠে গেছে। দুই পাশে দুটো ডানার মতো অংশ। ডান দিকে একটা সরু মিনার, মাথায় লোহার শিক। দেয়াল বেয়ে আইভি লতা উঠেছে। সন্ধ্যার আলোয় লতাগুলো কালো দেখাচ্ছে। যেন বাড়িটার গায়ে কালো শিরা।</p>
+<p>নিচের দুই তলার জানালায় আলো জ্বলছে। উষ্ণ, হলুদ আলো। কোনো জানালা থেকে ভেসে আসছে পিয়ানোর সুর। কোনোটা থেকে হাসি। কাচের গ্লাসের টুংটাং।</p>
+<p>তিনতলার জানালাগুলো অন্ধকার।</p>
+<p>শুধু একটা ছাড়া।</p>
+<p>মাঝখানের একটা জানালায় খুব ক্ষীণ একটা লাল আভা। যেন ভেতরে কেউ একটা লাল কাচের বাতি জ্বেলে রেখেছে। আলোটা কাঁপছে না। নড়ছে না। শুধু আছে।</p>
+<p>র‍্যামোনা গুনল। কেন গুনল, সে জানে না। হয়তো অভ্যাস। ভয় পেলে সে সবসময় কিছু একটা গোনে।</p>
+<p>নিচের দুই তলায় আলো জ্বলা জানালা। মিনারে আরেকটা। সব মিলিয়ে চৌদ্দটা।</p>
+<p>গেটে একটা পিতলের ফলক। তাতে খোদাই করা:</p>
+<p class="note">LINDEN HOUSE<br><i>Quod habemus, tenemus.</i></p>
+<p>ল্যাটিন। সে পড়তে পারে। আট বছর ধরে নিজে নিজে শিখেছে, লাইব্রেরির পুরোনো বই থেকে।</p>
+<p>যা আমাদের আছে, তা আমরা ধরে রাখি।</p>
+<p>গেটটা তালা দেওয়া ছিল না। সে ঠেলা দিতেই একটা লম্বা, ক্লান্ত শব্দ করে খুলে গেল।</p>
+<div class="sep">❧</div>
+<p>দরজা খুললেন একজন বয়স্ক মহিলা।</p>
+<p>ছোটখাটো মানুষ। সাদা চুল টেনে পেছনে খোঁপা করা। গায়ে কালো পোশাক, তার ওপর সাদা অ্যাপ্রন। হাতে একটা কাপড়, যেন রুপার কিছু মুছছিলেন। মুখে অসংখ্য ভাঁজ। চোখ দুটো ছোট আর খুব উজ্জ্বল।</p>
+<p>তিনি র‍্যামোনার দিকে তাকালেন। তারপর তার স্যুটকেসের দিকে। তারপর আবার তার মুখের দিকে।</p>
+<p class="dlg">"কার্ডটা দেখে এসেছ," তিনি বললেন। প্রশ্ন না। কথাটায় আইরিশ টান।</p>
+<p class="dlg">"হ্যাঁ। আমি—"</p>
+<p class="dlg">"মেয়ে।"</p>
+<p>শব্দটা তিনি এমনভাবে বললেন, যেন অবাক হয়েছেন। আবার যেন অবাক হননি। যেন অনেক দিন ধরে অপেক্ষা করছিলেন, কবে এটা হবে।</p>
+<p class="dlg">"কার্ডে তো লেখা ছিল না যে মেয়েরা আসতে পারবে না," র‍্যামোনা বলল। নিজের গলা নিজের কাছেই একটু বেশি কড়া শোনাল।</p>
+<p class="dlg">"না। লেখা ছিল না।" মহিলা একটু সরে দাঁড়ালেন। "এসো। বাইরে ঠান্ডা। আমি মিসেস ডয়েল। এই বাড়ির দেখাশোনা করি। তেইশ বছর ধরে।"</p>
+<p>র‍্যামোনা ভেতরে ঢুকল।</p>
+<p>প্রথমে তার চোখে পড়ল সিঁড়িটা। চওড়া, কাঠের, গাঢ় লাল কার্পেট বিছানো। সিঁড়িটা ঘুরে ঘুরে ওপরে উঠে গেছে। রেলিংয়ের মাথায় খোদাই করা কাঠের সিংহ। দেয়াল ভর্তি ছবি। তেলরঙে আঁকা মুখ। সবাই পুরুষ, সবাই তরুণ। কেউ ঘোড়ার পাশে দাঁড়িয়ে, কেউ বইয়ের তাকের সামনে, কেউ হাতে একটা ছড়ি নিয়ে। প্রতিটা ছবির নিচে একটা ছোট পিতলের ফলকে নাম আর সাল। ১৮৯৪। ১৯১১। ১৯৩৮। ১৯৬৭। ১৯৯২।</p>
+<p>নামগুলো র‍্যামোনা খবরের কাগজে পড়েছে। একজন প্রধানমন্ত্রী। দুজন বিচারপতি। একজন ব্যাংকের মালিক, যার ব্যাংক দশ বছর আগে ডুবে গিয়েছিল আর তিনি তবু একদিনও জেলে যাননি।</p>
+<p>বাতাসে মোম, পুরোনো কাঠ আর দামি তামাকের গন্ধ। কোথাও আগুন জ্বলছে। ফায়ারপ্লেসের আগুন। আর কোথাও কেউ পিয়ানো বাজাচ্ছে। খুব ধীরে। একটা দুঃখের সুর।</p>
+<p class="dlg">"অপেক্ষা করো এখানে," মিসেস ডয়েল বললেন। "আমি জানিয়ে আসি।"</p>
+<p class="dlg">"কাকে?"</p>
+<p>মিসেস ডয়েল উত্তর দেওয়ার আগেই সিঁড়ির ওপর থেকে একটা গলা ভেসে এল।</p>
+<p class="dlg">"দরকার নেই, মিসেস ডয়েল। আমি দেখছি।"</p>
+<div class="sep">❧</div>
+<p>ছেলেটা নামল ধীরে।</p>
+<p>তাড়া নেই। একটুও না। যেন সিঁড়িটা তার, বাড়িটা তার, আর সময়টাও তার। প্রতিটা ধাপে তার পা পড়ছিল একই ছন্দে।</p>
+<p>লম্বা। রোগা না, আবার ভারীও না। গায়ে একটা গাঢ় নীল সোয়েটার, ভেতরে সাদা শার্টের কলার। চুল হালকা সোনালি, কপাল থেকে পেছনে সরানো। মুখটা এমন, যেটা ভাস্কর্যে মানায়। নিখুঁত আর ঠান্ডা।</p>
+<p>কিন্তু র‍্যামোনার চোখে সবচেয়ে বেশি পড়ল তার চোখ। ধূসর। শীতের সকালের আকাশের মতো ধূসর। সেই চোখ তার দিকে তাকিয়ে আছে, যেভাবে একজন মানুষ দোকানের কাচের ওপারে রাখা কোনো জিনিসের দিকে তাকায়। কিনবে কি না ঠিক করেনি। শুধু দাম আন্দাজ করছে।</p>
+<p class="dlg">"র‍্যামোনা হেল," সে বলল।</p>
+<p>র‍্যামোনার বুকের ভেতর কিছু একটা থেমে গেল।</p>
+<p class="dlg">"তুমি আমার নাম জানলে কীভাবে?"</p>
+<p class="dlg">"হার্টওয়েল বৃত্তি। এবছর তিনজন পেয়েছে। একজন কেমব্রিজে চলে গেছে। একজন গণিতে, তার থাকার জায়গা আছে।" সে সিঁড়ির শেষ ধাপে এসে থামল। "আর একজনের ঘর আজ সকালে অন্য কাউকে দিয়ে দেওয়া হয়েছে। খবরটা ছোট শহরে দ্রুত ছড়ায়।"</p>
+<p class="dlg">"তুমি জানো কাকে দেওয়া হয়েছে?"</p>
+<p>ছেলেটা এক মুহূর্ত তার দিকে তাকিয়ে থাকল। তারপর একটু হাসল। খুব ছোট একটা হাসি। ঠোঁটের এক কোণে।</p>
+<p class="dlg">"জুলিয়ান অ্যাশফোর্ড," সে হাত বাড়িয়ে দিল। প্রশ্নের উত্তর দিল না।</p>
+<p>র‍্যামোনা হাতটা ধরল। ঠান্ডা, শুকনো হাত। বেশ শক্ত করে ধরল জুলিয়ান। ঠিক ততটা, যতটায় বোঝা যায় কে ছাড়বে আগে।</p>
+<p>সে-ই ছাড়ল আগে।</p>
+<p class="dlg">"এসো," জুলিয়ান বলল। "চা খাও। তারপর কথা বলি।"</p>
+<div class="sep">❧</div>
+<p>লাইব্রেরি ঘরটা সিঁড়ির বাঁ পাশে।</p>
+<p>মেঝে থেকে ছাদ পর্যন্ত বই। চামড়ায় বাঁধানো, সোনালি অক্ষরে নাম লেখা। একটা লোহার চাকাওয়ালা মই তাকের গায়ে হেলান দিয়ে আছে। ফায়ারপ্লেসে আগুন। আগুনের সামনে দুটো বড় সবুজ চামড়ার চেয়ার। মাঝখানে একটা নিচু টেবিল। টেবিলে একটা রুপার ট্রে, তাতে চায়ের পট আর দুটো কাপ।</p>
+<p>দুটো কাপ।</p>
+<p>র‍্যামোনা খেয়াল করল। কেউ জানত সে আসবে। কিংবা কেউ জানত, কেউ একজন আসবে।</p>
+<p>জুলিয়ান চা ঢালল। নিজে। মিসেস ডয়েলকে ডাকল না। চা ঢালার ভঙ্গিটাও অভ্যস্ত, যেন ছোটবেলা থেকে কেউ তাকে শিখিয়েছে কীভাবে অতিথির সামনে পট ধরতে হয়।</p>
+<p class="dlg">"দুধ? চিনি?"</p>
+<p class="dlg">"কিছুই না।"</p>
+<p>সে একটা কাপ এগিয়ে দিল। র‍্যামোনা নিল। খেল না। শুধু হাতে ধরে রাখল। কাপের উষ্ণতাটা ভালো লাগছিল। সারাদিনের ঠান্ডা হাতে।</p>
+<p class="dlg">"নিয়মগুলো সহজ," জুলিয়ান বলল। নিজের চেয়ারে হেলান দিয়ে বসল। পায়ের ওপর পা। "এই বাড়িটা লিনডেন ট্রাস্টের। ট্রাস্ট বাড়িটা ভাড়া দেয় চৌদ্দজনকে। আমরা চৌদ্দজন। আর একটা ঘর থাকে, যেটা ট্রাস্টের পুরোনো একটা নিয়মে সবসময় একজন বৃত্তির ছাত্রের জন্য রাখা হয়। মাসে চল্লিশ পাউন্ড। খাবার মিসেস ডয়েল রান্না করেন। সপ্তাহে পাঁচ দিন রাতের খাবার একসঙ্গে। বৃহস্পতিবার রাতে একটু আনুষ্ঠানিক। ঠিকঠাক পোশাক পরতে হয়।"</p>
+<p class="dlg">"মাসে চল্লিশ পাউন্ড," র‍্যামোনা আস্তে আস্তে বলল।</p>
+<p class="dlg">"নামমাত্র। কার্ডে তো লেখাই ছিল।"</p>
+<p class="dlg">"কেন?"</p>
+<p class="dlg">"কেন কী?"</p>
+<p class="dlg">"কেন এত কম? কেন একটা ঘর বাইরের কারও জন্য? আর কেন কার্ডে ফোন নম্বর নেই?"</p>
+<p>জুলিয়ান মাথা একটু কাত করল। যেন একটা মজার জিনিস দেখছে। একটা প্রাণী, যেটা যা করবে বলে ভেবেছিল, তার চেয়ে একটু আলাদা কিছু করছে।</p>
+<p class="dlg">"কারণ একশো ত্রিশ বছর আগে এই বাড়ি যিনি দান করেছিলেন, স্যার অ্যালারিক লিনডেন, তিনি মনে করতেন, ক্ষমতা যাদের আছে, তাদের উচিত মাঝে মাঝে দরজা খুলে দেওয়া। অন্যদের দেখানো যে ভেতরটা কেমন।" জুলিয়ান চায়ে চুমুক দিল। "আর ফোন নম্বর নেই, কারণ যার সত্যিই দরকার, সে খুঁজে নেয়। তুমি যেমন নিয়েছ।"</p>
+<p class="dlg">"আর আমি যদি মেয়ে হই?"</p>
+<p class="dlg">"তুমি তো মেয়েই।" জুলিয়ানের গলায় একটুও বদল এল না। "ট্রাস্টের নিয়মে কোথাও লেখা নেই যে পনেরো নম্বর ঘরে মেয়ে থাকতে পারবে না। কারণ যারা নিয়মটা লিখেছিল, তারা কল্পনাও করেনি যে কোনো মেয়ে এই দরজায় আসবে।" সে কাপটা নামিয়ে রাখল। "কিছু কিছু দরজা বন্ধ রাখতে তালা লাগে না। শুধু মানুষকে বিশ্বাস করিয়ে দিতে হয় যে দরজাটা তাদের জন্য না।"</p>
+<p>আগুনটা পটপট শব্দ করে উঠল।</p>
+<p class="dlg">"বাকিরা কী বলবে?" র‍্যামোনা জিজ্ঞেস করল।</p>
+<p class="dlg">"বাকিরা অনেক কিছু বলবে।" জুলিয়ান আবার সেই ছোট হাসিটা হাসল। "কেউ কেউ খুশি হবে না। কেউ কেউ খুব বেশি খুশি হবে। দ্বিতীয় দলটাকে নিয়েই বেশি সাবধান থেকো।"</p>
+<p>র‍্যামোনা কথাটা ঠিক বুঝল না। কিংবা বুঝল, কিন্তু বুঝতে চাইল না।</p>
+<p class="dlg">"আর যদি আমি না থাকি?"</p>
+<p class="dlg">"তাহলে কার্ডটা কাল আবার বোর্ডে উঠবে। আর কেউ আসবে।" জুলিয়ান কাঁধ ঝাঁকাল। "তুমি স্টেশনের পেছনের হোস্টেলে তিন রাত থাকবে। তারপর বাড়ি ফিরে যাবে। তোমার মা খুশি হবেন। বলবেন, ভালোই করেছিস, এমন জায়গায় থেকে কী লাভ যেখানে তোকে কেউ চায় না।"</p>
+<p>র‍্যামোনা তার দিকে তাকিয়ে থাকল।</p>
+<p>ঠিক এই কথাটাই। এই কথাগুলোই মা বলত। জুলিয়ান সেটা কীভাবে জানল, সে জানে না। হয়তো আন্দাজ। হয়তো তার মতো মানুষদের মায়েরা সবাই একই কথা বলে। আর জুলিয়ানের মতো মানুষেরা সেটা জানে, যেমন তারা জানে কোন কাঁটাচামচ দিয়ে মাছ খেতে হয়।</p>
+<p>কিন্তু তার গায়ে কাঁটা দিয়ে উঠল।</p>
+<p class="dlg">"আমি থাকব," সে বলল।</p>
+<p class="dlg">"জানতাম।"</p>
+<p>জুলিয়ান উঠে দাঁড়াল। দরজার দিকে গেল। দরজায় হাত রেখে একবার ফিরে তাকাল।</p>
+<p class="dlg">"আরেকটা কথা। তিনতলাটা ট্রাস্টের। ওখানে পুরোনো কাগজপত্র রাখা। কেউ ওঠে না।" একটু থামল। "কেউ না।"</p>
+<p>তারপর চলে গেল।</p>
+<p>র‍্যামোনা খেয়াল করল, তার হাতের চা পুরো ঠান্ডা হয়ে গেছে। সে একবারও চুমুক দেয়নি।</p>
+<div class="sep">❧</div>
+<p>মিসেস ডয়েল তাকে ঘর দেখাতে নিয়ে গেলেন।</p>
+<p>দোতলা। লম্বা একটা করিডর। দুই পাশে কাঠের দরজা। প্রতিটা দরজায় একটা ছোট পিতলের নম্বর। এক থেকে চৌদ্দ। কোনো দরজার নিচ দিয়ে আলো আসছে, গান আসছে। কোনোটার পেছনে কেউ জোরে জোরে ফোনে কথা বলছে, এমন একটা গলায় যেটা কখনো "না" শোনেনি।</p>
+<p>তারা হাঁটতে থাকল। আর র‍্যামোনা টের পেল, দরজাগুলোর পেছনে কথা থেমে যাচ্ছে।</p>
+<p>একটা দরজা একটু ফাঁক হলো। ফাঁক দিয়ে একটা মুখ। লাল চুল, চওড়া চোয়াল। তাকে দেখল। তারপর পেছনে কাউকে কিছু বলল। হাসির শব্দ। দরজাটা আবার বন্ধ হয়ে গেল।</p>
+<p>আরেকটা দরজার সামনে দিয়ে যাওয়ার সময় পিয়ানোর সুর হঠাৎ থেমে গেল। মাঝখানে। একটা অসমাপ্ত সুরের মতো বাতাসে ঝুলে রইল।</p>
+<p>মিসেস ডয়েল কিছু বললেন না। শুধু হাঁটার গতি একটু বাড়ালেন।</p>
+<p>করিডরের একেবারে শেষে একটা দরজা। বাকিগুলোর চেয়ে একটু ছোট। কাঠের রংটা একটু নতুন। নম্বরের ফলকটাও আলাদা। বাকিগুলো পুরোনো, কালচে পিতল। এটা চকচকে।</p>
+<p>১৫।</p>
+<p>মিসেস ডয়েল চাবি দিয়ে দরজাটা খুললেন।</p>
+<p>ঘরটা ছোট। কিন্তু সুন্দর। একটা লোহার খাট, সাদা চাদর। একটা পুরোনো ওক কাঠের আলমারি। জানালার পাশে একটা লেখার টেবিল আর একটা চেয়ার। জানালা দিয়ে নদী দেখা যায়। অন্ধকারে নদীর পানি কালো আর মসৃণ, তার ওপর রাস্তার বাতির হলুদ আলো কেঁপে কেঁপে ভাসছে।</p>
+<p>আর একটা গন্ধ।</p>
+<p>রঙের গন্ধ। নতুন রঙের। দেয়ালগুলো সদ্য রং করা। খুব সদ্য। এত সদ্য যে র‍্যামোনা জানালার কাছে দেয়ালে আঙুল ছোঁয়াতেই আঙুলে একটু সাদা লেগে গেল।</p>
+<p class="dlg">"কবে রং করা হয়েছে?" সে জিজ্ঞেস করল।</p>
+<p class="dlg">"গত সপ্তাহে।" মিসেস ডয়েল জানালার পর্দা টেনে দিলেন। তার দিকে তাকালেন না।</p>
+<p class="dlg">"আগে যে থাকত, এলিয়ট—"</p>
+<p>মিসেস ডয়েলের হাত পর্দার ওপর থেমে গেল।</p>
+<p>এক মুহূর্ত। মাত্র এক মুহূর্ত। তারপর আবার নড়ল।</p>
+<p class="dlg">"কে বলল তোমাকে নামটা?"</p>
+<p class="dlg">"বিভাগে একটা মেয়ে।"</p>
+<p>মিসেস ডয়েল চাবিটা টেবিলের ওপর রাখলেন। তারপর খুব আস্তে, প্রায় ফিসফিস করে বললেন, "ছেলেটা ভালো ছিল। খুব ভালো ছিল। আমার রান্নাঘরে এসে বসে থাকত। আলু ছিলে দিত। বলত, বাড়িতে মায়ের জন্য এটা করত।"</p>
+<p class="dlg">"কী হয়েছিল ওর?"</p>
+<p>মিসেস ডয়েল দরজার দিকে হাঁটলেন। দরজার কাছে গিয়ে থামলেন। পেছন না ফিরেই বললেন, "রাতের খাবার আটটায়। আজ তোমাকে নিচে আসতে হবে না। আমি একটা প্লেট পাঠিয়ে দেব।"</p>
+<p>তারপর গলাটা আরও নামিয়ে বললেন, "আর রাতে দরজায় তালা দিয়ে রেখো, মেয়ে। ঘরে একটা ছিটকিনিও আছে। ওটাও লাগিয়ো।"</p>
+<p>দরজা বন্ধ হলো।</p>
+<div class="sep">❧</div>
+<p>র‍্যামোনা অনেকক্ষণ খাটের ওপর বসে থাকল।</p>
+<p>তারপর উঠে স্যুটকেস খুলল। জিনিসপত্র বেশি নেই। চারটা সোয়েটার। দুটো জিন্স। একটা কালো পোশাক, যেটা সে কিনেছিল পুরোনো জিনিসের দোকান থেকে, ভর্তির পর, কারণ শুনেছিল এখানে আনুষ্ঠানিক নৈশভোজ হয়। মায়ের দেওয়া একটা উলের মাফলার। আর বই। অনেক বই। প্রতিটার পাতার কোণা ভাঁজ করা, মার্জিনে পেনসিলে লেখা।</p>
+<p>সে বইগুলো টেবিলের ওপর সাজাল। একটা একটা করে। ইউরিপিডিস। সোফোক্লিস। এস্কিলাস। একটা পুরোনো ল্যাটিন অভিধান, যেটার মলাট টেপ দিয়ে জোড়া।</p>
+<p>তারপর আলমারিটা খুলল।</p>
+<p>ভেতরটা খালি। শুধু কয়েকটা কাঠের হ্যাঙার। আর একটা গন্ধ। রঙের গন্ধ না। পুরোনো একটা গন্ধ। ধুলো, কাঠ, আর খুব হালকা কিছু একটা। আফটারশেভ? না, আরও সস্তা কিছু। সাবান। সাধারণ, সবুজ রঙের, সুপারমার্কেটের সস্তা সাবান। ঠিক যেমন সাবান তার নিজের বাড়ির বাথরুমে থাকে।</p>
+<p>সে আলমারির দরজাটা বন্ধ করে দিল।</p>
+<p>মিসেস ডয়েল আটটার একটু পর এক প্লেট খাবার পাঠালেন। একটা ছোট ছেলে নিয়ে এল। বয়স তার চেয়েও কম মনে হলো। ফ্যাকাশে মুখ, কালো চুল কপালে পড়ে আছে। চোখে ভয়। প্লেটটা দিয়ে সে কিছু বলতে চাইল। তারপর বলল না। শুধু বলল, "আমি টেডি। নতুন।"</p>
+<p class="dlg">"আমিও নতুন," র‍্যামোনা বলল।</p>
+<p>টেডি এমনভাবে তার দিকে তাকাল, যেন কথাটা সত্যি না। যেন তারা দুজন দুই রকমের নতুন। তারপর মাথা নিচু করে চলে গেল।</p>
+<p>খাবারটা ভালো ছিল। ভেড়ার মাংস, আলু, মটরশুঁটি। গরম রুটি আর মাখন। এত ভালো খাবার সে শেষ কবে খেয়েছে, মনে করতে পারল না। কিন্তু অর্ধেক খেয়ে আর পারল না।</p>
+<div class="sep">❧</div>
+<p>রাত বাড়ল।</p>
+<p>নিচ থেকে শব্দ আসছিল। অনেক গলা। হাসি। কাচের গ্লাস ঠোকাঠুকির শব্দ। একবার সবাই একসঙ্গে কিছু একটা বলে উঠল, এক সুরে, যেন কোনো মন্ত্র বা স্লোগান। শব্দগুলো ঠিক বোঝা গেল না। শুধু ছন্দটা। তারপর আবার হাসি।</p>
+<p>র‍্যামোনা গলাগুলো আলাদা করার চেষ্টা করল। একটা ভারী, গমগমে গলা। একটা তীক্ষ্ণ, ঠাট্টার গলা। একটা শান্ত গলা, যেটা অন্যদের চেয়ে কম কথা বলে, কিন্তু সে কথা বললে বাকিরা চুপ করে যায়। সেটা জুলিয়ানের। সে নিশ্চিত।</p>
+<p>সে মোট এগারোটা গলা গুনতে পারল। বাকিরা হয়তো কথা বলছে না। কিংবা হয়তো বাড়িতে নেই।</p>
+<p>রাত একটার দিকে সব শান্ত হলো। সিঁড়িতে পায়ের শব্দ। দরজা বন্ধ হওয়ার শব্দ। একটা একটা করে। করিডরের আলো নিভে গেল।</p>
+<p>র‍্যামোনা দরজায় তালা দিয়েছিল। ছিটকিনিও লাগিয়েছিল। মিসেস ডয়েল যেমন বলেছিলেন।</p>
+<p>সে আলো নিভিয়ে শুয়ে পড়ল। জানালার পর্দার ফাঁক দিয়ে রাস্তার বাতির একটা সরু আলো এসে ছাদে পড়ছিল। সে সেই আলোর দিকে তাকিয়ে থাকল।</p>
+<p>ঘুম এল না।</p>
+<p>তারপর সে শব্দটা শুনল।</p>
+<p>ওপর থেকে।</p>
+<p>পায়ের শব্দ। খুব ধীরে। কেউ হাঁটছে। এক পা। তারপর থামা। আরেক পা। তারপর থামা। ঠিক তার মাথার ওপরে। ছাদের ওপারে।</p>
+<p>তিনতলা।</p>
+<p>যেখানে কেউ ওঠে না। কেউ না।</p>
+<p>র‍্যামোনা নিঃশ্বাস বন্ধ করে শুয়ে থাকল। পায়ের শব্দটা ঘরের এক কোণ থেকে আরেক কোণে গেল। তারপর থামল। ঠিক জানালার ওপরে। অনেকক্ষণ থেমে থাকল। যেন যে হাঁটছিল, সে-ও এখন কান পেতে শুনছে। নিচের ঘরে নতুন মানুষটা জেগে আছে কি না।</p>
+<p>তারপর একটা শব্দ। খুব হালকা। কাঠের ওপর কিছু একটা টেনে নেওয়ার শব্দ। চেয়ার? না, আরও ভারী কিছু। একটা বাক্স। একটা ট্রাংক।</p>
+<p>তারপর নীরবতা।</p>
+<p>র‍্যামোনা কতক্ষণ এভাবে শুয়ে ছিল, সে জানে না। হয়তো দশ মিনিট। হয়তো এক ঘণ্টা। নীরবতা এতটাই ঘন হয়ে এল যে সে নিজের হৃৎপিণ্ডের শব্দ শুনতে পাচ্ছিল।</p>
+<p>শেষে সে উঠল। পা টিপে টিপে দরজার কাছে গেল। জানে না কেন। হয়তো দেখতে চাইছিল তালাটা ঠিক আছে কি না। হয়তো শুধু কিছু একটা করতে চাইছিল, যাতে মনে হয় সে নিজের হাতে কিছু রাখছে।</p>
+<p>তালাটা ঠিক ছিল। ছিটকিনিটাও।</p>
+<p>কিন্তু দরজার নিচে, মেঝের ওপর, রাস্তার বাতির সেই সরু আলোয় সাদা কিছু একটা পড়ে ছিল।</p>
+<p>একটা কার্ড।</p>
+<p>সে ঝুঁকে কার্ডটা তুলল। মোটা, ক্রিম রঙের কাগজ। কিনারা সোনালি। ঠিক বিভাগের বোর্ডে যেমনটা ছিল।</p>
+<p>দরজার নিচ দিয়ে কেউ ঢুকিয়ে দিয়েছে। কখন, সে জানে না। সে তো সারাক্ষণ জেগে ছিল। কোনো পায়ের শব্দ শোনেনি করিডরে। শুধু ওপরে।</p>
+<p>সে কার্ডটা জানালার আলোর দিকে ধরল। সেই একই ঝরনা কলমের হেলানো লেখা। শুধু দুটো লাইন।</p>
+<p class="note">স্বাগতম, পনেরো নম্বর।<br>আমরা অপেক্ষায় ছিলাম।</p>
+<p>র‍্যামোনা কার্ডটা হাতে নিয়ে দাঁড়িয়ে থাকল।</p>
+<p>নিচের দুই তলা অন্ধকার। পুরো বাড়ি ঘুমিয়ে।</p>
+<p>শুধু পর্দার ফাঁক দিয়ে বাইরে তাকিয়ে সে দেখল, নদীর কালো পানিতে একটা আলোর প্রতিফলন কাঁপছে। হলুদ না। লাল।</p>
+<p>ঠিক তার মাথার ওপরের জানালা থেকে।</p>
+    </div>
+    <div class="ch-end">— অধ্যায় এক শেষ —<br><a href="#toc">↑ সূচিপত্রে ফিরুন</a></div>
+  </article>
+
+  <div class="coming" id="coming">পরের অধ্যায় শীঘ্রই আসছে।</div>
+
+  <h2 class="section-title">লেখক পরিচিতি</h2>
+  <div class="author-card">
+    <h3>নুরজাহান আঁখি</h3>
+    <p>চট্টগ্রামের মেয়ে। কবিতা, ছোটগল্প, উপন্যাস, ভূতের গল্প, রহস্য আর গান লেখেন। তাঁর সব লেখা এক জায়গায় রাখা আছে নিজের সাহিত্যভুবন <b>আঁখির লেখালয়</b>-এ।</p>
+    <p style="margin-top:.8rem;font-style:italic">আমার শব্দ, আমার গল্প, আমার পৃথিবী।</p>
+  </div>
+
+</main>
+
+<footer>
+  © নুরজাহান আঁখি · <a href="index.html">আঁখির লেখালয়</a> · <a href="rohosso-thriller.html">রহস্য ও থ্রিলার</a>
+</footer>
+
+<a href="#" class="to-top" id="toTop" aria-label="ওপরে যান">↑</a>
+<div class="toast" id="toast">কপি হয়েছে</div>
+
+<script>
+(function(){
+  var bn=['০','১','২','৩','৪','৫','৬','৭','৮','৯'];
+  function toBn(n){return String(n).replace(/\d/g,function(d){return bn[d];});}
+
+  /* reading time (প্রায় ১৫০ শব্দ / মিনিট) */
+  document.querySelectorAll('.chapter').forEach(function(ch){
+    var body=document.getElementById(ch.id+'-body'); if(!body) return;
+    var words=body.textContent.trim().split(/\s+/).length;
+    var mins=Math.max(1,Math.round(words/150));
+    document.querySelectorAll('.rt[data-for="'+ch.id+'"]').forEach(function(el){
+      el.textContent='পড়তে সময় লাগবে প্রায় '+toBn(mins)+' মিনিট';
+    });
+  });
+  /* hide "coming soon" when all chapters are in */
+  if(!document.querySelector('.toc .soon')){ var cm=document.getElementById('coming'); if(cm) cm.style.display='none'; }
+
+  /* text size */
+  var root=document.documentElement, base=19, size=base;
+  try{var s=localStorage.getItem('utt-fs'); if(s) size=parseFloat(s);}catch(e){}
+  function apply(){root.style.setProperty('--fs',size+'px'); try{localStorage.setItem('utt-fs',size);}catch(e){}}
+  apply();
+  document.getElementById('fsUp').onclick=function(){size=Math.min(28,size+1);apply();};
+  document.getElementById('fsDown').onclick=function(){size=Math.max(14,size-1);apply();};
+  document.getElementById('fsReset').onclick=function(){size=base;apply();};
+
+  /* theme */
+  var tb=document.getElementById('theme');
+  try{if(localStorage.getItem('utt-theme')==='paper') document.body.classList.add('paper');}catch(e){}
+  function sync(){tb.textContent=document.body.classList.contains('paper')?'☀':'☾';}
+  sync();
+  tb.onclick=function(){document.body.classList.toggle('paper'); sync(); try{localStorage.setItem('utt-theme',document.body.classList.contains('paper')?'paper':'night');}catch(e){}};
+
+  /* copy */
+  var toast=document.getElementById('toast');
+  function show(t){toast.textContent=t; toast.classList.add('show'); setTimeout(function(){toast.classList.remove('show');},1800);}
+  function fallback(text){var ta=document.createElement('textarea'); ta.value=text; ta.style.position='fixed'; ta.style.opacity='0'; document.body.appendChild(ta); ta.select(); try{document.execCommand('copy'); show('কপি হয়েছে');}catch(e){show('কপি করা গেল না');} document.body.removeChild(ta);}
+  document.querySelectorAll('.copy-btn').forEach(function(btn){
+    btn.onclick=function(){
+      var id=btn.getAttribute('data-copy'), ch=document.getElementById(id);
+      var title=ch.querySelector('.label').innerText+' — '+ch.querySelector('h2').innerText;
+      var body=Array.prototype.map.call(document.getElementById(id+'-body').children,function(el){return el.innerText.trim();}).join('\n\n');
+      var text='উত্তরাধিকার\nনুরজাহান আঁখি\n\n'+title+'\n\n'+body;
+      if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(text).then(function(){show('কপি হয়েছে');},function(){fallback(text);});}else{fallback(text);}
+    };
+  });
+
+  /* progress + top */
+  var bar=document.getElementById('progress'), top=document.getElementById('toTop');
+  addEventListener('scroll',function(){var h=document.documentElement.scrollHeight-innerHeight; bar.style.width=(h>0?scrollY/h*100:0)+'%'; top.classList.toggle('on',scrollY>900);},{passive:true});
+
+  var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var lc=document.getElementById('lightCount');
+  if(reduce){ lc.textContent=toBn(14); return; }
+
+  /* title: letters inked in one by one (grapheme clusters kept whole) */
+  var h=document.getElementById('title'), txt=h.textContent;
+  var parts=(window.Intl&&Intl.Segmenter)?Array.from(new Intl.Segmenter('bn',{granularity:'grapheme'}).segment(txt),function(x){return x.segment;}):[txt];
+  h.innerHTML=parts.map(function(p,i){return '<span style="animation-delay:'+(0.5+i*0.16)+'s">'+p+'</span>';}).join('');
+
+  /* window counter in step with the light-up animation */
+  for(var n=1;n<=14;n++){(function(n){setTimeout(function(){lc.textContent=toBn(n);},(1.2+n*.22+.35)*1000);})(n);}
+
+  /* autumn leaves */
+  var cover=document.querySelector('.cover'), cols=['#8a4b1c','#a8622a','#6e3a16','#b8862f','#7a2a1f'];
+  for(var i=0;i<16;i++){
+    var d=document.createElement('span'); d.className='leaf';
+    d.style.left=(Math.random()*100)+'%';
+    d.style.background=cols[i%cols.length];
+    d.style.animationDuration=(9+Math.random()*9)+'s';
+    d.style.animationDelay=(-Math.random()*16)+'s';
+    d.style.opacity=(.45+Math.random()*.45);
+    d.style.transform='scale('+(.7+Math.random()*.7)+')';
+    cover.appendChild(d);
+  }
+
+  /* gentle reveal */
+  if('IntersectionObserver' in window){
+    var els=document.querySelectorAll('.ch-head,.ch-body > p,.sep,.intro,.author-card');
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in'); io.unobserve(e.target);}});},{threshold:.12});
+    els.forEach(function(el){ el.classList.add('reveal'); io.observe(el);});
+  }
+})();
+</script>
+</body>
+</html>

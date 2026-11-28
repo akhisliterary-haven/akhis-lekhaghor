@@ -705,8 +705,13 @@ section[id],footer[id]{scroll-margin-top:84px}
   <h2 id="nb-title">নতুন সংযোজন</h2>
   <p class="muted">সাম্প্রতিক যোগ হওয়া বইগুলো—কভারে চাপ দিলেই পড়া শুরু।</p>
   <div class="nb-row">
+    <a class="nb-item" href="uttoradhikar.html">
+      <div class="nb-cover"><span class="nb-badge">নতুন</span><img src="assets/uttoradhikar-cover.jpg" alt="উত্তরাধিকার — প্রচ্ছদ" loading="lazy"></div>
+      <div class="nb-title">উত্তরাধিকার</div>
+      <div class="nb-kind">রহস্য ও থ্রিলার</div>
+    </a>
     <a class="nb-item" href="kal-dekha-hobe.html">
-      <div class="nb-cover"><span class="nb-badge">নতুন</span><img src="assets/kal-dekha-hobe-cover.png" alt="কাল দেখা হবে — প্রচ্ছদ" loading="lazy"></div>
+      <div class="nb-cover"><img src="assets/kal-dekha-hobe-cover.png" alt="কাল দেখা হবে — প্রচ্ছদ" loading="lazy"></div>
       <div class="nb-title">কাল দেখা হবে</div>
       <div class="nb-kind">রহস্য ও থ্রিলার</div>
     </a>
@@ -729,11 +734,6 @@ section[id],footer[id]{scroll-margin-top:84px}
       <div class="nb-cover"><img src="assets/nishi-dakeni-cover.png" alt="নিশি ডাকেনি — প্রচ্ছদ" loading="lazy"></div>
       <div class="nb-title">নিশি ডাকেনি</div>
       <div class="nb-kind">ভূতের গল্প</div>
-    </a>
-    <a class="nb-item" href="ekti-desher-jonmokotha.html">
-      <div class="nb-cover"><img src="assets/ekti-desher-jonmokotha-cover.png" alt="একটি দেশের জন্মকথা — প্রচ্ছদ" loading="lazy"></div>
-      <div class="nb-title">একটি দেশের জন্মকথা</div>
-      <div class="nb-kind">ইতিহাস</div>
     </a>
   </div>
 </div>
@@ -846,7 +846,7 @@ section[id],footer[id]{scroll-margin-top:84px}
     </article>
 
     <article class="card"
-      data-search="রহস্য থ্রিলার রহস্য ও থ্রিলার রহস্যোপন্যাস গোয়েন্দা mystery thriller crime suspense কাল দেখা হবে kal-dekha-hobe">
+      data-search="রহস্য থ্রিলার রহস্য ও থ্রিলার রহস্যোপন্যাস গোয়েন্দা mystery thriller crime suspense কাল দেখা হবে kal-dekha-hobe উত্তরাধিকার uttoradhikar dark academia ডার্ক অ্যাকাডেমিয়া">
 
       <a href="rohosso-thriller.html"
         aria-label="রহস্য ও থ্রিলার বিভাগে প্রবেশ করুন">
@@ -1042,7 +1042,8 @@ const BOOKS = [
   {t:'নিশিরাতের মিষ্টির দোকান', c:'ভূতের গল্প', p:'bhuter-golpo.html', h:'nishiraater-mishtir-dokan.html', k:'nishiraater nishirater mishtir dokan horror ghost ভৌতিক উপন্যাসিকা'},
   {t:'আট তলা', c:'ভূতের গল্প', p:'bhuter-golpo.html', h:'aat-tola.html', k:'aat tola at tola horror ghost ভৌতিক উপন্যাসিকা কায়রো লিফট আটতলা'},
   {t:'নিশি ডাকেনি', c:'ভূতের গল্প', p:'bhuter-golpo.html', h:'nishi-dakeni.html', k:'nishi dakeni daakeni dakeny nishir dak horror ghost ভৌতিক গল্প নিশী ডাকিনি ডাকেনী নিশির ডাক নীলকুঠি বেতকুড়ি'},
-  {t:'কাল দেখা হবে', c:'রহস্য ও থ্রিলার', p:'rohosso-thriller.html', h:'kal-dekha-hobe.html', k:'kal dekha hobe see you tomorrow thriller mystery রহস্য থ্রিলার লাইভস্ট্রিম livestream sienna brooks cole donovan সিয়েনা কোল'}
+  {t:'কাল দেখা হবে', c:'রহস্য ও থ্রিলার', p:'rohosso-thriller.html', h:'kal-dekha-hobe.html', k:'kal dekha hobe see you tomorrow thriller mystery রহস্য থ্রিলার লাইভস্ট্রিম livestream sienna brooks cole donovan সিয়েনা কোল'},
+  {t:'উত্তরাধিকার', c:'রহস্য ও থ্রিলার', p:'rohosso-thriller.html', h:'uttoradhikar.html', k:'uttoradhikar uttaradhikar inheritance dark academia thriller mystery রহস্য থ্রিলার ডার্ক অ্যাকাডেমিয়া লিনডেন হাউস linden house ramona র‍্যামোনা জুলিয়ান julian'}
 ];
 
 const input = document.getElementById('search');
